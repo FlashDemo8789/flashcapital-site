@@ -1,0 +1,1729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLASH - Investment Intelligence Platform | Join Waitlist</title>
+    <meta name="description" content="Join the waitlist for FLASH - the revolutionary Investment Intelligence platform that predicts startup success with 81% accuracy using the CAMP framework.">
+    <meta property="og:title" content="FLASH - Investment Intelligence Platform">
+    <meta property="og:description" content="Revolutionary Investment Intelligence platform predicting startup success with 81% accuracy">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --primary-light: #818cf8;
+            --primary-dark: #4f46e5;
+            --accent: #f59e0b;
+            --accent-light: #fbbf24;
+            --success: #10b981;
+            --bg-dark: #030712;
+            --bg-darker: #000000;
+            --surface: rgba(255, 255, 255, 0.02);
+            --surface-hover: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.08);
+            --border-light: rgba(255, 255, 255, 0.12);
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.6);
+            --text-tertiary: rgba(255, 255, 255, 0.4);
+            --glow: rgba(99, 102, 241, 0.5);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-darker);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+            cursor: none;
+        }
+
+        /* Custom Cursor */
+        .cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: all 0.1s ease;
+            transform: translate(-50%, -50%);
+            mix-blend-mode: difference;
+        }
+
+        .cursor-follower {
+            width: 40px;
+            height: 40px;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            transition: all 0.3s ease;
+            transform: translate(-50%, -50%);
+        }
+
+        .cursor.hover {
+            transform: translate(-50%, -50%) scale(1.5);
+            background: var(--primary);
+            mix-blend-mode: normal;
+        }
+
+        /* Animated Background */
+        .bg-wrapper {
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            background: var(--bg-darker);
+        }
+
+        .bg-gradient {
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(245, 158, 11, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(99, 102, 241, 0.05) 0%, transparent 50%);
+            filter: blur(100px);
+            animation: gradientShift 30s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            33% { transform: rotate(120deg) scale(1.1); }
+            66% { transform: rotate(240deg) scale(0.9); }
+        }
+
+        /* Grid Background */
+        .bg-grid {
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        /* Orb Animation */
+        .floating-orb {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+            filter: blur(80px);
+            opacity: 0.3;
+            animation: orbFloat 20s ease-in-out infinite;
+        }
+
+        .orb-1 {
+            top: -150px;
+            left: -150px;
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            bottom: -150px;
+            right: -150px;
+            background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+            animation-delay: -10s;
+        }
+
+        @keyframes orbFloat {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(100px, -100px) scale(1.1); }
+            66% { transform: translate(-100px, 100px) scale(0.9); }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        .header {
+            padding: 24px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            backdrop-filter: blur(20px);
+            background: rgba(3, 7, 18, 0.8);
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            padding: 16px 0;
+            background: rgba(3, 7, 18, 0.95);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 50%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover::after {
+            transform: scaleX(1);
+        }
+
+        .launch-timer {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 20px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            backdrop-filter: blur(10px);
+        }
+
+        .timer-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .timer-value {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 0 80px;
+            position: relative;
+        }
+
+        .hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            backdrop-filter: blur(10px);
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .badge-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.5); }
+        }
+
+        .hero-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(3.5rem, 10vw, 7rem);
+            font-weight: 700;
+            line-height: 0.9;
+            letter-spacing: -0.03em;
+            margin-bottom: 32px;
+            position: relative;
+        }
+
+        .title-line {
+            display: block;
+            overflow: hidden;
+        }
+
+        .title-word {
+            display: inline-block;
+            animation: titleReveal 1s cubic-bezier(0.4, 0, 0.2, 1) both;
+            animation-delay: calc(var(--index) * 0.1s);
+        }
+
+        @keyframes titleReveal {
+            from {
+                transform: translateY(100%) rotateX(90deg);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0) rotateX(0);
+                opacity: 1;
+            }
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 25%, var(--accent) 75%, var(--accent-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% 200%;
+            animation: gradientFlow 8s ease infinite;
+        }
+
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+            color: var(--text-secondary);
+            margin-bottom: 48px;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Waitlist Progress */
+        .waitlist-progress {
+            max-width: 400px;
+            margin: 0 auto 48px;
+            animation: fadeInUp 1s ease-out 0.7s both;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .progress-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .progress-count {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: var(--surface);
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 4px;
+            width: 73%;
+            position: relative;
+            overflow: hidden;
+            animation: progressSlide 2s ease-out 1s both;
+        }
+
+        @keyframes progressSlide {
+            from { width: 0; }
+            to { width: 73%; }
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: shimmer 2s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 20px 40px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.25rem;
+            border-radius: 16px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease-out 0.9s both;
+            box-shadow: 0 10px 30px -10px var(--glow);
+        }
+
+        .hero-cta::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, transparent 30%, rgba(255, 255, 255, 0.2) 50%, transparent 70%);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px -10px var(--glow);
+        }
+
+        .hero-cta:hover::before {
+            transform: translateX(100%);
+        }
+
+        .arrow-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .hero-cta:hover .arrow-icon {
+            transform: translateX(4px);
+        }
+
+        /* Trust Indicators */
+        .trust-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            margin-top: 60px;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 1.1s both;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-secondary);
+        }
+
+        .trust-icon {
+            width: 24px;
+            height: 24px;
+            color: var(--primary);
+        }
+
+        /* CAMP Framework Section */
+        .camp-section {
+            padding: 120px 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+            line-height: 1.1;
+        }
+
+        .section-description {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .camp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            position: relative;
+        }
+
+        .camp-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+
+        .camp-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), var(--card-glow, rgba(99, 102, 241, 0.15)) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .camp-card:hover::before {
+            opacity: 1;
+        }
+
+        .camp-card:hover {
+            transform: translateY(-8px) rotateX(5deg);
+            border-color: var(--border-light);
+            box-shadow: 
+                0 30px 60px -15px rgba(0, 0, 0, 0.5),
+                0 0 40px -10px var(--card-glow, var(--glow));
+        }
+
+        .camp-icon-wrapper {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        .camp-icon {
+            width: 100%;
+            height: 100%;
+            background: var(--icon-gradient);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .camp-card:hover .camp-icon {
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        .camp-icon-bg {
+            position: absolute;
+            inset: -20px;
+            background: var(--icon-gradient);
+            filter: blur(30px);
+            opacity: 0.3;
+            border-radius: 50%;
+            transition: opacity 0.3s ease;
+        }
+
+        .camp-card:hover .camp-icon-bg {
+            opacity: 0.5;
+        }
+
+        .camp-card:nth-child(1) {
+            --icon-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --card-glow: rgba(102, 126, 234, 0.3);
+        }
+
+        .camp-card:nth-child(2) {
+            --icon-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --card-glow: rgba(240, 147, 251, 0.3);
+        }
+
+        .camp-card:nth-child(3) {
+            --icon-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --card-glow: rgba(79, 172, 254, 0.3);
+        }
+
+        .camp-card:nth-child(4) {
+            --icon-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            --card-glow: rgba(250, 112, 154, 0.3);
+        }
+
+        .camp-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            letter-spacing: -0.01em;
+        }
+
+        .camp-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            padding: 120px 0;
+            background: var(--surface);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-top: 64px;
+        }
+
+        .benefit-card {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--border-light);
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .benefit-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 24px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .benefit-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .benefit-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 120px 0;
+            position: relative;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-grid {
+            display: grid;
+            gap: 16px;
+            margin-top: 64px;
+        }
+
+        .faq-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item.active {
+            border-color: var(--primary);
+            background: rgba(99, 102, 241, 0.05);
+        }
+
+        .faq-question {
+            padding: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.125rem;
+            transition: color 0.3s ease;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary);
+        }
+
+        .faq-icon {
+            width: 24px;
+            height: 24px;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 0 24px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 24px 24px;
+            max-height: 300px;
+        }
+
+        /* Waitlist Form Section */
+        .waitlist-section {
+            padding: 120px 0;
+            position: relative;
+        }
+
+        .waitlist-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .waitlist-form-wrapper {
+            background: linear-gradient(135deg, var(--surface) 0%, rgba(99, 102, 241, 0.02) 100%);
+            border: 1px solid var(--border);
+            border-radius: 32px;
+            padding: 48px;
+            margin-top: 48px;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(20px);
+        }
+
+        .waitlist-form-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 32px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .waitlist-form-wrapper:hover::before {
+            opacity: 0.1;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 18px 24px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .form-input:focus {
+            border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        .form-input::placeholder {
+            color: var(--text-tertiary);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border: none;
+            border-radius: 16px;
+            color: white;
+            font-size: 1.125rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, transparent 30%, rgba(255, 255, 255, 0.2) 50%, transparent 70%);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px -10px var(--glow);
+        }
+
+        .submit-btn:hover::before {
+            transform: translateX(100%);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .form-footer {
+            margin-top: 24px;
+            font-size: 0.875rem;
+            color: var(--text-tertiary);
+        }
+
+        .form-footer a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .form-footer a:hover {
+            opacity: 0.8;
+        }
+
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .success-message {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 16px;
+            padding: 20px;
+            color: var(--success);
+            font-weight: 500;
+            margin-top: 24px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+
+        .success-message.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 80px 0 40px;
+            border-top: 1px solid var(--border);
+            position: relative;
+        }
+
+        .footer-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 16px;
+        }
+
+        .footer-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-bottom: 32px;
+        }
+
+        .social-link {
+            width: 48px;
+            height: 48px;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.25rem;
+        }
+
+        .social-link:hover {
+            color: var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            padding-top: 32px;
+            border-top: 1px solid var(--border);
+            color: var(--text-tertiary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .trust-indicators {
+                gap: 24px;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .cursor,
+            .cursor-follower {
+                display: none;
+            }
+
+            body {
+                cursor: auto;
+            }
+
+            .container {
+                padding: 0 16px;
+            }
+
+            .launch-timer {
+                display: none;
+            }
+
+            .hero {
+                padding: 100px 0 60px;
+            }
+
+            .hero-title {
+                font-size: clamp(2.5rem, 8vw, 4rem);
+            }
+
+            .trust-indicators {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .camp-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .waitlist-form-wrapper {
+                padding: 32px 24px;
+            }
+        }
+
+        /* Scroll Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal-scale.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            inset: 0;
+            background: var(--bg-darker);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .preloader.hide {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .preloader-content {
+            text-align: center;
+        }
+
+        .preloader-logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 24px;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        .preloader-bar {
+            width: 200px;
+            height: 4px;
+            background: var(--surface);
+            border-radius: 2px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .preloader-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 2px;
+            animation: loading 2s ease-in-out infinite;
+        }
+
+        @keyframes loading {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(200%); }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">FLASH</div>
+            <div class="preloader-bar">
+                <div class="preloader-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursorFollower"></div>
+
+    <!-- Background -->
+    <div class="bg-wrapper">
+        <div class="bg-gradient"></div>
+        <div class="bg-grid"></div>
+        <div class="floating-orb orb-1"></div>
+        <div class="floating-orb orb-2"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">FLASH</a>
+                <div class="launch-timer">
+                    <span class="timer-label">Early Access Opens:</span>
+                    <span class="timer-value" id="launchTimer">Q2 2025</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    <span>Limited Early Access Available</span>
+                </div>
+                
+                <h1 class="hero-title">
+                    <span class="title-line">
+                        <span class="title-word" style="--index: 0">Predict</span>
+                        <span class="title-word" style="--index: 1">Startup</span>
+                    </span>
+                    <span class="title-line">
+                        <span class="title-word gradient-text" style="--index: 2">Success</span>
+                        <span class="title-word" style="--index: 3">with</span>
+                        <span class="title-word gradient-text" style="--index: 4">AI</span>
+                    </span>
+                </h1>
+                
+                <p class="hero-subtitle">
+                    Revolutionary Investment Intelligence that analyzes startups<br>
+                    with 81% accuracy using our proprietary CAMP framework
+                </p>
+
+                <div class="waitlist-progress">
+                    <div class="progress-header">
+                        <span class="progress-label">Early Access Spots Claimed</span>
+                        <span class="progress-count">731 / 1,000</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                </div>
+                
+                <a href="#waitlist" class="hero-cta">
+                    <span>Reserve Your Spot Now</span>
+                    <span class="arrow-icon">→</span>
+                </a>
+
+                <div class="trust-indicators">
+                    <div class="trust-item">
+                        <svg class="trust-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                        <span>Bank-Level Security</span>
+                    </div>
+                    <div class="trust-item">
+                        <svg class="trust-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <span>0.3s Analysis Time</span>
+                    </div>
+                    <div class="trust-item">
+                        <svg class="trust-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                        <span>100K+ Startups Analyzed</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CAMP Framework Section -->
+    <section class="camp-section" id="framework">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-badge">
+                    <span>🎯</span>
+                    <span>The CAMP Framework</span>
+                </div>
+                <h2 class="section-title">
+                    Four Pillars of<br>
+                    <span class="gradient-text">Startup Success</span>
+                </h2>
+                <p class="section-description">
+                    Our proprietary CAMP framework analyzes the critical factors that determine startup success, 
+                    providing deep insights that traditional methods miss.
+                </p>
+            </div>
+
+            <div class="camp-grid">
+                <div class="camp-card reveal" data-delay="0">
+                    <div class="camp-icon-wrapper">
+                        <div class="camp-icon-bg"></div>
+                        <div class="camp-icon">💰</div>
+                    </div>
+                    <h3 class="camp-title">Capital</h3>
+                    <p class="camp-description">
+                        Comprehensive financial health analysis including burn rate, runway, funding efficiency, 
+                        and capital allocation strategies.
+                    </p>
+                </div>
+
+                <div class="camp-card reveal" data-delay="100">
+                    <div class="camp-icon-wrapper">
+                        <div class="camp-icon-bg"></div>
+                        <div class="camp-icon">⚡</div>
+                    </div>
+                    <h3 class="camp-title">Advantage</h3>
+                    <p class="camp-description">
+                        Deep competitive moat assessment covering IP, technology differentiation, network effects, 
+                        and sustainable competitive advantages.
+                    </p>
+                </div>
+
+                <div class="camp-card reveal" data-delay="200">
+                    <div class="camp-icon-wrapper">
+                        <div class="camp-icon-bg"></div>
+                        <div class="camp-icon">🌍</div>
+                    </div>
+                    <h3 class="camp-title">Market</h3>
+                    <p class="camp-description">
+                        Market dynamics evaluation including TAM, growth rates, competitive landscape analysis, 
+                        and go-to-market strategy viability.
+                    </p>
+                </div>
+
+                <div class="camp-card reveal" data-delay="300">
+                    <div class="camp-icon-wrapper">
+                        <div class="camp-icon-bg"></div>
+                        <div class="camp-icon">👥</div>
+                    </div>
+                    <h3 class="camp-title">People</h3>
+                    <p class="camp-description">
+                        Team composition analysis evaluating founder-market fit, leadership experience, 
+                        technical expertise, and organizational culture.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-badge">
+                    <span>✨</span>
+                    <span>Early Access Benefits</span>
+                </div>
+                <h2 class="section-title">
+                    Why Join<br>
+                    <span class="gradient-text">The Waitlist?</span>
+                </h2>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card reveal" data-delay="0">
+                    <div class="benefit-icon">🎯</div>
+                    <h3 class="benefit-title">Priority Access</h3>
+                    <p class="benefit-description">
+                        Be among the first to experience FLASH when we launch, with guaranteed onboarding within 48 hours.
+                    </p>
+                </div>
+
+                <div class="benefit-card reveal" data-delay="100">
+                    <div class="benefit-icon">💰</div>
+                    <h3 class="benefit-title">$5M FLASH Fund Access</h3>
+                    <p class="benefit-description">
+                        Get exclusive access to funding from our $5 million FLASH Fund. We invest in high-potential startups identified by our AI.
+                    </p>
+                </div>
+
+                <div class="benefit-card reveal" data-delay="200">
+                    <div class="benefit-icon">🚀</div>
+                    <h3 class="benefit-title">Shape the Future</h3>
+                    <p class="benefit-description">
+                        Direct access to our product team. Your feedback will directly influence FLASH's development roadmap.
+                    </p>
+                </div>
+
+                <div class="benefit-card reveal" data-delay="300">
+                    <div class="benefit-icon">📊</div>
+                    <h3 class="benefit-title">Premium Reports</h3>
+                    <p class="benefit-description">
+                        Receive exclusive market insights and trend reports before they're publicly available.
+                    </p>
+                </div>
+
+                <div class="benefit-card reveal" data-delay="400">
+                    <div class="benefit-icon">🤝</div>
+                    <h3 class="benefit-title">Network Access</h3>
+                    <p class="benefit-description">
+                        Join our exclusive community of forward-thinking investors and founders.
+                    </p>
+                </div>
+
+                <div class="benefit-card reveal" data-delay="500">
+                    <div class="benefit-icon">⚡</div>
+                    <h3 class="benefit-title">API Priority</h3>
+                    <p class="benefit-description">
+                        First in line for API access to integrate FLASH intelligence into your existing workflows.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="faq-container">
+                <div class="section-header reveal">
+                    <div class="section-badge">
+                        <span>💬</span>
+                        <span>Frequently Asked Questions</span>
+                    </div>
+                    <h2 class="section-title">
+                        Everything You<br>
+                        <span class="gradient-text">Need to Know</span>
+                    </h2>
+                </div>
+
+                <div class="faq-grid">
+                    <div class="faq-item reveal" data-delay="0">
+                        <div class="faq-question">
+                            <span>When will FLASH launch?</span>
+                            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            We're planning to launch in Q2 2025. Early access members will get priority onboarding starting 2 weeks before the public launch. You'll receive regular updates on our progress.
+                        </div>
+                    </div>
+
+                    <div class="faq-item reveal" data-delay="100">
+                        <div class="faq-question">
+                            <span>How does the 81% accuracy work?</span>
+                            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            Our AI models have been trained on over 100,000 startup outcomes, analyzing patterns across successful and failed ventures. The 81% accuracy rate represents our ability to predict whether a startup will achieve significant growth milestones within 24 months.
+                        </div>
+                    </div>
+
+                    <div class="faq-item reveal" data-delay="200">
+                        <div class="faq-question">
+                            <span>What data do I need to provide?</span>
+                            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            FLASH analyzes publicly available data combined with basic information you provide about the startup. This includes team backgrounds, market data, financial metrics, and competitive landscape. Our AI does the heavy lifting – you just need to input basic company details.
+                        </div>
+                    </div>
+
+                    <div class="faq-item reveal" data-delay="300">
+                        <div class="faq-question">
+                            <span>Is there a free trial?</span>
+                            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            Waitlist members will receive 5 free comprehensive startup analyses when they join. Additionally, high-scoring startups gain exclusive access to pitch for funding from our $5 million FLASH Fund. We offer various subscription plans for continued access after your free analyses.
+                        </div>
+                    </div>
+
+                    <div class="faq-item reveal" data-delay="400">
+                        <div class="faq-question">
+                            <span>Can FLASH integrate with my existing tools?</span>
+                            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            Yes! We're building integrations with popular CRM and investment management platforms. Early access members will also get priority API access to build custom integrations. Our REST API will allow you to incorporate FLASH intelligence directly into your workflow.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Waitlist Section -->
+    <section class="waitlist-section" id="waitlist">
+        <div class="container">
+            <div class="waitlist-container">
+                <div class="section-header reveal">
+                    <div class="section-badge">
+                        <span>🚀</span>
+                        <span>Limited to 1,000 Early Members</span>
+                    </div>
+                    <h2 class="section-title">
+                        Secure Your<br>
+                        <span class="gradient-text">Early Access</span>
+                    </h2>
+                    <p class="section-description">
+                        Join innovative investors and founders who are ready to revolutionize how they evaluate startups.
+                    </p>
+                </div>
+
+                <div class="waitlist-form-wrapper reveal">
+                    <form class="waitlist-form" id="waitlistForm">
+                        <div class="form-group">
+                            <input 
+                                type="text" 
+                                class="form-input" 
+                                placeholder="Full Name" 
+                                required 
+                                id="name"
+                            >
+                        </div>
+                        <div class="form-group">
+                            <input 
+                                type="email" 
+                                class="form-input" 
+                                placeholder="Work Email" 
+                                required 
+                                id="email"
+                            >
+                        </div>
+                        <div class="form-group">
+                            <input 
+                                type="text" 
+                                class="form-input" 
+                                placeholder="Company/Fund Name" 
+                                required
+                                id="company"
+                            >
+                        </div>
+                        <div class="form-group">
+                            <select class="form-input" id="role" required>
+                                <option value="" disabled selected>Your Role</option>
+                                <option value="investor">Investor / VC</option>
+                                <option value="founder">Founder / CEO</option>
+                                <option value="analyst">Analyst</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="submit-btn" id="submitBtn">
+                            <span id="btnText">Claim Your Spot</span>
+                            <span id="btnLoading" class="loading" style="display: none;"></span>
+                        </button>
+                        <p class="form-footer">
+                            By joining, you agree to receive updates about FLASH.
+                            <a href="#">Privacy Policy</a>
+                        </p>
+                        <div class="success-message" id="successMessage">
+                            🎉 Welcome to FLASH! Check your email for confirmation and next steps.
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">FLASH</div>
+                <p class="footer-description">
+                    Revolutionary Investment Intelligence platform that predicts startup success with unprecedented accuracy.
+                </p>
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
+                    <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+                    <a href="#" class="social-link" aria-label="Email">@</a>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2024 FLASH. All rights reserved. | <a href="#" style="color: var(--text-tertiary); text-decoration: none;">Terms</a> | <a href="#" style="color: var(--text-tertiary); text-decoration: none;">Privacy</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Preloader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('preloader').classList.add('hide');
+            }, 1500);
+        });
+
+        // Custom Cursor
+        const cursor = document.getElementById('cursor');
+        const cursorFollower = document.getElementById('cursorFollower');
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
+        let followerX = 0, followerY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function animateCursor() {
+            cursorX += (mouseX - cursorX) * 0.2;
+            cursorY += (mouseY - cursorY) * 0.2;
+            cursor.style.left = cursorX + 'px';
+            cursor.style.top = cursorY + 'px';
+
+            followerX += (mouseX - followerX) * 0.1;
+            followerY += (mouseY - followerY) * 0.1;
+            cursorFollower.style.left = followerX + 'px';
+            cursorFollower.style.top = followerY + 'px';
+
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        // Cursor hover effects
+        const hoverElements = document.querySelectorAll('a, button, .camp-card, .benefit-card, .faq-item');
+        hoverElements.forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // CAMP cards mouse tracking
+        const campCards = document.querySelectorAll('.camp-card');
+        campCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = ((e.clientX - rect.left) / rect.width) * 100;
+                const y = ((e.clientY - rect.top) / rect.height) * 100;
+                card.style.setProperty('--mouse-x', `${x}%`);
+                card.style.setProperty('--mouse-y', `${y}%`);
+            });
+        });
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                // Close other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+
+        // Scroll reveal
+        const revealElements = document.querySelectorAll('.reveal, .reveal-scale');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const delay = entry.target.dataset.delay || 0;
+                    setTimeout(() => {
+                        entry.target.classList.add('active');
+                    }, delay);
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Form submission
+        const waitlistForm = document.getElementById('waitlistForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const btnText = document.getElementById('btnText');
+        const btnLoading = document.getElementById('btnLoading');
+        const successMessage = document.getElementById('successMessage');
+
+        waitlistForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Show loading state
+            btnText.style.display = 'none';
+            btnLoading.style.display = 'inline-block';
+            submitBtn.disabled = true;
+            
+            // Get form data
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                company: document.getElementById('company').value,
+                role: document.getElementById('role').value,
+                timestamp: new Date().toISOString()
+            };
+            
+            // Simulate API call
+            try {
+                await new Promise(resolve => setTimeout(resolve, 2000));
+                
+                // Update progress count
+                const progressCount = document.querySelector('.progress-count');
+                progressCount.textContent = '732 / 1,000';
+                
+                // Update progress bar
+                const progressFill = document.querySelector('.progress-fill');
+                progressFill.style.width = '73.2%';
+                
+                // Show success
+                successMessage.classList.add('show');
+                waitlistForm.reset();
+                
+                // Reset button after delay
+                setTimeout(() => {
+                    btnText.style.display = 'inline';
+                    btnLoading.style.display = 'none';
+                    btnText.textContent = 'Successfully Joined!';
+                    
+                    setTimeout(() => {
+                        btnText.textContent = 'Claim Your Spot';
+                        submitBtn.disabled = false;
+                        successMessage.classList.remove('show');
+                    }, 3000);
+                }, 500);
+                
+            } catch (error) {
+                // Handle error
+                btnText.style.display = 'inline';
+                btnLoading.style.display = 'none';
+                btnText.textContent = 'Try Again';
+                submitBtn.disabled = false;
+            }
+        });
+
+        // Parallax effect on scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.floating-orb, .bg-grid');
+            
+            parallaxElements.forEach(el => {
+                const speed = el.classList.contains('bg-grid') ? 0.5 : 0.3;
+                el.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // Launch countdown (optional - can be made functional)
+        function updateLaunchTimer() {
+            const launchDate = new Date('2025-06-01');
+            const now = new Date();
+            const diff = launchDate - now;
+            
+            if (diff > 0) {
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                
+                if (days > 30) {
+                    document.getElementById('launchTimer').textContent = 'Q2 2025';
+                } else {
+                    document.getElementById('launchTimer').textContent = `${days}d ${hours}h`;
+                }
+            }
+        }
+        
+        updateLaunchTimer();
+        setInterval(updateLaunchTimer, 3600000); // Update every hour
+    </script>
+</body>
+</html>
