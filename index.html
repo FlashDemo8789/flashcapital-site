@@ -12,12 +12,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script>
-    (function(){
-        emailjs.init("6AT3cxrWaiyVfVIoF"); // Replace this
-    })();
-</script>
 
 
     <!-- Google Tag Manager -->
@@ -1538,6 +1532,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </footer>
 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+
     <script>
         // Preloader
         window.addEventListener('load', () => {
@@ -1652,55 +1649,60 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         revealElements.forEach(el => revealObserver.observe(el));
 
         // Form submission
+        document.addEventListener("DOMContentLoaded", function () {
+        // Initialize EmailJS after the script is fully loaded
+        emailjs.init("6AT3cxrWaiyVfVIoF"); // ✅ Your public key
+
         const waitlistForm = document.getElementById('waitlistForm');
-  const submitBtn = document.getElementById('submitBtn');
-  const btnText = document.getElementById('btnText');
-  const btnLoading = document.getElementById('btnLoading');
-  const successMessage = document.getElementById('successMessage');
+        const submitBtn = document.getElementById('submitBtn');
+        const btnText = document.getElementById('btnText');
+        const btnLoading = document.getElementById('btnLoading');
+        const successMessage = document.getElementById('successMessage');
 
-  waitlistForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
+        waitlistForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
 
-    // UI: show loading
-    btnText.style.display = 'none';
-    btnLoading.style.display = 'inline-block';
-    submitBtn.disabled = true;
+            // Show loading spinner
+            btnText.style.display = 'none';
+            btnLoading.style.display = 'inline-block';
+            submitBtn.disabled = true;
 
-    const templateParams = {
-      name: document.getElementById('name').value,
-      email: document.getElementById('email').value,
-      company: document.getElementById('company').value,
-      role: document.getElementById('role').value,
-      timestamp: new Date().toISOString()
-    };
+            const templateParams = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                company: document.getElementById('company').value,
+                role: document.getElementById('role').value,
+                timestamp: new Date().toISOString()
+            };
 
-    try {
-      await emailjs.send("service_bjsum1f", "template_besilmo", templateParams); // Replace with your actual IDs
+            try {
+                await emailjs.send("service_bjsum1f", "template_besilmo", templateParams);
 
-      // Success UI
-      successMessage.classList.add('show');
-      waitlistForm.reset();
+                // Show success message and reset form
+                successMessage.classList.add('show');
+                waitlistForm.reset();
 
-      setTimeout(() => {
-        btnText.style.display = 'inline';
-        btnLoading.style.display = 'none';
-        btnText.textContent = 'Successfully Joined!';
+                setTimeout(() => {
+                    btnText.style.display = 'inline';
+                    btnLoading.style.display = 'none';
+                    btnText.textContent = 'Successfully Joined!';
 
-        setTimeout(() => {
-          btnText.textContent = 'Claim Your Spot';
-          submitBtn.disabled = false;
-          successMessage.classList.remove('show');
-        }, 3000);
-      }, 500);
+                    setTimeout(() => {
+                        btnText.textContent = 'Claim Your Spot';
+                        submitBtn.disabled = false;
+                        successMessage.classList.remove('show');
+                    }, 3000);
+                }, 500);
 
-    } catch (error) {
-      console.error("Email send error:", error);
-      btnText.style.display = 'inline';
-      btnLoading.style.display = 'none';
-      btnText.textContent = 'Try Again';
-      submitBtn.disabled = false;
-    }
-  });
+            } catch (error) {
+                console.error("Email send error:", error);
+                btnText.style.display = 'inline';
+                btnLoading.style.display = 'none';
+                btnText.textContent = 'Try Again';
+                submitBtn.disabled = false;
+            }
+        });
+    });
 
         // Parallax effect on scroll
         window.addEventListener('scroll', () => {
