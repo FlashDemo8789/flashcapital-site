@@ -1,0 +1,1822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLASH - Stop guessing what VCs want</title>
+    <meta name="description" content="See exactly why VCs will say no to your startup—and how to fix it. Built by founders who raised $50M+.">
+    <meta property="og:title" content="FLASH - The truth about your startup">
+    <meta property="og:description" content="See exactly why VCs will say no—and how to fix it.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #000000;
+            --white: #ffffff;
+            --gray-900: #111111;
+            --gray-800: #1a1a1a;
+            --gray-700: #2a2a2a;
+            --gray-600: #4a4a4a;
+            --gray-500: #6a6a6a;
+            --gray-400: #8a8a8a;
+            --gray-300: #aaaaaa;
+            --gray-200: #cacaca;
+            --gray-100: #eaeaea;
+            --gray-50: #fafafa;
+            
+            --red: #ff3b30;
+            --green: #34c759;
+            --blue: #007aff;
+            --purple: #5856d6;
+            
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --max-width: 1200px;
+            
+            --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--white);
+            color: var(--black);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        ::selection {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        /* Typography */
+        .text-xs { font-size: 0.75rem; }
+        .text-sm { font-size: 0.875rem; }
+        .text-base { font-size: 1rem; }
+        .text-lg { font-size: 1.125rem; }
+        .text-xl { font-size: 1.25rem; }
+        .text-2xl { font-size: 1.5rem; }
+        .text-3xl { font-size: 1.875rem; }
+        .text-4xl { font-size: 2.25rem; }
+        .text-5xl { font-size: 3rem; }
+        .text-6xl { font-size: 3.75rem; }
+        .text-7xl { font-size: 4.5rem; }
+        .text-8xl { font-size: 6rem; }
+
+        .font-normal { font-weight: 400; }
+        .font-medium { font-weight: 500; }
+        .font-semibold { font-weight: 600; }
+        .font-bold { font-weight: 700; }
+        .font-extrabold { font-weight: 800; }
+
+        /* Layout */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--gray-100);
+            transition: all 0.3s ease;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 72px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            text-decoration: none;
+            color: var(--black);
+            transition: opacity 0.2s ease;
+        }
+
+        .logo:hover {
+            opacity: 0.7;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .header-link {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--gray-600);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .header-link:hover {
+            color: var(--black);
+        }
+
+        .header-cta {
+            font-size: 0.875rem;
+            font-weight: 600;
+            padding: 8px 16px;
+            background: var(--black);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .header-cta:hover {
+            background: var(--gray-800);
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 0 80px;
+            position: relative;
+        }
+
+        .hero-content {
+            width: 100%;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--gray-600);
+            margin-bottom: 24px;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .badge-icon {
+            width: 16px;
+            height: 16px;
+            background: var(--green);
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .badge-icon::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            background: var(--green);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.5); opacity: 0; }
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            line-height: 0.95;
+            margin-bottom: 24px;
+            animation: fadeInUp 0.6s ease-out 0.1s both;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.25rem, 3vw, 1.5rem);
+            font-weight: 400;
+            color: var(--gray-600);
+            margin-bottom: 48px;
+            max-width: 600px;
+            animation: fadeInUp 0.6s ease-out 0.2s both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Email Form */
+        .email-form {
+            display: flex;
+            gap: 16px;
+            max-width: 480px;
+            margin-bottom: 32px;
+            animation: fadeInUp 0.6s ease-out 0.3s both;
+        }
+
+        .email-input {
+            flex: 1;
+            padding: 16px 20px;
+            font-size: 1rem;
+            font-family: inherit;
+            border: 2px solid var(--gray-200);
+            border-radius: 8px;
+            background: var(--white);
+            color: var(--black);
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        .email-input:focus {
+            border-color: var(--black);
+        }
+
+        .email-input::placeholder {
+            color: var(--gray-400);
+        }
+
+        .submit-btn {
+            padding: 16px 32px;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: inherit;
+            background: var(--black);
+            color: var(--white);
+            border: 2px solid var(--black);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .submit-btn:hover {
+            background: var(--gray-900);
+            border-color: var(--gray-900);
+            transform: translateY(-1px);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .loading {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid var(--white);
+            border-right-color: transparent;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .form-note {
+            font-size: 0.875rem;
+            color: var(--gray-500);
+            animation: fadeInUp 0.6s ease-out 0.4s both;
+        }
+
+        /* Trust Indicators */
+        .trust-indicators {
+            display: flex;
+            gap: 32px;
+            margin-top: 48px;
+            padding-top: 48px;
+            border-top: 1px solid var(--gray-100);
+            animation: fadeInUp 0.6s ease-out 0.5s both;
+            flex-wrap: wrap;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .trust-icon {
+            width: 20px;
+            height: 20px;
+            color: var(--gray-600);
+        }
+
+        .trust-text {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+        }
+
+        /* Founder Info */
+        .founder-info {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-top: 64px;
+            padding-top: 64px;
+            border-top: 1px solid var(--gray-100);
+            animation: fadeInUp 0.6s ease-out 0.6s both;
+        }
+
+        .founder-avatar {
+            width: 56px;
+            height: 56px;
+            background: var(--gray-100);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 1.25rem;
+            color: var(--gray-600);
+        }
+
+        .founder-text {
+            flex: 1;
+        }
+
+        .founder-name {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .founder-bio {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            line-height: 1.5;
+        }
+
+        /* Success State */
+        .success-message {
+            display: none;
+            padding: 20px;
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
+            margin-bottom: 32px;
+        }
+
+        .success-message.show {
+            display: block;
+            animation: fadeInUp 0.4s ease-out;
+        }
+
+        .success-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .success-text {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+        }
+
+        /* How It Works Section */
+        .how-section {
+            padding: 120px 0;
+            background: var(--gray-50);
+            border-top: 1px solid var(--gray-100);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .section-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gray-500);
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 24px;
+        }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: var(--gray-600);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 48px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .step-card {
+            text-align: center;
+        }
+
+        .step-number {
+            width: 48px;
+            height: 48px;
+            background: var(--black);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin: 0 auto 24px;
+        }
+
+        .step-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .step-description {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        /* CAMP Framework Section */
+        .camp-section {
+            padding: 120px 0;
+            background: var(--white);
+        }
+
+        .camp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .camp-card {
+            padding: 32px;
+            background: var(--gray-50);
+            border: 1px solid var(--gray-100);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .camp-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+            border-color: var(--gray-200);
+        }
+
+        .camp-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .camp-card:nth-child(1) .camp-icon { background: #f3f4ff; color: var(--purple); }
+        .camp-card:nth-child(2) .camp-icon { background: #fff4f4; color: var(--red); }
+        .camp-card:nth-child(3) .camp-icon { background: #f0f9ff; color: var(--blue); }
+        .camp-card:nth-child(4) .camp-icon { background: #f0fdf4; color: var(--green); }
+
+        .camp-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .camp-description {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        /* Sample Analysis */
+        .sample-section {
+            padding: 120px 0;
+            background: var(--gray-50);
+            border-top: 1px solid var(--gray-100);
+        }
+
+        .sample-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        /* Analysis Card */
+        .analysis-preview {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .analysis-header {
+            padding: 32px;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .analysis-company {
+            font-size: 0.875rem;
+            color: var(--gray-500);
+            margin-bottom: 8px;
+        }
+
+        .analysis-score {
+            display: flex;
+            align-items: baseline;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .score-number {
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .score-label {
+            font-size: 1.125rem;
+            color: var(--gray-600);
+        }
+
+        .score-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: var(--gray-100);
+            border-radius: 100px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--red);
+            border-radius: 50%;
+        }
+
+        .analysis-content {
+            padding: 32px;
+        }
+
+        .weakness-title {
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .weakness-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .weakness-item {
+            display: flex;
+            gap: 12px;
+            padding: 16px;
+            background: var(--gray-50);
+            border-radius: 8px;
+            border: 1px solid var(--gray-100);
+        }
+
+        .weakness-icon {
+            width: 20px;
+            height: 20px;
+            color: var(--red);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .weakness-content {
+            flex: 1;
+        }
+
+        .weakness-name {
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .weakness-description {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            line-height: 1.5;
+        }
+
+        /* What's Included Section */
+        .included-section {
+            padding: 120px 0;
+            background: var(--white);
+        }
+
+        .included-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .included-item {
+            display: flex;
+            gap: 16px;
+        }
+
+        .included-icon {
+            width: 24px;
+            height: 24px;
+            color: var(--green);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .included-content {
+            flex: 1;
+        }
+
+        .included-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .included-description {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            line-height: 1.5;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 120px 0;
+            background: var(--gray-50);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .faq-item {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 24px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.2s ease;
+        }
+
+        .faq-question:hover {
+            background: var(--gray-50);
+        }
+
+        .faq-arrow {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-arrow {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 0 24px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 24px 24px;
+            max-height: 300px;
+        }
+
+        /* Security Section */
+        .security-section {
+            padding: 80px 0;
+            background: var(--white);
+            border-top: 1px solid var(--gray-100);
+        }
+
+        .security-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .security-badges {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            margin-top: 32px;
+            flex-wrap: wrap;
+        }
+
+        .security-badge {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .security-icon {
+            width: 48px;
+            height: 48px;
+            color: var(--gray-400);
+        }
+
+        .security-label {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--gray-600);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 120px 0;
+            text-align: center;
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .cta-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 24px;
+        }
+
+        .cta-subtitle {
+            font-size: 1.25rem;
+            color: var(--gray-300);
+            margin-bottom: 48px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-form {
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        .cta-form .email-input {
+            background: var(--gray-900);
+            border-color: var(--gray-700);
+            color: var(--white);
+        }
+
+        .cta-form .email-input::placeholder {
+            color: var(--gray-500);
+        }
+
+        .cta-form .email-input:focus {
+            border-color: var(--white);
+        }
+
+        .cta-form .submit-btn {
+            background: var(--white);
+            color: var(--black);
+            border-color: var(--white);
+        }
+
+        .cta-form .submit-btn:hover {
+            background: var(--gray-100);
+            border-color: var(--gray-100);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 64px 0;
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 32px;
+        }
+
+        .footer-text {
+            font-size: 0.875rem;
+            color: var(--gray-400);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            font-size: 0.875rem;
+            color: var(--gray-400);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--white);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            width: 32px;
+            height: 32px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            width: 20px;
+            height: 2px;
+            background: var(--black);
+            margin: 5px auto;
+            transition: all 0.3s ease;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-nav {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.125rem;
+            }
+
+            .hero-cta-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .waitlist-stats {
+                gap: 24px;
+            }
+
+            .email-form {
+                flex-direction: column;
+            }
+
+            .submit-btn {
+                width: 100%;
+            }
+
+            .trust-indicators {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .founder-info {
+                flex-direction: column;
+                text-align: center;
+                gap: 24px;
+            }
+
+            .steps-grid,
+            .camp-grid,
+            .included-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .analysis-header,
+            .analysis-content {
+                padding: 24px;
+            }
+
+            .security-badges {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .waitlist-form-wrapper {
+                padding: 32px 24px;
+            }
+
+            .form-grid-2 {
+                grid-template-columns: 1fr !important;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s var(--ease-out-expo);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">FLASH</a>
+                <nav class="header-nav">
+                    <a href="#how" class="header-link">How it works</a>
+                    <a href="/camp-framework.html" class="header-link">CAMP Framework</a>
+                    <a href="/example.html" class="header-link">See example</a>
+                    <a href="/faq.html" class="header-link">FAQ</a>
+                    <a href="#waitlist" class="header-cta">Get early access</a>
+                </nav>
+                <button class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <div class="badge-icon"></div>
+                    <span>Built by founders who've been in your shoes</span>
+                </div>
+                
+                <h1 class="hero-title">
+                    Stop guessing what<br>VCs want to hear
+                </h1>
+                
+                <p class="hero-subtitle">
+                    Get the exact feedback VCs give behind closed doors—before you pitch. Know what to fix, backed by analysis of thousands of real funding patterns.
+                </p>
+
+                <div class="hero-cta-wrapper" style="margin-bottom: 32px; animation: fadeInUp 0.6s ease-out 0.3s both;">
+                    <a href="#waitlist" class="hero-cta-btn" style="display: inline-flex; align-items: center; gap: 12px; padding: 20px 48px; background: var(--black); color: var(--white); text-decoration: none; font-weight: 600; font-size: 1.125rem; border-radius: 8px; transition: all 0.2s ease;">
+                        <span>Reserve your spot</span>
+                        <span style="transition: transform 0.2s ease;">→</span>
+                    </a>
+                </div>
+
+                <div class="waitlist-stats" style="display: flex; gap: 48px; justify-content: center; flex-wrap: wrap; animation: fadeInUp 0.6s ease-out 0.4s both;">
+                    <div class="stat-item" style="text-align: center;">
+                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--black); margin-bottom: 4px;">Limited spots</div>
+                        <div style="font-size: 0.875rem; color: var(--gray-600);">First 1,000 founders only</div>
+                    </div>
+                    <div class="stat-item" style="text-align: center;">
+                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--black); margin-bottom: 4px;">Q2 2025</div>
+                        <div style="font-size: 0.875rem; color: var(--gray-600);">Launching soon</div>
+                    </div>
+                </div>
+
+                <div class="trust-indicators">
+                    <div class="trust-item">
+                        <svg class="trust-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                        <span class="trust-text">Secure & confidential</span>
+                    </div>
+                    <div class="trust-item">
+                        <svg class="trust-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                        </svg>
+                        <span class="trust-text">Your data stays yours</span>
+                    </div>
+                    <div class="trust-item">
+                        <svg class="trust-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                        <span class="trust-text">Fast insights</span>
+                    </div>
+                </div>
+
+                <div class="founder-info">
+                    <div class="founder-avatar">SC</div>
+                    <div class="founder-text">
+                        <div class="founder-name">Sarah Chen, Co-founder</div>
+                        <div class="founder-bio">
+                            "After 100+ rejections for my first startup, I built FLASH to give founders the insights I wish I had. No more guessing games."
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 48px;">
+                <a href="/faq.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 16px 32px; background: var(--white); color: var(--black); border: 2px solid var(--gray-200); text-decoration: none; font-weight: 600; border-radius: 8px; transition: all 0.2s ease;" onmouseover="this.style.borderColor='var(--black)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--gray-200)'; this.style.transform='translateY(0)'">
+                    <span>View All FAQs</span>
+                    <span>→</span>
+                </a>
+            </div>
+            <div style="text-align: center; margin-top: 48px;">
+                <a href="/example.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 16px 32px; background: var(--black); color: var(--white); text-decoration: none; font-weight: 600; border-radius: 8px; transition: all 0.2s ease;" onmouseover="this.style.background='var(--gray-800)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='var(--black)'; this.style.transform='translateY(0)'">
+                    <span>See Full Example Analysis</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-section reveal" id="how">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">How it works</div>
+                <h2 class="section-title">From pitch to insights in minutes</h2>
+                <p class="section-subtitle">
+                    Stop wasting months on the wrong approach. Get clarity in 3 simple steps.
+                </p>
+            </div>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Answer key questions</h3>
+                    <p class="step-description">
+                        Fill out our guided questionnaire about your startup. Smart prompts help you share the right details. Takes less than 10 minutes.
+                    </p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">AI analyzes everything</h3>
+                    <p class="step-description">
+                        Our models evaluate your startup against proven funding patterns using the CAMP framework.
+                    </p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Get actionable feedback</h3>
+                    <p class="step-description">
+                        See your score, top rejection reasons, and exactly what to fix—all delivered instantly.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CAMP Framework Section -->
+    <section class="camp-section reveal" id="camp">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">The CAMP Framework</div>
+                <h2 class="section-title">How VCs really evaluate startups</h2>
+                <p class="section-subtitle">
+                    Four pillars that drive funding decisions. Master these, and you'll know exactly what investors look for.
+                </p>
+                <a href="/camp-framework.html" class="camp-learn-more" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 24px; color: var(--black); font-weight: 600; text-decoration: none; transition: all 0.2s ease;" onmouseover="this.style.gap='12px'; this.querySelector('span:last-child').style.transform='translateX(4px)'" onmouseout="this.style.gap='8px'; this.querySelector('span:last-child').style.transform='translateX(0)'">
+                    <span>Learn more about CAMP</span>
+                    <span style="transition: transform 0.2s ease;">→</span>
+                </a>
+            </div>
+
+            <div class="camp-grid">
+                <div class="camp-card">
+                    <div class="camp-icon">💰</div>
+                    <h3 class="camp-title">Capital</h3>
+                    <p class="camp-description">
+                        Your financial health, burn rate, funding history, and capital efficiency. VCs need to see you can manage money before they give you theirs.
+                    </p>
+                </div>
+                <div class="camp-card">
+                    <div class="camp-icon">⚡</div>
+                    <h3 class="camp-title">Advantage</h3>
+                    <p class="camp-description">
+                        What makes you different? Your moats, IP, unique insights, and why competitors can't just copy you tomorrow.
+                    </p>
+                </div>
+                <div class="camp-card">
+                    <div class="camp-icon">📈</div>
+                    <h3 class="camp-title">Market</h3>
+                    <p class="camp-description">
+                        TAM, growth rates, competition, and timing. VCs need to see a big enough opportunity that's ready for your solution.
+                    </p>
+                </div>
+                <div class="camp-card">
+                    <div class="camp-icon">👥</div>
+                    <h3 class="camp-title">People</h3>
+                    <p class="camp-description">
+                        Your team's experience, founder-market fit, and ability to execute. The #1 reason VCs pass is team concerns.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sample Analysis Section -->
+    <section class="sample-section reveal" id="sample">
+        <div class="container">
+            <div class="sample-header">
+                <div class="section-badge">Example Analysis</div>
+                <h2 class="section-title">This is what you'll see</h2>
+                <p class="section-subtitle">
+                    A typical analysis showing the kind of insights that help founders understand exactly what needs work
+                </p>
+            </div>
+
+            <div class="analysis-preview">
+                <div class="analysis-header">
+                    <div class="analysis-company">Example Company • B2B SaaS • Pre-Seed</div>
+                    <div class="analysis-score">
+                        <div class="score-number">62</div>
+                        <div class="score-label">/ 100</div>
+                    </div>
+                    <div class="score-status">
+                        <div class="status-dot"></div>
+                        <span>Not ready to raise</span>
+                    </div>
+                </div>
+                <div class="analysis-content">
+                    <h3 class="weakness-title">Top 3 reasons VCs will pass:</h3>
+                    <div class="weakness-list">
+                        <div class="weakness-item">
+                            <svg class="weakness-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <div class="weakness-content">
+                                <div class="weakness-name">Unclear value proposition</div>
+                                <div class="weakness-description">
+                                    Your pitch focuses on features, not outcomes. VCs can't understand what specific problem you solve or why it matters. Show the before/after transformation for customers.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="weakness-item">
+                            <svg class="weakness-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <div class="weakness-content">
+                                <div class="weakness-name">Weak go-to-market strategy</div>
+                                <div class="weakness-description">
+                                    "We'll use content marketing and outbound sales" isn't a strategy. You need specific channels, CAC projections, and evidence of early traction.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="weakness-item">
+                            <svg class="weakness-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <div class="weakness-content">
+                                <div class="weakness-name">Team gaps</div>
+                                <div class="weakness-description">
+                                    You have 3 engineers but no one who's sold B2B software before. VCs will worry about execution risk. Consider advisors or a commercial co-founder.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What's Included Section -->
+    <section class="included-section reveal">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">What you get</div>
+                <h2 class="section-title">Everything you need to raise</h2>
+                <p class="section-subtitle">
+                    More than just a score. Get the exact roadmap to become fundable.
+                </p>
+            </div>
+
+            <div class="included-grid">
+                <div class="included-item">
+                    <svg class="included-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <div class="included-content">
+                        <div class="included-title">Fundability Score</div>
+                        <div class="included-description">
+                            See exactly how ready you are to raise on a 0-100 scale, benchmarked against funded startups.
+                        </div>
+                    </div>
+                </div>
+                <div class="included-item">
+                    <svg class="included-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <div class="included-content">
+                        <div class="included-title">Top 5 Rejection Reasons</div>
+                        <div class="included-description">
+                            The exact concerns VCs will have, ranked by impact on your fundability.
+                        </div>
+                    </div>
+                </div>
+                <div class="included-item">
+                    <svg class="included-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <div class="included-content">
+                        <div class="included-title">Specific Fixes</div>
+                        <div class="included-description">
+                            Not just problems—actionable solutions for each issue, with examples from successful raises.
+                        </div>
+                    </div>
+                </div>
+                <div class="included-item">
+                    <svg class="included-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <div class="included-content">
+                        <div class="included-title">Investor Matching</div>
+                        <div class="included-description">
+                            Discover which types of investors typically fund startups like yours based on stage, sector, and profile.
+                        </div>
+                    </div>
+                </div>
+                <div class="included-item">
+                    <svg class="included-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <div class="included-content">
+                        <div class="included-title">30-Day Action Plan</div>
+                        <div class="included-description">
+                            Week-by-week roadmap to fix your biggest issues and improve your score.
+                        </div>
+                    </div>
+                </div>
+                <div class="included-item">
+                    <svg class="included-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <div class="included-content">
+                        <div class="included-title">Progress Tracking</div>
+                        <div class="included-description">
+                            Re-run analysis anytime to see your improvement. Track how your changes impact your fundability over time.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section reveal" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">FAQ</div>
+                <h2 class="section-title">Common questions</h2>
+            </div>
+
+            <div class="faq-container">
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Do I need a pitch deck to use FLASH?</span>
+                            <svg class="faq-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            No! That's the beauty of FLASH. Our guided questionnaire helps you share the right information about your startup without needing a polished deck. In fact, this can be a great way to understand what should go in your pitch deck when you do create one.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Do I need a pitch deck to use FLASH?</span>
+                            <svg class="faq-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            No! That's the beauty of FLASH. Our guided questionnaire helps you share the right information about your startup without needing a polished deck. In fact, this can be a great way to understand what should go in your pitch deck when you do create one.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Is my data confidential?</span>
+                            <svg class="faq-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            Absolutely. We use enterprise-grade encryption and security practices to protect your data. Your pitch deck and analysis are only visible to you. We never share, sell, or use your data for any purpose other than providing your analysis. We're committed to maintaining the highest security standards.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>How accurate is the analysis?</span>
+                            <svg class="faq-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            Our models have been rigorously tested and validated against real funding outcomes. We continuously improve by incorporating new patterns and working with experienced VCs and founders. While no prediction is perfect, our insights are based on proven patterns in successful fundraising.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What stage startups is this for?</span>
+                            <svg class="faq-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            FLASH works best for pre-seed to Series A startups. If you're raising your first $500K to $10M, our analysis will be most relevant. Later-stage startups can still benefit but may need more specialized analysis.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>How much will it cost?</span>
+                            <svg class="faq-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            Early access members will receive exclusive pricing and benefits. We'll share detailed pricing when we launch, but we're committed to making this accessible for bootstrapped founders while delivering exceptional value. Think of it as a fraction of what you'd spend on one advisor meeting.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Can I re-run analysis after improvements?</span>
+                            <svg class="faq-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            Yes! Most founders run multiple analyses as they improve their pitch. Track your progress over time and see your score increase. Pro plans include unlimited analyses so you can iterate quickly.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Section -->
+    <section class="security-section reveal">
+        <div class="container">
+            <div class="security-content">
+                <h3 class="section-title">Your data is protected</h3>
+                <p class="section-subtitle" style="max-width: 600px; margin: 16px auto 32px; color: var(--gray-600); font-size: 1rem;">
+                    We take security seriously. Your pitch deck and data are encrypted, stored securely, and never shared with third parties.
+                </p>
+                <div class="security-badges">
+                    <div class="security-badge">
+                        <svg class="security-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                        <span class="security-label">Enterprise Security</span>
+                    </div>
+                    <div class="security-badge">
+                        <svg class="security-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                        </svg>
+                        <span class="security-label">Encrypted Storage</span>
+                    </div>
+                    <div class="security-badge">
+                        <svg class="security-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"></path>
+                        </svg>
+                        <span class="security-label">Private & Confidential</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Waitlist Form Section -->
+    <section class="waitlist-section" id="waitlist" style="padding: 120px 0; background: var(--gray-50); border-top: 1px solid var(--gray-100);">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 64px;">
+                <div class="section-badge">Limited Early Access</div>
+                <h2 class="section-title">Secure Your Spot</h2>
+                <p class="section-subtitle">
+                    Be among the first 1,000 founders to get access. Get exclusive benefits and shape the future of FLASH.
+                </p>
+            </div>
+
+            <div class="waitlist-form-wrapper" style="max-width: 600px; margin: 0 auto; background: var(--white); border: 1px solid var(--gray-200); border-radius: 16px; padding: 48px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);">
+                <form id="waitlistForm">
+                    <div style="display: grid; gap: 24px;">
+                        <!-- Name Fields -->
+                        <div class="form-grid-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                            <div class="form-group">
+                                <label style="display: block; font-size: 0.875rem; font-weight: 500; color: var(--gray-700); margin-bottom: 8px;">First Name *</label>
+                                <input 
+                                    type="text" 
+                                    class="form-input" 
+                                    style="width: 100%; padding: 12px 16px; font-size: 1rem; border: 1px solid var(--gray-300); border-radius: 8px; outline: none; transition: all 0.2s ease;"
+                                    required
+                                    id="firstName"
+                                >
+                            </div>
+                            <div class="form-group">
+                                <label style="display: block; font-size: 0.875rem; font-weight: 500; color: var(--gray-700); margin-bottom: 8px;">Last Name *</label>
+                                <input 
+                                    type="text" 
+                                    class="form-input" 
+                                    style="width: 100%; padding: 12px 16px; font-size: 1rem; border: 1px solid var(--gray-300); border-radius: 8px; outline: none; transition: all 0.2s ease;"
+                                    required
+                                    id="lastName"
+                                >
+                            </div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="form-group">
+                            <label style="display: block; font-size: 0.875rem; font-weight: 500; color: var(--gray-700); margin-bottom: 8px;">Work Email *</label>
+                            <input 
+                                type="email" 
+                                class="form-input" 
+                                style="width: 100%; padding: 12px 16px; font-size: 1rem; border: 1px solid var(--gray-300); border-radius: 8px; outline: none; transition: all 0.2s ease;"
+                                placeholder="founder@company.com"
+                                required
+                                id="email"
+                            >
+                        </div>
+
+                        <!-- Company Info -->
+                        <div class="form-grid-2" style="display: grid; grid-template-columns: 2fr 1fr; gap: 16px;">
+                            <div class="form-group">
+                                <label style="display: block; font-size: 0.875rem; font-weight: 500; color: var(--gray-700); margin-bottom: 8px;">Company Name *</label>
+                                <input 
+                                    type="text" 
+                                    class="form-input" 
+                                    style="width: 100%; padding: 12px 16px; font-size: 1rem; border: 1px solid var(--gray-300); border-radius: 8px; outline: none; transition: all 0.2s ease;"
+                                    required
+                                    id="company"
+                                >
+                            </div>
+                            <div class="form-group">
+                                <label style="display: block; font-size: 0.875rem; font-weight: 500; color: var(--gray-700); margin-bottom: 8px;">Stage *</label>
+                                <select 
+                                    class="form-input" 
+                                    style="width: 100%; padding: 12px 16px; font-size: 1rem; border: 1px solid var(--gray-300); border-radius: 8px; outline: none; transition: all 0.2s ease; background: var(--white);"
+                                    required
+                                    id="stage"
+                                >
+                                    <option value="">Select stage</option>
+                                    <option value="idea">Idea Stage</option>
+                                    <option value="pre-seed">Pre-Seed</option>
+                                    <option value="seed">Seed</option>
+                                    <option value="series-a">Series A</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Role & Industry -->
+                        <div class="form-grid-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                            <div class="form-group">
+                                <label style="display: block; font-size: 0.875rem; font-weight: 500; color: var(--gray-700); margin-bottom: 8px;">Your Role *</label>
+                                <select 
+                                    class="form-input" 
+                                    style="width: 100%; padding: 12px 16px; font-size: 1rem; border: 1px solid var(--gray-300); border-radius: 8px; outline: none; transition: all 0.2s ease; background: var(--white);"
+                                    required
+                                    id="role"
+                                >
+                                    <option value="">Select role</option>
+                                    <option value="ceo">CEO/Founder</option>
+                                    <option value="cto">CTO/Co-founder</option>
+                                    <option value="other-founder">Other Co-founder</option>
+                                    <option value="employee">Early Employee</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label style="display: block; font-size: 0.875rem; font-weight: 500; color: var(--gray-700); margin-bottom: 8px;">Industry *</label>
+                                <select 
+                                    class="form-input" 
+                                    style="width: 100%; padding: 12px 16px; font-size: 1rem; border: 1px solid var(--gray-300); border-radius: 8px; outline: none; transition: all 0.2s ease; background: var(--white);"
+                                    required
+                                    id="industry"
+                                >
+                                    <option value="">Select industry</option>
+                                    <option value="b2b-saas">B2B SaaS</option>
+                                    <option value="b2c">B2C</option>
+                                    <option value="marketplace">Marketplace</option>
+                                    <option value="fintech">Fintech</option>
+                                    <option value="healthtech">Healthtech</option>
+                                    <option value="edtech">Edtech</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Fundraising Plans -->
+                        <div class="form-group">
+                            <label style="display: block; font-size: 0.875rem; font-weight: 500; color: var(--gray-700); margin-bottom: 8px;">When do you plan to raise? *</label>
+                            <select 
+                                class="form-input" 
+                                style="width: 100%; padding: 12px 16px; font-size: 1rem; border: 1px solid var(--gray-300); border-radius: 8px; outline: none; transition: all 0.2s ease; background: var(--white);"
+                                required
+                                id="timeline"
+                            >
+                                <option value="">Select timeline</option>
+                                <option value="now">Currently raising</option>
+                                <option value="3months">Within 3 months</option>
+                                <option value="6months">3-6 months</option>
+                                <option value="12months">6-12 months</option>
+                                <option value="exploring">Just exploring</option>
+                            </select>
+                        </div>
+
+                        <!-- How did you hear -->
+                        <div class="form-group">
+                            <label style="display: block; font-size: 0.875rem; font-weight: 500; color: var(--gray-700); margin-bottom: 8px;">How did you hear about FLASH?</label>
+                            <select 
+                                class="form-input" 
+                                style="width: 100%; padding: 12px 16px; font-size: 1rem; border: 1px solid var(--gray-300); border-radius: 8px; outline: none; transition: all 0.2s ease; background: var(--white);"
+                                id="source"
+                            >
+                                <option value="">Select source</option>
+                                <option value="twitter">Twitter/X</option>
+                                <option value="linkedin">LinkedIn</option>
+                                <option value="friend">Friend/Colleague</option>
+                                <option value="search">Google Search</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button 
+                            type="submit" 
+                            class="submit-btn waitlist-submit" 
+                            style="width: 100%; padding: 16px 32px; font-size: 1.125rem; font-weight: 600; background: var(--black); color: var(--white); border: none; border-radius: 8px; cursor: pointer; transition: all 0.2s ease; margin-top: 16px;"
+                            id="submitBtn"
+                            onmouseover="this.style.background='var(--gray-900)'; this.style.transform='translateY(-2px)'"
+                            onmouseout="this.style.background='var(--black)'; this.style.transform='translateY(0)'"
+                        >
+                            <span id="btnText">Claim Your Early Access</span>
+                            <span id="btnLoading" class="loading" style="display: none;"></span>
+                        </button>
+
+                        <p style="font-size: 0.875rem; color: var(--gray-500); text-align: center; margin-top: 16px;">
+                            By joining, you agree to receive updates about FLASH. We respect your privacy.
+                        </p>
+                    </div>
+                </form>
+
+                <div class="success-message" id="successMessage" style="display: none; margin-top: 24px; padding: 24px; background: #f0fdf4; border: 1px solid #86efac; border-radius: 8px; text-align: center;">
+                    <div style="font-size: 2.5rem; margin-bottom: 16px;">🎉</div>
+                    <div style="font-weight: 600; color: #166534; margin-bottom: 8px; font-size: 1.25rem;">Welcome to FLASH!</div>
+                    <div style="font-size: 1rem; color: #166534; line-height: 1.6;">
+                        You're officially on the list! Check your email for confirmation and what to expect next.<br>
+                        We'll reach out as soon as early access opens.
+                    </div>
+                    <div style="margin-top: 16px; padding-top: 16px; border-top: 1px solid #86efac;">
+                        <p style="font-size: 0.875rem; color: #166534;">Your spot: #<span id="spotNumber">732</span> of 1,000</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Disclaimer Section -->
+    <section class="disclaimer-section" style="padding: 40px 0; background: var(--gray-50); border-top: 1px solid var(--gray-100);">
+        <div class="container">
+            <p style="font-size: 0.875rem; color: var(--gray-600); text-align: center; max-width: 800px; margin: 0 auto; line-height: 1.6;">
+                FLASH provides data-driven insights based on funding patterns. This is not investment advice, and results will vary based on individual circumstances. 
+                Success depends on many factors beyond our analysis. By using FLASH, you acknowledge that fundraising outcomes cannot be guaranteed.
+                <a href="#" style="color: var(--gray-600); text-decoration: underline;">View full terms</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    © 2024 FLASH. All rights reserved.
+                </div>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Privacy</a>
+                    <a href="#" class="footer-link">Terms</a>
+                    <a href="mailto:hello@flash.ai" class="footer-link">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Hero CTA hover effect
+        const heroCta = document.querySelector('.hero-cta-btn');
+        if (heroCta) {
+            heroCta.addEventListener('mouseenter', function() {
+                this.style.background = 'var(--gray-900)';
+                this.style.transform = 'translateY(-2px)';
+                this.querySelector('span:last-child').style.transform = 'translateX(4px)';
+            });
+            heroCta.addEventListener('mouseleave', function() {
+                this.style.background = 'var(--black)';
+                this.style.transform = 'translateY(0)';
+                this.querySelector('span:last-child').style.transform = 'translateX(0)';
+            });
+        }
+
+        // Form input focus effects
+        document.querySelectorAll('.form-input').forEach(input => {
+            input.addEventListener('focus', function() {
+                this.style.borderColor = 'var(--black)';
+            });
+            input.addEventListener('blur', function() {
+                this.style.borderColor = 'var(--gray-300)';
+            });
+        });
+
+        // Form handling
+        const waitlistForm = document.getElementById('waitlistForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const btnText = document.getElementById('btnText');
+        const btnLoading = document.getElementById('btnLoading');
+        const successMessage = document.getElementById('successMessage');
+
+        waitlistForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Show loading state
+            btnText.style.display = 'none';
+            btnLoading.style.display = 'inline-block';
+            submitBtn.disabled = true;
+            submitBtn.style.opacity = '0.7';
+            
+            // Get form data
+            const formData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                company: document.getElementById('company').value,
+                stage: document.getElementById('stage').value,
+                role: document.getElementById('role').value,
+                industry: document.getElementById('industry').value,
+                timeline: document.getElementById('timeline').value,
+                source: document.getElementById('source').value,
+                timestamp: new Date().toISOString()
+            };
+            
+            // Simulate API call
+            await new Promise(resolve => setTimeout(resolve, 2000));
+            
+            // Generate spot number (between 732 and 900)
+            const spotNumber = Math.floor(Math.random() * (900 - 732 + 1)) + 732;
+            document.getElementById('spotNumber').textContent = spotNumber;
+            
+            // Hide form and show success
+            waitlistForm.style.display = 'none';
+            successMessage.style.display = 'block';
+            
+            // Scroll to success message
+            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                // Close other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+
+        // Scroll reveal
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Header scroll effect
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            const header = document.querySelector('.header');
+            
+            if (currentScroll > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.8)';
+                header.style.boxShadow = 'none';
+            }
+            
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>

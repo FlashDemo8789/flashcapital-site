@@ -1,0 +1,1528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAMP Framework - How FLASH Analyzes Startups Like VCs Do</title>
+    <meta name="description" content="Discover the CAMP framework - the proven methodology FLASH uses to analyze startups. Capital, Advantage, Market, People - the four pillars of startup success.">
+    <meta property="og:title" content="CAMP Framework - FLASH">
+    <meta property="og:description" content="The four pillars that determine startup success. Learn how VCs really evaluate companies.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #000000;
+            --white: #ffffff;
+            --gray-900: #111111;
+            --gray-800: #1a1a1a;
+            --gray-700: #2a2a2a;
+            --gray-600: #4a4a4a;
+            --gray-500: #6a6a6a;
+            --gray-400: #8a8a8a;
+            --gray-300: #aaaaaa;
+            --gray-200: #cacaca;
+            --gray-100: #eaeaea;
+            --gray-50: #fafafa;
+            
+            --red: #ff3b30;
+            --green: #34c759;
+            --blue: #007aff;
+            --purple: #5856d6;
+            --orange: #ff9500;
+            
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --max-width: 1200px;
+            
+            --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--white);
+            color: var(--black);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        ::selection {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        /* Layout */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--gray-100);
+            transition: all 0.3s ease;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 72px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            text-decoration: none;
+            color: var(--black);
+            transition: opacity 0.2s ease;
+        }
+
+        .logo:hover {
+            opacity: 0.7;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .header-link {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--gray-600);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .header-link:hover {
+            color: var(--black);
+        }
+
+        .header-cta {
+            font-size: 0.875rem;
+            font-weight: 600;
+            padding: 8px 16px;
+            background: var(--black);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .header-cta:hover {
+            background: var(--gray-800);
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 140px 0 80px;
+            text-align: center;
+            background: var(--gray-50);
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .hero-badge {
+            display: inline-block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--gray-600);
+            margin-bottom: 24px;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1;
+            margin-bottom: 24px;
+            animation: fadeInUp 0.6s ease-out 0.1s both;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.25rem, 3vw, 1.5rem);
+            font-weight: 400;
+            color: var(--gray-600);
+            max-width: 700px;
+            margin: 0 auto 48px;
+            animation: fadeInUp 0.6s ease-out 0.2s both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Overview Section */
+        .overview-section {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .overview-content h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+        }
+
+        .overview-content p {
+            font-size: 1.125rem;
+            color: var(--gray-600);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .overview-visual {
+            position: relative;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .camp-diagram {
+            position: relative;
+            width: 360px;
+            height: 360px;
+        }
+
+        .diagram-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120px;
+            height: 120px;
+            background: var(--black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1.5rem;
+            z-index: 10;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .pillar-circle {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .pillar-circle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .pillar-circle.capital {
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #f3f4ff;
+            color: var(--purple);
+        }
+
+        .pillar-circle.advantage {
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #fff4f4;
+            color: var(--red);
+        }
+
+        .pillar-circle.market {
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #f0f9ff;
+            color: var(--blue);
+        }
+
+        .pillar-circle.people {
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #f0fdf4;
+            color: var(--green);
+        }
+
+        .pillar-icon {
+            font-size: 2rem;
+            margin-bottom: 4px;
+        }
+
+        .pillar-label {
+            font-size: 0.875rem;
+        }
+
+        /* Why CAMP Section */
+        .why-section {
+            padding: 100px 0;
+            background: var(--gray-50);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 24px;
+        }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: var(--gray-600);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .why-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 32px;
+            text-align: center;
+            border: 1px solid var(--gray-100);
+            transition: all 0.3s ease;
+        }
+
+        .why-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .why-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 16px;
+            color: var(--purple);
+        }
+
+        .why-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .why-description {
+            font-size: 0.9375rem;
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        /* Pillars Section */
+        .pillars-section {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .pillar-card {
+            background: var(--gray-50);
+            border-radius: 16px;
+            padding: 48px;
+            margin-bottom: 32px;
+            border: 1px solid var(--gray-100);
+            transition: all 0.3s ease;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .pillar-header {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+
+        .pillar-icon-large {
+            width: 80px;
+            height: 80px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            flex-shrink: 0;
+        }
+
+        .pillar-card:nth-child(1) .pillar-icon-large { 
+            background: #f3f4ff; 
+            color: var(--purple); 
+        }
+        
+        .pillar-card:nth-child(2) .pillar-icon-large { 
+            background: #fff4f4; 
+            color: var(--red); 
+        }
+        
+        .pillar-card:nth-child(3) .pillar-icon-large { 
+            background: #f0f9ff; 
+            color: var(--blue); 
+        }
+        
+        .pillar-card:nth-child(4) .pillar-icon-large { 
+            background: #f0fdf4; 
+            color: var(--green); 
+        }
+
+        .pillar-info h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .pillar-tagline {
+            font-size: 1.125rem;
+            color: var(--gray-600);
+        }
+
+        .pillar-content {
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            gap: 48px;
+        }
+
+        .pillar-description {
+            font-size: 1rem;
+            color: var(--gray-700);
+            line-height: 1.7;
+        }
+
+        .key-metrics {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 24px;
+            border: 1px solid var(--gray-100);
+        }
+
+        .metrics-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--gray-600);
+            margin-bottom: 16px;
+        }
+
+        .metric-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--gray-100);
+            font-size: 0.9375rem;
+        }
+
+        .metric-item:last-child {
+            border-bottom: none;
+        }
+
+        .metric-icon {
+            width: 16px;
+            height: 16px;
+            color: var(--green);
+            flex-shrink: 0;
+        }
+
+        /* Stage Weights Section */
+        .stages-section {
+            padding: 100px 0;
+            background: var(--gray-50);
+        }
+
+        .stages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            max-width: 1000px;
+            margin: 64px auto 0;
+        }
+
+        .stage-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 32px;
+            border: 1px solid var(--gray-100);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stage-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .weight-bars {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .weight-item {
+            text-align: left;
+        }
+
+        .weight-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.875rem;
+            margin-bottom: 4px;
+        }
+
+        .weight-label span:first-child {
+            font-weight: 500;
+        }
+
+        .weight-label span:last-child {
+            color: var(--gray-600);
+        }
+
+        .weight-bar {
+            height: 8px;
+            background: var(--gray-100);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .weight-fill {
+            height: 100%;
+            transition: width 0.6s ease;
+        }
+
+        .fill-capital { background: var(--purple); }
+        .fill-advantage { background: var(--red); }
+        .fill-market { background: var(--blue); }
+        .fill-people { background: var(--green); }
+
+        /* Score Interpretation Section */
+        .scores-section {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .score-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 48px;
+            max-width: 900px;
+            margin: 64px auto 0;
+        }
+
+        .score-category {
+            background: var(--gray-50);
+            border-radius: 12px;
+            padding: 32px;
+            border: 1px solid var(--gray-100);
+        }
+
+        .score-category h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .score-range {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .score-range:last-child {
+            border-bottom: none;
+        }
+
+        .range-indicator {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.875rem;
+            flex-shrink: 0;
+        }
+
+        .range-excellent { 
+            background: #d1fae5; 
+            color: #059669;
+        }
+
+        .range-strong { 
+            background: #dbeafe; 
+            color: #2563eb;
+        }
+
+        .range-average { 
+            background: #fef3c7; 
+            color: #d97706;
+        }
+
+        .range-weak { 
+            background: #fee2e2; 
+            color: #dc2626;
+        }
+
+        .range-critical { 
+            background: #fce7f3; 
+            color: #be185d;
+        }
+
+        .range-info {
+            flex: 1;
+        }
+
+        .range-label {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .range-description {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 120px 0;
+            text-align: center;
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .cta-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 24px;
+        }
+
+        .cta-subtitle {
+            font-size: 1.25rem;
+            color: var(--gray-300);
+            margin-bottom: 48px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 20px 48px;
+            background: var(--white);
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.125rem;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .cta-button:hover {
+            background: var(--gray-100);
+            transform: translateY(-2px);
+        }
+
+        .cta-button span:last-child {
+            transition: transform 0.2s ease;
+        }
+
+        .cta-button:hover span:last-child {
+            transform: translateX(4px);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 64px 0;
+            border-top: 1px solid var(--gray-100);
+            background: var(--white);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 32px;
+        }
+
+        .footer-text {
+            font-size: 0.875rem;
+            color: var(--gray-500);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--black);
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .header-nav {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .overview-grid {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .overview-visual {
+                order: -1;
+                height: 300px;
+            }
+
+            .camp-diagram {
+                width: 280px;
+                height: 280px;
+            }
+
+            .diagram-center {
+                width: 80px;
+                height: 80px;
+                font-size: 1.125rem;
+            }
+
+            .pillar-circle {
+                width: 70px;
+                height: 70px;
+            }
+
+            .pillar-icon {
+                font-size: 1.5rem;
+            }
+
+            .pillar-label {
+                font-size: 0.75rem;
+            }
+
+            .pillar-content {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .stages-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .score-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s var(--ease-out-expo);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Loading animation for weight bars */
+        .stage-card.active .weight-fill {
+            animation: fillBar 1s ease-out both;
+        }
+
+        @keyframes fillBar {
+            from { width: 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">FLASH</a>
+                <nav class="header-nav">
+                    <a href="/" class="header-link">Back to Home</a>
+                    <a href="#overview" class="header-link">Overview</a>
+                    <a href="#pillars" class="header-link">Four Pillars</a>
+                    <a href="#stages" class="header-link">By Stage</a>
+                    <a href="/#waitlist" class="header-cta">Get Started</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">The Science Behind FLASH</div>
+            <h1 class="hero-title">The CAMP Framework</h1>
+            <p class="hero-subtitle">
+                A data-driven methodology that transforms startup evaluation from guesswork into science
+            </p>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="overview-section reveal" id="overview">
+        <div class="container">
+            <div class="overview-grid">
+                <div class="overview-content">
+                    <h2>From Art to Science</h2>
+                    <p>
+                        Traditional startup evaluation relies on gut feelings and incomplete data. The CAMP Framework changes that by quantifying the key drivers of startup success.
+                    </p>
+                    <p>
+                        Developed through analysis of thousands of funding outcomes, CAMP evaluates startups across four critical dimensions that VCs care about most: <strong>Capital</strong>, <strong>Advantage</strong>, <strong>Market</strong>, and <strong>People</strong>.
+                    </p>
+                    <p>
+                        Each pillar is weighted differently based on your startup's stage, ensuring you get relevant insights whether you're pre-seed or Series A.
+                    </p>
+                </div>
+                <div class="overview-visual">
+                    <div class="camp-diagram">
+                        <div class="diagram-center">CAMP</div>
+                        <div class="pillar-circle capital">
+                            <div class="pillar-icon">💰</div>
+                            <div class="pillar-label">Capital</div>
+                        </div>
+                        <div class="pillar-circle advantage">
+                            <div class="pillar-icon">⚡</div>
+                            <div class="pillar-label">Advantage</div>
+                        </div>
+                        <div class="pillar-circle market">
+                            <div class="pillar-icon">📈</div>
+                            <div class="pillar-label">Market</div>
+                        </div>
+                        <div class="pillar-circle people">
+                            <div class="pillar-icon">👥</div>
+                            <div class="pillar-label">People</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why CAMP Works Section -->
+    <section class="why-section reveal">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why CAMP Works</h2>
+                <p class="section-subtitle">
+                    Built on real data, validated by outcomes, trusted by founders
+                </p>
+            </div>
+            <div class="why-grid">
+                <div class="why-card">
+                    <svg class="why-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                    </svg>
+                    <h3 class="why-title">Data-Driven</h3>
+                    <p class="why-description">
+                        Based on analysis of thousands of funding outcomes across all stages and industries
+                    </p>
+                </div>
+                <div class="why-card">
+                    <svg class="why-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                    </svg>
+                    <h3 class="why-title">Stage-Specific</h3>
+                    <p class="why-description">
+                        Adapts evaluation criteria based on whether you're pre-seed, seed, or Series A
+                    </p>
+                </div>
+                <div class="why-card">
+                    <svg class="why-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                    <h3 class="why-title">Actionable</h3>
+                    <p class="why-description">
+                        Goes beyond scores to provide specific improvements that actually move the needle
+                    </p>
+                </div>
+                <div class="why-card">
+                    <svg class="why-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <h3 class="why-title">Validated</h3>
+                    <p class="why-description">
+                        Continuously refined based on real funding outcomes and VC feedback
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Four Pillars Section -->
+    <section class="pillars-section reveal" id="pillars">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">The Four Pillars in Detail</h2>
+                <p class="section-subtitle">
+                    What VCs actually evaluate when making funding decisions
+                </p>
+            </div>
+
+            <!-- Capital Pillar -->
+            <div class="pillar-card">
+                <div class="pillar-header">
+                    <div class="pillar-icon-large">💰</div>
+                    <div class="pillar-info">
+                        <h3>Capital</h3>
+                        <p class="pillar-tagline">Financial Health & Efficiency</p>
+                    </div>
+                </div>
+                <div class="pillar-content">
+                    <div class="pillar-description">
+                        <p>
+                            The Capital pillar evaluates how efficiently you manage money and whether you've built investor confidence. It's not just about how much you've raised—it's about what you've done with it.
+                        </p>
+                        <p style="margin-top: 16px;">
+                            VCs want to see disciplined growth, not reckless burning. Strong capital metrics show you can turn investment into value, making you a safer bet for their next check.
+                        </p>
+                    </div>
+                    <div class="key-metrics">
+                        <h4 class="metrics-title">Key Metrics</h4>
+                        <div class="metric-item">
+                            <svg class="metric-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Funding history & investor quality</span>
+                        </div>
+                        <div class="metric-item">
+                            <svg class="metric-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Monthly burn rate & runway</span>
+                        </div>
+                        <div class="metric-item">
+                            <svg class="metric-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Burn multiple & efficiency</span>
+                        </div>
+                        <div class="metric-item">
+                            <svg class="metric-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Capital structure & flexibility</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Advantage Pillar -->
+            <div class="pillar-card">
+                <div class="pillar-header">
+                    <div class="pillar-icon-large">⚡</div>
+                    <div class="pillar-info">
+                        <h3>Advantage</h3>
+                        <p class="pillar-tagline">Competitive Moats & Differentiation</p>
+                    </div>
+                </div>
+                <div class="pillar-content">
+                    <div class="pillar-description">
+                        <p>
+                            The Advantage pillar assesses your sustainable competitive advantages and barriers to entry. It answers the critical question: "Why can't someone else just copy this?"
+                        </p>
+                        <p style="margin-top: 16px;">
+                            In competitive markets, sustainable advantages determine long-term winners. VCs invest in companies that can defend their position and maintain pricing power as they scale.
+                        </p>
+                    </div>
+                    <div class="key-metrics">
+                        <h4 class="metrics-title">Key Metrics</h4>
+                        <div class="metric-item">
+                            <svg class="metric-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Patents & proprietary technology</span>
+                        </div>
+                        <div class="metric-item">
+                            <svg class="metric-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Network effects & lock-in</span>
+                        </div>
+                        <div class="metric-item">
+                            <svg class="metric-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Data advantages & insights</span>
+                        </div>
+                        <div class="metric-item">
+                            <svg class="metric-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Brand strength & switching costs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Market Pillar -->
+            <div class="pillar-card">
+                <div class="pillar-header">
+                    <div class="pillar-icon-large">📈</div>
+                    <div class="pillar-info">
+                        <h3>Market</h3>
+                        <p class="pillar-tagline">Opportunity Size & Traction</p>
+                    </div>
+                </div>
+                <div class="pillar-content">
+                    <div class="pillar-description">
+                        <p>
+                            The Market pillar analyzes your total addressable market, growth dynamics, and current traction. It validates whether you're fishing in a big enough pond.
+                        </p>
+                        <p style="margin-top: 16px;">
+                            Great teams in small markets struggle to scale. VCs need to see not just a problem worth solving, but one that affects enough people to build a billion-dollar business.
+                        </p>
+                    </div>
+                    <div class="key-metrics">
+                        <h4 class="metrics-title">Key Metrics</h4>
+                        <div class="metric-item">
+                            <svg class="metric-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>TAM, SAM, and SOM analysis</span>
+                        </div>
+                        <div class="metric-item">
+                            <svg class="metric-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Market & user growth rates</span>
+                        </div>
+                        <div class="metric-item">
+                            <svg class="metric-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Customer retention & satisfaction</span>
+                        </div>
+                        <div class="metric-item">
+                            <svg class="metric-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Competitive landscape analysis</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- People Pillar -->
+            <div class="pillar-card">
+                <div class="pillar-header">
+                    <div class="pillar-icon-large">👥</div>
+                    <div class="pillar-info">
+                        <h3>People</h3>
+                        <p class="pillar-tagline">Team Capability & Execution</p>
+                    </div>
+                </div>
+                <div class="pillar-content">
+                    <div class="pillar-description">
+                        <p>
+                            The People pillar evaluates your team's composition, experience, and ability to execute. It's often the most important factor in early-stage investing.
+                        </p>
+                        <p style="margin-top: 16px;">
+                            Ideas are commodities; execution is everything. VCs bet on teams that can navigate uncertainty, iterate quickly, and build something extraordinary.
+                        </p>
+                    </div>
+                    <div class="key-metrics">
+                        <h4 class="metrics-title">Key Metrics</h4>
+                        <div class="metric-item">
+                            <svg class="metric-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Team composition & skill gaps</span>
+                        </div>
+                        <div class="metric-item">
+                            <svg class="metric-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Domain expertise & experience</span>
+                        </div>
+                        <div class="metric-item">
+                            <svg class="metric-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Track record & previous exits</span>
+                        </div>
+                        <div class="metric-item">
+                            <svg class="metric-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Advisory network quality</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stage-Specific Weights Section -->
+    <section class="stages-section reveal" id="stages">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Adapts to Your Stage</h2>
+                <p class="section-subtitle">
+                    What matters most changes as you grow. CAMP adjusts accordingly.
+                </p>
+            </div>
+            <div class="stages-grid">
+                <div class="stage-card">
+                    <h3 class="stage-name">Pre-Seed</h3>
+                    <div class="weight-bars">
+                        <div class="weight-item">
+                            <div class="weight-label">
+                                <span>People</span>
+                                <span>40%</span>
+                            </div>
+                            <div class="weight-bar">
+                                <div class="weight-fill fill-people" style="width: 40%"></div>
+                            </div>
+                        </div>
+                        <div class="weight-item">
+                            <div class="weight-label">
+                                <span>Advantage</span>
+                                <span>30%</span>
+                            </div>
+                            <div class="weight-bar">
+                                <div class="weight-fill fill-advantage" style="width: 30%"></div>
+                            </div>
+                        </div>
+                        <div class="weight-item">
+                            <div class="weight-label">
+                                <span>Market</span>
+                                <span>20%</span>
+                            </div>
+                            <div class="weight-bar">
+                                <div class="weight-fill fill-market" style="width: 20%"></div>
+                            </div>
+                        </div>
+                        <div class="weight-item">
+                            <div class="weight-label">
+                                <span>Capital</span>
+                                <span>10%</span>
+                            </div>
+                            <div class="weight-bar">
+                                <div class="weight-fill fill-capital" style="width: 10%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stage-card">
+                    <h3 class="stage-name">Seed</h3>
+                    <div class="weight-bars">
+                        <div class="weight-item">
+                            <div class="weight-label">
+                                <span>People</span>
+                                <span>30%</span>
+                            </div>
+                            <div class="weight-bar">
+                                <div class="weight-fill fill-people" style="width: 30%"></div>
+                            </div>
+                        </div>
+                        <div class="weight-item">
+                            <div class="weight-label">
+                                <span>Advantage</span>
+                                <span>30%</span>
+                            </div>
+                            <div class="weight-bar">
+                                <div class="weight-fill fill-advantage" style="width: 30%"></div>
+                            </div>
+                        </div>
+                        <div class="weight-item">
+                            <div class="weight-label">
+                                <span>Market</span>
+                                <span>25%</span>
+                            </div>
+                            <div class="weight-bar">
+                                <div class="weight-fill fill-market" style="width: 25%"></div>
+                            </div>
+                        </div>
+                        <div class="weight-item">
+                            <div class="weight-label">
+                                <span>Capital</span>
+                                <span>15%</span>
+                            </div>
+                            <div class="weight-bar">
+                                <div class="weight-fill fill-capital" style="width: 15%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stage-card">
+                    <h3 class="stage-name">Series A</h3>
+                    <div class="weight-bars">
+                        <div class="weight-item">
+                            <div class="weight-label">
+                                <span>Market</span>
+                                <span>30%</span>
+                            </div>
+                            <div class="weight-bar">
+                                <div class="weight-fill fill-market" style="width: 30%"></div>
+                            </div>
+                        </div>
+                        <div class="weight-item">
+                            <div class="weight-label">
+                                <span>Capital</span>
+                                <span>25%</span>
+                            </div>
+                            <div class="weight-bar">
+                                <div class="weight-fill fill-capital" style="width: 25%"></div>
+                            </div>
+                        </div>
+                        <div class="weight-item">
+                            <div class="weight-label">
+                                <span>Advantage</span>
+                                <span>25%</span>
+                            </div>
+                            <div class="weight-bar">
+                                <div class="weight-fill fill-advantage" style="width: 25%"></div>
+                            </div>
+                        </div>
+                        <div class="weight-item">
+                            <div class="weight-label">
+                                <span>People</span>
+                                <span>20%</span>
+                            </div>
+                            <div class="weight-bar">
+                                <div class="weight-fill fill-people" style="width: 20%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stage-card">
+                    <h3 class="stage-name">Series B+</h3>
+                    <div class="weight-bars">
+                        <div class="weight-item">
+                            <div class="weight-label">
+                                <span>Capital</span>
+                                <span>35%</span>
+                            </div>
+                            <div class="weight-bar">
+                                <div class="weight-fill fill-capital" style="width: 35%"></div>
+                            </div>
+                        </div>
+                        <div class="weight-item">
+                            <div class="weight-label">
+                                <span>Market</span>
+                                <span>30%</span>
+                            </div>
+                            <div class="weight-bar">
+                                <div class="weight-fill fill-market" style="width: 30%"></div>
+                            </div>
+                        </div>
+                        <div class="weight-item">
+                            <div class="weight-label">
+                                <span>Advantage</span>
+                                <span>20%</span>
+                            </div>
+                            <div class="weight-bar">
+                                <div class="weight-fill fill-advantage" style="width: 20%"></div>
+                            </div>
+                        </div>
+                        <div class="weight-item">
+                            <div class="weight-label">
+                                <span>People</span>
+                                <span>15%</span>
+                            </div>
+                            <div class="weight-bar">
+                                <div class="weight-fill fill-people" style="width: 15%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Score Interpretation Section -->
+    <section class="scores-section reveal">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Understanding Your Scores</h2>
+                <p class="section-subtitle">
+                    What the numbers mean and how to improve them
+                </p>
+            </div>
+            <div class="score-grid">
+                <div class="score-category">
+                    <h3>Individual Pillar Scores</h3>
+                    <div class="score-range">
+                        <div class="range-indicator range-excellent">0.8+</div>
+                        <div class="range-info">
+                            <div class="range-label">Exceptional</div>
+                            <div class="range-description">Top-tier performance, major strength</div>
+                        </div>
+                    </div>
+                    <div class="score-range">
+                        <div class="range-indicator range-strong">0.6-0.8</div>
+                        <div class="range-info">
+                            <div class="range-label">Strong</div>
+                            <div class="range-description">Above average, competitive advantage</div>
+                        </div>
+                    </div>
+                    <div class="score-range">
+                        <div class="range-indicator range-average">0.4-0.6</div>
+                        <div class="range-info">
+                            <div class="range-label">Average</div>
+                            <div class="range-description">Room for improvement, not a blocker</div>
+                        </div>
+                    </div>
+                    <div class="score-range">
+                        <div class="range-indicator range-weak">0.2-0.4</div>
+                        <div class="range-info">
+                            <div class="range-label">Below Average</div>
+                            <div class="range-description">Significant concerns, needs attention</div>
+                        </div>
+                    </div>
+                    <div class="score-range">
+                        <div class="range-indicator range-critical">0-0.2</div>
+                        <div class="range-info">
+                            <div class="range-label">Critical</div>
+                            <div class="range-description">Major weakness, address immediately</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="score-category">
+                    <h3>Overall CAMP Score</h3>
+                    <div class="score-range">
+                        <div class="range-indicator range-excellent">75+</div>
+                        <div class="range-info">
+                            <div class="range-label">Investment Ready</div>
+                            <div class="range-description">Strong candidate for funding</div>
+                        </div>
+                    </div>
+                    <div class="score-range">
+                        <div class="range-indicator range-strong">60-75</div>
+                        <div class="range-info">
+                            <div class="range-label">Promising</div>
+                            <div class="range-description">Close with specific improvements needed</div>
+                        </div>
+                    </div>
+                    <div class="score-range">
+                        <div class="range-indicator range-average">45-60</div>
+                        <div class="range-info">
+                            <div class="range-label">Mixed Signals</div>
+                            <div class="range-description">Major work needed before raising</div>
+                        </div>
+                    </div>
+                    <div class="score-range">
+                        <div class="range-indicator range-weak">30-45</div>
+                        <div class="range-info">
+                            <div class="range-label">Not Ready</div>
+                            <div class="range-description">Significant challenges to address</div>
+                        </div>
+                    </div>
+                    <div class="score-range">
+                        <div class="range-indicator range-critical">0-30</div>
+                        <div class="range-info">
+                            <div class="range-label">Early Stage</div>
+                            <div class="range-description">Focus on fundamentals first</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">Ready to see your CAMP score?</h2>
+            <p class="cta-subtitle">
+                Find out exactly where you stand and what to fix before pitching to VCs.
+            </p>
+            <a href="/#waitlist" class="cta-button">
+                <span>Get Your Analysis</span>
+                <span>→</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    © 2024 FLASH. All rights reserved.
+                </div>
+                <div class="footer-links">
+                    <a href="/" class="footer-link">Home</a>
+                    <a href="#" class="footer-link">Privacy</a>
+                    <a href="#" class="footer-link">Terms</a>
+                    <a href="mailto:hello@flash.ai" class="footer-link">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Scroll reveal
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    
+                    // Trigger stage card animations
+                    if (entry.target.classList.contains('stages-section')) {
+                        const cards = entry.target.querySelectorAll('.stage-card');
+                        cards.forEach((card, index) => {
+                            setTimeout(() => {
+                                card.classList.add('active');
+                            }, index * 200);
+                        });
+                    }
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Interactive CAMP diagram
+        const pillarCircles = document.querySelectorAll('.pillar-circle');
+        pillarCircles.forEach(circle => {
+            circle.addEventListener('click', () => {
+                const pillarName = circle.querySelector('.pillar-label').textContent.toLowerCase();
+                const targetSection = document.querySelector('#pillars');
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.9)';
+                header.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
