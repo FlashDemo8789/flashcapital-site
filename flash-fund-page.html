@@ -1,0 +1,1314 @@
+        .badge-icon {
+            width: 16px;
+            height: 16px;
+            background: var(--green);
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .badge-icon::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            background: var(--green);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.5); opacity: 0; }
+        }<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLASH Fund - Get Funded Based on Merit, Not Networks</title>
+    <meta name="description" content="Score 75+ on FLASH analysis? Apply for $100K-$500K investment. We already understand your business. Get funded in 2 weeks, not 6 months.">
+    <meta property="og:title" content="FLASH Fund - Where High Scores Get Funded">
+    <meta property="og:description" content="Top-performing startups on FLASH get exclusive access to apply for investment. Fast decisions, founder-friendly terms.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #000000;
+            --white: #ffffff;
+            --gray-900: #111111;
+            --gray-800: #1a1a1a;
+            --gray-700: #2a2a2a;
+            --gray-600: #4a4a4a;
+            --gray-500: #6a6a6a;
+            --gray-400: #8a8a8a;
+            --gray-300: #aaaaaa;
+            --gray-200: #cacaca;
+            --gray-100: #eaeaea;
+            --gray-50: #fafafa;
+            
+            --red: #ff3b30;
+            --green: #34c759;
+            --blue: #007aff;
+            --purple: #5856d6;
+            
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --max-width: 1200px;
+            
+            --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--white);
+            color: var(--black);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        ::selection {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        /* Typography */
+        .text-xs { font-size: 0.75rem; }
+        .text-sm { font-size: 0.875rem; }
+        .text-base { font-size: 1rem; }
+        .text-lg { font-size: 1.125rem; }
+        .text-xl { font-size: 1.25rem; }
+        .text-2xl { font-size: 1.5rem; }
+        .text-3xl { font-size: 1.875rem; }
+        .text-4xl { font-size: 2.25rem; }
+        .text-5xl { font-size: 3rem; }
+        .text-6xl { font-size: 3.75rem; }
+        .text-7xl { font-size: 4.5rem; }
+        .text-8xl { font-size: 6rem; }
+
+        .font-normal { font-weight: 400; }
+        .font-medium { font-weight: 500; }
+        .font-semibold { font-weight: 600; }
+        .font-bold { font-weight: 700; }
+        .font-extrabold { font-weight: 800; }
+
+        /* Layout */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--gray-100);
+            transition: all 0.3s ease;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 72px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            text-decoration: none;
+            color: var(--black);
+            transition: opacity 0.2s ease;
+        }
+
+        .logo:hover {
+            opacity: 0.7;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .header-link {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--gray-600);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .header-link:hover {
+            color: var(--black);
+        }
+
+        .header-link.active {
+            color: var(--black);
+            font-weight: 600;
+        }
+
+        .header-cta {
+            font-size: 0.875rem;
+            font-weight: 600;
+            padding: 8px 16px;
+            background: var(--black);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .header-cta:hover {
+            background: var(--gray-800);
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 0 80px;
+            position: relative;
+            background: var(--white);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, var(--gray-100) 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.5;
+            transform: rotate(45deg);
+        }
+
+        .hero-content {
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--black);
+            margin-bottom: 24px;
+            animation: fadeIn 0.6s ease-out;
+            padding: 6px 12px;
+            background: var(--white);
+            border: 2px solid var(--black);
+            border-radius: 100px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            line-height: 0.95;
+            margin-bottom: 24px;
+            animation: fadeInUp 0.6s ease-out 0.1s both;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--black) 0%, var(--gray-600) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.25rem, 3vw, 1.5rem);
+            font-weight: 400;
+            color: var(--gray-600);
+            margin-bottom: 48px;
+            max-width: 600px;
+            animation: fadeInUp 0.6s ease-out 0.2s both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Fund Stats */
+        .fund-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+            margin: 64px 0;
+            animation: fadeInUp 0.6s ease-out 0.3s both;
+        }
+
+        .stat-card {
+            padding: 24px;
+            background: var(--white);
+            border: 2px solid var(--black);
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+            background: var(--gray-50);
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--black);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+        }
+
+        /* Process Section */
+        .process-section {
+            padding: 120px 0;
+            background: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .section-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gray-500);
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 24px;
+        }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: var(--gray-600);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Timeline */
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 32px;
+            margin-bottom: 48px;
+            position: relative;
+        }
+
+        .timeline-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 24px;
+            top: 56px;
+            bottom: -48px;
+            width: 2px;
+            background: var(--gray-200);
+        }
+
+        .timeline-number {
+            width: 48px;
+            height: 48px;
+            background: var(--black);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .timeline-content {
+            flex: 1;
+        }
+
+        .timeline-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .timeline-description {
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        .timeline-duration {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 4px 12px;
+            background: var(--gray-100);
+            border-radius: 100px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--gray-700);
+        }
+
+        /* Benefits Grid */
+        .benefits-section {
+            padding: 120px 0;
+            background: var(--gray-50);
+            border-top: 1px solid var(--gray-100);
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .benefit-card {
+            padding: 32px;
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+            border-color: var(--black);
+        }
+
+        .benefit-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .benefit-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .benefit-description {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        /* Criteria Section */
+        .criteria-section {
+            padding: 120px 0;
+            background: var(--white);
+            position: relative;
+        }
+
+        .criteria-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .criteria-visual {
+            position: relative;
+        }
+
+        .score-meter {
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--white);
+            border-radius: 50%;
+            border: 8px solid var(--black);
+            box-shadow: 0 0 0 16px var(--gray-100);
+        }
+
+        .score-meter-inner {
+            text-align: center;
+        }
+
+        .score-meter-value {
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--black);
+        }
+
+        .score-meter-label {
+            font-size: 1.125rem;
+            color: var(--gray-600);
+        }
+
+        .criteria-list {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .criteria-item {
+            display: flex;
+            gap: 16px;
+            align-items: start;
+        }
+
+        .criteria-icon {
+            width: 24px;
+            height: 24px;
+            color: var(--green);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .criteria-text {
+            flex: 1;
+        }
+
+        .criteria-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .criteria-description {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            line-height: 1.5;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 120px 0;
+            background: var(--gray-50);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .faq-item {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 24px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.2s ease;
+        }
+
+        .faq-question:hover {
+            background: var(--gray-50);
+        }
+
+        .faq-arrow {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-arrow {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 0 24px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 24px 24px;
+            max-height: 300px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 120px 0;
+            text-align: center;
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .cta-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 24px;
+        }
+
+        .cta-subtitle {
+            font-size: 1.25rem;
+            color: var(--gray-300);
+            margin-bottom: 48px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 64px 0;
+            background: var(--black);
+            color: var(--white);
+            border-top: 1px solid var(--gray-800);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 32px;
+        }
+
+        .footer-text {
+            font-size: 0.875rem;
+            color: var(--gray-400);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            font-size: 0.875rem;
+            color: var(--gray-400);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--white);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            width: 32px;
+            height: 32px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            width: 20px;
+            height: 2px;
+            background: var(--black);
+            margin: 5px auto;
+            transition: all 0.3s ease;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-nav {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.125rem;
+            }
+
+            .fund-stats {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .timeline-item {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .timeline-item:not(:last-child)::after {
+                display: none;
+            }
+
+            .benefits-grid,
+            .criteria-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .score-meter {
+                width: 250px;
+                height: 250px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s var(--ease-out-expo);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            overflow-x: auto;
+            margin: 48px 0;
+        }
+
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .comparison-table th {
+            padding: 20px;
+            background: var(--black);
+            color: var(--white);
+            font-weight: 600;
+            text-align: left;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .comparison-table th.highlight {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .comparison-table td {
+            padding: 20px;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table .highlight {
+            background: var(--gray-50);
+            font-weight: 700;
+            color: var(--black);
+            border-left: 3px solid var(--black);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">FLASH</a>
+                <nav class="header-nav">
+                    <a href="/#how" class="header-link">How it works</a>
+                    <a href="/#camp" class="header-link">CAMP Framework</a>
+                    <a href="/fund" class="header-link active">FLASH Fund</a>
+                    <a href="/#example" class="header-link">Example</a>
+                    <a href="/#faq" class="header-link">FAQ</a>
+                    <a href="/#waitlist" class="header-cta">Get early access</a>
+                </nav>
+                <button class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span>💰</span>
+                    <span>EXCLUSIVE INVESTMENT OPPORTUNITY</span>
+                </div>
+                
+                <h1 class="hero-title">
+                    Score high.<br>
+                    <span style="text-decoration: underline; text-decoration-thickness: 6px; text-underline-offset: 8px;">Get funded.</span>
+                </h1>
+                
+                <p class="hero-subtitle">
+                    The FLASH Fund invests $100K-$500K in top-scoring startups. We already know your business from the analysis. No redundant pitch decks. Decisions in 2 weeks, not 6 months.
+                </p>
+
+                <div class="fund-stats">
+                    <div class="stat-card">
+                        <div class="stat-value">$100-500K</div>
+                        <div class="stat-label">Investment Range</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">75+</div>
+                        <div class="stat-label">Score to Qualify</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">2 weeks</div>
+                        <div class="stat-label">Decision Timeline</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">Pre-seed</div>
+                        <div class="stat-label">Target Stage</div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; animation: fadeInUp 0.6s ease-out 0.4s both;">
+                    <a href="/#waitlist" style="display: inline-flex; align-items: center; gap: 12px; padding: 20px 48px; background: var(--black); color: var(--white); text-decoration: none; font-weight: 600; font-size: 1.125rem; border-radius: 8px; transition: all 0.2s ease;" onmouseover="this.style.background='var(--gray-800)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='var(--black)'; this.style.transform='translateY(0)'">
+                        <span>Get analyzed first</span>
+                        <span>→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section reveal">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">THE PROCESS</div>
+                <h2 class="section-title">From score to funding in record time</h2>
+                <p class="section-subtitle">
+                    Traditional VCs take 3-6 months. We take 2 weeks because we already understand your business.
+                </p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-number">1</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Complete FLASH analysis</h3>
+                        <p class="timeline-description">
+                            Answer our comprehensive questionnaire about your startup. Our framework evaluates your business across 45 key metrics that predict funding success.
+                        </p>
+                        <span class="timeline-duration">10 minutes</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">2</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Score 75+ to unlock application</h3>
+                        <p class="timeline-description">
+                            High-scoring startups get exclusive access to apply for FLASH Fund. Your score shows you've addressed the key concerns investors care about.
+                        </p>
+                        <span class="timeline-duration">Instant</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">3</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Submit additional materials</h3>
+                        <p class="timeline-description">
+                            Share your deck, financials, and any additional context. Since we already understand your business model, this is streamlined and focused.
+                        </p>
+                        <span class="timeline-duration">1-2 days</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">4</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Partner interview</h3>
+                        <p class="timeline-description">
+                            Meet with our investment team to discuss your vision and answer specific questions. This is conversational, not a grilling.
+                        </p>
+                        <span class="timeline-duration">1 hour</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">5</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Investment decision</h3>
+                        <p class="timeline-description">
+                            Receive our decision with clear next steps. If we invest, we'll send terms immediately. If not, we'll explain exactly why.
+                        </p>
+                        <span class="timeline-duration">Within 2 weeks</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section reveal">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">WHY FLASH FUND</div>
+                <h2 class="section-title">Built different from traditional VCs</h2>
+                <p class="section-subtitle">
+                    We're founders who got tired of the broken fundraising process. So we fixed it.
+                </p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚡</div>
+                    <h3 class="benefit-title">Lightning fast decisions</h3>
+                    <p class="benefit-description">
+                        2 weeks from application to decision. No endless meetings, no stringing you along. We respect your time because we've been there.
+                    </p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📊</div>
+                    <h3 class="benefit-title">Data-driven, not gut-driven</h3>
+                    <p class="benefit-description">
+                        Your FLASH score is based on what actually predicts success. No more wondering if the partner "liked" you or your idea resonated.
+                    </p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎯</div>
+                    <h3 class="benefit-title">Pre-qualified startups only</h3>
+                    <p class="benefit-description">
+                        By scoring 75+, you've already proven you understand the fundamentals. We only review startups that have done the work.
+                    </p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🤝</div>
+                    <h3 class="benefit-title">Founder-friendly terms</h3>
+                    <p class="benefit-description">
+                        Standard SAFE, no weird provisions. We win when you win. Our terms are public and transparent, no surprises.
+                    </p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">💡</div>
+                    <h3 class="benefit-title">Honest feedback always</h3>
+                    <p class="benefit-description">
+                        Whether we invest or not, you'll know exactly why. No generic "not a fit" emails. Real feedback you can act on.
+                    </p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🚀</div>
+                    <h3 class="benefit-title">More than just capital</h3>
+                    <p class="benefit-description">
+                        Access to our network, ongoing FLASH analysis, and a community of funded founders who've been through the journey.
+                    </p>
+                </div>
+            </div>
+
+            <div class="comparison-table" style="margin-top: 64px;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Comparison</th>
+                            <th>Traditional VCs</th>
+                            <th class="highlight">FLASH Fund</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Time to decision</td>
+                            <td>3-6 months</td>
+                            <td class="highlight">2 weeks</td>
+                        </tr>
+                        <tr>
+                            <td>Initial screening</td>
+                            <td>5 minute deck skim</td>
+                            <td class="highlight">45-point analysis</td>
+                        </tr>
+                        <tr>
+                            <td>Feedback quality</td>
+                            <td>"Not a fit for us"</td>
+                            <td class="highlight">Specific reasons & fixes</td>
+                        </tr>
+                        <tr>
+                            <td>Pre-qualification</td>
+                            <td>Warm intro required</td>
+                            <td class="highlight">Merit-based scoring</td>
+                        </tr>
+                        <tr>
+                            <td>Decision criteria</td>
+                            <td>Often unclear</td>
+                            <td class="highlight">Transparent framework</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Criteria Section -->
+    <section class="criteria-section reveal">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">INVESTMENT CRITERIA</div>
+                <h2 class="section-title">What we look for beyond the score</h2>
+                <p class="section-subtitle">
+                    A 75+ score gets you in the door. Here's what we evaluate next.
+                </p>
+            </div>
+
+            <div class="criteria-grid">
+                <div class="criteria-visual">
+                    <div class="score-meter">
+                        <div class="score-meter-inner">
+                            <div class="score-meter-value">75+</div>
+                            <div class="score-meter-label">Minimum Score</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="criteria-content">
+                    <div class="criteria-list">
+                        <div class="criteria-item">
+                            <svg class="criteria-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <div class="criteria-text">
+                                <div class="criteria-title">Founder-market fit</div>
+                                <div class="criteria-description">
+                                    Do you deeply understand your customers' problems? We invest in founders who've lived the pain they're solving.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="criteria-item">
+                            <svg class="criteria-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <div class="criteria-text">
+                                <div class="criteria-title">Early validation</div>
+                                <div class="criteria-description">
+                                    Signs of product-market fit: customer love, organic growth, or strong engagement metrics that show you're onto something.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="criteria-item">
+                            <svg class="criteria-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <div class="criteria-text">
+                                <div class="criteria-title">Scalable vision</div>
+                                <div class="criteria-description">
+                                    Can this become a billion-dollar company? We look for ambitious founders tackling big markets with innovative solutions.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="criteria-item">
+                            <svg class="criteria-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <div class="criteria-text">
+                                <div class="criteria-title">Coachability</div>
+                                <div class="criteria-description">
+                                    Strong founders take feedback well. Your FLASH improvements show you can identify weaknesses and fix them fast.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section reveal">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">FAQ</div>
+                <h2 class="section-title">Common questions about FLASH Fund</h2>
+            </div>
+
+            <div class="faq-container">
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Does a 75+ score guarantee funding?</span>
+                            <svg class="faq-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            No, a high score enables you to apply but doesn't guarantee investment. The score shows you understand fundamentals, but we still evaluate founder-market fit, vision, and other qualitative factors. Think of 75+ as passing the first filter, not the final exam.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What are your investment terms?</span>
+                            <svg class="faq-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            We use standard Y Combinator SAFE notes with a valuation cap. The exact cap depends on your stage and traction but typically ranges from $8M-$15M. We take 5-10% equity on a fully diluted basis. No board seats, no weird terms, no surprises.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What if my score is below 75?</span>
+                            <svg class="faq-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            Use the FLASH analysis to understand what needs improvement. Many founders increase their score by 20-30 points after implementing our recommendations. You can re-run the analysis anytime to track progress. Once you hit 75+, the application unlocks automatically.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Do you lead rounds or follow?</span>
+                            <svg class="faq-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            We can do both. For pre-seed rounds under $1M, we often lead or co-lead. For larger seed rounds, we're happy to participate alongside other investors. Our goal is to be helpful, not demanding.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What sectors do you invest in?</span>
+                            <svg class="faq-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            We're sector-agnostic but have deep expertise in B2B SaaS, marketplaces, fintech, and developer tools. We avoid heavily regulated industries (like pharmaceuticals) and capital-intensive hardware businesses. If software can solve it, we're interested.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Do I need to be in Silicon Valley?</span>
+                            <svg class="faq-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            No! We invest globally. Great founders are everywhere. Our portfolio includes companies from 15+ countries. The only requirement is that you're building a scalable, venture-backable business.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What happens after investment?</span>
+                            <svg class="faq-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            You get ongoing access to FLASH analysis to track progress, monthly office hours with our team, introductions to relevant advisors and customers, and a private community of FLASH-funded founders. We're hands-on when you need us, hands-off when you don't.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Can I apply if I've already raised funding?</span>
+                            <svg class="faq-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            Yes, if you're still at pre-seed or seed stage. We've invested in companies that have raised up to $2M previously. The key is that our check size ($100K-$500K) still makes sense for your round and stage.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">Ready to unlock funding opportunities?</h2>
+            <p class="cta-subtitle">
+                Start with the FLASH analysis. If you score 75+, you can apply for investment immediately.
+            </p>
+            <div style="text-align: center;">
+                <a href="/#waitlist" style="display: inline-flex; align-items: center; gap: 12px; padding: 20px 48px; background: var(--white); color: var(--black); text-decoration: none; font-weight: 600; font-size: 1.125rem; border-radius: 8px; transition: all 0.2s ease;" onmouseover="this.style.background='var(--gray-100)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='var(--white)'; this.style.transform='translateY(0)'">
+                    <span>Get Your FLASH Score</span>
+                    <span>→</span>
+                </a>
+            </div>
+            <p style="font-size: 0.875rem; color: var(--gray-400); margin-top: 24px;">
+                Join 1,000+ founders. Early access members get priority review.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    © 2024 FLASH. All rights reserved.
+                </div>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Privacy</a>
+                    <a href="#" class="footer-link">Terms</a>
+                    <a href="mailto:fund@flash.ai" class="footer-link">fund@flash.ai</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                // Close other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+
+        // Scroll reveal
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Header scroll effect
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            const header = document.querySelector('.header');
+            
+            if (currentScroll > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.8)';
+                header.style.boxShadow = 'none';
+            }
+            
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>
