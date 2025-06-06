@@ -11,6 +11,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KWVF9HSH');</script>
+<!-- End Google Tag Manager -->
     
     <style>
         * {
@@ -1096,6 +1104,10 @@
     </style>
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KWVF9HSH"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
     <!-- Header -->
     <header class="header">
         <div class="container">
@@ -1899,6 +1911,10 @@
         });
 
         // Form handling
+        document.addEventListener('DOMContentLoaded', function () {
+        // ✅ Initialize EmailJS with your public key
+        emailjs.init("6AT3cxrWaiyVfVIoF");
+
         const waitlistForm = document.getElementById('waitlistForm');
         const submitBtn = document.getElementById('submitBtn');
         const btnText = document.getElementById('btnText');
@@ -1907,15 +1923,15 @@
 
         waitlistForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            
-            // Show loading state
+
+            // UI: show loading state
             btnText.style.display = 'none';
             btnLoading.style.display = 'inline-block';
             submitBtn.disabled = true;
             submitBtn.style.opacity = '0.7';
-            
-            // Get form data
-            const formData = {
+
+            // 🔄 Collect form values
+            const templateParams = {
                 firstName: document.getElementById('firstName').value,
                 lastName: document.getElementById('lastName').value,
                 email: document.getElementById('email').value,
@@ -1927,21 +1943,32 @@
                 source: document.getElementById('source').value,
                 timestamp: new Date().toISOString()
             };
-            
-            // Simulate API call
-            await new Promise(resolve => setTimeout(resolve, 2000));
-            
-            // Generate spot number (between 732 and 900)
-            const spotNumber = Math.floor(Math.random() * (900 - 732 + 1)) + 732;
-            document.getElementById('spotNumber').textContent = spotNumber;
-            
-            // Hide form and show success
-            waitlistForm.style.display = 'none';
-            successMessage.style.display = 'block';
-            
-            // Scroll to success message
-            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            try {
+                // 📨 Send email via EmailJS
+                await emailjs.send("service_bjsum1f", "template_besilmo", templateParams);
+
+                // ✅ Generate a dynamic spot number
+                const spotNumber = Math.floor(Math.random() * (900 - 732 + 1)) + 732;
+                document.getElementById('spotNumber').textContent = spotNumber;
+
+                // ✅ Show success message
+                waitlistForm.style.display = 'none';
+                successMessage.style.display = 'block';
+                successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            } catch (error) {
+                console.error("Email send error:", error);
+
+                // ❌ Show failure UI
+                btnText.style.display = 'inline';
+                btnLoading.style.display = 'none';
+                btnText.textContent = 'Try Again';
+                submitBtn.disabled = false;
+                submitBtn.style.opacity = '1';
+            }
         });
+    });
 
         // FAQ Accordion
         const faqItems = document.querySelectorAll('.faq-item');
