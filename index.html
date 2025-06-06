@@ -1913,65 +1913,63 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             });
         });
 
-        // Form handling
-        document.addEventListener('DOMContentLoaded', function () {
-        // ✅ Initialize EmailJS with your public key
-        emailjs.init("6AT3cxrWaiyVfVIoF");
+       // Dynamically load EmailJS SDK
+  const script = document.createElement('script');
+  script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
+  script.onload = function () {
+    // SDK loaded, now safe to use emailjs
+    emailjs.init("6AT3cxrWaiyVfVIoF"); // ✅ Replace with your actual public key
 
-        const waitlistForm = document.getElementById('waitlistForm');
-        const submitBtn = document.getElementById('submitBtn');
-        const btnText = document.getElementById('btnText');
-        const btnLoading = document.getElementById('btnLoading');
-        const successMessage = document.getElementById('successMessage');
+    document.addEventListener('DOMContentLoaded', function () {
+      const waitlistForm = document.getElementById('waitlistForm');
+      const submitBtn = document.getElementById('submitBtn');
+      const btnText = document.getElementById('btnText');
+      const btnLoading = document.getElementById('btnLoading');
+      const successMessage = document.getElementById('successMessage');
 
-        waitlistForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
+      waitlistForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
 
-            // UI: show loading state
-            btnText.style.display = 'none';
-            btnLoading.style.display = 'inline-block';
-            submitBtn.disabled = true;
-            submitBtn.style.opacity = '0.7';
+        btnText.style.display = 'none';
+        btnLoading.style.display = 'inline-block';
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = '0.7';
 
-            // 🔄 Collect form values
-            const templateParams = {
-                firstName: document.getElementById('firstName').value,
-                lastName: document.getElementById('lastName').value,
-                email: document.getElementById('email').value,
-                company: document.getElementById('company').value,
-                stage: document.getElementById('stage').value,
-                role: document.getElementById('role').value,
-                industry: document.getElementById('industry').value,
-                timeline: document.getElementById('timeline').value,
-                source: document.getElementById('source').value,
-                timestamp: new Date().toISOString()
-            };
+        const templateParams = {
+          firstName: document.getElementById('firstName').value,
+          lastName: document.getElementById('lastName').value,
+          email: document.getElementById('email').value,
+          company: document.getElementById('company').value,
+          stage: document.getElementById('stage').value,
+          role: document.getElementById('role').value,
+          industry: document.getElementById('industry').value,
+          timeline: document.getElementById('timeline').value,
+          source: document.getElementById('source').value,
+          timestamp: new Date().toISOString()
+        };
 
-            try {
-                // 📨 Send email via EmailJS
-                await emailjs.send("service_bjsum1f", "template_besilmo", templateParams);
+        try {
+          await emailjs.send("service_bjsum1f", "template_besilmo", templateParams);
 
-                // ✅ Generate a dynamic spot number
-                const spotNumber = Math.floor(Math.random() * (900 - 732 + 1)) + 732;
-                document.getElementById('spotNumber').textContent = spotNumber;
+          const spotNumber = Math.floor(Math.random() * (900 - 732 + 1)) + 732;
+          document.getElementById('spotNumber').textContent = spotNumber;
 
-                // ✅ Show success message
-                waitlistForm.style.display = 'none';
-                successMessage.style.display = 'block';
-                successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          waitlistForm.style.display = 'none';
+          successMessage.style.display = 'block';
+          successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-            } catch (error) {
-                console.error("Email send error:", error);
-
-                // ❌ Show failure UI
-                btnText.style.display = 'inline';
-                btnLoading.style.display = 'none';
-                btnText.textContent = 'Try Again';
-                submitBtn.disabled = false;
-                submitBtn.style.opacity = '1';
-            }
-        });
+        } catch (error) {
+          console.error("Email send error:", error);
+          btnText.style.display = 'inline';
+          btnLoading.style.display = 'none';
+          btnText.textContent = 'Try Again';
+          submitBtn.disabled = false;
+          submitBtn.style.opacity = '1';
+        }
+      });
     });
+  };
+  document.head.appendChild(script); // Append EmailJS script and trigger `onload`
 
         // FAQ Accordion
         const faqItems = document.querySelectorAll('.faq-item');
