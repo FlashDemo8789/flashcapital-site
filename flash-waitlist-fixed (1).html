@@ -13,6 +13,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+     <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KWVF9HSH');</script>
+<!-- End Google Tag Manager -->
     
     <style>
         * {
@@ -1176,6 +1184,10 @@
     </style>
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KWVF9HSH"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
     <!-- Header -->
     <header class="header">
         <div class="container">
@@ -1978,24 +1990,10 @@
         </div>
     </footer>
 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+
     <script>
-        // Mobile Menu
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const headerNav = document.querySelector('.header-nav');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenuBtn.classList.toggle('active');
-            headerNav.classList.toggle('active');
-        });
-
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.header-link').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenuBtn.classList.remove('active');
-                headerNav.classList.remove('active');
-            });
-        });
-
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -2029,136 +2027,73 @@
             });
         }
 
-        // Form validation
-        const form = document.getElementById('waitlistForm');
-        const submitBtn = document.getElementById('submitBtn');
-        const btnText = document.getElementById('btnText');
-        const btnLoading = document.getElementById('btnLoading');
-        const successMessage = document.getElementById('successMessage');
-
-        // Show toast notification
-        function showToast(message, isError = true) {
-            const toast = document.getElementById('toast');
-            toast.textContent = message;
-            toast.style.background = isError ? 'var(--red)' : 'var(--green)';
-            toast.classList.add('show');
-            
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 3000);
-        }
-
-        // Validate form field
-        function validateField(field) {
-            const value = field.value.trim();
-            const errorElement = document.getElementById(field.id + 'Error');
-            
-            if (field.hasAttribute('required') && !value) {
-                field.classList.add('error');
-                if (errorElement) errorElement.classList.add('show');
-                return false;
-            }
-            
-            if (field.type === 'email' && value) {
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailRegex.test(value)) {
-                    field.classList.add('error');
-                    if (errorElement) {
-                        errorElement.textContent = 'Please enter a valid email address';
-                        errorElement.classList.add('show');
-                    }
-                    return false;
-                }
-            }
-            
-            field.classList.remove('error');
-            if (errorElement) errorElement.classList.remove('show');
-            return true;
-        }
-
-        // Add real-time validation
-        form.querySelectorAll('.form-input').forEach(input => {
-            input.addEventListener('blur', () => validateField(input));
-            input.addEventListener('input', () => {
-                if (input.classList.contains('error')) {
-                    validateField(input);
-                }
+        // Form input focus effects
+        document.querySelectorAll('.form-input').forEach(input => {
+            input.addEventListener('focus', function() {
+                this.style.borderColor = 'var(--black)';
+            });
+            input.addEventListener('blur', function() {
+                this.style.borderColor = 'var(--gray-300)';
             });
         });
 
-        // Form submission
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            // Check honeypot
-            if (document.querySelector('input[name="website_url"]').value) {
-                return; // Bot detected
-            }
-            
-            // Validate all fields
-            let isValid = true;
-            form.querySelectorAll('.form-input[required]').forEach(field => {
-                if (!validateField(field)) {
-                    isValid = false;
-                }
-            });
-            
-            if (!isValid) {
-                showToast('Please fill in all required fields correctly');
-                return;
-            }
-            
-            // Show loading state
-            btnText.style.display = 'none';
-            btnLoading.style.display = 'inline-block';
-            submitBtn.disabled = true;
-            submitBtn.style.opacity = '0.7';
-            
-            // Get form data
-            const formData = new FormData(form);
-            const data = Object.fromEntries(formData);
-            data.timestamp = new Date().toISOString();
-            
-            try {
-                // In production, replace with actual API endpoint
-                const response = await fetch('/api/waitlist', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
-                });
-                
-                // For demo, simulate API call
-                await new Promise(resolve => setTimeout(resolve, 2000));
-                
-                // Generate spot number (between 732 and 900)
-                const spotNumber = Math.floor(Math.random() * (900 - 732 + 1)) + 732;
-                document.getElementById('spotNumber').textContent = spotNumber;
-                
-                // Hide form and show success
-                form.style.display = 'none';
-                successMessage.style.display = 'block';
-                
-                // Scroll to success message
-                successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                
-                // Track conversion (add your analytics here)
-                if (typeof gtag !== 'undefined') {
-                    gtag('event', 'conversion', {
-                        'event_category': 'engagement',
-                        'event_label': 'waitlist_signup'
-                    });
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                showToast('Something went wrong. Please try again.');
-                
-                // Reset button
-                btnText.style.display = 'inline';
-                btnLoading.style.display = 'none';
-                submitBtn.disabled = false;
-                submitBtn.style.opacity = '1';
-            }
-        });
+       // Dynamically load EmailJS SDK
+  const script = document.createElement('script');
+  script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
+  script.onload = function () {
+    // SDK loaded, now safe to use emailjs
+    emailjs.init("6AT3cxrWaiyVfVIoF"); // ✅ Replace with your actual public key
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const waitlistForm = document.getElementById('waitlistForm');
+      const submitBtn = document.getElementById('submitBtn');
+      const btnText = document.getElementById('btnText');
+      const btnLoading = document.getElementById('btnLoading');
+      const successMessage = document.getElementById('successMessage');
+
+      waitlistForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        btnText.style.display = 'none';
+        btnLoading.style.display = 'inline-block';
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = '0.7';
+
+        const templateParams = {
+          firstName: document.getElementById('firstName').value,
+          lastName: document.getElementById('lastName').value,
+          email: document.getElementById('email').value,
+          company: document.getElementById('company').value,
+          stage: document.getElementById('stage').value,
+          role: document.getElementById('role').value,
+          industry: document.getElementById('industry').value,
+          timeline: document.getElementById('timeline').value,
+          source: document.getElementById('source').value,
+          timestamp: new Date().toISOString()
+        };
+
+        try {
+          await emailjs.send("service_bjsum1f", "template_besilmo", templateParams);
+
+          const spotNumber = Math.floor(Math.random() * (900 - 732 + 1)) + 732;
+          document.getElementById('spotNumber').textContent = spotNumber;
+
+          waitlistForm.style.display = 'none';
+          successMessage.style.display = 'block';
+          successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        } catch (error) {
+          console.error("Email send error:", error);
+          btnText.style.display = 'inline';
+          btnLoading.style.display = 'none';
+          btnText.textContent = 'Try Again';
+          submitBtn.disabled = false;
+          submitBtn.style.opacity = '1';
+        }
+      });
+    });
+  };
+  document.head.appendChild(script); // Append EmailJS script and trigger `onload`
 
         // FAQ Accordion
         const faqItems = document.querySelectorAll('.faq-item');
@@ -2186,20 +2121,6 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
-                    
-                    // Animate problem stats
-                    if (entry.target.querySelector('.problem-stat-number')) {
-                        const statNumbers = entry.target.querySelectorAll('.problem-stat-number');
-                        statNumbers.forEach((stat, index) => {
-                            setTimeout(() => {
-                                stat.style.transform = 'scale(1.1)';
-                                stat.style.transition = 'transform 0.3s ease';
-                                setTimeout(() => {
-                                    stat.style.transform = 'scale(1)';
-                                }, 300);
-                            }, index * 200);
-                        });
-                    }
                 }
             });
         }, observerOptions);
