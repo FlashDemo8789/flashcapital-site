@@ -8,11 +8,13 @@
     <meta property="og:title" content="FLASH - See exactly why VCs will pass (and how to fix it)">
     <meta property="og:description" content="Get the brutal truth about your startup before you pitch. Top scorers can apply for $100K-$500K from FLASH Fund.">
     <meta property="og:type" content="website">
+    <meta property="og:image" content="/images/og-image.png">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Google Tag Manager -->
+     <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -167,6 +169,65 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             transform: translateY(-1px);
         }
 
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            width: 32px;
+            height: 32px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            position: relative;
+            z-index: 101;
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            width: 20px;
+            height: 2px;
+            background: var(--black);
+            margin: 5px auto;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        @media (max-width: 768px) {
+            .header-nav {
+                display: none;
+                position: fixed;
+                top: 72px;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 24px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                border-bottom: 1px solid var(--gray-100);
+            }
+
+            .header-nav.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+
         /* Hero Section */
         .hero {
             min-height: 100vh;
@@ -248,14 +309,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             }
         }
 
+        .hero-cta-wrapper {
+            animation: fadeInUp 0.6s ease-out 0.3s both;
+        }
+
         /* Trust Indicators */
         .trust-indicators {
             display: flex;
             gap: 32px;
-            margin-top: 48px;
-            padding-top: 48px;
+            margin-top: 64px;
+            padding-top: 64px;
             border-top: 1px solid var(--gray-100);
-            animation: fadeInUp 0.6s ease-out 0.5s both;
+            animation: fadeInUp 0.6s ease-out 0.4s both;
             flex-wrap: wrap;
         }
 
@@ -291,9 +356,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 48px;
             text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .stat-item {
@@ -314,6 +381,38 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         .stat-label {
             font-size: 1rem;
             color: var(--gray-300);
+        }
+
+        /* Problem Stats Grid */
+        .problem-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .problem-stat-number {
+            font-size: clamp(3rem, 5vw, 4rem);
+            font-weight: 800;
+            color: var(--red);
+            margin-bottom: 16px;
+            line-height: 1;
+        }
+
+        /* Form Error States */
+        .form-input.error {
+            border-color: var(--red);
+        }
+
+        .error-message {
+            font-size: 0.75rem;
+            color: var(--red);
+            margin-top: 4px;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
         }
 
         /* Success State */
@@ -499,11 +598,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             display: inline-flex;
             align-items: center;
             gap: 32px;
-            margin: 48px 0;
+            margin: 48px auto;
             padding: 32px 48px;
             background: var(--white);
             border-radius: 16px;
             box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .fund-score-visual:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
         }
 
         .score-display {
@@ -831,36 +936,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             margin-right: auto;
         }
 
-        .cta-form {
-            max-width: 480px;
-            margin: 0 auto;
-        }
-
-        .cta-form .email-input {
-            background: var(--gray-900);
-            border-color: var(--gray-700);
-            color: var(--white);
-        }
-
-        .cta-form .email-input::placeholder {
-            color: var(--gray-500);
-        }
-
-        .cta-form .email-input:focus {
-            border-color: var(--white);
-        }
-
-        .cta-form .submit-btn {
-            background: var(--white);
-            color: var(--black);
-            border-color: var(--white);
-        }
-
-        .cta-form .submit-btn:hover {
-            background: var(--gray-100);
-            border-color: var(--gray-100);
-        }
-
         /* Waitlist Form Section */
         .waitlist-section {
             padding: 120px 0;
@@ -882,6 +957,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 16px;
+        }
+
+        .form-group {
+            position: relative;
         }
 
         .form-group label {
@@ -906,6 +985,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         .form-input:focus {
             border-color: var(--black);
+        }
+
+        /* Honeypot field - hidden from users */
+        .hp-field {
+            position: absolute;
+            left: -9999px;
+            height: 0;
+            width: 0;
+            opacity: 0;
         }
 
         .submit-btn {
@@ -988,36 +1076,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             color: var(--white);
         }
 
-        /* Mobile Menu */
-        .mobile-menu-btn {
-            display: none;
-            width: 32px;
-            height: 32px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0;
-        }
-
-        .mobile-menu-btn span {
-            display: block;
-            width: 20px;
-            height: 2px;
-            background: var(--black);
-            margin: 5px auto;
-            transition: all 0.3s ease;
-        }
-
         /* Responsive */
         @media (max-width: 768px) {
-            .header-nav {
-                display: none;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
             .hero-title {
                 font-size: 2.5rem;
             }
@@ -1031,29 +1091,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 justify-content: center;
             }
 
-            .waitlist-stats {
-                gap: 24px;
-            }
-
-            .email-form {
-                flex-direction: column;
-            }
-
-            .submit-btn {
-                width: 100%;
-            }
-
             .trust-indicators {
                 flex-direction: column;
                 gap: 16px;
             }
 
-            .stats-grid,
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
             .steps-grid,
             .camp-grid,
             .included-grid {
                 grid-template-columns: 1fr;
                 gap: 32px;
+            }
+
+            /* Problem section mobile fix */
+            .problem-stats-grid {
+                grid-template-columns: 1fr !important;
+                gap: 48px !important;
             }
 
             .analysis-header,
@@ -1101,6 +1159,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Form Validation Toast */
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            padding: 16px 24px;
+            background: var(--red);
+            color: var(--white);
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
@@ -1112,16 +1192,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <header class="header">
         <div class="container">
             <div class="header-content">
-                <a href="#" class="logo">FLASH</a>
+                <a href="/" class="logo">FLASH</a>
                 <nav class="header-nav">
-                    <a href="https://flash.onl/flash-how-it-works.html" class="header-link">How it works</a>
-                    <a href="https://www.flash.onl/flash-camp-framework.html" class="header-link">CAMP Framework</a>
-                    <a href="https://www.flash.onl/flash-fund-page.html" class="header-link">FLASH Fund</a>
-                    <a href="https://www.flash.onl/flash-example.html" class="header-link">Example</a>
-                    <a href="https://www.flash.onl/flash-faq-page.html" class="header-link">FAQ</a>
+                    <a href="#how" class="header-link">How it works</a>
+                    <a href="#camp" class="header-link">CAMP Framework</a>
+                    <a href="#fund" class="header-link">FLASH Fund</a>
+                    <a href="#sample" class="header-link">Example</a>
+                    <a href="#faq" class="header-link">FAQ</a>
                     <a href="#waitlist" class="header-cta">Get early access</a>
                 </nav>
-                <button class="mobile-menu-btn">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -1147,22 +1227,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     Get the exact feedback VCs give behind closed doors, before you pitch. Know what to fix, backed by analysis of thousands of real funding patterns.
                 </p>
 
-                <div class="hero-cta-wrapper" style="margin-bottom: 32px; animation: fadeInUp 0.6s ease-out 0.3s both;">
+                <div class="hero-cta-wrapper" style="margin-bottom: 48px;">
                     <a href="#waitlist" class="hero-cta-btn" style="display: inline-flex; align-items: center; gap: 12px; padding: 20px 48px; background: var(--black); color: var(--white); text-decoration: none; font-weight: 600; font-size: 1.125rem; border-radius: 8px; transition: all 0.2s ease;">
                         <span>Reserve your spot</span>
                         <span style="transition: transform 0.2s ease;">→</span>
                     </a>
-                </div>
-
-                <div class="waitlist-stats" style="display: flex; gap: 48px; justify-content: center; flex-wrap: wrap; animation: fadeInUp 0.6s ease-out 0.4s both;">
-                    <div class="stat-item" style="text-align: center;">
-                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--black); margin-bottom: 4px;">732 of 1,000</div>
-                        <div style="font-size: 0.875rem; color: var(--gray-600);">Spots already taken</div>
-                    </div>
-                    <div class="stat-item" style="text-align: center;">
-                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--black); margin-bottom: 4px;">July 2025</div>
-                        <div style="font-size: 0.875rem; color: var(--gray-600);">Launch date</div>
-                    </div>
                 </div>
 
                 <div class="trust-indicators">
@@ -1205,39 +1274,40 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <div class="stat-number">10min</div>
                     <div class="stat-label">To Complete Assessment</div>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-number">Q2</div>
-                    <div class="stat-label">2025 Launch</div>
-                </div>
             </div>
         </div>
     </section>
 
     <!-- Problem Section -->
-    <section style="padding: 80px 0; background: var(--white);">
+    <section class="reveal" style="padding: 100px 0; background: var(--white);">
         <div class="container">
-            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-                <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 40px; color: var(--gray-900);">
+            <div style="max-width: 900px; margin: 0 auto;">
+                <h2 style="font-size: clamp(2rem, 4vw, 2.5rem); font-weight: 800; margin-bottom: 60px; text-align: center; color: var(--gray-900);">
                     The fundraising game is broken
                 </h2>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; text-align: left;">
-                    <div>
-                        <div style="font-size: 2.5rem; font-weight: 800; color: var(--red); margin-bottom: 8px;">97%</div>
-                        <div style="font-size: 1rem; color: var(--gray-600);">of startups get rejected without understanding why</div>
+                <div class="problem-stats-grid">
+                    <div style="text-align: center;">
+                        <div class="problem-stat-number">97%</div>
+                        <div style="font-size: 1.125rem; color: var(--gray-600); line-height: 1.5;">of startups get rejected without understanding why</div>
                     </div>
-                    <div>
-                        <div style="font-size: 2.5rem; font-weight: 800; color: var(--red); margin-bottom: 8px;">6 months</div>
-                        <div style="font-size: 1rem; color: var(--gray-600);">average time wasted on fundraising that goes nowhere</div>
+                    <div style="text-align: center;">
+                        <div class="problem-stat-number">6 months</div>
+                        <div style="font-size: 1.125rem; color: var(--gray-600); line-height: 1.5;">average time wasted on fundraising that goes nowhere</div>
                     </div>
-                    <div>
-                        <div style="font-size: 2.5rem; font-weight: 800; color: var(--red); margin-bottom: 8px;">$0</div>
-                        <div style="font-size: 1rem; color: var(--gray-600);">useful feedback from most investor rejections</div>
+                    <div style="text-align: center;">
+                        <div class="problem-stat-number">$0</div>
+                        <div style="font-size: 1.125rem; color: var(--gray-600); line-height: 1.5;">useful feedback from most investor rejections</div>
                     </div>
                 </div>
-                <p style="font-size: 1.125rem; color: var(--gray-700); margin-top: 40px; line-height: 1.7;">
-                    VCs see hundreds of pitches. They pattern match instantly. They know in minutes if they'll invest, 
-                    but they'll never tell you the real reasons they're passing. <strong>Until now.</strong>
-                </p>
+                <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+                    <p style="font-size: 1.25rem; color: var(--gray-700); line-height: 1.8; margin-bottom: 24px;">
+                        VCs see hundreds of pitches. They pattern match instantly. They know in minutes if they'll invest, 
+                        but they'll never tell you the real reasons they're passing.
+                    </p>
+                    <p style="font-size: 1.5rem; font-weight: 700; color: var(--black);">
+                        Until now.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
@@ -1291,34 +1361,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
 
             <div class="camp-grid">
-                <div class="camp-card">
+                <a href="/camp-framework.html" class="camp-card" style="text-decoration: none; color: inherit;">
                     <div class="camp-icon">💰</div>
                     <h3 class="camp-title">Capital</h3>
                     <p class="camp-description">
                         Your financial health, burn rate, funding history, and capital efficiency. VCs need to see you can manage money before they give you theirs.
                     </p>
-                </div>
-                <div class="camp-card">
+                </a>
+                <a href="/camp-framework.html" class="camp-card" style="text-decoration: none; color: inherit;">
                     <div class="camp-icon">⚡</div>
                     <h3 class="camp-title">Advantage</h3>
                     <p class="camp-description">
                         What makes you different? Your moats, IP, unique insights, and why competitors can't just copy you tomorrow.
                     </p>
-                </div>
-                <div class="camp-card">
+                </a>
+                <a href="/camp-framework.html" class="camp-card" style="text-decoration: none; color: inherit;">
                     <div class="camp-icon">📈</div>
                     <h3 class="camp-title">Market</h3>
                     <p class="camp-description">
                         TAM, growth rates, competition, and timing. VCs need to see a big enough opportunity that's ready for your solution.
                     </p>
-                </div>
-                <div class="camp-card">
+                </a>
+                <a href="/camp-framework.html" class="camp-card" style="text-decoration: none; color: inherit;">
                     <div class="camp-icon">👥</div>
                     <h3 class="camp-title">People</h3>
                     <p class="camp-description">
                         Your team's experience, founder-market fit, and ability to execute. The #1 reason VCs pass is team concerns.
                     </p>
-                </div>
+                </a>
             </div>
         </div>
     </section>
@@ -1349,16 +1419,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </div>
                 </div>
                 
-                <a href="/fund" style="display: inline-flex; align-items: center; gap: 8px; font-weight: 600; text-decoration: none; color: var(--purple); transition: all 0.2s ease;" onmouseover="this.style.gap='12px'; this.querySelector('span:last-child').style.transform='translateX(4px)'" onmouseout="this.style.gap='8px'; this.querySelector('span:last-child').style.transform='translateX(0)'">
-                    <span>Learn about FLASH Fund</span>
-                    <span style="transition: transform 0.2s ease;">→</span>
-                </a>
+                <div style="text-align: center;">
+                    <a href="/flash-fund.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; font-weight: 600; text-decoration: none; color: var(--purple); border: 2px solid var(--purple); border-radius: 8px; transition: all 0.2s ease;" onmouseover="this.style.gap='12px'; this.style.background='rgba(88, 86, 214, 0.05)'; this.querySelector('span:last-child').style.transform='translateX(4px)'" onmouseout="this.style.gap='8px'; this.style.background='transparent'; this.querySelector('span:last-child').style.transform='translateX(0)'">
+                        <span>Learn about FLASH Fund</span>
+                        <span style="transition: transform 0.2s ease;">→</span>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Sample Analysis Section -->
-    <section class="sample-section reveal" id="example">
+    <section class="sample-section reveal" id="sample">
         <div class="container">
             <div class="sample-header">
                 <div class="section-badge">Example Analysis</div>
@@ -1418,6 +1490,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         </div>
                     </div>
                 </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 48px;">
+                <a href="/example-analysis.html" style="display: inline-flex; align-items: center; gap: 8px; font-weight: 600; text-decoration: none; color: var(--black); transition: all 0.2s ease;" onmouseover="this.style.gap='12px'; this.querySelector('span:last-child').style.transform='translateX(4px)'" onmouseout="this.style.gap='8px'; this.querySelector('span:last-child').style.transform='translateX(0)'">
+                    <span>See full example analysis</span>
+                    <span style="transition: transform 0.2s ease;">→</span>
+                </a>
             </div>
         </div>
     </section>
@@ -1603,6 +1682,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         </div>
                     </div>
                 </div>
+                
+                <div style="text-align: center; margin-top: 48px;">
+                    <a href="/faq.html" style="display: inline-flex; align-items: center; gap: 8px; font-weight: 600; text-decoration: none; color: var(--black); transition: all 0.2s ease;" onmouseover="this.style.gap='12px'; this.querySelector('span:last-child').style.transform='translateX(4px)'" onmouseout="this.style.gap='8px'; this.querySelector('span:last-child').style.transform='translateX(0)'">
+                        <span>View all FAQs</span>
+                        <span style="transition: transform 0.2s ease;">→</span>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -1653,7 +1739,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <svg style="width: 20px; height: 20px; color: var(--green);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                         </svg>
-                        <span>Free early access</span>
+                        <span>First 1,000 founders only</span>
                     </div>
                     <div style="display: flex; align-items: center; gap: 8px; color: var(--gray-600);">
                         <svg style="width: 20px; height: 20px; color: var(--green);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1682,7 +1768,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                     class="form-input" 
                                     required
                                     id="firstName"
+                                    name="firstName"
                                 >
+                                <div class="error-message" id="firstNameError">Please enter your first name</div>
                             </div>
                             <div class="form-group">
                                 <label>Last Name *</label>
@@ -1691,7 +1779,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                     class="form-input" 
                                     required
                                     id="lastName"
+                                    name="lastName"
                                 >
+                                <div class="error-message" id="lastNameError">Please enter your last name</div>
                             </div>
                         </div>
 
@@ -1702,9 +1792,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 type="email" 
                                 class="form-input" 
                                 placeholder="founder@company.com"
+                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                                 required
                                 id="email"
+                                name="email"
                             >
+                            <div class="error-message" id="emailError">Please enter a valid email address</div>
                         </div>
 
                         <!-- Company Info -->
@@ -1716,22 +1809,38 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                     class="form-input" 
                                     required
                                     id="company"
+                                    name="company"
                                 >
+                                <div class="error-message" id="companyError">Please enter your company name</div>
                             </div>
                             <div class="form-group">
-                                <label>Stage *</label>
-                                <select 
+                                <label>Company Website</label>
+                                <input 
+                                    type="url" 
                                     class="form-input" 
-                                    required
-                                    id="stage"
+                                    placeholder="https://company.com"
+                                    id="website"
+                                    name="website"
                                 >
-                                    <option value="">Select stage</option>
-                                    <option value="idea">Idea Stage</option>
-                                    <option value="pre-seed">Pre-Seed</option>
-                                    <option value="seed">Seed</option>
-                                    <option value="series-a">Series A</option>
-                                </select>
                             </div>
+                        </div>
+
+                        <!-- Stage -->
+                        <div class="form-group">
+                            <label>Stage *</label>
+                            <select 
+                                class="form-input" 
+                                required
+                                id="stage"
+                                name="stage"
+                            >
+                                <option value="">Select stage</option>
+                                <option value="idea">Idea Stage</option>
+                                <option value="pre-seed">Pre-Seed</option>
+                                <option value="seed">Seed</option>
+                                <option value="series-a">Series A</option>
+                            </select>
+                            <div class="error-message" id="stageError">Please select your stage</div>
                         </div>
 
                         <!-- Role & Industry -->
@@ -1742,6 +1851,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                     class="form-input" 
                                     required
                                     id="role"
+                                    name="role"
                                 >
                                     <option value="">Select role</option>
                                     <option value="ceo">CEO/Founder</option>
@@ -1749,6 +1859,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                     <option value="other-founder">Other Co-founder</option>
                                     <option value="employee">Early Employee</option>
                                 </select>
+                                <div class="error-message" id="roleError">Please select your role</div>
                             </div>
                             <div class="form-group">
                                 <label>Industry *</label>
@@ -1756,6 +1867,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                     class="form-input" 
                                     required
                                     id="industry"
+                                    name="industry"
                                 >
                                     <option value="">Select industry</option>
                                     <option value="b2b-saas">B2B SaaS</option>
@@ -1764,8 +1876,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                     <option value="fintech">Fintech</option>
                                     <option value="healthtech">Healthtech</option>
                                     <option value="edtech">Edtech</option>
+                                    <option value="aiml">AI/ML</option>
                                     <option value="other">Other</option>
                                 </select>
+                                <div class="error-message" id="industryError">Please select your industry</div>
                             </div>
                         </div>
 
@@ -1776,6 +1890,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 class="form-input" 
                                 required
                                 id="timeline"
+                                name="timeline"
                             >
                                 <option value="">Select timeline</option>
                                 <option value="now">Currently raising</option>
@@ -1784,6 +1899,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 <option value="12months">6-12 months</option>
                                 <option value="exploring">Just exploring</option>
                             </select>
+                            <div class="error-message" id="timelineError">Please select when you plan to raise</div>
                         </div>
 
                         <!-- How did you hear -->
@@ -1792,15 +1908,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <select 
                                 class="form-input" 
                                 id="source"
+                                name="source"
                             >
                                 <option value="">Select source</option>
                                 <option value="twitter">Twitter/X</option>
                                 <option value="linkedin">LinkedIn</option>
                                 <option value="friend">Friend/Colleague</option>
                                 <option value="search">Google Search</option>
+                                <option value="newsletter">Newsletter</option>
                                 <option value="other">Other</option>
                             </select>
                         </div>
+
+                        <!-- Honeypot field for spam protection -->
+                        <input type="text" name="website_url" class="hp-field" tabindex="-1" autocomplete="off">
 
                         <!-- Submit Button -->
                         <button 
@@ -1850,6 +1971,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </section>
 
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -1858,9 +1982,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     © 2024 FLASH. All rights reserved.
                 </div>
                 <div class="footer-links">
-                    <a href="#" class="footer-link">Privacy</a>
-                    <a href="#" class="footer-link">Terms</a>
-                    <a href="mailto:hello@flash.ai" class="footer-link">Contact</a>
+                    <a href="/privacy-policy.html" class="footer-link">Privacy Policy</a>
+                    <a href="/terms-of-service.html" class="footer-link">Terms of Service</a>
+                    <a href="mailto:hello@useflash.ai" class="footer-link">Contact</a>
                 </div>
             </div>
         </div>
