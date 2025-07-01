@@ -193,13 +193,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             }
         }
 
-        /* Default hidden on desktop */
+       /* Hide menu button on desktop */
 .mobile-menu-btn {
     display: none;
 }
 
-/* Sidebar styling for mobile */
+/* Mobile layout styles */
 @media (max-width: 768px) {
+    /* Show button on mobile */
     .mobile-menu-btn {
         display: block;
         position: fixed;
@@ -218,7 +219,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         display: block;
         width: 20px;
         height: 2px;
-        background: var(--black);
+        background: #000; /* Fallback in case --black is undefined */
         margin: 5px auto;
         transition: all 0.3s ease;
     }
@@ -235,12 +236,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         transform: rotate(-45deg) translate(6px, -6px);
     }
 
+    /* Sidebar nav */
     .header-nav {
-        display: flex;
+        display: flex; /* must be flex, not none */
         flex-direction: column;
         position: fixed;
         top: 0;
-        right: -100%; /* hidden offscreen */
+        right: -100%; /* Hide off-screen */
         height: 100vh;
         width: 240px;
         background: rgba(255, 255, 255, 0.98);
@@ -254,14 +256,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
 
     .header-nav.active {
-        right: 0;
+        right: 0; /* Slide in */
     }
 
     .header-link,
     .header-cta {
         margin: 12px 0;
+        color: #000;
+        text-decoration: none;
     }
 }
+
 
 
         /* Overview Section */
