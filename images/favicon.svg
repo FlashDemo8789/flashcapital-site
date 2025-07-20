@@ -1,0 +1,15 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <!-- Simplified Flash logo for favicon -->
+  <g transform="translate(16, 16) scale(0.8)">
+    <!-- Lightning bolt shape -->
+    <path d="M -8 -10 C -8 -6, -4 -2, 2 -2 L 6 -2 L -2 0 C -6 0, -10 -4, -10 -8 C -10 -10, -9 -11, -8 -10 Z" 
+          fill="#2C3E50"/>
+    <path d="M 2 0 L 10 -2 C 10 2, 8 6, 4 10 C 2 12, 0 13, -2 12 C -1 8, 0 4, 2 0 Z" 
+          fill="#34495E"/>
+    
+    <!-- Base -->
+    <rect x="-6" y="12" width="12" height="1" rx="0.5" fill="#2C3E50"/>
+    <rect x="-5" y="13.5" width="10" height="0.8" rx="0.4" fill="#34495E"/>
+    <ellipse cx="0" cy="15" rx="3" ry="0.5" fill="#2C3E50"/>
+  </g>
+</svg>
