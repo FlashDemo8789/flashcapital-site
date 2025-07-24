@@ -1,0 +1,23 @@
+# Debug and test files
+custom-form-*.html
+test-*.html
+debug-*.html
+direct-test.html
+get-google-form-ids.html
+view-applications.html
+DEBUG-*.md
+
+# Temporary files
+*.tmp
+*.temp
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
