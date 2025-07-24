@@ -125,6 +125,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             align-items: center;
             height: 72px;
         }
+        
+        @media (min-width: 1024px) {
+            .header-content {
+                height: 80px;
+            }
+        }
 
         .logo {
             font-size: 1.5rem;
@@ -133,6 +139,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             text-decoration: none;
             color: var(--black);
             transition: opacity 0.2s ease;
+            display: inline-block;
+            line-height: 1;
+        }
+        
+        @media (min-width: 1024px) {
+            .logo {
+                font-size: 2rem;
+            }
         }
 
         .logo:hover {
