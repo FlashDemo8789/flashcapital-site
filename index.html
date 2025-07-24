@@ -1225,6 +1225,65 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             transform: translateY(0);
             opacity: 1;
         }
+        /* Desktop Alignment Fixes */
+        @media (min-width: 1024px) {
+            .hero-content {
+                max-width: 900px;
+                margin: 0 auto;
+            }
+            
+            .steps-grid,
+            .camp-grid {
+                max-width: 1000px;
+                margin: 0 auto;
+            }
+            
+            .section-header {
+                text-align: center;
+            }
+            
+            .section-subtitle {
+                max-width: 700px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            /* Center the anti-pitch grid */
+            .fund-teaser-section .container > div {
+                max-width: 1000px;
+                margin: 0 auto;
+            }
+            
+            /* Center all content sections */
+            .included-grid,
+            .faq-grid,
+            .waitlist-form-wrapper {
+                max-width: 900px;
+                margin: 0 auto;
+            }
+            
+            /* Fix header spacing on desktop */
+            .header-nav {
+                gap: 32px;
+            }
+            
+            /* Ensure proper container width */
+            .container {
+                max-width: 1200px;
+                width: 100%;
+            }
+        }
+        
+        /* Ultra-wide screen fixes */
+        @media (min-width: 1440px) {
+            .hero-title {
+                font-size: 4.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.75rem;
+            }
+        }
     </style>
 </head>
 <body>
