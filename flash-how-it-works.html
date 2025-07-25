@@ -284,6 +284,77 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             margin: 0 auto;
             position: relative;
         }
+        
+        /* Laptop screen alignment fixes */
+        @media (min-width: 1024px) and (max-width: 1440px) {
+            .container {
+                max-width: min(1200px, 90vw);
+                padding-left: 40px;
+                padding-right: 40px;
+            }
+            
+            .hero h1 {
+                font-size: clamp(2.5rem, 4vw, 3.5rem);
+                max-width: 900px;
+                margin: 0 auto;
+            }
+            
+            /* Timeline fixes */
+            .process-timeline {
+                max-width: 800px;
+                padding: 0 60px;
+            }
+            
+            .timeline-step {
+                margin-bottom: 60px;
+            }
+            
+            .step-content {
+                padding: 30px;
+                max-width: 380px;
+            }
+            
+            /* Question Flow */
+            .question-flow {
+                max-width: 1000px;
+                margin: 0 auto;
+            }
+            
+            .question-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 24px;
+            }
+            
+            /* Security Grid */
+            .security-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 24px;
+                max-width: 900px;
+                margin: 0 auto;
+            }
+            
+            /* Analysis Metrics */
+            .analysis-metrics-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 24px;
+                max-width: 1000px;
+                margin: 0 auto;
+            }
+            
+            section {
+                padding: 80px 0;
+            }
+            
+            .section-title {
+                font-size: clamp(2rem, 3vw, 2.5rem);
+            }
+            
+            /* CTA Button */
+            .cta-button {
+                padding: 16px 32px;
+                font-size: 1.125rem;
+            }
+        }
 
         .timeline-line {
             position: absolute;

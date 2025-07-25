@@ -326,6 +326,50 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             max-width: 1000px;
             margin: 0 auto;
         }
+        
+        /* Laptop screen alignment fixes */
+        @media (min-width: 1024px) and (max-width: 1440px) {
+            .container {
+                max-width: min(1200px, 90vw);
+                padding-left: 40px;
+                padding-right: 40px;
+            }
+            
+            .faq-container {
+                max-width: 800px;
+                margin: 0 auto;
+            }
+            
+            .links-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 24px;
+                max-width: 900px;
+                margin: 0 auto;
+            }
+            
+            .faq-category {
+                margin-bottom: 60px;
+            }
+            
+            .hero h1 {
+                font-size: clamp(2.5rem, 4vw, 3.5rem);
+                max-width: 900px;
+                margin: 0 auto;
+            }
+            
+            .section-title {
+                font-size: clamp(2rem, 3vw, 2.5rem);
+            }
+            
+            section {
+                padding: 80px 0;
+            }
+            
+            .search-container {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+        }
 
         .link-card {
             padding: 24px;
