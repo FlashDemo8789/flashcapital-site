@@ -141,6 +141,8 @@
             color: var(--white);
             border-radius: 12px;
             margin-top: 24px;
+            position: relative;
+            z-index: 10;
         }
 
         .error-message {
@@ -393,6 +395,11 @@
                     // Show success message
                     form.style.display = 'none';
                     successMessage.style.display = 'block';
+                    // Ensure visibility
+                    successMessage.style.opacity = '1';
+                    successMessage.style.visibility = 'visible';
+                    // Scroll to top to ensure message is visible
+                    window.scrollTo(0, 0);
                 } else {
                     throw new Error('Server returned an error');
                 }
