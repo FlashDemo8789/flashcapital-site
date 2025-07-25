@@ -1298,6 +1298,91 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 font-size: 1.75rem;
             }
         }
+        
+        /* Laptop Screen Alignment Fixes (1024px - 1440px) */
+        @media (min-width: 1024px) and (max-width: 1440px) {
+            /* Container and Section Spacing */
+            .container {
+                max-width: min(1200px, 90vw);
+                padding-left: 40px;
+                padding-right: 40px;
+            }
+            
+            section {
+                padding: 80px 0;
+            }
+            
+            /* Hero Section */
+            .hero-title {
+                font-size: clamp(2.5rem, 5vw, 4rem);
+                line-height: 1.1;
+            }
+            
+            /* Trust Indicators Fix */
+            .trust-indicators {
+                justify-content: center;
+                max-width: 800px;
+                margin: 0 auto;
+                gap: 24px;
+            }
+            
+            /* Stats Grid Fix */
+            .stats-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 24px;
+                max-width: 900px;
+                margin: 0 auto;
+            }
+            
+            /* Problem Stats Grid Fix */
+            .stat-columns {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 24px;
+                max-width: 1000px;
+                margin: 0 auto;
+            }
+            
+            /* Fund Score Visual */
+            .fund-score-visual {
+                max-width: 800px;
+                margin: 0 auto;
+            }
+            
+            /* Form Grid Fix */
+            .form-grid-2 {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 20px;
+            }
+            
+            /* Benefits/Comparison Table */
+            .comparison-table {
+                max-width: 900px;
+                margin: 0 auto;
+            }
+            
+            /* Section Headers */
+            .section-header h2 {
+                font-size: clamp(2rem, 3vw, 2.5rem);
+            }
+            
+            /* CTA Buttons */
+            .hero-cta-btn {
+                padding: 16px 32px;
+                font-size: 1.125rem;
+            }
+        }
+        
+        /* Specific laptop breakpoints */
+        @media (min-width: 1024px) and (max-width: 1280px) {
+            .container {
+                padding-left: 32px;
+                padding-right: 32px;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+        }
     </style>
 </head>
 <body>
