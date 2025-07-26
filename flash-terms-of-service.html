@@ -73,15 +73,23 @@
         }
 
         .logo {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
             text-decoration: none;
             transition: opacity 0.2s ease;
         }
 
-        .logo img {
-            height: 40px;
+        .logo-icon {
+            height: 36px;
             width: auto;
-            display: block;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--black);
         }
 
         .logo:hover {
@@ -225,7 +233,10 @@
     <header class="header">
         <div class="container">
             <div class="header-content">
-                <a href="/" class="logo"><img src="/images/flashlogo.png" alt="FLASH"></a>
+                <a href="/" class="logo">
+                    <img src="/images/flashlogo.png" alt="FLASH Logo" class="logo-icon">
+                    <span class="logo-text">FLASH</span>
+                </a>
                 <a href="/" class="header-link">← Back to Home</a>
             </div>
         </div>

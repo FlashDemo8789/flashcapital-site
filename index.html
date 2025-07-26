@@ -11,11 +11,11 @@
 <meta content="website" property="og:type"/>
 <meta content="/images/og-image.png" property="og:image"/>
 <!-- Favicon support for all browsers -->
-<link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/favicon.png" type="image/png">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-<link rel="mask-icon" href="/images/favicon.svg" color="#2C3E50">
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
@@ -133,21 +133,34 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
 
         .logo {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
             text-decoration: none;
             transition: opacity 0.2s ease;
             line-height: 1;
         }
         
-        .logo img {
-            height: 36px;
+        .logo-icon {
+            height: 32px;
             width: auto;
             display: block;
         }
         
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--black);
+        }
+        
         @media (min-width: 1024px) {
-            .logo img {
-                height: 48px;
+            .logo-icon {
+                height: 40px;
+            }
+            
+            .logo-text {
+                font-size: 2rem;
             }
         }
 
@@ -1395,7 +1408,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <header class="header">
 <div class="container">
 <div class="header-content">
-<a class="logo" href="/"><img src="/images/flashlogo.png" alt="FLASH"></a>
+<a class="logo" href="/">
+    <img src="/images/flashlogo.png" alt="FLASH Logo" class="logo-icon">
+    <span class="logo-text">FLASH</span>
+</a>
 <nav class="header-nav">
 <a class="header-link" href="https://www.flash.onl/flash-how-it-works.html">How it works</a>
 <a class="header-link" href="https://www.flash.onl/flash-camp-framework.html">CAMP Framework</a>
