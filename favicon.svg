@@ -1,0 +1,20 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Flash logo icon -->
+  <defs>
+    <linearGradient id="flashGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#666666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#333333;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Upper curved flame -->
+  <path d="M 55 10 Q 75 15, 75 35 Q 75 50, 55 55 Q 45 45, 45 30 Q 45 15, 55 10" fill="url(#flashGradient)"/>
+  
+  <!-- Lower curved flame -->
+  <path d="M 45 40 Q 55 45, 55 60 Q 55 75, 45 80 Q 35 70, 35 55 Q 35 45, 45 40" fill="url(#flashGradient)"/>
+  
+  <!-- Light bulb base lines -->
+  <rect x="40" y="78" width="20" height="3" rx="1.5" fill="#666666"/>
+  <rect x="40" y="83" width="20" height="3" rx="1.5" fill="#666666"/>
+  <rect x="43" y="88" width="14" height="3" rx="1.5" fill="#666666"/>
+</svg>
