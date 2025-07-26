@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-time Form Submission Monitor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .monitor-section {
+            background: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            color: #333;
+        }
+        button {
+            padding: 10px 20px;
+            background: #000;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #333;
+        }
+        .success {
+            color: #10b981;
+            font-weight: bold;
+        }
+        .error {
+            color: #ef4444;
+            font-weight: bold;
+        }
+        .warning {
+            color: #f59e0b;
+            font-weight: bold;
+        }
+        .info {
+            color: #3b82f6;
+        }
+        pre {
+            background: #f9fafb;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            border: 1px solid #e5e7eb;
+            font-size: 12px;
+        }
+        .log-entry {
+            padding: 8px;
+            margin: 4px 0;
+            border-left: 4px solid #e5e7eb;
+            background: #f9fafb;
+        }
+        .log-success {
+            border-left-color: #10b981;
+        }
+        .log-error {
+            border-left-color: #ef4444;
+        }
+        .log-info {
+            border-left-color: #3b82f6;
+        }
+        iframe {
+            width: 100%;
+            height: 600px;
+            border: 1px solid #e5e7eb;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 Real-time Form Submission Monitor</h1>
+    
+    <div class="monitor-section">
+        <h2>1. Test Live Form (Same as Real Users)</h2>
+        <p>This iframe shows the exact form that users see:</p>
+        <iframe src="/apply.html" id="formFrame"></iframe>
+    </div>
+
+    <div class="monitor-section">
+        <h2>2. Form Submission Log</h2>
+        <button onclick="clearLog()">Clear Log</button>
+        <button onclick="exportLog()">Export Log</button>
+        <div id="submissionLog" style="max-height: 400px; overflow-y: auto;">
+            <p class="info">Monitoring form submissions...</p>
+        </div>
+    </div>
+
+    <div class="monitor-section">
+        <h2>3. Intercept and Debug</h2>
+        <label>
+            <input type="checkbox" id="interceptSubmissions" checked> Intercept form submissions
+        </label>
+        <p class="info">When checked, this will capture and log all form submission attempts from the iframe above.</p>
+    </div>
+
+    <script>
+        let submissions = [];
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwmTSDJmqKq9GE8zBNrELhQMUAoyPCQRdTE5sOZiHBLNS6oh9kq7nYzhk9ohtktVRS6HQ/exec';
+
+        function log(message, type = 'info', data = null) {
+            const logDiv = document.getElementById('submissionLog');
+            const entry = document.createElement('div');
+            entry.className = `log-entry log-${type}`;
+            
+            const timestamp = new Date().toLocaleTimeString();
+            let content = `<strong>[${timestamp}]</strong> ${message}`;
+            
+            if (data) {
+                content += `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+            }
+            
+            entry.innerHTML = content;
+            logDiv.appendChild(entry);
+            logDiv.scrollTop = logDiv.scrollHeight;
+            
+            // Store in array
+            submissions.push({
+                timestamp: new Date().toISOString(),
+                type: type,
+                message: message,
+                data: data
+            });
+        }
+
+        function clearLog() {
+            document.getElementById('submissionLog').innerHTML = '<p class="info">Log cleared. Monitoring continues...</p>';
+            submissions = [];
+        }
+
+        function exportLog() {
+            const dataStr = JSON.stringify(submissions, null, 2);
+            const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+            
+            const exportFileDefaultName = `form-submissions-${new Date().toISOString()}.json`;
+            
+            const linkElement = document.createElement('a');
+            linkElement.setAttribute('href', dataUri);
+            linkElement.setAttribute('download', exportFileDefaultName);
+            linkElement.click();
+        }
+
+        // Intercept fetch calls from the iframe
+        window.addEventListener('load', function() {
+            const iframe = document.getElementById('formFrame');
+            
+            iframe.addEventListener('load', function() {
+                try {
+                    const iframeWindow = iframe.contentWindow;
+                    const originalFetch = iframeWindow.fetch;
+                    
+                    if (document.getElementById('interceptSubmissions').checked) {
+                        iframeWindow.fetch = async function(...args) {
+                            const [url, options] = args;
+                            
+                            // Log the submission attempt
+                            if (url && url.includes('script.google.com')) {
+                                log('Form submission detected', 'info', {
+                                    url: url,
+                                    method: options?.method,
+                                    headers: options?.headers
+                                });
+                                
+                                // Log the form data
+                                if (options?.body instanceof FormData) {
+                                    const formDataObj = {};
+                                    for (let [key, value] of options.body.entries()) {
+                                        formDataObj[key] = value;
+                                    }
+                                    log('Form data being sent', 'info', formDataObj);
+                                }
+                                
+                                try {
+                                    // Make the actual request
+                                    const response = await originalFetch.apply(this, args);
+                                    
+                                    // Clone response to read it
+                                    const responseClone = response.clone();
+                                    const responseData = await responseClone.json().catch(() => responseClone.text());
+                                    
+                                    log(`Response received (Status: ${response.status})`, response.ok ? 'success' : 'error', responseData);
+                                    
+                                    return response;
+                                } catch (error) {
+                                    log('Submission error: ' + error.message, 'error', {
+                                        error: error.toString(),
+                                        stack: error.stack
+                                    });
+                                    throw error;
+                                }
+                            }
+                            
+                            return originalFetch.apply(this, args);
+                        };
+                        
+                        log('Form monitor activated', 'success');
+                    }
+                } catch (error) {
+                    log('Could not intercept iframe (cross-origin restrictions may apply)', 'warning');
+                }
+            });
+        });
+
+        // Also monitor the parent window for any form submissions
+        const originalParentFetch = window.fetch;
+        window.fetch = async function(...args) {
+            const [url, options] = args;
+            
+            if (url && url.includes('script.google.com') && document.getElementById('interceptSubmissions').checked) {
+                log('Parent window submission detected', 'info', {
+                    url: url,
+                    method: options?.method
+                });
+            }
+            
+            return originalParentFetch.apply(this, args);
+        };
+
+        // Log initial state
+        log('Monitor started', 'info', {
+            scriptUrl: GOOGLE_SCRIPT_URL,
+            currentTime: new Date().toISOString()
+        });
+    </script>
+</body>
+</html>

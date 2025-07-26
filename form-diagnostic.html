@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Diagnostic Tool</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .diagnostic-section {
+            background: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            color: #333;
+        }
+        button {
+            padding: 10px 20px;
+            background: #000;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #333;
+        }
+        .success {
+            color: #10b981;
+            font-weight: bold;
+        }
+        .error {
+            color: #ef4444;
+            font-weight: bold;
+        }
+        .warning {
+            color: #f59e0b;
+            font-weight: bold;
+        }
+        .info {
+            color: #3b82f6;
+        }
+        pre {
+            background: #f9fafb;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            border: 1px solid #e5e7eb;
+        }
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        .status-success {
+            background: #10b981;
+        }
+        .status-error {
+            background: #ef4444;
+        }
+        .status-pending {
+            background: #f59e0b;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        th {
+            background: #f9fafb;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔧 Form Submission Diagnostic Tool</h1>
+    
+    <div class="diagnostic-section">
+        <h2>1. Google Apps Script Status</h2>
+        <button onclick="checkScriptStatus()">Check Script Status</button>
+        <div id="scriptStatus"></div>
+    </div>
+
+    <div class="diagnostic-section">
+        <h2>2. Test Submission Methods</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Method</th>
+                    <th>Action</th>
+                    <th>Status</th>
+                    <th>Result</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>FormData (Current)</td>
+                    <td><button onclick="testFormData()">Test</button></td>
+                    <td id="formDataStatus">-</td>
+                    <td id="formDataResult">-</td>
+                </tr>
+                <tr>
+                    <td>JSON with text/plain</td>
+                    <td><button onclick="testTextPlain()">Test</button></td>
+                    <td id="textPlainStatus">-</td>
+                    <td id="textPlainResult">-</td>
+                </tr>
+                <tr>
+                    <td>URL Encoded</td>
+                    <td><button onclick="testUrlEncoded()">Test</button></td>
+                    <td id="urlEncodedStatus">-</td>
+                    <td id="urlEncodedResult">-</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="diagnostic-section">
+        <h2>3. Check Local Storage Backup</h2>
+        <button onclick="checkLocalStorage()">Check Saved Applications</button>
+        <button onclick="clearLocalStorage()">Clear Local Storage</button>
+        <div id="localStorageResult"></div>
+    </div>
+
+    <div class="diagnostic-section">
+        <h2>4. Full Form Test</h2>
+        <button onclick="testFullForm()">Simulate Full Form Submission</button>
+        <div id="fullFormResult"></div>
+    </div>
+
+    <div class="diagnostic-section">
+        <h2>5. Debug Console</h2>
+        <div id="debugConsole" style="max-height: 300px; overflow-y: auto;">
+            <p class="info">Debug messages will appear here...</p>
+        </div>
+    </div>
+
+    <script>
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwmTSDJmqKq9GE8zBNrELhQMUAoyPCQRdTE5sOZiHBLNS6oh9kq7nYzhk9ohtktVRS6HQ/exec';
+        
+        function log(message, type = 'info') {
+            const console = document.getElementById('debugConsole');
+            const entry = document.createElement('div');
+            entry.className = type;
+            entry.innerHTML = `[${new Date().toLocaleTimeString()}] ${message}`;
+            console.appendChild(entry);
+            console.scrollTop = console.scrollHeight;
+        }
+
+        async function checkScriptStatus() {
+            const statusDiv = document.getElementById('scriptStatus');
+            statusDiv.innerHTML = '<p class="info">Checking script accessibility...</p>';
+            
+            try {
+                log('Sending GET request to Google Apps Script...');
+                const response = await fetch(GOOGLE_SCRIPT_URL, { 
+                    method: 'GET',
+                    mode: 'cors',
+                    cache: 'no-cache'
+                });
+                
+                log(`GET response status: ${response.status}`);
+                
+                if (response.ok) {
+                    const text = await response.text();
+                    const isHtml = text.includes('<!DOCTYPE html>') || text.includes('<html');
+                    
+                    if (isHtml) {
+                        statusDiv.innerHTML = `
+                            <p class="success"><span class="status-indicator status-success"></span>Script is accessible</p>
+                            <p>The script returned an HTML page, which means it's deployed and running.</p>
+                            <p class="info">Script URL: ${GOOGLE_SCRIPT_URL}</p>
+                        `;
+                        log('Script is deployed and accessible', 'success');
+                    } else {
+                        statusDiv.innerHTML = `
+                            <p class="warning"><span class="status-indicator status-pending"></span>Unexpected response</p>
+                            <pre>${text.substring(0, 200)}...</pre>
+                        `;
+                        log('Unexpected response format', 'warning');
+                    }
+                } else {
+                    statusDiv.innerHTML = `
+                        <p class="error"><span class="status-indicator status-error"></span>Script returned error: ${response.status}</p>
+                    `;
+                    log(`Script error: HTTP ${response.status}`, 'error');
+                }
+            } catch (error) {
+                statusDiv.innerHTML = `
+                    <p class="error"><span class="status-indicator status-error"></span>Network error: ${error.message}</p>
+                    <p>This might indicate CORS issues or network problems.</p>
+                `;
+                log(`Network error: ${error.message}`, 'error');
+            }
+        }
+
+        function getTestData() {
+            const timestamp = new Date().toISOString();
+            return {
+                timestamp: timestamp,
+                firstName: 'Diagnostic',
+                lastName: 'Test',
+                email: 'diagnostic@test.com',
+                companyName: 'Diagnostic Test Co',
+                website: 'https://diagnostic.test',
+                stage: 'Seed',
+                role: 'Founder/CEO',
+                industry: 'SaaS',
+                timeline: 'ASAP',
+                source: `Diagnostic ${timestamp}`
+            };
+        }
+
+        async function testFormData() {
+            const statusCell = document.getElementById('formDataStatus');
+            const resultCell = document.getElementById('formDataResult');
+            
+            statusCell.innerHTML = '<span class="info">Testing...</span>';
+            resultCell.innerHTML = '-';
+            
+            const data = getTestData();
+            log('Testing FormData submission...', 'info');
+            
+            try {
+                const formData = new FormData();
+                Object.keys(data).forEach(key => {
+                    formData.append(key, data[key]);
+                });
+                
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                log(`FormData response status: ${response.status}`);
+                
+                if (response.ok) {
+                    const result = await response.json();
+                    statusCell.innerHTML = '<span class="success">✓ Success</span>';
+                    resultCell.innerHTML = `Row ${result.data?.row || 'N/A'}`;
+                    log('FormData submission successful', 'success');
+                } else {
+                    const text = await response.text();
+                    statusCell.innerHTML = '<span class="error">✗ Failed</span>';
+                    resultCell.innerHTML = `HTTP ${response.status}`;
+                    log(`FormData failed: ${text}`, 'error');
+                }
+            } catch (error) {
+                statusCell.innerHTML = '<span class="error">✗ Error</span>';
+                resultCell.innerHTML = error.message;
+                log(`FormData error: ${error.message}`, 'error');
+            }
+        }
+
+        async function testTextPlain() {
+            const statusCell = document.getElementById('textPlainStatus');
+            const resultCell = document.getElementById('textPlainResult');
+            
+            statusCell.innerHTML = '<span class="info">Testing...</span>';
+            resultCell.innerHTML = '-';
+            
+            const data = getTestData();
+            log('Testing text/plain submission...', 'info');
+            
+            try {
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'text/plain;charset=utf-8'
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                log(`Text/plain response status: ${response.status}`);
+                
+                if (response.ok) {
+                    const result = await response.json();
+                    statusCell.innerHTML = '<span class="success">✓ Success</span>';
+                    resultCell.innerHTML = `Row ${result.data?.row || 'N/A'}`;
+                    log('Text/plain submission successful', 'success');
+                } else {
+                    statusCell.innerHTML = '<span class="error">✗ Failed</span>';
+                    resultCell.innerHTML = `HTTP ${response.status}`;
+                    log(`Text/plain failed: HTTP ${response.status}`, 'error');
+                }
+            } catch (error) {
+                statusCell.innerHTML = '<span class="error">✗ Error</span>';
+                resultCell.innerHTML = error.message;
+                log(`Text/plain error: ${error.message}`, 'error');
+            }
+        }
+
+        async function testUrlEncoded() {
+            const statusCell = document.getElementById('urlEncodedStatus');
+            const resultCell = document.getElementById('urlEncodedResult');
+            
+            statusCell.innerHTML = '<span class="info">Testing...</span>';
+            resultCell.innerHTML = '-';
+            
+            const data = getTestData();
+            log('Testing URL encoded submission...', 'info');
+            
+            try {
+                const params = new URLSearchParams();
+                Object.keys(data).forEach(key => {
+                    params.append(key, data[key]);
+                });
+                
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: params.toString()
+                });
+                
+                log(`URL encoded response status: ${response.status}`);
+                
+                if (response.ok) {
+                    const result = await response.json();
+                    statusCell.innerHTML = '<span class="success">✓ Success</span>';
+                    resultCell.innerHTML = `Row ${result.data?.row || 'N/A'}`;
+                    log('URL encoded submission successful', 'success');
+                } else {
+                    statusCell.innerHTML = '<span class="error">✗ Failed</span>';
+                    resultCell.innerHTML = `HTTP ${response.status}`;
+                    log(`URL encoded failed: HTTP ${response.status}`, 'error');
+                }
+            } catch (error) {
+                statusCell.innerHTML = '<span class="error">✗ Error</span>';
+                resultCell.innerHTML = error.message;
+                log(`URL encoded error: ${error.message}`, 'error');
+            }
+        }
+
+        function checkLocalStorage() {
+            const resultDiv = document.getElementById('localStorageResult');
+            const applications = JSON.parse(localStorage.getItem('flashApplications') || '[]');
+            
+            if (applications.length === 0) {
+                resultDiv.innerHTML = '<p class="info">No applications in local storage</p>';
+                log('No applications found in local storage');
+            } else {
+                resultDiv.innerHTML = `
+                    <p class="success">Found ${applications.length} applications in local storage</p>
+                    <p>Latest: ${applications[applications.length - 1]?.companyName || 'Unknown'} at ${new Date(applications[applications.length - 1]?.timestamp).toLocaleString()}</p>
+                `;
+                log(`Found ${applications.length} applications in local storage`, 'success');
+            }
+        }
+
+        function clearLocalStorage() {
+            localStorage.removeItem('flashApplications');
+            log('Local storage cleared', 'info');
+            checkLocalStorage();
+        }
+
+        async function testFullForm() {
+            const resultDiv = document.getElementById('fullFormResult');
+            resultDiv.innerHTML = '<p class="info">Running full form submission test...</p>';
+            
+            log('Starting full form submission test...', 'info');
+            
+            // Test the exact same flow as the actual form
+            const data = getTestData();
+            
+            try {
+                // Create FormData object (matching the actual form)
+                const formDataToSend = new FormData();
+                Object.keys(data).forEach(key => {
+                    formDataToSend.append(key, data[key]);
+                });
+
+                log('Sending FormData to Google Apps Script...', 'info');
+                
+                // Send to Google Apps Script using FormData
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    body: formDataToSend
+                });
+
+                log(`Response received: Status ${response.status}`, 'info');
+
+                // Check if request was successful
+                if (response.ok) {
+                    const result = await response.json();
+                    log('Form submitted successfully: ' + JSON.stringify(result), 'success');
+                    
+                    resultDiv.innerHTML = `
+                        <p class="success">✅ Full form test successful!</p>
+                        <p><strong>Response:</strong></p>
+                        <pre>${JSON.stringify(result, null, 2)}</pre>
+                        <p class="warning">⚠️ Check your Google Sheet for an entry with source: "${data.source}"</p>
+                    `;
+                } else {
+                    throw new Error('Server returned an error');
+                }
+                
+            } catch (error) {
+                log('Full form test error: ' + error.message, 'error');
+                resultDiv.innerHTML = `
+                    <p class="error">❌ Full form test failed</p>
+                    <p>Error: ${error.message}</p>
+                    <p>Check the debug console for details</p>
+                `;
+            }
+        }
+
+        // Run initial check on page load
+        window.onload = function() {
+            log('Diagnostic tool loaded', 'info');
+            log(`Script URL: ${GOOGLE_SCRIPT_URL}`, 'info');
+            checkScriptStatus();
+            checkLocalStorage();
+        };
+    </script>
+</body>
+</html>

@@ -215,12 +215,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            letter-spacing: -0.02em;
+            display: inline-block;
             text-decoration: none;
-            color: var(--black);
             transition: opacity 0.2s ease;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+            display: block;
         }
 
         .logo:hover {
@@ -722,7 +725,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <header class="header">
         <div class="container">
             <div class="header-content">
-                <a href="/" class="logo">FLASH</a>
+                <a href="/" class="logo"><img src="/images/flashlogo.png" alt="FLASH"></a>
                 <nav class="header-nav" id="mobileMenu">
                     <a href="/" class="header-link">Back to Home</a>
                     <a href="https://www.flash.onl/flash-camp-framework.html" class="header-link">CAMP Framework</a>
