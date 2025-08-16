@@ -634,6 +634,9 @@
             }
         }
 
+        // Google Apps Script URL (same as apply.html)
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwmTSDJmqKq9GE8zBNrELhQMUAoyPCQRdTE5sOZiHBLNS6oh9kq7nYzhk9ohtktVRS6HQ/exec';
+
         // Form submission
         document.getElementById('waitlistForm').addEventListener('submit', async function(e) {
             e.preventDefault();
@@ -642,6 +645,7 @@
             const btnText = document.getElementById('btnText');
             const btnLoading = document.getElementById('btnLoading');
             const successMessage = document.getElementById('successMessage');
+            const form = document.getElementById('waitlistForm');
             
             // Show loading state
             btnText.style.display = 'none';
@@ -650,39 +654,79 @@
             
             // Get form data
             const formData = {
-                name: document.getElementById('name').value,
+                firstName: document.getElementById('name').value.split(' ')[0] || '',
+                lastName: document.getElementById('name').value.split(' ').slice(1).join(' ') || '',
                 email: document.getElementById('email').value,
-                company: document.getElementById('company').value,
-                timestamp: new Date().toISOString()
+                companyName: document.getElementById('company').value,
+                timestamp: new Date().toISOString(),
+                source: 'waitlist',
+                stage: 'Waitlist',
+                role: 'Waitlist User',
+                industry: 'Not specified',
+                timeline: 'Not specified'
             };
             
-            // Simulate API call (replace with actual endpoint)
             try {
-                await new Promise(resolve => setTimeout(resolve, 2000));
-                
-                // Show success
-                successMessage.classList.add('show');
-                document.getElementById('waitlistForm').reset();
-                
-                // Reset button after delay
-                setTimeout(() => {
+                // Send to Google Apps Script
+                const formDataToSend = new FormData();
+                Object.keys(formData).forEach(key => {
+                    formDataToSend.append(key, formData[key]);
+                });
+
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    body: formDataToSend
+                });
+
+                if (response.ok) {
+                    // Show success
+                    successMessage.classList.add('show');
+                    form.style.opacity = '0.5';
+                    form.style.pointerEvents = 'none';
+                    
+                    // Update button
                     btnText.style.display = 'inline';
                     btnLoading.style.display = 'none';
-                    btnText.textContent = 'Added to Waitlist!';
-                    submitBtn.disabled = false;
+                    btnText.textContent = '✅ Successfully Added to Waitlist!';
                     
-                    setTimeout(() => {
-                        btnText.textContent = 'Secure Your Spot';
-                        successMessage.classList.remove('show');
-                    }, 3000);
-                }, 1000);
+                    // Scroll to success message
+                    successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    
+                    // Track conversion if GTM is available
+                    if (typeof dataLayer !== 'undefined') {
+                        dataLayer.push({
+                            'event': 'waitlist_submission',
+                            'form_name': 'waitlist'
+                        });
+                    }
+                } else {
+                    throw new Error('Server returned an error');
+                }
                 
             } catch (error) {
+                console.error('Form submission error:', error);
+                
                 // Handle error
                 btnText.style.display = 'inline';
                 btnLoading.style.display = 'none';
-                btnText.textContent = 'Try Again';
+                btnText.textContent = 'Error - Please Try Again';
                 submitBtn.disabled = false;
+                
+                // Show error message
+                successMessage.textContent = '❌ Something went wrong. Please try again or email us at contact@flash.zone';
+                successMessage.style.background = 'rgba(255, 59, 48, 0.1)';
+                successMessage.style.borderColor = 'rgba(255, 59, 48, 0.3)';
+                successMessage.style.color = '#ff3b30';
+                successMessage.classList.add('show');
+                
+                setTimeout(() => {
+                    successMessage.classList.remove('show');
+                    // Reset success message styling
+                    successMessage.textContent = '🎉 Welcome to FLASH! You\'re now on our exclusive waitlist.';
+                    successMessage.style.background = 'rgba(0, 255, 136, 0.1)';
+                    successMessage.style.borderColor = 'rgba(0, 255, 136, 0.3)';
+                    successMessage.style.color = 'var(--success-color)';
+                }, 5000);
             }
         });
 
