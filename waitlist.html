@@ -413,21 +413,103 @@
 
         /* Success State */
         .success-message {
-            background: rgba(0, 255, 136, 0.1);
-            border: 1px solid rgba(0, 255, 136, 0.3);
-            border-radius: 12px;
-            padding: 20px;
-            color: var(--success-color);
+            background: linear-gradient(135deg, #34c759 0%, #28a745 100%);
+            border: 1px solid rgba(52, 199, 89, 0.3);
+            border-radius: 16px;
+            padding: 32px 24px;
+            color: white;
             font-weight: 500;
             margin-top: 20px;
             opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.3s ease;
+            transform: scale(0.8) translateY(30px);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(52, 199, 89, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .success-message::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.8s ease;
         }
 
         .success-message.show {
             opacity: 1;
-            transform: translateY(0);
+            transform: scale(1) translateY(0);
+            animation: successSlideIn 0.6s ease-out;
+        }
+
+        .success-message.show::before {
+            left: 100%;
+        }
+
+        @keyframes successSlideIn {
+            0% { 
+                transform: scale(0.8) translateY(30px); 
+                opacity: 0; 
+            }
+            50% { 
+                transform: scale(1.05) translateY(-5px); 
+                opacity: 0.8;
+            }
+            100% { 
+                transform: scale(1) translateY(0); 
+                opacity: 1; 
+            }
+        }
+
+        .success-checkmark-waitlist {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            position: relative;
+            animation: checkmarkPop 0.8s ease-out 0.3s both;
+        }
+
+        @keyframes checkmarkPop {
+            0% { 
+                transform: scale(0) rotate(45deg); 
+                opacity: 0; 
+            }
+            60% { 
+                transform: scale(1.2) rotate(45deg); 
+                opacity: 1;
+            }
+            100% { 
+                transform: scale(1) rotate(0deg); 
+                opacity: 1; 
+            }
+        }
+
+        .success-checkmark-waitlist::before {
+            content: '✓';
+            font-size: 32px;
+            font-weight: bold;
+            color: white;
+            animation: checkmarkShow 0.4s ease-out 0.6s both;
+        }
+
+        @keyframes checkmarkShow {
+            0% { 
+                transform: scale(0); 
+                opacity: 0; 
+            }
+            100% { 
+                transform: scale(1); 
+                opacity: 1; 
+            }
         }
 
         /* Footer */
@@ -594,7 +676,9 @@
                         <span id="btnLoading" class="loading" style="display: none;"></span>
                     </button>
                     <div class="success-message" id="successMessage">
-                        🎉 Welcome to FLASH! You're now on our exclusive waitlist.
+                        <div class="success-checkmark-waitlist"></div>
+                        <strong style="font-size: 1.2rem; display: block; margin-bottom: 8px;">Success!</strong>
+                        Welcome to FLASH! You're now on our exclusive waitlist.
                     </div>
                 </form>
             </div>
@@ -679,18 +763,32 @@
                 });
 
                 if (response.ok) {
-                    // Show success
-                    successMessage.classList.add('show');
-                    form.style.opacity = '0.5';
-                    form.style.pointerEvents = 'none';
+                    // Fade out form inputs
+                    const inputs = form.querySelectorAll('.form-input');
+                    inputs.forEach(input => {
+                        input.style.opacity = '0.3';
+                        input.style.pointerEvents = 'none';
+                    });
                     
-                    // Update button
+                    // Update button with success state
                     btnText.style.display = 'inline';
                     btnLoading.style.display = 'none';
-                    btnText.textContent = '✅ Successfully Added to Waitlist!';
+                    btnText.textContent = '✅ Successfully Added!';
+                    submitBtn.style.background = 'linear-gradient(135deg, #34c759 0%, #28a745 100%)';
+                    submitBtn.style.transform = 'scale(1.05)';
                     
-                    // Scroll to success message
-                    successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    // Show success message with delay for better UX
+                    setTimeout(() => {
+                        successMessage.classList.add('show');
+                        
+                        // Scroll to success message after animation starts
+                        setTimeout(() => {
+                            successMessage.scrollIntoView({ 
+                                behavior: 'smooth', 
+                                block: 'center' 
+                            });
+                        }, 200);
+                    }, 600);
                     
                     // Track conversion if GTM is available
                     if (typeof dataLayer !== 'undefined') {
@@ -713,19 +811,19 @@
                 submitBtn.disabled = false;
                 
                 // Show error message
-                successMessage.textContent = '❌ Something went wrong. Please try again or email us at contact@flash.zone';
-                successMessage.style.background = 'rgba(255, 59, 48, 0.1)';
+                successMessage.innerHTML = '<div style="color: #ff3b30; font-size: 2rem; margin-bottom: 8px;">❌</div><strong>Something went wrong</strong><br>Please try again or email us at contact@flash.zone';
+                successMessage.style.background = 'linear-gradient(135deg, #ff3b30 0%, #dc3545 100%)';
                 successMessage.style.borderColor = 'rgba(255, 59, 48, 0.3)';
-                successMessage.style.color = '#ff3b30';
+                successMessage.style.color = 'white';
                 successMessage.classList.add('show');
                 
                 setTimeout(() => {
                     successMessage.classList.remove('show');
-                    // Reset success message styling
-                    successMessage.textContent = '🎉 Welcome to FLASH! You\'re now on our exclusive waitlist.';
-                    successMessage.style.background = 'rgba(0, 255, 136, 0.1)';
-                    successMessage.style.borderColor = 'rgba(0, 255, 136, 0.3)';
-                    successMessage.style.color = 'var(--success-color)';
+                    // Reset success message styling and content
+                    successMessage.innerHTML = '<div class="success-checkmark-waitlist"></div><strong style="font-size: 1.2rem; display: block; margin-bottom: 8px;">Success!</strong>Welcome to FLASH! You\'re now on our exclusive waitlist.';
+                    successMessage.style.background = 'linear-gradient(135deg, #34c759 0%, #28a745 100%)';
+                    successMessage.style.borderColor = 'rgba(52, 199, 89, 0.3)';
+                    successMessage.style.color = 'white';
                 }, 5000);
             }
         });
