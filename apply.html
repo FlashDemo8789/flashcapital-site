@@ -498,31 +498,32 @@
                 Submit Application
             </button>
 
-            <div id="successMessage" class="success-message">
-                <div class="success-content">
-                    <div class="success-checkmark"></div>
-                    <h2 class="success-title">Application Submitted Successfully!</h2>
-                    <p class="success-subtitle">Thank you for applying to FLASH Fund.</p>
-                    
-                    <div class="success-timeline">
-                        <h3>What happens next?</h3>
-                        <ol>
-                            <li><strong>Days 1-3:</strong> AI analysis of your metrics</li>
-                            <li><strong>Days 4-10:</strong> Deep dive review</li>
-                            <li><strong>Day 14:</strong> Decision + term sheet or feedback</li>
-                        </ol>
-                    </div>
-                    
-                    <p style="color: white; margin: 24px 0;">You'll receive a confirmation email shortly at the address you provided.</p>
-                    
-                    <a href="/" class="success-button">Return to Homepage</a>
-                </div>
-            </div>
+            <!-- Success message moved outside form to prevent it being hidden -->
 
             <div class="error-message" id="errorMessage">
                 Something went wrong. Please try again or email us at contact@flash.zone
             </div>
         </form>
+
+        <!-- Move success message OUTSIDE the form so it's visible when form is hidden -->
+        <div id="successMessage" class="success-message">
+            <div class="success-content">
+                <div class="success-checkmark"></div>
+                <h2 class="success-title">Application Submitted Successfully!</h2>
+                <p class="success-subtitle">Thank you for applying to FLASH Fund.</p>
+                
+                <div class="success-timeline">
+                    <h3>What happens next?</h3>
+                    <ol>
+                        <li><strong>Days 1-3:</strong> AI analysis of your metrics</li>
+                        <li><strong>Days 4-10:</strong> Deep dive review</li>
+                        <li><strong>Days 11-14:</strong> Final decision</li>
+                    </ol>
+                </div>
+                
+                <a href="/" class="success-button">Return to Homepage</a>
+            </div>
+        </div>
     </div>
 
     <!-- Honeypot for spam protection -->
