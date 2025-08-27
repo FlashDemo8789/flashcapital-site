@@ -578,17 +578,16 @@
                     formDataToSend.append(key, data[key]);
                 });
 
-                // Submit with no-cors (we can't read response but that's OK)
+                // Show success immediately (don't wait for fetch)
+                showSuccess();
+                
+                // Submit in background (fire and forget)
                 fetch(GOOGLE_SCRIPT_URL, {
                     method: 'POST',
                     mode: 'no-cors',
                     body: formDataToSend
-                }).then(() => {
-                    // Always show success (we can't detect failure with no-cors)
-                    showSuccess();
                 }).catch(() => {
-                    // Even on error, show success (user expects confirmation)
-                    showSuccess();
+                    // Ignore errors - success already shown
                 });
 
                 // Save to localStorage as backup
