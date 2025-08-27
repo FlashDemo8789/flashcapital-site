@@ -239,7 +239,9 @@
             justify-content: center;
             margin: 0 auto 24px;
             position: relative;
-            animation: checkmarkAppear 0.8s ease-out;
+            animation: checkmarkAppear 0.8s ease-out forwards;
+            opacity: 1;
+            transform: scale(1);
         }
 
         @keyframes checkmarkAppear {
@@ -262,7 +264,9 @@
             font-size: 48px;
             font-weight: bold;
             color: white;
-            animation: checkmarkDraw 0.5s ease-out 0.3s both;
+            animation: checkmarkDraw 0.5s ease-out 0.3s forwards;
+            opacity: 1;
+            transform: scale(1) rotate(0deg);
         }
 
         @keyframes checkmarkDraw {
