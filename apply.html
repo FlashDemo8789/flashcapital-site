@@ -573,41 +573,37 @@
                 // Send to Google Apps Script using FormData
                 const response = await fetch(GOOGLE_SCRIPT_URL, {
                     method: 'POST',
+                    mode: 'no-cors',
                     body: formDataToSend
                 });
 
-                // Check if request was successful
-                if (response.ok) {
-                    const result = await response.json();
-                    console.log('Form submitted successfully:', result);
+                // With no-cors mode, we can't read response, so assume success if no error thrown
+                console.log('Form submitted successfully (no-cors mode)');
+                
+                // Hide form with fade animation
+                form.style.opacity = '0';
+                form.style.transform = 'scale(0.95)';
+                form.style.transition = 'all 0.3s ease';
+                
+                setTimeout(() => {
+                    form.style.display = 'none';
                     
-                    // Hide form with fade animation
-                    form.style.opacity = '0';
-                    form.style.transform = 'scale(0.95)';
-                    form.style.transition = 'all 0.3s ease';
+                    // Show success message with animation
+                    successMessage.style.display = 'block';
                     
+                    // Trigger animation after display
                     setTimeout(() => {
-                        form.style.display = 'none';
-                        
-                        // Show success message with animation
-                        successMessage.style.display = 'block';
-                        
-                        // Trigger animation after display
-                        setTimeout(() => {
-                            successMessage.classList.add('show');
-                        }, 50);
-                        
-                        // Scroll to success message
-                        setTimeout(() => {
-                            successMessage.scrollIntoView({ 
-                                behavior: 'smooth', 
-                                block: 'center' 
-                            });
-                        }, 300);
+                        successMessage.classList.add('show');
+                    }, 50);
+                    
+                    // Scroll to success message
+                    setTimeout(() => {
+                        successMessage.scrollIntoView({ 
+                            behavior: 'smooth', 
+                            block: 'center' 
+                        });
                     }, 300);
-                } else {
-                    throw new Error('Server returned an error');
-                }
+                }, 300);
 
                 // Track conversion if GTM is available
                 if (typeof dataLayer !== 'undefined') {
