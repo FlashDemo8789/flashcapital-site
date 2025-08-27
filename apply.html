@@ -201,9 +201,10 @@
         }
 
         .success-message.show {
-            opacity: 1;
-            transform: scale(1) translateY(0);
-            animation: successPulse 0.6s ease-out;
+            opacity: 1 !important;
+            transform: scale(1) translateY(0) !important;
+            display: block !important;
+            /* Removed animation to prevent conflicts */
         }
 
         @keyframes successPulse {
@@ -608,13 +609,13 @@
                     setTimeout(() => {
                         form.style.display = 'none';
                         
-                        // Show success message
+                        // Show success message with forced visibility
                         successMessage.style.display = 'block';
+                        successMessage.style.opacity = '1';  // Force opacity inline
+                        successMessage.style.visibility = 'visible';  // Force visibility
                         
-                        // Add animation class
-                        setTimeout(() => {
-                            successMessage.classList.add('show');
-                        }, 50);
+                        // Add show class for additional styling
+                        successMessage.classList.add('show');
                         
                         // Scroll to success
                         setTimeout(() => {
