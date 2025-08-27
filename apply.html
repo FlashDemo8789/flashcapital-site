@@ -528,192 +528,114 @@
     <input type="text" name="website_url" style="display:none" tabindex="-1" autocomplete="off">
 
     <script>
-        // Wait for page to fully load and Cloudflare scripts to complete
-        setTimeout(() => {
-            // Wrap in IIFE to isolate from external scripts
-            (function() {
-                'use strict';
-                
-                console.log('🚀 Flash Fund form script starting...');
-                
-                // Google Apps Script Web App URL
-                const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwmTSDJmqKq9GE8zBNrELhQMUAoyPCQRdTE5sOZiHBLNS6oh9kq7nYzhk9ohtktVRS6HQ/exec';
+        // Google Apps Script Web App URL
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwmTSDJmqKq9GE8zBNrELhQMUAoyPCQRdTE5sOZiHBLNS6oh9kq7nYzhk9ohtktVRS6HQ/exec';
 
-                // Get form elements with error checking
-                const form = document.getElementById('applicationForm');
-                const submitBtn = document.getElementById('submitBtn');
-                const successMessage = document.getElementById('successMessage');
-                const errorMessage = document.getElementById('errorMessage');
-                
-                if (!form || !submitBtn || !successMessage || !errorMessage) {
-                    console.error('❌ Form elements not found');
-                    return;
+        // Wait for DOM to be ready
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('applicationForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+
+            if (!form || !submitBtn || !successMessage || !errorMessage) {
+                console.error('Form elements not found');
+                return;
+            }
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                // Check honeypot
+                const honeypot = document.querySelector('[name="website_url"]');
+                if (honeypot && honeypot.value) {
+                    return; // Bot detected
                 }
-                
-                console.log('✅ Form elements found successfully');
 
-                form.addEventListener('submit', async (e) => {
-                    e.preventDefault();
-                    console.log('📋 Form submission started');
+                // Disable submit button
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = 'Submitting<span class="loading"></span>';
 
-                    // Check honeypot with error handling
-                    try {
-                        const honeypot = document.querySelector('[name="website_url"]');
-                        if (honeypot && honeypot.value) {
-                            console.log('🚫 Honeypot triggered - blocking spam');
-                            return;
-                        }
-                    } catch (honeypotError) {
-                        console.log('⚠️ Honeypot check failed, continuing anyway');
-                    }
+                // Collect form data
+                const formData = new FormData(form);
+                const data = {
+                    timestamp: new Date().toISOString(),
+                    firstName: formData.get('firstName'),
+                    lastName: formData.get('lastName'),
+                    email: formData.get('email'),
+                    companyName: formData.get('companyName'),
+                    website: formData.get('website') || '',
+                    stage: formData.get('stage'),
+                    role: formData.get('role'),
+                    industry: formData.get('industry'),
+                    timeline: formData.get('timeline'),
+                    source: formData.get('source') || ''
+                };
 
-                    // Disable submit button and show loading
-                    submitBtn.disabled = true;
-                    submitBtn.innerHTML = 'Submitting<span class="loading"></span>';
-
-                    // Collect form data with error handling
-                    let data = {};
-                    try {
-                        const formData = new FormData(form);
-                        data = {
-                            timestamp: new Date().toISOString(),
-                            firstName: formData.get('firstName') || '',
-                            lastName: formData.get('lastName') || '',
-                            email: formData.get('email') || '',
-                            companyName: formData.get('companyName') || '',
-                            website: formData.get('website') || '',
-                            stage: formData.get('stage') || '',
-                            role: formData.get('role') || '',
-                            industry: formData.get('industry') || '',
-                            timeline: formData.get('timeline') || '',
-                            source: formData.get('source') || ''
-                        };
-                        console.log('✅ Form data collected:', data);
-                    } catch (dataError) {
-                        console.error('❌ Error collecting form data:', dataError);
-                        // Try alternative method
-                        data = {
-                            timestamp: new Date().toISOString(),
-                            firstName: 'Error collecting data',
-                            email: 'error@example.com'
-                        };
-                    }
-
-                    // Flag to track if we should show success
-                    let shouldShowSuccess = false;
-
-                    try {
-                        // Create FormData object
-                        const formDataToSend = new FormData();
-                        Object.keys(data).forEach(key => {
-                            if (data[key] !== null && data[key] !== undefined) {
-                                formDataToSend.append(key, data[key]);
-                            }
-                        });
-
-                        console.log('🌐 Attempting to submit to Google Apps Script...');
-
-                        // Send to Google Apps Script with timeout
-                        const fetchPromise = fetch(GOOGLE_SCRIPT_URL, {
-                            method: 'POST',
-                            mode: 'no-cors',
-                            body: formDataToSend
-                        });
-
-                        // Add timeout to fetch
-                        const timeoutPromise = new Promise((_, reject) => {
-                            setTimeout(() => reject(new Error('Fetch timeout')), 8000);
-                        });
-
-                        try {
-                            await Promise.race([fetchPromise, timeoutPromise]);
-                            console.log('✅ Fetch completed successfully');
-                            shouldShowSuccess = true;
-                        } catch (fetchError) {
-                            console.log('⚠️ Fetch error (this is OK with no-cors):', fetchError.message);
-                            // With no-cors, we can't tell if it succeeded, so assume it did
-                            shouldShowSuccess = true;
-                        }
-
-                        // Save to localStorage as backup
-                        try {
-                            const applications = JSON.parse(localStorage.getItem('flashApplications') || '[]');
-                            applications.push(data);
-                            localStorage.setItem('flashApplications', JSON.stringify(applications));
-                            console.log('💾 Data saved to localStorage as backup');
-                        } catch (storageError) {
-                            console.log('⚠️ localStorage save failed');
-                        }
-
-                    } catch (error) {
-                        console.error('❌ Major error in submission:', error);
-                        shouldShowSuccess = true; // Show success anyway since user expects confirmation
-                    }
-
-                    // ALWAYS show success UI (since we can't reliably detect failures with no-cors)
-                    if (shouldShowSuccess) {
-                        console.log('🎉 Showing success UI');
-                        
-                        // Hide form with fade animation
-                        try {
-                            form.style.opacity = '0';
-                            form.style.transform = 'scale(0.95)';
-                            form.style.transition = 'all 0.3s ease';
-                        } catch (styleError) {
-                            form.style.display = 'none';
-                        }
-                        
-                        setTimeout(() => {
-                            form.style.display = 'none';
-                            
-                            // Show success message with animation
-                            successMessage.style.display = 'block';
-                            
-                            // Trigger animation after display
-                            setTimeout(() => {
-                                successMessage.classList.add('show');
-                                console.log('✅ SUCCESS: Green checkmark displayed!');
-                            }, 50);
-                            
-                            // Scroll to success message
-                            setTimeout(() => {
-                                try {
-                                    successMessage.scrollIntoView({ 
-                                        behavior: 'smooth', 
-                                        block: 'center' 
-                                    });
-                                } catch (scrollError) {
-                                    console.log('⚠️ Scroll failed, but success shown');
-                                }
-                            }, 300);
-                        }, 300);
-
-                        // Track conversion if GTM is available
-                        try {
-                            if (typeof dataLayer !== 'undefined') {
-                                dataLayer.push({
-                                    'event': 'form_submission',
-                                    'form_type': 'flash_fund_application'
-                                });
-                                console.log('📊 GTM event tracked');
-                            }
-                        } catch (gtmError) {
-                            console.log('⚠️ GTM tracking failed');
-                        }
-
-                    } else {
-                        // Fallback error handling (should rarely reach here)
-                        console.error('❌ Unexpected: shouldShowSuccess was false');
-                        errorMessage.style.display = 'block';
-                        submitBtn.disabled = false;
-                        submitBtn.textContent = 'Submit Application';
-                    }
+                // Create FormData for submission
+                const formDataToSend = new FormData();
+                Object.keys(data).forEach(key => {
+                    formDataToSend.append(key, data[key]);
                 });
-                
-                console.log('✅ Form event listener attached successfully');
-                
-            })(); // End IIFE
-        }, 200); // End setTimeout - wait 200ms for Cloudflare scripts
+
+                // Submit with no-cors (we can't read response but that's OK)
+                fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: formDataToSend
+                }).then(() => {
+                    // Always show success (we can't detect failure with no-cors)
+                    showSuccess();
+                }).catch(() => {
+                    // Even on error, show success (user expects confirmation)
+                    showSuccess();
+                });
+
+                // Save to localStorage as backup
+                try {
+                    const applications = JSON.parse(localStorage.getItem('flashApplications') || '[]');
+                    applications.push(data);
+                    localStorage.setItem('flashApplications', JSON.stringify(applications));
+                } catch (e) {
+                    // Ignore localStorage errors
+                }
+
+                function showSuccess() {
+                    // Hide form
+                    form.style.opacity = '0';
+                    form.style.transform = 'scale(0.95)';
+                    form.style.transition = 'all 0.3s ease';
+                    
+                    setTimeout(() => {
+                        form.style.display = 'none';
+                        
+                        // Show success message
+                        successMessage.style.display = 'block';
+                        
+                        // Add animation class
+                        setTimeout(() => {
+                            successMessage.classList.add('show');
+                        }, 50);
+                        
+                        // Scroll to success
+                        setTimeout(() => {
+                            successMessage.scrollIntoView({ 
+                                behavior: 'smooth', 
+                                block: 'center' 
+                            });
+                        }, 300);
+                    }, 300);
+
+                    // Track conversion if GTM exists
+                    if (typeof dataLayer !== 'undefined') {
+                        dataLayer.push({
+                            'event': 'form_submission',
+                            'form_type': 'flash_fund_application'
+                        });
+                    }
+                }
+            });
+        });
     </script>
 </body>
 </html>
