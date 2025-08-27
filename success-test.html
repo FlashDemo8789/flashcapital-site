@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLASH Success UI Test</title>
+    <style>
+        :root {
+            --green: #34c759;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #f5f5f5;
+            padding: 40px 20px;
+            margin: 0;
+        }
+
+        .test-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .test-button {
+            width: 100%;
+            padding: 16px;
+            background: #000;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 20px 0;
+            transition: all 0.2s ease;
+        }
+
+        .test-button:hover {
+            background: #333;
+            transform: translateY(-2px);
+        }
+
+        /* SUCCESS UI STYLES - Exact copy from apply.html */
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 48px 32px;
+            background: linear-gradient(135deg, var(--green) 0%, #28a745 100%);
+            color: var(--white);
+            border-radius: 16px;
+            margin-top: 24px;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 10px 30px rgba(52, 199, 89, 0.3);
+            opacity: 0;
+            transform: scale(0.8) translateY(20px);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .success-message.show {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+            animation: successPulse 0.6s ease-out;
+        }
+
+        @keyframes successPulse {
+            0% { transform: scale(0.8); opacity: 0; }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .success-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .success-checkmark {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            position: relative;
+            animation: checkmarkAppear 0.8s ease-out forwards;
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        @keyframes checkmarkAppear {
+            0% { 
+                transform: scale(0); 
+                opacity: 0; 
+            }
+            50% { 
+                transform: scale(1.1); 
+                opacity: 0.8;
+            }
+            100% { 
+                transform: scale(1); 
+                opacity: 1; 
+            }
+        }
+
+        .success-checkmark::before {
+            content: '✓';
+            font-size: 48px;
+            font-weight: bold;
+            color: white;
+            animation: checkmarkDraw 0.5s ease-out 0.3s forwards;
+            opacity: 1;
+            transform: scale(1) rotate(0deg);
+        }
+
+        @keyframes checkmarkDraw {
+            0% { 
+                transform: scale(0) rotate(-45deg); 
+                opacity: 0; 
+            }
+            100% { 
+                transform: scale(1) rotate(0deg); 
+                opacity: 1; 
+            }
+        }
+
+        .success-title {
+            font-size: 2rem;
+            margin-bottom: 16px;
+            font-weight: 800;
+        }
+
+        .success-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 32px;
+        }
+
+        .status {
+            margin: 30px 0;
+            padding: 20px;
+            background: #e8f5e8;
+            border: 1px solid #34c759;
+            border-radius: 12px;
+            color: #2d5e32;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .instructions {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            color: #856404;
+        }
+
+        .instructions h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🧪 FLASH Success UI Test</h1>
+        
+        <div class="status">
+            ✅ This test verifies that your green checkmark success UI is working correctly
+        </div>
+        
+        <div class="instructions">
+            <h3>📋 How to Use This Test:</h3>
+            <ol>
+                <li><strong>Before Deployment:</strong> Test this file locally to see the working success UI</li>
+                <li><strong>After Deployment:</strong> Test your live site at flash.onl/apply</li>
+                <li><strong>Compare:</strong> Both should show the same green checkmark animation</li>
+            </ol>
+        </div>
+        
+        <button class="test-button" onclick="showSuccess()">
+            🎯 Test Green Checkmark Success UI
+        </button>
+        
+        <button class="test-button" onclick="hideSuccess()" style="background: #666;">
+            🔄 Reset Test
+        </button>
+        
+        <!-- SUCCESS MESSAGE - Exact copy from apply.html -->
+        <div id="successMessage" class="success-message">
+            <div class="success-content">
+                <div class="success-checkmark"></div>
+                <h2 class="success-title">Application Submitted Successfully!</h2>
+                <p class="success-subtitle">Thank you for applying to FLASH Fund.</p>
+                
+                <div style="background: rgba(255,255,255,0.2); padding: 24px; border-radius: 8px; margin: 32px 0; text-align: left;">
+                    <h3 style="margin-bottom: 16px; font-size: 1.125rem; color: white;">What happens next?</h3>
+                    <ol style="max-width: 400px; margin: 0 auto; line-height: 1.8; padding-left: 20px; color: white;">
+                        <li style="margin-bottom: 8px;"><strong>Days 1-3:</strong> AI analysis of your metrics</li>
+                        <li style="margin-bottom: 8px;"><strong>Days 4-10:</strong> Deep dive review</li>
+                        <li style="margin-bottom: 8px;"><strong>Day 14:</strong> Decision + term sheet or feedback</li>
+                    </ol>
+                </div>
+                
+                <p style="color: white;">You'll receive a confirmation email shortly at the address you provided.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showSuccess() {
+            const successMessage = document.getElementById('successMessage');
+            
+            // Show with same animation as apply.html
+            successMessage.style.display = 'block';
+            
+            setTimeout(() => {
+                successMessage.classList.add('show');
+                successMessage.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'center' 
+                });
+            }, 50);
+        }
+
+        function hideSuccess() {
+            const successMessage = document.getElementById('successMessage');
+            successMessage.classList.remove('show');
+            
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 500);
+        }
+    </script>
+</body>
+</html>
