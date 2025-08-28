@@ -607,6 +607,9 @@
                     form.style.transform = 'scale(0.95)';
                     form.style.transition = 'all 0.3s ease';
                     
+                    // Send confirmation email via Cloudflare Worker
+                    sendConfirmationEmail(data);
+                    
                     setTimeout(() => {
                         form.style.display = 'none';
                         
@@ -634,6 +637,32 @@
                             'form_type': 'flash_fund_application'
                         });
                     }
+                }
+                
+                // Send email confirmation via Cloudflare Worker
+                function sendConfirmationEmail(applicationData) {
+                    // Production Cloudflare Worker URL
+                    const WORKER_URL = 'https://flash-fund-email.flashfund.workers.dev';
+                    
+                    fetch(WORKER_URL, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(applicationData)
+                    })
+                    .then(response => response.json())
+                    .then(result => {
+                        if (result.success) {
+                            console.log('✅ Confirmation email sent:', result.applicationId);
+                        } else {
+                            console.log('⚠️ Email send failed, but application was submitted');
+                        }
+                    })
+                    .catch(error => {
+                        // Silent fail - don't break the user experience
+                        console.log('⚠️ Could not send email, but form was submitted successfully');
+                    });
                 }
             });
         });
