@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contact - FLASH Global Offices</title>
+<meta content="FLASH operates from four global offices. New York, Tokyo, Dubai, and Bangalore (opening soon). One standard, two-week decisions." name="description"/>
+<meta content="Contact FLASH - Global Offices" property="og:title"/>
+<meta content="Four offices worldwide. One standard. Two-week funding decisions. Contact us or apply for funding." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="/images/og-image.png" property="og:image"/>
+<!-- Favicon support for all browsers -->
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.png" type="image/png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="/images/favicon-64.png">
+<link rel="icon" type="image/png" sizes="128x128" href="/images/favicon-128.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.json">
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KWVF9HSH');</script>
+<!-- End Google Tag Manager -->
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    :root {
+        --black: #000000;
+        --white: #ffffff;
+        --gray-900: #111111;
+        --gray-800: #1a1a1a;
+        --gray-700: #2a2a2a;
+        --gray-600: #4a4a4a;
+        --gray-500: #6a6a6a;
+        --gray-400: #8a8a8a;
+        --gray-300: #aaaaaa;
+        --gray-200: #cacaca;
+        --gray-100: #eaeaea;
+        --gray-50: #f8f8f8;
+        --green: #00C853;
+        --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        color: var(--black);
+        background: var(--white);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+    }
+
+    /* Header */
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        border-bottom: 1px solid var(--gray-100);
+    }
+
+    .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 72px;
+    }
+
+    .logo {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        transition: opacity 0.2s ease;
+    }
+
+    .logo-icon {
+        height: 36px;
+        width: auto;
+    }
+
+    .logo-text {
+        font-size: 1.5rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        color: var(--black);
+    }
+
+    .logo:hover {
+        opacity: 0.7;
+    }
+
+    .header-nav {
+        display: flex;
+        gap: 32px;
+        align-items: center;
+    }
+
+    .header-link {
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--gray-600);
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+
+    .header-link:hover,
+    .header-link.active {
+        color: var(--black);
+    }
+
+    .header-cta {
+        font-size: 0.875rem;
+        font-weight: 600;
+        padding: 8px 16px;
+        background: var(--black);
+        color: var(--white);
+        text-decoration: none;
+        border-radius: 6px;
+        transition: all 0.2s ease;
+    }
+
+    .header-cta:hover {
+        background: var(--gray-800);
+        transform: translateY(-1px);
+    }
+
+    /* Mobile Menu */
+    .mobile-menu-btn {
+        display: none;
+        flex-direction: column;
+        gap: 4px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 8px;
+    }
+
+    .mobile-menu-btn span {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background: var(--black);
+        transition: all 0.3s ease;
+    }
+
+    /* Hero Section */
+    .contact-hero {
+        padding: 160px 0 80px;
+        text-align: center;
+        background: var(--gray-50);
+        border-bottom: 1px solid var(--gray-100);
+    }
+
+    .contact-title {
+        font-size: clamp(3rem, 7vw, 5rem);
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        line-height: 1.1;
+        margin-bottom: 24px;
+    }
+
+    .contact-subtitle {
+        font-size: 1.5rem;
+        color: var(--gray-600);
+        font-weight: 400;
+    }
+
+    /* Offices Grid */
+    .offices-section {
+        padding: 80px 0;
+    }
+
+    .offices-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+        margin-bottom: 80px;
+    }
+
+    .office-card {
+        padding: 48px;
+        border: 1px solid var(--gray-200);
+        border-radius: 8px;
+        transition: all 0.3s var(--ease-out-expo);
+        cursor: default;
+    }
+
+    .office-card:hover {
+        border-color: var(--black);
+        transform: translateY(-4px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    .office-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 24px;
+    }
+
+    .office-city {
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        line-height: 1.2;
+    }
+
+    .office-status {
+        display: inline-block;
+        padding: 4px 12px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        border-radius: 4px;
+    }
+
+    .office-status.active {
+        background: var(--black);
+        color: var(--white);
+    }
+
+    .office-status.soon {
+        background: var(--gray-100);
+        color: var(--gray-600);
+    }
+
+    .office-address {
+        color: var(--gray-700);
+        font-size: 0.9375rem;
+        line-height: 1.6;
+        margin-bottom: 16px;
+    }
+
+    .office-address-line {
+        display: block;
+    }
+
+    .office-timezone {
+        color: var(--gray-500);
+        font-size: 0.875rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    /* Contact Section */
+    .contact-section {
+        padding: 80px 0;
+        background: var(--gray-50);
+        text-align: center;
+    }
+
+    .section-heading {
+        font-size: 2.5rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        margin-bottom: 48px;
+    }
+
+    .contact-methods {
+        max-width: 600px;
+        margin: 0 auto 64px;
+    }
+
+    .contact-method {
+        padding: 32px 0;
+        border-bottom: 1px solid var(--gray-200);
+    }
+
+    .contact-method:last-child {
+        border-bottom: none;
+    }
+
+    .contact-label {
+        font-size: 0.875rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--gray-500);
+        margin-bottom: 8px;
+    }
+
+    .contact-value {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--black);
+    }
+
+    .contact-value a {
+        color: var(--black);
+        text-decoration: none;
+        transition: opacity 0.2s ease;
+    }
+
+    .contact-value a:hover {
+        opacity: 0.7;
+    }
+
+    /* Response Commitment */
+    .response-commitment {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 48px;
+        background: var(--white);
+        border-radius: 8px;
+        border: 1px solid var(--gray-200);
+    }
+
+    .commitment-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        margin-bottom: 16px;
+    }
+
+    .commitment-items {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .commitment-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 1.125rem;
+        color: var(--gray-700);
+    }
+
+    .check-icon {
+        width: 20px;
+        height: 20px;
+        color: var(--green);
+        flex-shrink: 0;
+    }
+
+    /* CTA Section */
+    .contact-cta {
+        padding: 120px 0;
+        text-align: center;
+    }
+
+    .cta-heading {
+        font-size: clamp(2rem, 5vw, 3rem);
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        margin-bottom: 16px;
+    }
+
+    .cta-subheading {
+        font-size: 1.25rem;
+        color: var(--gray-600);
+        margin-bottom: 48px;
+    }
+
+    .cta-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 20px 48px;
+        background: var(--black);
+        color: var(--white);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.125rem;
+        border-radius: 8px;
+        transition: all 0.2s ease;
+    }
+
+    .cta-button:hover {
+        background: var(--gray-900);
+        transform: translateY(-2px);
+        gap: 16px;
+    }
+
+    /* Footer */
+    .footer {
+        padding: 64px 0;
+        background: var(--black);
+        color: var(--white);
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 32px;
+    }
+
+    .footer-text {
+        font-size: 0.875rem;
+        color: var(--gray-400);
+    }
+
+    .footer-links {
+        display: flex;
+        gap: 32px;
+        flex-wrap: wrap;
+    }
+
+    .footer-link {
+        font-size: 0.875rem;
+        color: var(--gray-400);
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+
+    .footer-link:hover {
+        color: var(--white);
+    }
+
+    /* Reveal Animation */
+    .reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: all 0.8s var(--ease-out-expo);
+    }
+
+    .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .header-nav {
+            display: none;
+        }
+
+        .mobile-menu-btn {
+            display: flex;
+        }
+
+        .contact-hero {
+            padding: 120px 0 60px;
+        }
+
+        .contact-title {
+            font-size: 2.5rem;
+        }
+
+        .contact-subtitle {
+            font-size: 1.125rem;
+        }
+
+        .offices-grid {
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        .office-card {
+            padding: 32px 24px;
+        }
+
+        .office-city {
+            font-size: 1.5rem;
+        }
+
+        .section-heading {
+            font-size: 2rem;
+        }
+
+        .response-commitment {
+            padding: 32px 24px;
+        }
+
+        .commitment-title {
+            font-size: 1.25rem;
+        }
+
+        .commitment-item {
+            font-size: 1rem;
+        }
+
+        .contact-cta {
+            padding: 80px 0;
+        }
+
+        .cta-button {
+            padding: 16px 32px;
+            font-size: 1rem;
+        }
+
+        .footer-content {
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+</style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KWVF9HSH"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">
+                    <img src="/images/flashlogo.png" alt="FLASH Logo" class="logo-icon">
+                    <span class="logo-text">FLASH</span>
+                </a>
+                <nav class="header-nav">
+                    <a href="/" class="header-link">FLASH</a>
+                    <a href="/flash-how-it-works.html" class="header-link">How it works</a>
+                    <a href="/flash-camp-framework.html" class="header-link">CAMP Framework</a>
+                    <a href="/flash-fund-page.html" class="header-link">FLASH Fund</a>
+                    <a href="/flash-example.html" class="header-link">Example</a>
+                    <a href="/flash-faq-page.html" class="header-link">FAQ</a>
+                    <a href="/about.html" class="header-link">About</a>
+                    <a href="/contact.html" class="header-link active">Contact</a>
+                    <a href="/#waitlist" class="header-cta">Get early access</a>
+                </nav>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="contact-hero">
+        <div class="container">
+            <h1 class="contact-title">Global presence.</h1>
+            <p class="contact-subtitle">Four offices. One standard. Two weeks.</p>
+        </div>
+    </section>
+
+    <!-- Offices Grid -->
+    <section class="offices-section">
+        <div class="container">
+            <div class="offices-grid">
+                <!-- New York Office -->
+                <div class="office-card reveal">
+                    <div class="office-header">
+                        <h2 class="office-city">New York</h2>
+                        <span class="office-status active">Active</span>
+                    </div>
+                    <div class="office-address">
+                        <span class="office-address-line">1 Dock 72 Way</span>
+                        <span class="office-address-line">Brooklyn, NY 11249</span>
+                        <span class="office-address-line">United States</span>
+                    </div>
+                    <div class="office-timezone">EST/EDT</div>
+                </div>
+
+                <!-- Tokyo Office -->
+                <div class="office-card reveal">
+                    <div class="office-header">
+                        <h2 class="office-city">Tokyo</h2>
+                        <span class="office-status active">Active</span>
+                    </div>
+                    <div class="office-address">
+                        <span class="office-address-line">1F, 6-12-18 Jingumae</span>
+                        <span class="office-address-line">Shibuya, Tokyo 150-0001</span>
+                        <span class="office-address-line">Japan</span>
+                    </div>
+                    <div class="office-timezone">JST</div>
+                </div>
+
+                <!-- Dubai Office -->
+                <div class="office-card reveal">
+                    <div class="office-header">
+                        <h2 class="office-city">Dubai</h2>
+                        <span class="office-status active">Active</span>
+                    </div>
+                    <div class="office-address">
+                        <span class="office-address-line">District 10, Street 10</span>
+                        <span class="office-address-line">Jumeirah Village Circle</span>
+                        <span class="office-address-line">Dubai, UAE</span>
+                    </div>
+                    <div class="office-timezone">GST</div>
+                </div>
+
+                <!-- Bangalore Office -->
+                <div class="office-card reveal">
+                    <div class="office-header">
+                        <h2 class="office-city">Bangalore</h2>
+                        <span class="office-status soon">Opening Soon</span>
+                    </div>
+                    <div class="office-address">
+                        <span class="office-address-line">Location TBA</span>
+                        <span class="office-address-line">Karnataka</span>
+                        <span class="office-address-line">India</span>
+                    </div>
+                    <div class="office-timezone">IST</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <h2 class="section-heading">Direct inquiries</h2>
+            
+            <div class="contact-methods">
+                <div class="contact-method">
+                    <div class="contact-label">General Inquiries</div>
+                    <div class="contact-value">
+                        <a href="mailto:contact@flash.zone">contact@flash.zone</a>
+                    </div>
+                </div>
+                
+                <div class="contact-method">
+                    <div class="contact-label">Funding Applications</div>
+                    <div class="contact-value">
+                        <a href="/apply">Apply through our system →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="response-commitment">
+                <h3 class="commitment-title">Our commitment</h3>
+                <div class="commitment-items">
+                    <div class="commitment-item">
+                        <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>48-hour response guarantee</span>
+                    </div>
+                    <div class="commitment-item">
+                        <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Funding decisions in 14 days</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="contact-cta">
+        <div class="container">
+            <h2 class="cta-heading">Ready for fast funding?</h2>
+            <p class="cta-subheading">Skip the warm intros. Get a decision based on merit.</p>
+            <a href="/apply" class="cta-button">
+                <span>Apply for funding</span>
+                <span>→</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    © 2025 FLASH. All rights reserved.
+                </div>
+                <div class="footer-links">
+                    <a href="/flash-privacy-policy.html" class="footer-link">Privacy</a>
+                    <a href="/flash-terms-of-service.html" class="footer-link">Terms</a>
+                    <a href="/contact.html" class="footer-link">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const headerNav = document.querySelector('.header-nav');
+        
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                headerNav.classList.toggle('active');
+                mobileMenuBtn.classList.toggle('active');
+            });
+        }
+
+        // Reveal Animation
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealOnScroll = () => {
+            revealElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('active');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+    </script>
+</body>
+</html>
