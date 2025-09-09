@@ -206,13 +206,32 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         border: 1px solid var(--gray-200);
         border-radius: 8px;
         transition: all 0.3s var(--ease-out-expo);
-        cursor: default;
+        cursor: pointer;
+        position: relative;
+        text-decoration: none;
+        color: inherit;
+        display: block;
     }
 
     .office-card:hover {
         border-color: var(--black);
         transform: translateY(-4px);
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    .office-card:hover .map-hint {
+        opacity: 1;
+    }
+
+    .map-hint {
+        position: absolute;
+        bottom: 48px;
+        right: 48px;
+        font-size: 0.875rem;
+        color: var(--gray-500);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
     }
 
     .office-header {
@@ -266,6 +285,32 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         font-weight: 500;
         text-transform: uppercase;
         letter-spacing: 0.05em;
+    }
+
+    .office-time {
+        margin-top: 8px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .local-time {
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: var(--black);
+        font-variant-numeric: tabular-nums;
+    }
+
+    .office-status-indicator {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--gray-300);
+    }
+
+    .office-status-indicator.open {
+        background: var(--green);
     }
 
     /* Contact Section */
@@ -482,6 +527,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             font-size: 1.5rem;
         }
 
+        .map-hint {
+            bottom: 32px;
+            right: 24px;
+            font-size: 0.75rem;
+        }
+
         .section-heading {
             font-size: 2rem;
         }
@@ -561,7 +612,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="container">
             <div class="offices-grid">
                 <!-- New York Office -->
-                <div class="office-card reveal">
+                <a href="https://maps.apple.com/?address=1%20Dock%2072%20Way,%20Brooklyn,%20NY%2011249,%20USA" class="office-card reveal" target="_blank" rel="noopener">
                     <div class="office-header">
                         <h2 class="office-city">New York</h2>
                         <span class="office-status active">Active</span>
@@ -572,10 +623,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <span class="office-address-line">United States</span>
                     </div>
                     <div class="office-timezone">EST/EDT</div>
-                </div>
+                    <div class="office-time">
+                        <span class="office-status-indicator" id="ny-status"></span>
+                        <span class="local-time" id="ny-time"></span>
+                    </div>
+                    <span class="map-hint">View on map →</span>
+                </a>
 
                 <!-- Tokyo Office -->
-                <div class="office-card reveal">
+                <a href="https://maps.apple.com/?address=1F,%206-12-18%20Jingumae,%20Shibuya,%20Tokyo%20150-0001,%20Japan" class="office-card reveal" target="_blank" rel="noopener">
                     <div class="office-header">
                         <h2 class="office-city">Tokyo</h2>
                         <span class="office-status active">Active</span>
@@ -586,10 +642,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <span class="office-address-line">Japan</span>
                     </div>
                     <div class="office-timezone">JST</div>
-                </div>
+                    <div class="office-time">
+                        <span class="office-status-indicator" id="tokyo-status"></span>
+                        <span class="local-time" id="tokyo-time"></span>
+                    </div>
+                    <span class="map-hint">View on map →</span>
+                </a>
 
                 <!-- Dubai Office -->
-                <div class="office-card reveal">
+                <a href="https://maps.apple.com/?address=District%2010,%20Street%2010,%20Jumeirah%20Village%20Circle,%20Dubai,%20UAE" class="office-card reveal" target="_blank" rel="noopener">
                     <div class="office-header">
                         <h2 class="office-city">Dubai</h2>
                         <span class="office-status active">Active</span>
@@ -600,7 +661,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <span class="office-address-line">Dubai, UAE</span>
                     </div>
                     <div class="office-timezone">GST</div>
-                </div>
+                    <div class="office-time">
+                        <span class="office-status-indicator" id="dubai-status"></span>
+                        <span class="local-time" id="dubai-time"></span>
+                    </div>
+                    <span class="map-hint">View on map →</span>
+                </a>
 
                 <!-- Bangalore Office -->
                 <div class="office-card reveal">
@@ -614,6 +680,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <span class="office-address-line">India</span>
                     </div>
                     <div class="office-timezone">IST</div>
+                    <div class="office-time">
+                        <span class="office-status-indicator" id="bangalore-status"></span>
+                        <span class="local-time" id="bangalore-time"></span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -716,6 +786,46 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         
         window.addEventListener('scroll', revealOnScroll);
         window.addEventListener('load', revealOnScroll);
+
+        // Local Time Display
+        function updateOfficeTimes() {
+            const offices = [
+                { id: 'ny', timezone: 'America/New_York', openHour: 9, closeHour: 18 },
+                { id: 'tokyo', timezone: 'Asia/Tokyo', openHour: 9, closeHour: 18 },
+                { id: 'dubai', timezone: 'Asia/Dubai', openHour: 9, closeHour: 18 },
+                { id: 'bangalore', timezone: 'Asia/Kolkata', openHour: 9, closeHour: 18 }
+            ];
+
+            offices.forEach(office => {
+                const timeElement = document.getElementById(`${office.id}-time`);
+                const statusElement = document.getElementById(`${office.id}-status`);
+                
+                if (timeElement) {
+                    const now = new Date();
+                    const localTime = new Intl.DateTimeFormat('en-US', {
+                        hour: 'numeric',
+                        minute: '2-digit',
+                        hour12: true,
+                        timeZone: office.timezone
+                    }).format(now);
+                    
+                    timeElement.textContent = localTime;
+                    
+                    // Check if office is open
+                    const officeDate = new Date(now.toLocaleString('en-US', { timeZone: office.timezone }));
+                    const hour = officeDate.getHours();
+                    const isOpen = hour >= office.openHour && hour < office.closeHour;
+                    
+                    if (statusElement) {
+                        statusElement.classList.toggle('open', isOpen);
+                    }
+                }
+            });
+        }
+
+        // Update time immediately and then every minute
+        updateOfficeTimes();
+        setInterval(updateOfficeTimes, 60000);
     </script>
 </body>
 </html>
