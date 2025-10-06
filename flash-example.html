@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example Analysis - See FLASH in Action</title>
+    <meta name="description" content="See a real example of FLASH's comprehensive startup analysis. Understand how we evaluate companies and what insights you'll receive.">
+    <meta property="og:title" content="Example FLASH Analysis - See What You'll Get">
+    <meta property="og:description" content="Explore a complete FLASH analysis report with scores, insights, and actionable recommendations for startup success.">
+    <meta property="og:type" content="website">
+    <!-- Favicon support for all browsers -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.png" type="image/png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="/images/favicon-64.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="/images/favicon-128.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/images/favicon-512.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KWVF9HSH');</script>
+    <!-- End Google Tag Manager -->
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #000000;
+            --white: #ffffff;
+            --gray-900: #111111;
+            --gray-800: #1a1a1a;
+            --gray-700: #2a2a2a;
+            --gray-600: #4a4a4a;
+            --gray-500: #6a6a6a;
+            --gray-400: #8a8a8a;
+            --gray-300: #aaaaaa;
+            --gray-200: #cacaca;
+            --gray-100: #eaeaea;
+            --gray-50: #fafafa;
+            
+            --red: #ff3b30;
+            --green: #34c759;
+            --blue: #007aff;
+            --purple: #5856d6;
+            --yellow: #ffcc00;
+            --orange: #ff9500;
+            
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --max-width: 1200px;
+            
+            --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--white);
+            color: var(--black);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        ::selection {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        /* Layout */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            font-size: 1.25rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--black);
+        }
+
+        .logo-icon {
+            height: 40px;
+            width: auto;
+        }
+
+        .logo-text {
+            color: var(--black);
+        }
+
+        .header-nav {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .header-link {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--gray-600);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .header-link:hover,
+        .header-link.active {
+            color: var(--black);
+        }
+
+        .header-cta {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--white);
+            background: var(--black);
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .header-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            width: 32px;
+            height: 32px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            width: 20px;
+            height: 2px;
+            background: var(--black);
+            margin: 5px auto;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 140px 0 80px;
+            background: var(--gray-50);
+        }
+
+        .company-info {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .company-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--blue);
+            background: rgba(0, 122, 255, 0.1);
+            padding: 8px 16px;
+            border-radius: 100px;
+            margin-bottom: 24px;
+        }
+
+        .company-name {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+
+        .company-tagline {
+            font-size: 1.5rem;
+            color: var(--gray-600);
+            margin-bottom: 32px;
+        }
+
+        /* Score Display */
+        .score-display {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .overall-score {
+            text-align: center;
+        }
+
+        .score-circle {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 16px;
+        }
+
+        .score-circle svg {
+            transform: rotate(-90deg);
+        }
+
+        .score-circle-bg {
+            fill: none;
+            stroke: var(--gray-100);
+            stroke-width: 12;
+        }
+
+        .score-circle-progress {
+            fill: none;
+            stroke: var(--green);
+            stroke-width: 12;
+            stroke-linecap: round;
+            stroke-dasharray: 565.5;
+            stroke-dashoffset: 141.375;
+            transition: stroke-dashoffset 1s ease-out;
+        }
+
+        .score-number {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--black);
+        }
+
+        .score-label {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--gray-600);
+        }
+
+        .fund-status {
+            background: var(--green);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* CAMP Scores */
+        .camp-scores {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .camp-score-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .camp-score-letter {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--purple);
+            margin-bottom: 8px;
+        }
+
+        .camp-score-name {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            margin-bottom: 12px;
+        }
+
+        .camp-score-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--black);
+        }
+
+        /* Analysis Sections */
+        .analysis-section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: var(--gray-600);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Insights Grid */
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .insight-card {
+            background: var(--white);
+            border: 1px solid var(--gray-100);
+            border-radius: 12px;
+            padding: 32px;
+            transition: transform 0.3s ease;
+        }
+
+        .insight-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .insight-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--gray-100);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+
+        .insight-icon.strength {
+            background: rgba(52, 199, 89, 0.1);
+            color: var(--green);
+        }
+
+        .insight-icon.opportunity {
+            background: rgba(255, 204, 0, 0.1);
+            color: var(--yellow);
+        }
+
+        .insight-icon.risk {
+            background: rgba(255, 59, 48, 0.1);
+            color: var(--red);
+        }
+
+        .insight-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .insight-description {
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        /* Recommendations */
+        .recommendations {
+            background: var(--gray-50);
+            border-radius: 16px;
+            padding: 48px;
+        }
+
+        .recommendation-list {
+            display: grid;
+            gap: 24px;
+        }
+
+        .recommendation {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .recommendation-number {
+            width: 32px;
+            height: 32px;
+            background: var(--black);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .recommendation-content h4 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .recommendation-content p {
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            text-align: center;
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .cta-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 16px;
+        }
+
+        .cta-subtitle {
+            font-size: 1.25rem;
+            color: var(--gray-300);
+            margin-bottom: 32px;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--black);
+            background: var(--white);
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 64px 0;
+            background: var(--gray-900);
+            color: var(--white);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 48px;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .footer-brand p {
+            color: var(--gray-400);
+            margin-bottom: 24px;
+        }
+
+        .footer-section h4 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--gray-400);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .footer-link {
+            display: block;
+            color: var(--gray-300);
+            text-decoration: none;
+            margin-bottom: 12px;
+            transition: color 0.2s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            margin-top: 48px;
+            padding-top: 48px;
+            border-top: 1px solid var(--gray-800);
+            text-align: center;
+            color: var(--gray-400);
+            font-size: 0.875rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .header-nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                background: var(--white);
+                flex-direction: column;
+                padding: 80px 20px;
+                gap: 24px;
+                transition: right 0.3s ease;
+                z-index: 100;
+            }
+
+            .header-nav.active {
+                right: 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+                position: fixed;
+                top: 16px;
+                right: 16px;
+                z-index: 101;
+            }
+
+            .header-link,
+            .header-cta {
+                width: 100%;
+                text-align: center;
+                padding: 12px 24px;
+                font-size: 1rem;
+            }
+
+            .hero {
+                padding: 120px 0 60px;
+            }
+
+            .company-name {
+                font-size: 2rem;
+            }
+
+            .score-display {
+                flex-direction: column;
+            }
+
+            .analysis-section {
+                padding: 60px 0;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .recommendations {
+                padding: 32px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KWVF9HSH"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">
+                    <img src="/images/flashlogo.png" alt="FLASH Logo" class="logo-icon">
+                    <span class="logo-text">FLASH</span>
+                </a>
+                <nav class="header-nav" id="mobileMenu">
+                    <a href="/flash-how-it-works.html" class="header-link">How it works</a>
+                    <a href="/flash-camp-framework.html" class="header-link">CAMP Framework</a>
+                    <a href="/flash-fund-page.html" class="header-link">FLASH Fund</a>
+                    <a href="/flash-example.html" class="header-link active">Example</a>
+                    <a href="/flash-faq-page.html" class="header-link">FAQ</a>
+                    <a href="/about.html" class="header-link">About</a>
+                    <a href="/contact.html" class="header-link">Contact</a>                    <a href="/#waitlist" class="header-cta">Get early access</a>
+                </nav>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="company-info">
+                <div class="company-badge">
+                    <span>🚀</span>
+                    <span>Example Analysis</span>
+                </div>
+                <h1 class="company-name">TechFlow AI</h1>
+                <p class="company-tagline">AI-powered workflow automation for enterprises</p>
+            </div>
+
+            <div class="score-display">
+                <div class="overall-score">
+                    <div class="score-circle">
+                        <svg width="200" height="200">
+                            <circle cx="100" cy="100" r="90" class="score-circle-bg" />
+                            <circle cx="100" cy="100" r="90" class="score-circle-progress" />
+                        </svg>
+                        <div class="score-number">78</div>
+                    </div>
+                    <div class="score-label">Overall FLASH Score</div>
+                </div>
+                <div class="fund-status">
+                    <span>✓</span>
+                    <span>Eligible for FLASH Fund</span>
+                </div>
+            </div>
+
+            <div class="camp-scores">
+                <div class="camp-score-card">
+                    <div class="camp-score-letter">C</div>
+                    <div class="camp-score-name">Capital</div>
+                    <div class="camp-score-value">82/100</div>
+                </div>
+                <div class="camp-score-card">
+                    <div class="camp-score-letter">A</div>
+                    <div class="camp-score-name">Advantage</div>
+                    <div class="camp-score-value">75/100</div>
+                </div>
+                <div class="camp-score-card">
+                    <div class="camp-score-letter">M</div>
+                    <div class="camp-score-name">Market</div>
+                    <div class="camp-score-value">79/100</div>
+                </div>
+                <div class="camp-score-card">
+                    <div class="camp-score-letter">P</div>
+                    <div class="camp-score-name">People</div>
+                    <div class="camp-score-value">76/100</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Insights -->
+    <section class="analysis-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Key Insights</h2>
+                <p class="section-subtitle">
+                    What our AI discovered about TechFlow's potential
+                </p>
+            </div>
+
+            <div class="insights-grid">
+                <div class="insight-card">
+                    <div class="insight-icon strength">💪</div>
+                    <h3 class="insight-title">Strong Technical Team</h3>
+                    <p class="insight-description">
+                        Founding team includes ex-Google and Microsoft engineers with deep AI expertise. CTO has 15+ years experience in enterprise software.
+                    </p>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-icon strength">🎯</div>
+                    <h3 class="insight-title">Clear Product-Market Fit</h3>
+                    <p class="insight-description">
+                        3 enterprise pilots converting to paid contracts. Average deal size $120K ARR with strong expansion potential.
+                    </p>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-icon opportunity">📈</div>
+                    <h3 class="insight-title">Large Market Opportunity</h3>
+                    <p class="insight-description">
+                        $12B workflow automation market growing at 23% CAGR. Enterprise shift to AI-first solutions accelerating adoption.
+                    </p>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-icon opportunity">🔄</div>
+                    <h3 class="insight-title">Efficient Growth Model</h3>
+                    <p class="insight-description">
+                        CAC payback in 14 months with 140% net revenue retention. Land-and-expand strategy showing early success.
+                    </p>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-icon risk">⚠️</div>
+                    <h3 class="insight-title">Competition Risk</h3>
+                    <p class="insight-description">
+                        Major players (Microsoft, Salesforce) entering space. Need to move fast and establish market position.
+                    </p>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-icon risk">💰</div>
+                    <h3 class="insight-title">Capital Efficiency</h3>
+                    <p class="insight-description">
+                        Current burn rate gives 8 months runway. Need to improve sales efficiency to reach profitability faster.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recommendations -->
+    <section class="analysis-section" style="background: var(--gray-50);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Strategic Recommendations</h2>
+                <p class="section-subtitle">
+                    Priority actions to accelerate growth and improve fundability
+                </p>
+            </div>
+
+            <div class="recommendations">
+                <div class="recommendation-list">
+                    <div class="recommendation">
+                        <div class="recommendation-number">1</div>
+                        <div class="recommendation-content">
+                            <h4>Strengthen Go-to-Market Strategy</h4>
+                            <p>Focus on vertical specialization in financial services where you have early traction. Build industry-specific features and case studies.</p>
+                        </div>
+                    </div>
+                    <div class="recommendation">
+                        <div class="recommendation-number">2</div>
+                        <div class="recommendation-content">
+                            <h4>Accelerate Product Development</h4>
+                            <p>Ship enterprise security features (SOC2, SSO) within 3 months to unlock larger deals. Current pipeline blocked on these requirements.</p>
+                        </div>
+                    </div>
+                    <div class="recommendation">
+                        <div class="recommendation-number">3</div>
+                        <div class="recommendation-content">
+                            <h4>Build Strategic Partnerships</h4>
+                            <p>Partner with system integrators (Accenture, Deloitte) for enterprise distribution. Their channels can accelerate your sales cycle.</p>
+                        </div>
+                    </div>
+                    <div class="recommendation">
+                        <div class="recommendation-number">4</div>
+                        <div class="recommendation-content">
+                            <h4>Optimize Pricing Model</h4>
+                            <p>Current pricing leaves money on the table. Implement usage-based pricing to capture more value from power users.</p>
+                        </div>
+                    </div>
+                    <div class="recommendation">
+                        <div class="recommendation-number">5</div>
+                        <div class="recommendation-content">
+                            <h4>Strengthen Advisory Board</h4>
+                            <p>Add enterprise sales experts and industry veterans. Your technical team needs commercial guidance for the next phase.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">Get your comprehensive analysis</h2>
+            <p class="cta-subtitle">
+                See how your startup scores across 126 critical metrics
+            </p>
+            <a href="/apply.html" class="cta-button">
+                Start Your Analysis
+                <span>→</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>FLASH</h3>
+                    <p>AI-powered startup analysis for smarter, faster funding decisions.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <a href="/flash-how-it-works.html" class="footer-link">How it works</a>
+                    <a href="/flash-camp-framework.html" class="footer-link">CAMP Framework</a>
+                    <a href="/flash-example.html" class="footer-link">Example Analysis</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <a href="/flash-fund-page.html" class="footer-link">FLASH Fund</a>
+                    <a href="/flash-faq-page.html" class="footer-link">FAQ</a>
+                    <a href="/contact.html" class="footer-link">Contact</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <a href="/flash-privacy-policy.html" class="footer-link">Privacy Policy</a>
+                    <a href="/flash-terms-of-service.html" class="footer-link">Terms of Service</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 FLASH. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const headerNav = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuBtn.classList.toggle('active');
+            headerNav.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
