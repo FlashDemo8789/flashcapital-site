@@ -1014,7 +1014,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             margin-right: auto;
         }
 
-        /* Waitlist Form Section */
+        /* Application Section */
         .waitlist-section {
             padding: 120px 0;
             background: var(--gray-50);
@@ -1425,7 +1425,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <a class="header-link" href="/flash-faq-page.html">FAQ</a>
 <a class="header-link" href="/about.html">About</a>
 <a class="header-link" href="/contact.html">Contact</a>
-<a class="header-cta" href="https://flash.zone">Get early access</a>
+<a class="header-cta" href="https://flash.zone">Apply now</a>
 </nav>
 <button class="mobile-menu-btn" id="mobileMenuBtn">
 <span></span>
@@ -1892,33 +1892,33 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </div>
 </div>
 </section>
-<!-- Waitlist Form Section -->
-<section class="waitlist-section" id="waitlist">
+<!-- Application Section -->
+<section class="waitlist-section" id="apply">
 <div class="container">
 <div class="section-header" style="text-align: center; margin-bottom: 64px;">
-<div class="section-badge">Limited Early Access</div>
+<div class="section-badge">Applications Open</div>
 <h2 class="section-title">Ready to skip the fundraising circus?</h2>
 <p class="section-subtitle">
-                    Get funded in 2 weeks, not 6 months.
-                </p>
+	                    Complete the FLASH assessment to get your score and apply for funding.
+	                </p>
 <div style="display: flex; gap: 32px; justify-content: center; margin: 32px 0; flex-wrap: wrap;">
 <div style="display: flex; align-items: center; gap: 8px; color: var(--gray-600);">
 <svg fill="none" stroke="currentColor" style="width: 20px; height: 20px; color: var(--green);" viewbox="0 0 24 24">
 <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
 </svg>
-<span>First 1,000 founders only</span>
+<span>Start with the FLASH assessment</span>
 </div>
 <div style="display: flex; align-items: center; gap: 8px; color: var(--gray-600);">
 <svg fill="none" stroke="currentColor" style="width: 20px; height: 20px; color: var(--green);" viewbox="0 0 24 24">
 <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
 </svg>
-<span>Priority for FLASH Fund</span>
+<span>Get your FLASH score</span>
 </div>
 <div style="display: flex; align-items: center; gap: 8px; color: var(--gray-600);">
 <svg fill="none" stroke="currentColor" style="width: 20px; height: 20px; color: var(--green);" viewbox="0 0 24 24">
 <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
 </svg>
-<span>Exclusive founder perks</span>
+<span>Apply for the FLASH Fund</span>
 </div>
 </div>
 </div>
@@ -1966,7 +1966,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </div>
 </div>
 </footer>
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" type="text/javascript"></script>
 <script>
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const headerNav = document.querySelector('.header-nav');
@@ -2020,68 +2019,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             });
         });
 
-       // Dynamically load EmailJS SDK
-  const script = document.createElement('script');
-  script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
-  script.onload = function () {
-    // SDK loaded, now safe to use emailjs
-    emailjs.init("6AT3cxrWaiyVfVIoF"); // ✅ Replace with your actual public key
-
-    document.addEventListener('DOMContentLoaded', function () {
-      const waitlistForm = document.getElementById('waitlistForm');
-      const submitBtn = document.getElementById('submitBtn');
-      const btnText = document.getElementById('btnText');
-      const btnLoading = document.getElementById('btnLoading');
-      const successMessage = document.getElementById('successMessage');
-
-      waitlistForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-
-        btnText.style.display = 'none';
-        btnLoading.style.display = 'inline-block';
-        submitBtn.disabled = true;
-        submitBtn.style.opacity = '0.7';
-
-        const templateParams = {
-          firstName: document.getElementById('firstName').value,
-          lastName: document.getElementById('lastName').value,
-          email: document.getElementById('email').value,
-          company: document.getElementById('company').value,
-          stage: document.getElementById('stage').value,
-          role: document.getElementById('role').value,
-          industry: document.getElementById('industry').value,
-          timeline: document.getElementById('timeline').value,
-          source: document.getElementById('source').value,
-          timestamp: new Date().toISOString()
-        };
-
-        try {
-          await emailjs.send("service_bjsum1f", "template_besilmo", templateParams);
-
-          const spotNumber = Math.floor(Math.random() * (900 - 732 + 1)) + 732;
-          document.getElementById('spotNumber').textContent = spotNumber;
-
-          waitlistForm.style.display = 'none';
-          successMessage.style.display = 'block';
-          successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-        } catch (error) {
-          console.error("Email send error:", error);
-          btnText.style.display = 'inline';
-          btnLoading.style.display = 'none';
-          btnText.textContent = 'Try Again';
-          submitBtn.disabled = false;
-          submitBtn.style.opacity = '1';
-        }
-      });
-    });
-  };
-  document.head.appendChild(script); // Append EmailJS script and trigger `onload`
-
-        // FAQ Accordion
-        const faqItems = document.querySelectorAll('.faq-item');
-        faqItems.forEach(item => {
-            const question = item.querySelector('.faq-question');
+	
+	        // FAQ Accordion
+	        const faqItems = document.querySelectorAll('.faq-item');
+	        faqItems.forEach(item => {
+	            const question = item.querySelector('.faq-question');
             question.addEventListener('click', () => {
                 // Close other items
                 faqItems.forEach(otherItem => {
