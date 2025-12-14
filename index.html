@@ -152,12 +152,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             display: block;
         }
         
-        .logo-text {
-            font-size: 1.5rem;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            color: var(--black);
-        }
+	        .logo-text {
+	            display: inline-flex;
+	            align-items: baseline;
+	            gap: 8px;
+	            white-space: nowrap;
+	            font-size: 1.5rem;
+	            font-weight: 800;
+	            letter-spacing: -0.02em;
+	            color: var(--black);
+	        }
+
+	        .logo-subtext {
+	            font-size: 0.6em;
+	            font-weight: 800;
+	            letter-spacing: 0.12em;
+	            text-transform: uppercase;
+	            color: var(--black);
+	        }
         
         @media (min-width: 1024px) {
             .logo-icon {
@@ -1415,7 +1427,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <div class="header-content">
 <a class="logo" href="/">
     <img src="/images/flashlogo.png" alt="FLASH Logo" class="logo-icon">
-    <span class="logo-text">FLASH</span>
+    <span class="logo-text">FLASH<span class="logo-subtext">CAPITAL</span></span>
 </a>
 <nav class="header-nav">
 <a class="header-link" href="/flash-how-it-works.html">How it works</a>
@@ -1956,7 +1968,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <div class="container">
 <div class="footer-content">
 <div class="footer-text">
-                    © 2025 FLASH. All rights reserved.
+	                    © 2025 FLASH Capital. All rights reserved.
                 </div>
 <div class="footer-links">
 <a class="footer-link" href="/flash-privacy-policy.html">Privacy Policy</a>

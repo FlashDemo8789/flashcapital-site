@@ -95,18 +95,53 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             height: 72px;
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            text-decoration: none;
-            color: var(--black);
-            transition: opacity 0.2s ease;
-        }
+	        .logo {
+	            display: inline-flex;
+	            align-items: center;
+	            gap: 12px;
+	            text-decoration: none;
+	            transition: opacity 0.2s ease;
+	            line-height: 1;
+	        }
 
-        .logo:hover {
-            opacity: 0.7;
-        }
+	        .logo-icon {
+	            height: 32px;
+	            width: auto;
+	            display: block;
+	        }
+
+	        .logo-text {
+	            display: inline-flex;
+	            align-items: baseline;
+	            gap: 8px;
+	            white-space: nowrap;
+	            font-size: 1.5rem;
+	            font-weight: 800;
+	            letter-spacing: -0.02em;
+	            color: var(--black);
+	        }
+
+	        .logo-subtext {
+	            font-size: 0.6em;
+	            font-weight: 800;
+	            letter-spacing: 0.12em;
+	            text-transform: uppercase;
+	            color: var(--black);
+	        }
+
+	        @media (min-width: 1024px) {
+	            .logo-icon {
+	                height: 40px;
+	            }
+
+	            .logo-text {
+	                font-size: 2rem;
+	            }
+	        }
+
+	        .logo:hover {
+	            opacity: 0.7;
+	        }
 
         .header-nav {
             display: flex;
@@ -963,7 +998,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <header class="header">
         <div class="container">
             <div class="header-content">
-                <a href="/" class="logo">FLASH</a>
+	                <a href="/" class="logo">
+	                    <img src="/images/flashlogo.png" alt="FLASH Logo" class="logo-icon">
+	                    <span class="logo-text">FLASH<span class="logo-subtext">CAPITAL</span></span>
+	                </a>
                 <nav class="header-nav" id="mobileMenu">
                     <a href="/" class="header-link">Back to Home</a>
                     <a href="#overview" class="header-link">Overview</a>
@@ -1579,7 +1617,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-text">
-                    © 2025 FLASH. All rights reserved.
+                    © 2025 FLASH Capital. All rights reserved.
                 </div>
                 <div class="footer-links">
                     <a href="/" class="footer-link">Home</a>

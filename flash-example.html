@@ -122,9 +122,21 @@
             width: auto;
         }
 
-        .logo-text {
-            color: var(--black);
-        }
+	        .logo-text {
+	            display: inline-flex;
+	            align-items: baseline;
+	            gap: 8px;
+	            white-space: nowrap;
+	            color: var(--black);
+	        }
+
+	        .logo-subtext {
+	            font-size: 0.6em;
+	            font-weight: 800;
+	            letter-spacing: 0.12em;
+	            text-transform: uppercase;
+	            color: var(--black);
+	        }
 
         .header-nav {
             display: flex;
@@ -628,7 +640,7 @@
             <div class="header-content">
                 <a href="/" class="logo">
                     <img src="/images/flashlogo.png" alt="FLASH Logo" class="logo-icon">
-                    <span class="logo-text">FLASH</span>
+                    <span class="logo-text">FLASH<span class="logo-subtext">CAPITAL</span></span>
                 </a>
                 <nav class="header-nav" id="mobileMenu">
                     <a href="/flash-how-it-works.html" class="header-link">How it works</a>
