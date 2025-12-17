@@ -1,37 +1,46 @@
 <!DOCTYPE html>
 
 <html lang="en">
+
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>FLASH Fund - $25K-$100K for Seed Startups | 2 Week Decisions</title>
-<meta content="We write $25K-$100K checks in 2 weeks. No warm intros. No bullshit. Just data. AI-powered funding decisions for seed startups." name="description"/>
-<meta content="FLASH Fund - We write $25K-$100K checks in 2 weeks" property="og:title"/>
-<meta content="No warm intros. No bullshit. Just data. Apply for seed funding and get a decision in 2 weeks, not 6 months." property="og:description"/>
-<meta content="website" property="og:type"/>
-<meta content="/images/og-image.png" property="og:image"/>
-<!-- Favicon support for all browsers -->
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" href="/favicon.png" type="image/png">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
-<link rel="icon" type="image/png" sizes="64x64" href="/images/favicon-64.png">
-<link rel="icon" type="image/png" sizes="128x128" href="/images/favicon-128.png">
-<link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-<link rel="manifest" href="/manifest.json">
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-KWVF9HSH');</script>
-<!-- End Google Tag Manager -->
-<style>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>FLASH Fund - $25K-$100K for Seed Startups | 2 Week Decisions</title>
+    <meta
+        content="We write $25K-$100K checks in 2 weeks. No warm intros. No bullshit. Just data. AI-powered funding decisions for seed startups."
+        name="description" />
+    <meta content="FLASH Fund - We write $25K-$100K checks in 2 weeks" property="og:title" />
+    <meta
+        content="No warm intros. No bullshit. Just data. Apply for seed funding and get a decision in 2 weeks, not 6 months."
+        property="og:description" />
+    <meta content="website" property="og:type" />
+    <meta content="/images/og-image.png" property="og:image" />
+    <!-- Favicon support for all browsers -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.png" type="image/png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="/images/favicon-64.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="/images/favicon-128.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.json">
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-KWVF9HSH');</script>
+    <!-- End Google Tag Manager -->
+    <style>
         * {
             margin: 0;
             padding: 0;
@@ -51,15 +60,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             --gray-200: #cacaca;
             --gray-100: #eaeaea;
             --gray-50: #fafafa;
-            
+
             --red: #ff3b30;
             --green: #34c759;
             --blue: #007aff;
             --purple: #5856d6;
-            
+
             --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             --max-width: 1200px;
-            
+
             --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
         }
 
@@ -78,24 +87,73 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
 
         /* Typography */
-        .text-xs { font-size: 0.75rem; }
-        .text-sm { font-size: 0.875rem; }
-        .text-base { font-size: 1rem; }
-        .text-lg { font-size: 1.125rem; }
-        .text-xl { font-size: 1.25rem; }
-        .text-2xl { font-size: 1.5rem; }
-        .text-3xl { font-size: 1.875rem; }
-        .text-4xl { font-size: 2.25rem; }
-        .text-5xl { font-size: 3rem; }
-        .text-6xl { font-size: 3.75rem; }
-        .text-7xl { font-size: 4.5rem; }
-        .text-8xl { font-size: 6rem; }
+        .text-xs {
+            font-size: 0.75rem;
+        }
 
-        .font-normal { font-weight: 400; }
-        .font-medium { font-weight: 500; }
-        .font-semibold { font-weight: 600; }
-        .font-bold { font-weight: 700; }
-        .font-extrabold { font-weight: 800; }
+        .text-sm {
+            font-size: 0.875rem;
+        }
+
+        .text-base {
+            font-size: 1rem;
+        }
+
+        .text-lg {
+            font-size: 1.125rem;
+        }
+
+        .text-xl {
+            font-size: 1.25rem;
+        }
+
+        .text-2xl {
+            font-size: 1.5rem;
+        }
+
+        .text-3xl {
+            font-size: 1.875rem;
+        }
+
+        .text-4xl {
+            font-size: 2.25rem;
+        }
+
+        .text-5xl {
+            font-size: 3rem;
+        }
+
+        .text-6xl {
+            font-size: 3.75rem;
+        }
+
+        .text-7xl {
+            font-size: 4.5rem;
+        }
+
+        .text-8xl {
+            font-size: 6rem;
+        }
+
+        .font-normal {
+            font-weight: 400;
+        }
+
+        .font-medium {
+            font-weight: 500;
+        }
+
+        .font-semibold {
+            font-weight: 600;
+        }
+
+        .font-bold {
+            font-weight: 700;
+        }
+
+        .font-extrabold {
+            font-weight: 800;
+        }
 
         /* Layout */
         .container {
@@ -130,7 +188,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             align-items: center;
             height: 72px;
         }
-        
+
         @media (min-width: 1024px) {
             .header-content {
                 height: 80px;
@@ -145,37 +203,37 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             transition: opacity 0.2s ease;
             line-height: 1;
         }
-        
+
         .logo-icon {
             height: 32px;
             width: auto;
             display: block;
         }
-        
-	        .logo-text {
-	            display: inline-flex;
-	            align-items: baseline;
-	            gap: 8px;
-	            white-space: nowrap;
-	            font-size: 1.5rem;
-	            font-weight: 800;
-	            letter-spacing: -0.02em;
-	            color: var(--black);
-	        }
 
-	        .logo-subtext {
-	            font-size: 0.6em;
-	            font-weight: 800;
-	            letter-spacing: 0.12em;
-	            text-transform: uppercase;
-	            color: var(--black);
-	        }
-        
+        .logo-text {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 8px;
+            white-space: nowrap;
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--black);
+        }
+
+        .logo-subtext {
+            font-size: 0.6em;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--black);
+        }
+
         @media (min-width: 1024px) {
             .logo-icon {
                 height: 40px;
             }
-            
+
             .logo-text {
                 font-size: 2rem;
             }
@@ -254,68 +312,70 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
 
         @media (max-width: 768px) {
-    .mobile-menu-btn {
-        display: block;
-        position: fixed;
-        top: 16px;
-        right: 16px;
-        width: 32px;
-        height: 32px;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 0;
-        z-index: 101;
-    }
+            .mobile-menu-btn {
+                display: block;
+                position: fixed;
+                top: 16px;
+                right: 16px;
+                width: 32px;
+                height: 32px;
+                background: none;
+                border: none;
+                cursor: pointer;
+                padding: 0;
+                z-index: 101;
+            }
 
-    .mobile-menu-btn span {
-        display: block;
-        width: 20px;
-        height: 2px;
-        background: var(--black);
-        margin: 5px auto;
-        transition: all 0.3s ease;
-    }
+            .mobile-menu-btn span {
+                display: block;
+                width: 20px;
+                height: 2px;
+                background: var(--black);
+                margin: 5px auto;
+                transition: all 0.3s ease;
+            }
 
-    .mobile-menu-btn.active span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-    }
+            .mobile-menu-btn.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
 
-    .mobile-menu-btn.active span:nth-child(2) {
-        opacity: 0;
-    }
+            .mobile-menu-btn.active span:nth-child(2) {
+                opacity: 0;
+            }
 
-    .mobile-menu-btn.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(6px, -6px);
-    }
+            .mobile-menu-btn.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(6px, -6px);
+            }
 
-    .header-nav {
-        display: flex;
-        flex-direction: column;
-        position: fixed;
-        top: 0;
-        right: -100%; /* Hidden initially */
-        height: 100vh;
-        width: 240px;
-        background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        padding: 24px;
-        box-shadow: -4px 0 12px rgba(0, 0, 0, 0.1);
-        border-left: 1px solid var(--gray-100);
-        transition: right 0.3s ease;
-        z-index: 100;
-    }
+            .header-nav {
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                top: 0;
+                right: -100%;
+                /* Hidden initially */
+                height: 100vh;
+                width: 240px;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                padding: 24px;
+                box-shadow: -4px 0 12px rgba(0, 0, 0, 0.1);
+                border-left: 1px solid var(--gray-100);
+                transition: right 0.3s ease;
+                z-index: 100;
+            }
 
-    .header-nav.active {
-        right: 0; /* Slide in */
-    }
+            .header-nav.active {
+                right: 0;
+                /* Slide in */
+            }
 
-    .header-link,
-    .header-cta {
-        margin: 12px 0;
-    }
-}
+            .header-link,
+            .header-cta {
+                margin: 12px 0;
+            }
+        }
 
 
         /* Hero Section */
@@ -361,8 +421,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
 
         @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.3; }
-            50% { transform: scale(1.5); opacity: 0; }
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.3;
+            }
+
+            50% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
         }
 
         .hero-title {
@@ -384,24 +453,94 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
 
-        .hero-cta-wrapper {
-            animation: fadeInUp 0.6s ease-out 0.3s both;
+        /* Enhanced Hero Animations - Staggered Reveal */
+        .hero-badge {
+            opacity: 0;
+            animation: fadeInUp 0.8s var(--ease-out-expo) 0.1s forwards;
         }
+
+        .hero-title {
+            opacity: 0;
+            animation: fadeInUp 0.8s var(--ease-out-expo) 0.25s forwards;
+        }
+
+        .hero-subtitle {
+            opacity: 0;
+            animation: fadeInUp 0.8s var(--ease-out-expo) 0.4s forwards;
+        }
+
+        .hero-cta-wrapper {
+            opacity: 0;
+            animation: fadeInUp 0.8s var(--ease-out-expo) 0.55s forwards;
+        }
+
+        /* Premium Button Hover Effects */
+        .hero-cta-btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s var(--ease-out-expo);
+        }
+
+        .hero-cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-cta-btn:active {
+            transform: translateY(-1px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Stats Animation */
+        .stats-banner {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s var(--ease-out-expo);
+        }
+
+        .stats-banner.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stat-item {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .stats-banner.visible .stat-item:nth-child(1) {
+            animation: fadeInUp 0.6s var(--ease-out-expo) 0.1s forwards;
+        }
+
+        .stats-banner.visible .stat-item:nth-child(2) {
+            animation: fadeInUp 0.6s var(--ease-out-expo) 0.2s forwards;
+        }
+
+        .stats-banner.visible .stat-item:nth-child(3) {
+            animation: fadeInUp 0.6s var(--ease-out-expo) 0.3s forwards;
+        }
+
 
         /* Trust Indicators */
         .trust-indicators {
@@ -651,10 +790,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             margin-bottom: 20px;
         }
 
-        .camp-card:nth-child(1) .camp-icon { background: #f3f4ff; color: var(--purple); }
-        .camp-card:nth-child(2) .camp-icon { background: #fff4f4; color: var(--red); }
-        .camp-card:nth-child(3) .camp-icon { background: #f0f9ff; color: var(--blue); }
-        .camp-card:nth-child(4) .camp-icon { background: #f0fdf4; color: var(--green); }
+        .camp-card:nth-child(1) .camp-icon {
+            background: #f3f4ff;
+            color: var(--purple);
+        }
+
+        .camp-card:nth-child(2) .camp-icon {
+            background: #fff4f4;
+            color: var(--red);
+        }
+
+        .camp-card:nth-child(3) .camp-icon {
+            background: #f0f9ff;
+            color: var(--blue);
+        }
+
+        .camp-card:nth-child(4) .camp-icon {
+            background: #f0fdf4;
+            color: var(--green);
+        }
 
         .camp-title {
             font-size: 1.25rem;
@@ -1126,7 +1280,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
 
         @keyframes spin {
-            to { transform: rotate(360deg); }
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         /* Footer */
@@ -1271,35 +1427,36 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             transform: translateY(0);
             opacity: 1;
         }
+
         /* Desktop Alignment Fixes */
         @media (min-width: 1024px) {
             .hero-content {
                 max-width: 900px;
                 margin: 0 auto;
             }
-            
+
             .steps-grid,
             .camp-grid {
                 max-width: 1000px;
                 margin: 0 auto;
             }
-            
+
             .section-header {
                 text-align: center;
             }
-            
+
             .section-subtitle {
                 max-width: 700px;
                 margin-left: auto;
                 margin-right: auto;
             }
-            
+
             /* Center the anti-pitch grid */
-            .fund-teaser-section .container > div {
+            .fund-teaser-section .container>div {
                 max-width: 1000px;
                 margin: 0 auto;
             }
-            
+
             /* Center all content sections */
             .included-grid,
             .faq-grid,
@@ -1307,49 +1464,50 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 max-width: 900px;
                 margin: 0 auto;
             }
-            
+
             /* Fix header spacing on desktop */
             .header-nav {
                 gap: 32px;
             }
-            
+
             /* Ensure proper container width */
             .container {
                 max-width: 1200px;
                 width: 100%;
             }
         }
-        
+
         /* Ultra-wide screen fixes */
         @media (min-width: 1440px) {
             .hero-title {
                 font-size: 4.5rem;
             }
-            
+
             .hero-subtitle {
                 font-size: 1.75rem;
             }
         }
-        
+
         /* Laptop Screen Alignment Fixes (1024px - 1440px) */
         @media (min-width: 1024px) and (max-width: 1440px) {
+
             /* Container and Section Spacing */
             .container {
                 max-width: min(1200px, 90vw);
                 padding-left: 40px;
                 padding-right: 40px;
             }
-            
+
             section {
                 padding: 80px 0;
             }
-            
+
             /* Hero Section */
             .hero-title {
                 font-size: clamp(2.5rem, 5vw, 4rem);
                 line-height: 1.1;
             }
-            
+
             /* Trust Indicators Fix */
             .trust-indicators {
                 justify-content: center;
@@ -1357,7 +1515,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 margin: 0 auto;
                 gap: 24px;
             }
-            
+
             /* Stats Grid Fix */
             .stats-grid {
                 grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1365,7 +1523,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 max-width: 900px;
                 margin: 0 auto;
             }
-            
+
             /* Problem Stats Grid Fix */
             .stat-columns {
                 grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1373,621 +1531,685 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 max-width: 1000px;
                 margin: 0 auto;
             }
-            
+
             /* Fund Score Visual */
             .fund-score-visual {
                 max-width: 800px;
                 margin: 0 auto;
             }
-            
+
             /* Form Grid Fix */
             .form-grid-2 {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
                 gap: 20px;
             }
-            
+
             /* Benefits/Comparison Table */
             .comparison-table {
                 max-width: 900px;
                 margin: 0 auto;
             }
-            
+
             /* Section Headers */
             .section-header h2 {
                 font-size: clamp(2rem, 3vw, 2.5rem);
             }
-            
+
             /* CTA Buttons */
             .hero-cta-btn {
                 padding: 16px 32px;
                 font-size: 1.125rem;
             }
         }
-        
+
         /* Specific laptop breakpoints */
         @media (min-width: 1024px) and (max-width: 1280px) {
             .container {
                 padding-left: 32px;
                 padding-right: 32px;
             }
-            
+
             section {
                 padding: 60px 0;
             }
         }
     </style>
 </head>
+
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-KWVF9HSH" style="display:none;visibility:hidden" width="0"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-<!-- Header -->
-<header class="header">
-<div class="container">
-<div class="header-content">
-<a class="logo" href="/">
-    <img src="/images/flashlogo.png" alt="FLASH Logo" class="logo-icon">
-    <span class="logo-text">FLASH<span class="logo-subtext">CAPITAL</span></span>
-</a>
-<nav class="header-nav">
-<a class="header-link" href="/flash-how-it-works.html">How it works</a>
-<a class="header-link" href="/flash-camp-framework.html">CAMP Framework</a>
-<a class="header-link" href="/flash-fund-page.html">FLASH Fund</a>
-<a class="header-link" href="/flash-example.html">Example</a>
-<a class="header-link" href="/flash-faq-page.html">FAQ</a>
-<a class="header-link" href="/about.html">About</a>
-<a class="header-link" href="/contact.html">Contact</a>
-<a class="header-cta" href="https://flash.zone">Apply now</a>
-</nav>
-<button class="mobile-menu-btn" id="mobileMenuBtn">
-<span></span>
-<span></span>
-<span></span>
-</button>
-</div>
-</div>
-</header>
-<!-- Hero Section -->
-<section class="hero">
-<div class="container">
-<div class="hero-content">
-<div class="hero-badge">
-<div class="badge-icon"></div>
-<span>FLASH FUND</span>
-</div>
-<h1 class="hero-title">
-                    We write $25K-$100K checks in 2 weeks.
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-KWVF9HSH"
+            style="display:none;visibility:hidden" width="0"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a class="logo" href="/">
+                    <img src="/images/flashlogo.png" alt="FLASH Logo" class="logo-icon">
+                    <span class="logo-text">FLASH<span class="logo-subtext">CAPITAL</span></span>
+                </a>
+                <nav class="header-nav">
+                    <a class="header-link" href="/flash-how-it-works.html">How it works</a>
+                    <a class="header-link" href="/flash-camp-framework.html">CAMP Framework</a>
+                    <a class="header-link" href="/flash-fund-page.html">FLASH Fund</a>
+                    <a class="header-link" href="/flash-example.html">Example</a>
+                    <a class="header-link" href="/flash-faq-page.html">FAQ</a>
+                    <a class="header-link" href="/about.html">About</a>
+                    <a class="header-link" href="/contact.html">Contact</a>
+                    <a class="header-cta" href="https://flash.zone">Apply now</a>
+                </nav>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <div class="badge-icon"></div>
+                    <span>SEED & PRE-SEED INVESTMENT</span>
+                </div>
+                <h1 class="hero-title">
+                    We're the fund that writes back.
                 </h1>
-<p class="hero-subtitle">
-                    No warm intros. No bullshit. Just data.
+                <p class="hero-subtitle">
+                    Apply in 10 minutes. Decision in 14 days.<br>
+                    If we pass, you'll know exactly why.
                 </p>
-<div class="hero-cta-wrapper" style="margin-bottom: 48px;">
-<a class="hero-cta-btn" href="https://flash.zone" style="display: inline-flex; align-items: center; gap: 12px; padding: 20px 48px; background: var(--black); color: var(--white); text-decoration: none; font-weight: 600; font-size: 1.125rem; border-radius: 8px; transition: all 0.2s ease;">
-<span>Get Funded</span>
-<span style="transition: transform 0.2s ease;">→</span>
-</a>
-</div>
-<div class="trust-indicators">
-<div class="trust-item">
-<svg class="trust-icon" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-<path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-<span class="trust-text"><strong>2-week</strong> decisions</span>
-</div>
-<div class="trust-item">
-<svg class="trust-icon" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-<path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-<span class="trust-text"><strong>No warm intros</strong> needed</span>
-</div>
-<div class="trust-item">
-<svg class="trust-icon" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-<path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-<span class="trust-text"><strong>$25K-$100K</strong> checks</span>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Stats Banner -->
-<section class="stats-banner">
-<div class="container">
-<div class="stats-grid">
-<div class="stat-item">
-<div class="stat-number" style="font-size: 3rem; font-weight: 800; color: var(--green);">14</div>
-<div class="stat-label">Days to funding</div>
-</div>
-<div class="stat-item">
-<div class="stat-number" style="font-size: 3rem; font-weight: 800; color: var(--purple);">$62.5K</div>
-<div class="stat-label">Average check size</div>
-</div>
-<div class="stat-item">
-<div class="stat-number" style="font-size: 3rem; font-weight: 800; color: var(--red);">5%</div>
-<div class="stat-label">Acceptance rate</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Problem Section -->
-<section class="reveal" style="padding: 100px 0; background: var(--white);">
-<div class="container">
-<div style="max-width: 900px; margin: 0 auto;">
-<h2 style="font-size: clamp(2rem, 4vw, 2.5rem); font-weight: 800; margin-bottom: 60px; text-align: center; color: var(--gray-900);">
+                <div class="hero-cta-wrapper" style="margin-bottom: 48px;">
+                    <a class="hero-cta-btn" href="https://flash.zone"
+                        style="display: inline-flex; align-items: center; gap: 12px; padding: 20px 48px; background: var(--black); color: var(--white); text-decoration: none; font-weight: 600; font-size: 1.125rem; border-radius: 8px; transition: all 0.2s ease;">
+                        <span>Apply for Funding</span>
+                        <span style="transition: transform 0.2s ease;">→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Stats Banner -->
+    <section class="stats-banner">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number" style="font-size: 3rem; font-weight: 800; color: var(--green);">10 min
+                    </div>
+                    <div class="stat-label">To apply</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" style="font-size: 3rem; font-weight: 800; color: var(--purple);">14 days
+                    </div>
+                    <div class="stat-label">To decision</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" style="font-size: 3rem; font-weight: 800; color: var(--blue);">100%</div>
+                    <div class="stat-label">Response rate</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Problem Section -->
+    <section class="reveal" style="padding: 100px 0; background: var(--white);">
+        <div class="container">
+            <div style="max-width: 900px; margin: 0 auto;">
+                <h2
+                    style="font-size: clamp(2rem, 4vw, 2.5rem); font-weight: 800; margin-bottom: 60px; text-align: center; color: var(--gray-900);">
                     Dear Founder,
                 </h2>
-<div style="max-width: 700px; margin: 0 auto; text-align: center;">
-<p style="font-size: 1.25rem; color: var(--gray-700); line-height: 1.8; margin-bottom: 24px;">
-                        You're building the future while VCs play golf.<br/>
-                        They want "traction" but won't say how much.<br/>
-                        They want "a team" but ghost after meeting you.<br/>
+                <div style="max-width: 700px; margin: 0 auto; text-align: center;">
+                    <p style="font-size: 1.25rem; color: var(--gray-700); line-height: 1.8; margin-bottom: 24px;">
+                        You're building the future while VCs play golf.<br />
+                        They want "traction" but won't say how much.<br />
+                        They want "a team" but ghost after meeting you.<br />
                         They want "product-market fit" but can't define it.
                     </p>
-<p style="font-size: 1.25rem; color: var(--gray-700); line-height: 1.8; margin-bottom: 24px;">
-                        We're different. We're founders who got tired of the game.<br/>
+                    <p style="font-size: 1.25rem; color: var(--gray-700); line-height: 1.8; margin-bottom: 24px;">
+                        We're different. We're founders who got tired of the game.<br />
                         So we built a fund that decides based on data, not dinners.
                     </p>
-<p style="font-size: 1.5rem; font-weight: 700; color: var(--black); margin-bottom: 24px;">
-                        If your numbers are good, you get money.<br/>
+                    <p style="font-size: 1.5rem; font-weight: 700; color: var(--black); margin-bottom: 24px;">
+                        If your numbers are good, you get money.<br />
                         If they're not, we tell you exactly why.
                     </p>
-<p style="font-size: 1.25rem; font-weight: 600; color: var(--black);">
-                        No politics. No favoritism. No bullshit.<br/>
+                    <p style="font-size: 1.25rem; font-weight: 600; color: var(--black);">
+                        No politics. No favoritism. No bullshit.<br />
                         Just math.
                     </p>
-</div>
-</div>
-</div>
-</section>
-<!-- How It Works Section -->
-<section class="how-section reveal" id="how">
-<div class="container">
-<div class="section-header">
-<div class="section-badge">How it works</div>
-<h2 class="section-title">From application to funding in 2 weeks</h2>
-<p class="section-subtitle">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- How It Works Section -->
+    <section class="how-section reveal" id="how">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">How it works</div>
+                <h2 class="section-title">From application to funding in 2 weeks</h2>
+                <p class="section-subtitle">
                     The fastest funding decision in the industry. Here's exactly how it works.
                 </p>
-</div>
-<div class="steps-grid">
-<div class="step-card">
-<div class="step-number">1</div>
-<h3 class="step-title">Submit your data (10 minutes)</h3>
-<p class="step-description">
-                        Revenue, burn, team, product metrics - the basics. No deck required. Just the numbers that matter.
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Submit your data (10 minutes)</h3>
+                    <p class="step-description">
+                        Revenue, burn, team, product metrics - the basics. No deck required. Just the numbers that
+                        matter.
                     </p>
-</div>
-<div class="step-card">
-<div class="step-number">2</div>
-<h3 class="step-title">Our AI analyzes your startup (instant)</h3>
-<p class="step-description">
-                        17 ML models trained on 50,000+ funding outcomes. We know what works because we've seen what doesn't.
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Our AI analyzes your startup (instant)</h3>
+                    <p class="step-description">
+                        17 ML models trained on 50,000+ funding outcomes. We know what works because we've seen what
+                        doesn't.
                     </p>
-</div>
-<div class="step-card">
-<div class="step-number">3</div>
-<h3 class="step-title">Get your decision (2 weeks)</h3>
-<p class="step-description">
-                        Yes = termsheet. No = specific feedback on what to fix. Either way, you can move on with your life.
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Get your decision (2 weeks)</h3>
+                    <p class="step-description">
+                        Yes = termsheet. No = specific feedback on what to fix. Either way, you can move on with your
+                        life.
                     </p>
-</div>
-</div>
-</div>
-</section>
-<!-- CAMP Framework Section -->
-<section class="camp-section reveal" id="camp">
-<div class="container">
-<div class="section-header">
-<div class="section-badge">What we DON'T do</div>
-<h2 class="section-title">The anti-pitch</h2>
-<p class="section-subtitle">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- CAMP Framework Section -->
+    <section class="camp-section reveal" id="camp">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">What we DON'T do</div>
+                <h2 class="section-title">The anti-pitch</h2>
+                <p class="section-subtitle">
                     We built the fund we wish existed when we were raising
                 </p>
-</div>
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 900px; margin: 0 auto;">
-<div>
-<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 24px; color: var(--red);">What we DON'T do:</h3>
-<ul style="list-style: none; padding: 0;">
-<li style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; font-size: 1.125rem; color: var(--gray-700);">
-<span style="color: var(--red);">❌</span>
-<span>Waste 6 months of your life</span>
-</li>
-<li style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; font-size: 1.125rem; color: var(--gray-700);">
-<span style="color: var(--red);">❌</span>
-<span>Require Stanford connections</span>
-</li>
-<li style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; font-size: 1.125rem; color: var(--gray-700);">
-<span style="color: var(--red);">❌</span>
-<span>Make you pitch 47 times</span>
-</li>
-<li style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; font-size: 1.125rem; color: var(--gray-700);">
-<span style="color: var(--red);">❌</span>
-<span>Give vague feedback like "not quite there yet"</span>
-</li>
-<li style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; font-size: 1.125rem; color: var(--gray-700);">
-<span style="color: var(--red);">❌</span>
-<span>String you along for deal flow</span>
-</li>
-</ul>
-</div>
-<div>
-<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 24px; color: var(--green);">What we DO:</h3>
-<ul style="list-style: none; padding: 0;">
-<li style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; font-size: 1.125rem; color: var(--gray-700);">
-<span style="color: var(--green);">✓</span>
-<span>Analyze your actual metrics</span>
-</li>
-<li style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; font-size: 1.125rem; color: var(--gray-700);">
-<span style="color: var(--green);">✓</span>
-<span>Decide in 2 weeks max</span>
-</li>
-<li style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; font-size: 1.125rem; color: var(--gray-700);">
-<span style="color: var(--green);">✓</span>
-<span>Wire money in days</span>
-</li>
-<li style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; font-size: 1.125rem; color: var(--gray-700);">
-<span style="color: var(--green);">✓</span>
-<span>Tell you exactly why (if it's a no)</span>
-</li>
-<li style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; font-size: 1.125rem; color: var(--gray-700);">
-<span style="color: var(--green);">✓</span>
-<span>Let you reapply when you improve</span>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<!-- Fund Teaser Section -->
-<section class="fund-teaser-section reveal" id="fund">
-<div class="container">
-<div class="fund-teaser-content">
-<div class="section-badge" style="background: rgba(88, 86, 214, 0.1); color: var(--purple);">
-<span>💰</span>
-<span>Do you qualify?</span>
-</div>
-<h2 class="section-title">Who we fund</h2>
-<p class="section-subtitle">
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 900px; margin: 0 auto;">
+                <div>
+                    <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 24px; color: var(--red);">What we
+                        DON'T do:</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li
+                            style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; font-size: 1.125rem; color: var(--gray-700);">
+                            <span style="color: var(--red);">❌</span>
+                            <span>Waste 6 months of your life</span>
+                        </li>
+                        <li
+                            style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; font-size: 1.125rem; color: var(--gray-700);">
+                            <span style="color: var(--red);">❌</span>
+                            <span>Require Stanford connections</span>
+                        </li>
+                        <li
+                            style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; font-size: 1.125rem; color: var(--gray-700);">
+                            <span style="color: var(--red);">❌</span>
+                            <span>Make you pitch 47 times</span>
+                        </li>
+                        <li
+                            style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; font-size: 1.125rem; color: var(--gray-700);">
+                            <span style="color: var(--red);">❌</span>
+                            <span>Give vague feedback like "not quite there yet"</span>
+                        </li>
+                        <li
+                            style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; font-size: 1.125rem; color: var(--gray-700);">
+                            <span style="color: var(--red);">❌</span>
+                            <span>String you along for deal flow</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 24px; color: var(--green);">What we
+                        DO:</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li
+                            style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; font-size: 1.125rem; color: var(--gray-700);">
+                            <span style="color: var(--green);">✓</span>
+                            <span>Analyze your actual metrics</span>
+                        </li>
+                        <li
+                            style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; font-size: 1.125rem; color: var(--gray-700);">
+                            <span style="color: var(--green);">✓</span>
+                            <span>Decide in 2 weeks max</span>
+                        </li>
+                        <li
+                            style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; font-size: 1.125rem; color: var(--gray-700);">
+                            <span style="color: var(--green);">✓</span>
+                            <span>Wire money in days</span>
+                        </li>
+                        <li
+                            style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; font-size: 1.125rem; color: var(--gray-700);">
+                            <span style="color: var(--green);">✓</span>
+                            <span>Tell you exactly why (if it's a no)</span>
+                        </li>
+                        <li
+                            style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; font-size: 1.125rem; color: var(--gray-700);">
+                            <span style="color: var(--green);">✓</span>
+                            <span>Let you reapply when you improve</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Fund Teaser Section -->
+    <section class="fund-teaser-section reveal" id="fund">
+        <div class="container">
+            <div class="fund-teaser-content">
+                <div class="section-badge" style="background: rgba(88, 86, 214, 0.1); color: var(--purple);">
+                    <span>💰</span>
+                    <span>Do you qualify?</span>
+                </div>
+                <h2 class="section-title">Who we fund</h2>
+                <p class="section-subtitle">
                     We're looking for seed-stage startups with real traction and full-time founders.
                 </p>
-<div style="max-width: 600px; margin: 0 auto;">
-<ul style="list-style: none; padding: 0; margin-bottom: 48px;">
-<li style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 1.125rem; color: var(--gray-700);">
-<span style="color: var(--green); font-size: 1.5rem;">✓</span>
-<span>Seed stage (pre-seed to Series A)</span>
-</li>
-<li style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 1.125rem; color: var(--gray-700);">
-<span style="color: var(--green); font-size: 1.5rem;">✓</span>
-<span>Some traction (revenue, users, or pilots)</span>
-</li>
-<li style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 1.125rem; color: var(--gray-700);">
-<span style="color: var(--green); font-size: 1.5rem;">✓</span>
-<span>Full-time founders</span>
-</li>
-<li style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 1.125rem; color: var(--gray-700);">
-<span style="color: var(--green); font-size: 1.5rem;">✓</span>
-<span>Delaware C-Corp or equivalent</span>
-</li>
-<li style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 1.125rem; color: var(--gray-700);">
-<span style="color: var(--green); font-size: 1.5rem;">✓</span>
-<span>Building software or tech-enabled business</span>
-</li>
-</ul>
-<p style="font-size: 1.25rem; font-weight: 600; text-align: center; color: var(--black); margin-bottom: 32px;">
-                    Score 75+ on our assessment to unlock funding application.
-                </p>
-<div style="text-align: center;">
-<a href="https://flash.zone" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 8px 32px rgba(0, 0, 0, 0.1)'" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 12px 48px rgba(0, 0, 0, 0.15)'" style="display: inline-flex; align-items: center; gap: 12px; padding: 20px 48px; background: var(--black); color: var(--white); text-decoration: none; font-weight: 600; font-size: 1.125rem; border-radius: 8px; transition: all 0.2s ease; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);">
-<span>Apply for FLASH Fund</span>
-<span style="transition: transform 0.2s ease;">→</span>
-</a>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- What's Included Section -->
-<section class="included-section reveal">
-<div class="container">
-<div class="section-header">
-<div class="section-badge">What you get</div>
-<h2 class="section-title">Everything you need to raise</h2>
-<p class="section-subtitle">
+                <div style="max-width: 600px; margin: 0 auto;">
+                    <ul style="list-style: none; padding: 0; margin-bottom: 48px;">
+                        <li
+                            style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 1.125rem; color: var(--gray-700);">
+                            <span style="color: var(--green); font-size: 1.5rem;">✓</span>
+                            <span>Seed stage (pre-seed to Series A)</span>
+                        </li>
+                        <li
+                            style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 1.125rem; color: var(--gray-700);">
+                            <span style="color: var(--green); font-size: 1.5rem;">✓</span>
+                            <span>Some traction (revenue, users, or pilots)</span>
+                        </li>
+                        <li
+                            style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 1.125rem; color: var(--gray-700);">
+                            <span style="color: var(--green); font-size: 1.5rem;">✓</span>
+                            <span>Full-time founders</span>
+                        </li>
+                        <li
+                            style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 1.125rem; color: var(--gray-700);">
+                            <span style="color: var(--green); font-size: 1.5rem;">✓</span>
+                            <span>Delaware C-Corp or equivalent</span>
+                        </li>
+                        <li
+                            style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 1.125rem; color: var(--gray-700);">
+                            <span style="color: var(--green); font-size: 1.5rem;">✓</span>
+                            <span>Building software or tech-enabled business</span>
+                        </li>
+                    </ul>
+                    <p
+                        style="font-size: 1.25rem; font-weight: 600; text-align: center; color: var(--black); margin-bottom: 32px;">
+                        Score 75+ on our assessment to unlock funding application.
+                    </p>
+                    <div style="text-align: center;">
+                        <a href="https://flash.zone"
+                            onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 8px 32px rgba(0, 0, 0, 0.1)'"
+                            onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 12px 48px rgba(0, 0, 0, 0.15)'"
+                            style="display: inline-flex; align-items: center; gap: 12px; padding: 20px 48px; background: var(--black); color: var(--white); text-decoration: none; font-weight: 600; font-size: 1.125rem; border-radius: 8px; transition: all 0.2s ease; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);">
+                            <span>Apply for FLASH Fund</span>
+                            <span style="transition: transform 0.2s ease;">→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- What's Included Section -->
+    <section class="included-section reveal">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">What you get</div>
+                <h2 class="section-title">Everything you need to raise</h2>
+                <p class="section-subtitle">
                     More than just a score. Get the exact roadmap to become fundable.
                 </p>
-</div>
-<div class="included-grid">
-<div class="included-item">
-<svg class="included-icon" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-<path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-<div class="included-content">
-<div class="included-title">Your Fundability Score (0-100)</div>
-<div class="included-description">
+            </div>
+            <div class="included-grid">
+                <div class="included-item">
+                    <svg class="included-icon" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round"
+                            stroke-linejoin="round" stroke-width="2"></path>
+                    </svg>
+                    <div class="included-content">
+                        <div class="included-title">Your Fundability Score (0-100)</div>
+                        <div class="included-description">
                             Know exactly where you stand. See how you compare to funded startups at your stage.
                         </div>
-</div>
-</div>
-<div class="included-item">
-<svg class="included-icon" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-<path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-<div class="included-content">
-<div class="included-title">5 Specific Reasons VCs Will Pass</div>
-<div class="included-description">
+                    </div>
+                </div>
+                <div class="included-item">
+                    <svg class="included-icon" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round"
+                            stroke-linejoin="round" stroke-width="2"></path>
+                    </svg>
+                    <div class="included-content">
+                        <div class="included-title">5 Specific Reasons VCs Will Pass</div>
+                        <div class="included-description">
                             No sugarcoating. Get the brutal truth about what's holding you back, ranked by impact.
                         </div>
-</div>
-</div>
-<div class="included-item">
-<svg class="included-icon" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-<path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-<div class="included-content">
-<div class="included-title">Action Plan That Actually Works</div>
-<div class="included-description">
+                    </div>
+                </div>
+                <div class="included-item">
+                    <svg class="included-icon" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round"
+                            stroke-linejoin="round" stroke-width="2"></path>
+                    </svg>
+                    <div class="included-content">
+                        <div class="included-title">Action Plan That Actually Works</div>
+                        <div class="included-description">
                             Not generic advice. Specific fixes for YOUR startup based on what's worked for others.
                         </div>
-</div>
-</div>
-<div class="included-item">
-<svg class="included-icon" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-<path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-<div class="included-content">
-<div class="included-title">Investor Type Matching</div>
-<div class="included-description">
+                    </div>
+                </div>
+                <div class="included-item">
+                    <svg class="included-icon" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round"
+                            stroke-linejoin="round" stroke-width="2"></path>
+                    </svg>
+                    <div class="included-content">
+                        <div class="included-title">Investor Type Matching</div>
+                        <div class="included-description">
                             Stop pitching the wrong VCs. Know which investor profiles actually fund startups like yours.
                         </div>
-</div>
-</div>
-<div class="included-item">
-<svg class="included-icon" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-<path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-<div class="included-content">
-<div class="included-title">Week-by-Week Improvement Plan</div>
-<div class="included-description">
+                    </div>
+                </div>
+                <div class="included-item">
+                    <svg class="included-icon" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round"
+                            stroke-linejoin="round" stroke-width="2"></path>
+                    </svg>
+                    <div class="included-content">
+                        <div class="included-title">Week-by-Week Improvement Plan</div>
+                        <div class="included-description">
                             Turn insights into action. Know exactly what to do each week to increase your fundability.
                         </div>
-</div>
-</div>
-<div class="included-item">
-<svg class="included-icon" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-<path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-<div class="included-content">
-<div class="included-title">Track Your Progress</div>
-<div class="included-description">
-                            Re-assess anytime. Watch your score improve as you implement changes. Know when you're ready.
+                    </div>
+                </div>
+                <div class="included-item">
+                    <svg class="included-icon" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round"
+                            stroke-linejoin="round" stroke-width="2"></path>
+                    </svg>
+                    <div class="included-content">
+                        <div class="included-title">Track Your Progress</div>
+                        <div class="included-description">
+                            Re-assess anytime. Watch your score improve as you implement changes. Know when you're
+                            ready.
                         </div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- FAQ Section -->
-<section class="faq-section reveal" id="faq">
-<div class="container">
-<div class="section-header">
-<div class="section-badge">FAQ</div>
-<h2 class="section-title">Common questions</h2>
-</div>
-<div class="faq-container">
-<div class="faq-list">
-<div class="faq-item">
-<div class="faq-question">
-<span>How does FLASH work?</span>
-<svg class="faq-arrow" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-</div>
-<div class="faq-answer">
-                            FLASH uses the CAMP framework to evaluate your startup across four critical dimensions: Capital, Advantage, Market, and People. We analyze 45 key metrics that investors care about most, then provide you with a fundability score and specific recommendations for improvement.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- FAQ Section -->
+    <section class="faq-section reveal" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">FAQ</div>
+                <h2 class="section-title">Common questions</h2>
+            </div>
+            <div class="faq-container">
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>How does FLASH work?</span>
+                            <svg class="faq-arrow" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                <path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2"></path>
+                            </svg>
                         </div>
-</div>
-<div class="faq-item">
-<div class="faq-question">
-<span>Who built FLASH and why?</span>
-<svg class="faq-arrow" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-</div>
-<div class="faq-answer">
-                            FLASH was built by founders who've experienced the fundraising struggle firsthand. After going through countless rejections and finally raising capital, we realized founders need honest feedback before they pitch. We created FLASH to democratize access to the insights that typically only come from expensive advisors or painful rejections.
+                        <div class="faq-answer">
+                            FLASH uses the CAMP framework to evaluate your startup across four critical dimensions:
+                            Capital, Advantage, Market, and People. We analyze 45 key metrics that investors care about
+                            most, then provide you with a fundability score and specific recommendations for
+                            improvement.
                         </div>
-</div>
-<div class="faq-item">
-<div class="faq-question">
-<span>Do I need a pitch deck to use FLASH?</span>
-<svg class="faq-arrow" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-</div>
-<div class="faq-answer">
-                            No! That's the beauty of FLASH. Our guided questionnaire helps you share the right information about your startup without needing a polished deck. In fact, this can be a great way to understand what should go in your pitch deck when you do create one.
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Who built FLASH and why?</span>
+                            <svg class="faq-arrow" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                <path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2"></path>
+                            </svg>
                         </div>
-</div>
-<div class="faq-item">
-<div class="faq-question">
-<span>What's the catch?</span>
-<svg class="faq-arrow" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-</div>
-<div class="faq-answer">
-                            No catch. We use AI to make faster, better decisions. That's our edge. While other VCs spend 6 months in diligence, we can decide in 2 weeks because our models have already analyzed what matters.
+                        <div class="faq-answer">
+                            FLASH was built by founders who've experienced the fundraising struggle firsthand. After
+                            going through countless rejections and finally raising capital, we realized founders need
+                            honest feedback before they pitch. We created FLASH to democratize access to the insights
+                            that typically only come from expensive advisors or painful rejections.
                         </div>
-</div>
-<div class="faq-item">
-<div class="faq-question">
-<span>What if I score below 75?</span>
-<svg class="faq-arrow" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-</div>
-<div class="faq-answer">
-                            You get specific feedback on what to improve. Not vague advice like "get more traction" but specific metrics: "Reduce CAC from $150 to $50" or "Increase retention from 60% to 85%." Fix it and reapply.
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Do I need a pitch deck to use FLASH?</span>
+                            <svg class="faq-arrow" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                <path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2"></path>
+                            </svg>
                         </div>
-</div>
-<div class="faq-item">
-<div class="faq-question">
-<span>Do you take equity?</span>
-<svg class="faq-arrow" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-</div>
-<div class="faq-answer">
-                            Yes, standard SAFE with a cap. Founder-friendly terms. We're not trying to own half your company. We want you focused on building, not negotiating terms for months.
+                        <div class="faq-answer">
+                            No! That's the beauty of FLASH. Our guided questionnaire helps you share the right
+                            information about your startup without needing a polished deck. In fact, this can be a great
+                            way to understand what should go in your pitch deck when you do create one.
                         </div>
-</div>
-<div class="faq-item">
-<div class="faq-question">
-<span>How are you different from other VCs?</span>
-<svg class="faq-arrow" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-</div>
-<div class="faq-answer">
-                            We decide based on data, not degrees. No Stanford bias. No "I need to see more traction" without defining what that means. Just clear metrics and fast decisions. Plus, you can reapply when you improve.
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What's the catch?</span>
+                            <svg class="faq-arrow" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                <path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2"></path>
+                            </svg>
                         </div>
-</div>
-<div class="faq-item">
-<div class="faq-question">
-<span>What companies have you funded?</span>
-<svg class="faq-arrow" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-</div>
-<div class="faq-answer">
-                            We're selective - funding 1 in 20 applicants. B2B SaaS, developer tools, AI applications, marketplaces. If you're building real technology solving real problems, we're interested.
+                        <div class="faq-answer">
+                            No catch. We use AI to make faster, better decisions. That's our edge. While other VCs spend
+                            6 months in diligence, we can decide in 2 weeks because our models have already analyzed
+                            what matters.
                         </div>
-</div>
-</div>
-<div style="text-align: center; margin-top: 48px;">
-<a href="/flash-faq-page.html" onmouseout="this.style.gap='8px'; this.querySelector('span:last-child').style.transform='translateX(0)'" onmouseover="this.style.gap='12px'; this.querySelector('span:last-child').style.transform='translateX(4px)'" style="display: inline-flex; align-items: center; gap: 8px; font-weight: 600; text-decoration: none; color: var(--black); transition: all 0.2s ease;">
-<span>View all FAQs</span>
-<span style="transition: transform 0.2s ease;">→</span>
-</a>
-</div>
-</div>
-</div>
-</section>
-<!-- Security Section -->
-<section class="security-section reveal">
-<div class="container">
-<div class="security-content">
-<h3 class="section-title">Your data is protected</h3>
-<p class="section-subtitle" style="max-width: 600px; margin: 16px auto 32px; color: var(--gray-600); font-size: 1rem;">
-                    We use enterprise-grade security to protect your startup data. Everything is encrypted, stored securely, and never shared with third parties.
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What if I score below 75?</span>
+                            <svg class="faq-arrow" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                <path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2"></path>
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            You get specific feedback on what to improve. Not vague advice like "get more traction" but
+                            specific metrics: "Reduce CAC from $150 to $50" or "Increase retention from 60% to 85%." Fix
+                            it and reapply.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Do you take equity?</span>
+                            <svg class="faq-arrow" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                <path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2"></path>
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            Yes, standard SAFE with a cap. Founder-friendly terms. We're not trying to own half your
+                            company. We want you focused on building, not negotiating terms for months.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>How are you different from other VCs?</span>
+                            <svg class="faq-arrow" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                <path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2"></path>
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            We decide based on data, not degrees. No Stanford bias. No "I need to see more traction"
+                            without defining what that means. Just clear metrics and fast decisions. Plus, you can
+                            reapply when you improve.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What companies have you funded?</span>
+                            <svg class="faq-arrow" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                <path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2"></path>
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            We're selective - funding 1 in 20 applicants. B2B SaaS, developer tools, AI applications,
+                            marketplaces. If you're building real technology solving real problems, we're interested.
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 48px;">
+                    <a href="/flash-faq-page.html"
+                        onmouseout="this.style.gap='8px'; this.querySelector('span:last-child').style.transform='translateX(0)'"
+                        onmouseover="this.style.gap='12px'; this.querySelector('span:last-child').style.transform='translateX(4px)'"
+                        style="display: inline-flex; align-items: center; gap: 8px; font-weight: 600; text-decoration: none; color: var(--black); transition: all 0.2s ease;">
+                        <span>View all FAQs</span>
+                        <span style="transition: transform 0.2s ease;">→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Security Section -->
+    <section class="security-section reveal">
+        <div class="container">
+            <div class="security-content">
+                <h3 class="section-title">Your data is protected</h3>
+                <p class="section-subtitle"
+                    style="max-width: 600px; margin: 16px auto 32px; color: var(--gray-600); font-size: 1rem;">
+                    We use enterprise-grade security to protect your startup data. Everything is encrypted, stored
+                    securely, and never shared with third parties.
                 </p>
-<div class="security-badges">
-<div class="security-badge">
-<svg class="security-icon" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-<path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-<span class="security-label">Bank-Level Security</span>
-</div>
-<div class="security-badge">
-<svg class="security-icon" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-<path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-<span class="security-label">Encrypted Storage</span>
-</div>
-<div class="security-badge">
-<svg class="security-icon" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-<path d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-<span class="security-label">Private &amp; Confidential</span>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Application Section -->
-<section class="waitlist-section" id="apply">
-<div class="container">
-<div class="section-header" style="text-align: center; margin-bottom: 64px;">
-<div class="section-badge">Applications Open</div>
-<h2 class="section-title">Ready to skip the fundraising circus?</h2>
-<p class="section-subtitle">
-	                    Complete the FLASH assessment to get your score and apply for funding.
-	                </p>
-<div style="display: flex; gap: 32px; justify-content: center; margin: 32px 0; flex-wrap: wrap;">
-<div style="display: flex; align-items: center; gap: 8px; color: var(--gray-600);">
-<svg fill="none" stroke="currentColor" style="width: 20px; height: 20px; color: var(--green);" viewbox="0 0 24 24">
-<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-<span>Start with the FLASH assessment</span>
-</div>
-<div style="display: flex; align-items: center; gap: 8px; color: var(--gray-600);">
-<svg fill="none" stroke="currentColor" style="width: 20px; height: 20px; color: var(--green);" viewbox="0 0 24 24">
-<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-<span>Get your FLASH score</span>
-</div>
-<div style="display: flex; align-items: center; gap: 8px; color: var(--gray-600);">
-<svg fill="none" stroke="currentColor" style="width: 20px; height: 20px; color: var(--green);" viewbox="0 0 24 24">
-<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-<span>Apply for the FLASH Fund</span>
-</div>
-</div>
-</div>
-<div class="waitlist-form-wrapper"><a class="submit-btn waitlist-submit" href="https://flash.zone" style="width: 100%; padding: 16px 32px; font-size: 1.125rem; margin-top: 16px; display: inline-block; text-align: center; text-decoration: none;">Apply for FLASH Fund →</a></div>
-</div>
-</section>
-<!-- CTA Section -->
-<section class="cta-section">
-<div class="container">
-<h2 class="cta-title">Look, we get it.</h2>
-<p class="cta-subtitle">
-                You didn't start a company to become a professional fundraiser.<br/>
+                <div class="security-badges">
+                    <div class="security-badge">
+                        <svg class="security-icon" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                            <path
+                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                        </svg>
+                        <span class="security-label">Bank-Level Security</span>
+                    </div>
+                    <div class="security-badge">
+                        <svg class="security-icon" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                            <path
+                                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                        </svg>
+                        <span class="security-label">Encrypted Storage</span>
+                    </div>
+                    <div class="security-badge">
+                        <svg class="security-icon" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                            <path
+                                d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                        </svg>
+                        <span class="security-label">Private &amp; Confidential</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Application Section -->
+    <section class="waitlist-section" id="apply">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 64px;">
+                <div class="section-badge">Applications Open</div>
+                <h2 class="section-title">Ready to skip the fundraising circus?</h2>
+                <p class="section-subtitle">
+                    Complete the FLASH assessment to get your score and apply for funding.
+                </p>
+                <div style="display: flex; gap: 32px; justify-content: center; margin: 32px 0; flex-wrap: wrap;">
+                    <div style="display: flex; align-items: center; gap: 8px; color: var(--gray-600);">
+                        <svg fill="none" stroke="currentColor" style="width: 20px; height: 20px; color: var(--green);"
+                            viewbox="0 0 24 24">
+                            <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                            </path>
+                        </svg>
+                        <span>Start with the FLASH assessment</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px; color: var(--gray-600);">
+                        <svg fill="none" stroke="currentColor" style="width: 20px; height: 20px; color: var(--green);"
+                            viewbox="0 0 24 24">
+                            <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                            </path>
+                        </svg>
+                        <span>Get your FLASH score</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px; color: var(--gray-600);">
+                        <svg fill="none" stroke="currentColor" style="width: 20px; height: 20px; color: var(--green);"
+                            viewbox="0 0 24 24">
+                            <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                            </path>
+                        </svg>
+                        <span>Apply for the FLASH Fund</span>
+                    </div>
+                </div>
+            </div>
+            <div class="waitlist-form-wrapper"><a class="submit-btn waitlist-submit" href="https://flash.zone"
+                    style="width: 100%; padding: 16px 32px; font-size: 1.125rem; margin-top: 16px; display: inline-block; text-align: center; text-decoration: none;">Apply
+                    for FLASH Fund →</a></div>
+        </div>
+    </section>
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">Look, we get it.</h2>
+            <p class="cta-subtitle">
+                You didn't start a company to become a professional fundraiser.<br />
                 You started it to build something that matters.
             </p>
             <p class="cta-subtitle" style="margin-top: 24px; font-size: 1.25rem; font-weight: 600;">
-                Stop wasting time on the fundraising circus.<br/>
+                Stop wasting time on the fundraising circus.<br />
                 Apply once. Get an answer. Move on with your life.
             </p>
             <p class="cta-subtitle" style="margin-top: 32px; color: var(--gray-500);">
-                P.S. We fund 1 in 20 companies. Those aren't great odds.<br/>
+                P.S. We fund 1 in 20 companies. Those aren't great odds.<br />
                 But at least you'll know in 2 weeks, not 6 months.
             </p>
-<div style="text-align: center;">
-<a href="https://flash.zone" onmouseout="this.style.background='var(--white)'; this.style.transform='translateY(0)'" onmouseover="this.style.background='var(--gray-100)'; this.style.transform='translateY(-2px)'" style="display: inline-flex; align-items: center; gap: 12px; padding: 20px 48px; background: var(--white); color: var(--black); text-decoration: none; font-weight: 600; font-size: 1.125rem; border-radius: 8px; transition: all 0.2s ease;">
-<span>Apply for FLASH Fund</span>
-<span>→</span>
-</a>
-</div>
-</div>
-</section>
-<!-- Toast Notification -->
-<div class="toast" id="toast"></div>
-<!-- Footer -->
-<footer class="footer">
-<div class="container">
-<div class="footer-content">
-<div class="footer-text">
-	                    © 2025 FLASH Capital. All rights reserved.
+            <div style="text-align: center;">
+                <a href="https://flash.zone"
+                    onmouseout="this.style.background='var(--white)'; this.style.transform='translateY(0)'"
+                    onmouseover="this.style.background='var(--gray-100)'; this.style.transform='translateY(-2px)'"
+                    style="display: inline-flex; align-items: center; gap: 12px; padding: 20px 48px; background: var(--white); color: var(--black); text-decoration: none; font-weight: 600; font-size: 1.125rem; border-radius: 8px; transition: all 0.2s ease;">
+                    <span>Apply for FLASH Fund</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    © 2025 FLASH Capital. All rights reserved.
                 </div>
-<div class="footer-links">
-<a class="footer-link" href="/flash-privacy-policy.html">Privacy Policy</a>
-<a class="footer-link" href="/flash-terms-of-service.html">Terms of Service</a>
-<a href="/contact.html" class="footer-link">Contact</a>
-</div>
-</div>
-</div>
-</footer>
-<script>
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const headerNav = document.querySelector('.header-nav');
+                <div class="footer-links">
+                    <a class="footer-link" href="/flash-privacy-policy.html">Privacy Policy</a>
+                    <a class="footer-link" href="/flash-terms-of-service.html">Terms of Service</a>
+                    <a href="/contact.html" class="footer-link">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const headerNav = document.querySelector('.header-nav');
 
-    mobileMenuBtn.addEventListener('click', () => {
-        mobileMenuBtn.classList.toggle('active');
-        headerNav.classList.toggle('active');
-    });
-</script>
-<script>
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuBtn.classList.toggle('active');
+            headerNav.classList.toggle('active');
+        });
+    </script>
+    <script>
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -2009,12 +2231,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         // Hero CTA hover effect
         const heroCta = document.querySelector('.hero-cta-btn');
         if (heroCta) {
-            heroCta.addEventListener('mouseenter', function() {
+            heroCta.addEventListener('mouseenter', function () {
                 this.style.background = 'var(--gray-900)';
                 this.style.transform = 'translateY(-2px)';
                 this.querySelector('span:last-child').style.transform = 'translateX(4px)';
             });
-            heroCta.addEventListener('mouseleave', function() {
+            heroCta.addEventListener('mouseleave', function () {
                 this.style.background = 'var(--black)';
                 this.style.transform = 'translateY(0)';
                 this.querySelector('span:last-child').style.transform = 'translateX(0)';
@@ -2023,19 +2245,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         // Form input focus effects
         document.querySelectorAll('.form-input').forEach(input => {
-            input.addEventListener('focus', function() {
+            input.addEventListener('focus', function () {
                 this.style.borderColor = 'var(--black)';
             });
-            input.addEventListener('blur', function() {
+            input.addEventListener('blur', function () {
                 this.style.borderColor = 'var(--gray-300)';
             });
         });
 
-	
-	        // FAQ Accordion
-	        const faqItems = document.querySelectorAll('.faq-item');
-	        faqItems.forEach(item => {
-	            const question = item.querySelector('.faq-question');
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
             question.addEventListener('click', () => {
                 // Close other items
                 faqItems.forEach(otherItem => {
@@ -2071,7 +2293,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         window.addEventListener('scroll', () => {
             const currentScroll = window.pageYOffset;
             const header = document.querySelector('.header');
-            
+
             if (currentScroll > 100) {
                 header.style.background = 'rgba(255, 255, 255, 0.95)';
                 header.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.1)';
@@ -2079,9 +2301,66 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 header.style.background = 'rgba(255, 255, 255, 0.8)';
                 header.style.boxShadow = 'none';
             }
-            
+
             lastScroll = currentScroll;
         });
+
+        // Stats Banner Visibility Observer
+        const statsBanner = document.querySelector('.stats-banner');
+        if (statsBanner) {
+            const statsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        // Trigger counter animation
+                        animateCounters();
+                        statsObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.3 });
+            statsObserver.observe(statsBanner);
+        }
+
+        // Counter Animation Function
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            counters.forEach(counter => {
+                const text = counter.textContent.trim();
+
+                // Parse the value
+                if (text.includes('min')) {
+                    animateValue(counter, 0, 10, 1000, ' min');
+                } else if (text.includes('days')) {
+                    animateValue(counter, 0, 14, 1200, ' days');
+                } else if (text.includes('%')) {
+                    animateValue(counter, 0, 100, 1400, '%');
+                }
+            });
+        }
+
+        function animateValue(element, start, end, duration, suffix) {
+            const startTime = performance.now();
+            const originalStyle = element.getAttribute('style') || '';
+
+            function update(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+
+                // Easing function (ease-out-expo)
+                const easeOutExpo = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+                const current = Math.floor(start + (end - start) * easeOutExpo);
+
+                element.innerHTML = current + suffix;
+                element.setAttribute('style', originalStyle);
+
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                }
+            }
+
+            requestAnimationFrame(update);
+        }
     </script>
 </body>
+
 </html>
