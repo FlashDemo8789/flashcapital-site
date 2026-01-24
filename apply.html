@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apply for FLASH Fund - $25K-$100K</title>
+    <title>Apply for FLASH Fund - $250K-$500K</title>
     <!-- Script isolation fix deployed -->
     <!-- Favicon support -->
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -49,30 +50,30 @@
             margin: 0 auto;
             padding: 40px 20px;
         }
-        
+
         /* Laptop screen optimization */
         @media (min-width: 1024px) and (max-width: 1440px) {
             .container {
                 max-width: 720px;
                 padding: 40px;
             }
-            
+
             .form-row {
                 gap: 24px;
             }
-            
+
             .form-header {
                 margin-bottom: 56px;
             }
-            
+
             h1 {
                 font-size: 3rem;
             }
-            
+
             .subtitle {
                 font-size: 1.375rem;
             }
-            
+
             #successMessage {
                 max-width: 800px;
                 margin: 24px auto;
@@ -95,7 +96,7 @@
             font-weight: 800;
             letter-spacing: -0.02em;
         }
-        
+
         .logo-icon {
             height: 48px;
             width: auto;
@@ -208,9 +209,19 @@
         }
 
         @keyframes successPulse {
-            0% { transform: scale(0.8); opacity: 0; }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); opacity: 1; }
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
         }
 
         .success-content {
@@ -226,9 +237,19 @@
         }
 
         @keyframes checkmarkBounce {
-            0% { transform: scale(0) rotate(45deg); opacity: 0; }
-            50% { transform: scale(1.2) rotate(45deg); }
-            100% { transform: scale(1) rotate(0deg); opacity: 1; }
+            0% {
+                transform: scale(0) rotate(45deg);
+                opacity: 0;
+            }
+
+            50% {
+                transform: scale(1.2) rotate(45deg);
+            }
+
+            100% {
+                transform: scale(1) rotate(0deg);
+                opacity: 1;
+            }
         }
 
         .success-checkmark {
@@ -247,17 +268,19 @@
         }
 
         @keyframes checkmarkAppear {
-            0% { 
-                transform: scale(0); 
-                opacity: 0; 
+            0% {
+                transform: scale(0);
+                opacity: 0;
             }
-            50% { 
-                transform: scale(1.1); 
+
+            50% {
+                transform: scale(1.1);
                 opacity: 0.8;
             }
-            100% { 
-                transform: scale(1); 
-                opacity: 1; 
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
             }
         }
 
@@ -272,13 +295,14 @@
         }
 
         @keyframes checkmarkDraw {
-            0% { 
-                transform: scale(0) rotate(-45deg); 
-                opacity: 0; 
+            0% {
+                transform: scale(0) rotate(-45deg);
+                opacity: 0;
             }
-            100% { 
-                transform: scale(1) rotate(0deg); 
-                opacity: 1; 
+
+            100% {
+                transform: scale(1) rotate(0deg);
+                opacity: 1;
             }
         }
 
@@ -295,7 +319,7 @@
         }
 
         .success-timeline {
-            background: rgba(255,255,255,0.2);
+            background: rgba(255, 255, 255, 0.2);
             padding: 24px;
             border-radius: 8px;
             margin: 32px 0;
@@ -332,7 +356,7 @@
 
         .success-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         .error-message {
@@ -378,10 +402,13 @@
         }
 
         @keyframes spin {
-            to { transform: rotate(360deg); }
+            to {
+                transform: rotate(360deg);
+            }
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <a href="/" class="back-link">
@@ -394,7 +421,7 @@
                 <img src="/images/flashlogo.png" alt="FLASH Logo" class="logo-icon">
                 <span>FLASH FUND</span>
             </div>
-            <h1>Apply for $25K-$100K Funding</h1>
+            <h1>Apply for $250K-$500K Funding</h1>
             <p class="subtitle">Get a decision in 2 weeks, not 6 months</p>
         </div>
 
@@ -426,7 +453,8 @@
                 </div>
                 <div class="form-group">
                     <label for="website">Company Website (Optional)</label>
-                    <input type="text" id="website" name="website" class="form-input" placeholder="example.com or https://example.com">
+                    <input type="text" id="website" name="website" class="form-input"
+                        placeholder="example.com or https://example.com">
                 </div>
             </div>
 
@@ -511,7 +539,7 @@
                 <div class="success-checkmark"></div>
                 <h2 class="success-title">Application Submitted Successfully!</h2>
                 <p class="success-subtitle">Thank you for applying to FLASH Fund.</p>
-                
+
                 <div class="success-timeline">
                     <h3>What happens next?</h3>
                     <ol>
@@ -520,7 +548,7 @@
                         <li><strong>Days 11-14:</strong> Final decision</li>
                     </ol>
                 </div>
-                
+
                 <a href="/" class="success-button">Return to Homepage</a>
             </div>
         </div>
@@ -534,7 +562,7 @@
         const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwmTSDJmqKq9GE8zBNrELhQMUAoyPCQRdTE5sOZiHBLNS6oh9kq7nYzhk9ohtktVRS6HQ/exec';
 
         // Wait for DOM to be ready
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const form = document.getElementById('applicationForm');
             const submitBtn = document.getElementById('submitBtn');
             const successMessage = document.getElementById('successMessage');
@@ -582,7 +610,7 @@
 
                 // Show success immediately (don't wait for fetch)
                 showSuccess();
-                
+
                 // Submit in background (fire and forget)
                 fetch(GOOGLE_SCRIPT_URL, {
                     method: 'POST',
@@ -606,26 +634,26 @@
                     form.style.opacity = '0';
                     form.style.transform = 'scale(0.95)';
                     form.style.transition = 'all 0.3s ease';
-                    
+
                     // Send confirmation email via Cloudflare Worker
                     sendConfirmationEmail(data);
-                    
+
                     setTimeout(() => {
                         form.style.display = 'none';
-                        
+
                         // Show success message with forced visibility
                         successMessage.style.display = 'block';
                         successMessage.style.opacity = '1';  // Force opacity inline
                         successMessage.style.visibility = 'visible';  // Force visibility
-                        
+
                         // Add show class for additional styling
                         successMessage.classList.add('show');
-                        
+
                         // Scroll to success
                         setTimeout(() => {
-                            successMessage.scrollIntoView({ 
-                                behavior: 'smooth', 
-                                block: 'center' 
+                            successMessage.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'center'
                             });
                         }, 300);
                     }, 300);
@@ -638,12 +666,12 @@
                         });
                     }
                 }
-                
+
                 // Send email confirmation via Cloudflare Worker
                 function sendConfirmationEmail(applicationData) {
                     // Production Cloudflare Worker URL
                     const WORKER_URL = 'https://flash-fund-email.flashfund.workers.dev';
-                    
+
                     fetch(WORKER_URL, {
                         method: 'POST',
                         headers: {
@@ -651,21 +679,22 @@
                         },
                         body: JSON.stringify(applicationData)
                     })
-                    .then(response => response.json())
-                    .then(result => {
-                        if (result.success) {
-                            console.log('✅ Confirmation email sent:', result.applicationId);
-                        } else {
-                            console.log('⚠️ Email send failed, but application was submitted');
-                        }
-                    })
-                    .catch(error => {
-                        // Silent fail - don't break the user experience
-                        console.log('⚠️ Could not send email, but form was submitted successfully');
-                    });
+                        .then(response => response.json())
+                        .then(result => {
+                            if (result.success) {
+                                console.log('✅ Confirmation email sent:', result.applicationId);
+                            } else {
+                                console.log('⚠️ Email send failed, but application was submitted');
+                            }
+                        })
+                        .catch(error => {
+                            // Silent fail - don't break the user experience
+                            console.log('⚠️ Could not send email, but form was submitted successfully');
+                        });
                 }
             });
         });
     </script>
 </body>
+
 </html>
