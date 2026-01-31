@@ -260,47 +260,103 @@ export class FlashGlobe {
     initMarkers() {
         this.markersGroup = new THREE.Group();
         this.earthGroup.add(this.markersGroup); // Rotate with Earth
+        this.pulsingMarkers = []; // Store refs for animation
 
-        CONFIG.offices.forEach(office => {
+        CONFIG.offices.forEach((office, index) => {
             const pos = latLonToVector3(office.lat, office.lon, 1);
             const markerGroup = new THREE.Group();
             markerGroup.position.copy(pos);
             markerGroup.lookAt(new THREE.Vector3(0, 0, 0));
-            markerGroup.userData = { url: office.url, isMarker: true }; // Allow raycasting identification
+            markerGroup.userData = { url: office.url, isMarker: true, name: office.name };
 
-            // Light point
-            const light = new THREE.PointLight(0x000000, 0.5, 0.3, 2);
+            // Glowing point light (cyan/electric blue)
+            const light = new THREE.PointLight(0x00d4ff, 1.5, 0.5, 2);
             light.position.set(0, 0, 0.05);
             markerGroup.add(light);
 
-            // Stick
-            const stickGeo = new THREE.CylinderGeometry(0.003, 0.003, 0.16, 8);
-            const stickMat = new THREE.MeshBasicMaterial({ color: 0x111111, transparent: true, opacity: 0.6, toneMapped: false });
+            // Stick (gradient effect - brighter at top)
+            const stickGeo = new THREE.CylinderGeometry(0.004, 0.004, 0.12, 8);
+            const stickMat = new THREE.MeshBasicMaterial({
+                color: 0x00d4ff,
+                transparent: true,
+                opacity: 0.7,
+                toneMapped: false
+            });
             const stick = new THREE.Mesh(stickGeo, stickMat);
-            stick.position.set(0, 0, 0.08);
+            stick.position.set(0, 0, 0.06);
             stick.rotation.set(Math.PI / 2, 0, 0);
             markerGroup.add(stick);
 
-            // Head (Hit target for Raycaster)
-            const headGeo = new THREE.SphereGeometry(0.012, 16, 16);
-            const headMat = new THREE.MeshBasicMaterial({ color: 0x000000, toneMapped: false });
+            // Core head (bright cyan)
+            const headGeo = new THREE.SphereGeometry(0.018, 16, 16);
+            const headMat = new THREE.MeshBasicMaterial({
+                color: 0x00d4ff,
+                toneMapped: false
+            });
             const head = new THREE.Mesh(headGeo, headMat);
-            head.position.set(0, 0, 0.16);
-            head.userData = { parentGroup: markerGroup }; // Reference back to group
+            head.position.set(0, 0, 0.12);
+            head.userData = { parentGroup: markerGroup };
             markerGroup.add(head);
 
-            // Ring
-            const ringGeo = new THREE.RingGeometry(0.015, 0.025, 32);
-            const ringMat = new THREE.MeshBasicMaterial({ color: 0x333333, transparent: true, opacity: 0.3, side: THREE.DoubleSide, toneMapped: false });
-            const ring = new THREE.Mesh(ringGeo, ringMat);
-            ring.rotation.set(Math.PI / 2, 0, 0);
-            markerGroup.add(ring);
+            // Outer glow sphere (soft glow effect)
+            const glowGeo = new THREE.SphereGeometry(0.025, 16, 16);
+            const glowMat = new THREE.MeshBasicMaterial({
+                color: 0x00d4ff,
+                transparent: true,
+                opacity: 0.3,
+                toneMapped: false
+            });
+            const glow = new THREE.Mesh(glowGeo, glowMat);
+            glow.position.set(0, 0, 0.12);
+            markerGroup.add(glow);
+
+            // Pulsing ring (animates outward)
+            const pulseRingGeo = new THREE.RingGeometry(0.02, 0.025, 32);
+            const pulseRingMat = new THREE.MeshBasicMaterial({
+                color: 0x00d4ff,
+                transparent: true,
+                opacity: 0.6,
+                side: THREE.DoubleSide,
+                toneMapped: false
+            });
+            const pulseRing = new THREE.Mesh(pulseRingGeo, pulseRingMat);
+            pulseRing.position.set(0, 0, 0.12);
+            pulseRing.userData = { initialScale: 1, phaseOffset: index * 0.5 };
+            markerGroup.add(pulseRing);
+
+            // Second pulsing ring (offset timing)
+            const pulseRing2Geo = new THREE.RingGeometry(0.02, 0.025, 32);
+            const pulseRing2Mat = new THREE.MeshBasicMaterial({
+                color: 0x00d4ff,
+                transparent: true,
+                opacity: 0.4,
+                side: THREE.DoubleSide,
+                toneMapped: false
+            });
+            const pulseRing2 = new THREE.Mesh(pulseRing2Geo, pulseRing2Mat);
+            pulseRing2.position.set(0, 0, 0.12);
+            pulseRing2.userData = { initialScale: 1, phaseOffset: index * 0.5 + 1.0 };
+            markerGroup.add(pulseRing2);
+
+            // Store references for animation
+            this.pulsingMarkers.push({
+                head,
+                glow,
+                light,
+                pulseRing,
+                pulseRing2,
+                headMat,
+                glowMat,
+                pulseRingMat,
+                pulseRing2Mat,
+                phaseOffset: index * 0.7 // Stagger animations
+            });
 
             // Larger Hit Box (Invisible) for easier clicking
-            const hitGeo = new THREE.SphereGeometry(0.05, 8, 8);
+            const hitGeo = new THREE.SphereGeometry(0.06, 8, 8);
             const hitMat = new THREE.MeshBasicMaterial({ visible: false });
             const hitMesh = new THREE.Mesh(hitGeo, hitMat);
-            hitMesh.position.set(0, 0, 0.16);
+            hitMesh.position.set(0, 0, 0.12);
             hitMesh.userData = { parentGroup: markerGroup };
             markerGroup.add(hitMesh);
 
@@ -416,6 +472,35 @@ export class FlashGlobe {
         // Custom Rotations to match usage
         if (this.earthGroup) this.earthGroup.rotation.y = time * 0.05;
         if (this.cloudsGroup) this.cloudsGroup.rotation.y = time * 0.07;
+
+        // Animate pulsing markers
+        if (this.pulsingMarkers) {
+            this.pulsingMarkers.forEach((marker, i) => {
+                const t = time + marker.phaseOffset;
+
+                // Head brightness pulse
+                const brightness = 0.85 + 0.15 * Math.sin(t * 2);
+                marker.headMat.color.setRGB(0, brightness * 0.83, brightness);
+
+                // Glow opacity pulse
+                marker.glowMat.opacity = 0.2 + 0.15 * Math.sin(t * 2 + 0.5);
+
+                // Light intensity pulse
+                marker.light.intensity = 1.2 + 0.5 * Math.sin(t * 2.5);
+
+                // Pulsing ring 1 animation (expands outward and fades)
+                const pulse1 = (t * 0.8) % 2; // 0 to 2 cycle
+                const scale1 = 1 + pulse1 * 2.5;
+                marker.pulseRing.scale.set(scale1, scale1, 1);
+                marker.pulseRingMat.opacity = Math.max(0, 0.6 * (1 - pulse1 / 2));
+
+                // Pulsing ring 2 animation (offset timing)
+                const pulse2 = ((t + 1) * 0.8) % 2;
+                const scale2 = 1 + pulse2 * 2.5;
+                marker.pulseRing2.scale.set(scale2, scale2, 1);
+                marker.pulseRing2Mat.opacity = Math.max(0, 0.4 * (1 - pulse2 / 2));
+            });
+        }
 
         this.controls.update();
         this.renderer.render(this.scene, this.camera);
