@@ -179,7 +179,8 @@
             background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            /* border-bottom removed for optical purity */
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            /* Restored structure */
         }
 
         header.scrolled {
@@ -212,11 +213,11 @@
 
         .logo-text {
             font-size: 1.25rem;
-            font-weight: 600;
-            /* Reduced from 700 for elegance */
+            font-weight: 700;
+            /* Bold is back for authority */
             color: #000000;
-            letter-spacing: 0.02em;
-            /* Opened up slightly */
+            letter-spacing: -0.01em;
+            /* Tighter letterspacing for strength */
             display: flex;
             align-items: center;
             gap: 4px;
@@ -253,8 +254,8 @@
         .header-link {
             font-size: 0.95rem;
             font-weight: 500;
-            color: rgba(0, 0, 0, 0.6);
-            /* Optically perfect black opacity */
+            color: #1a1a1a;
+            /* Solid, high-contrast gray */
             text-decoration: none;
             transition: color 0.2s ease;
         }
@@ -266,13 +267,13 @@
         .header-cta {
             font-size: 0.95rem;
             font-weight: 600;
-            padding: 14px 28px;
-            /* Tactile confidence */
+            padding: 10px 20px;
+            /* Balanced, standard padding */
             background: #000000;
-            /* Deep Black */
             color: var(--white);
             text-decoration: none;
-            border-radius: 100px;
+            border-radius: 8px;
+            /* Soft Rectangle = Institution */
             transition: all 0.2s ease;
         }
 
