@@ -189,10 +189,13 @@
         }
 
         .header-content {
-            max-width: 1200px;
+            max-width: 1440px;
+            /* Widened from 1200px */
+            width: 92%;
+            /* Ensures it fills space on smaller screens too */
             margin: 0 auto;
-            padding: 24px 24px;
-            /* Increased vertical breathing room */
+            padding: 24px 0;
+            /* Vertical padding only, horiz handled by width */
             display: flex;
             justify-content: space-between;
             align-items: center;
