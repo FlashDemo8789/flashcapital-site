@@ -179,7 +179,7 @@
             background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            /* border-bottom removed for optical purity */
         }
 
         header.scrolled {
@@ -190,7 +190,8 @@
         .header-content {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px 24px;
+            padding: 24px 24px;
+            /* Increased vertical breathing room */
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -211,9 +212,11 @@
 
         .logo-text {
             font-size: 1.25rem;
-            font-weight: 700;
+            font-weight: 600;
+            /* Reduced from 700 for elegance */
             color: #000000;
-            letter-spacing: -0.02em;
+            letter-spacing: 0.02em;
+            /* Opened up slightly */
             display: flex;
             align-items: center;
             gap: 4px;
@@ -249,9 +252,9 @@
 
         .header-link {
             font-size: 0.95rem;
-            /* Increased from 0.875rem */
             font-weight: 500;
-            color: var(--gray-600);
+            color: rgba(0, 0, 0, 0.6);
+            /* Optically perfect black opacity */
             text-decoration: none;
             transition: color 0.2s ease;
         }
@@ -263,19 +266,21 @@
         .header-cta {
             font-size: 0.95rem;
             font-weight: 600;
-            padding: 12px 24px;
-            /* Increased padding */
-            background: var(--black);
+            padding: 14px 28px;
+            /* Tactile confidence */
+            background: #000000;
+            /* Deep Black */
             color: var(--white);
             text-decoration: none;
             border-radius: 100px;
-            /* Pill shape */
             transition: all 0.2s ease;
         }
 
         .header-cta:hover {
-            background: var(--gray-800);
-            transform: translateY(-1px);
+            opacity: 0.8;
+            /* Subtle material interaction only */
+            transform: none;
+            /* No physical movement, just light */
         }
 
         /* Mobile Menu */
