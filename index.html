@@ -386,6 +386,13 @@
             color: #000000;
         }
 
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image:
+                linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+        }
+
         .hero-content {
             width: 100%;
             position: relative;
@@ -1385,14 +1392,58 @@
             color: var(--white);
         }
 
-        /* Responsive */
+        /* Globe Container */
+        #globe-container {
+            position: absolute;
+            top: 4%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        /* Responsive System Design */
         @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                justify-content: flex-start;
+                padding-top: 60px;
+                height: auto;
+                min-height: auto;
+            }
+
+            /* Stack: Text First (Order 1) */
+            .hero>.container {
+                order: 1;
+                margin-bottom: 20px;
+                padding-bottom: 0;
+            }
+
+            /* Stack: Globe Second (Order 2) */
+            #globe-container {
+                position: relative;
+                top: auto;
+                left: auto;
+                width: 100%;
+                height: 450px;
+                /* Fixed height for mobile interaction area */
+                order: 2;
+                opacity: 1;
+                /* Fade out slightly at bottom to blend */
+                mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+                -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+            }
+
             .hero-title {
-                font-size: 2.5rem;
+                font-size: 2.75rem;
+                /* Larger, bolder type */
+                line-height: 1.1;
             }
 
             .hero-subtitle {
                 font-size: 1.125rem;
+                margin-bottom: 32px;
             }
 
             .hero-cta-btn {
@@ -1671,9 +1722,8 @@
         </div>
     </header>
     <!-- Hero Section -->
-    <section class="hero">
-        <div id="globe-container"
-            style="position: absolute; top: 4%; left: 0; width: 100%; height: 100%; z-index: 0; overflow: hidden;">
+    <section class="hero bg-grid">
+        <div id="globe-container" class="globe-container">
         </div>
         <div class="container" style="position: relative; z-index: 2; pointer-events: none;">
             <div class="hero-content">
