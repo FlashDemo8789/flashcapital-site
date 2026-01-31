@@ -190,15 +190,16 @@
 
         .header-content {
             max-width: 1440px;
-            /* Widened from 1200px */
-            width: 92%;
-            /* Ensures it fills space on smaller screens too */
+            width: 94%;
+            /* Slightly wider */
             margin: 0 auto;
-            padding: 24px 0;
-            /* Vertical padding only, horiz handled by width */
+            padding: 16px 24px;
+            /* Consistent padding */
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 40px;
+            /* Space between logo and nav */
         }
 
         .logo {
@@ -250,17 +251,22 @@
 
         .header-nav {
             display: flex;
-            gap: 32px;
+            gap: 24px;
+            /* Tighter gap for 7+ links */
             align-items: center;
+            flex-wrap: nowrap;
+            /* Prevent wrapping */
         }
 
         .header-link {
-            font-size: 0.95rem;
+            font-size: 0.875rem;
+            /* Slightly smaller for better fit */
             font-weight: 500;
             color: #1a1a1a;
-            /* Solid, high-contrast gray */
             text-decoration: none;
             transition: color 0.2s ease;
+            white-space: nowrap;
+            /* CRITICAL: Prevent text wrapping */
         }
 
         .header-link:hover {
@@ -1711,28 +1717,26 @@
     <!-- End Google Tag Manager (noscript) -->
     <!-- Header -->
     <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <a class="logo" href="/">
-                    <img src="/images/flashlogo.png" alt="FLASH Logo" class="logo-icon">
-                    <span class="logo-text">FLASH<span class="logo-subtext">CAPITAL</span></span>
-                </a>
-                <nav class="header-nav">
-                    <a class="header-link" href="/flash-how-it-works.html">How it works</a>
-                    <a class="header-link" href="/flash-camp-framework.html">CAMP Framework</a>
-                    <a class="header-link" href="/flash-fund-page.html">FLASH Fund</a>
-                    <a class="header-link" href="/flash-example.html">Example</a>
-                    <a class="header-link" href="/flash-faq-page.html">FAQ</a>
-                    <a class="header-link" href="/about.html">About</a>
-                    <a class="header-link" href="/contact.html">Contact</a>
-                    <a class="header-cta" href="https://flash.zone">Apply now</a>
-                </nav>
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
+        <div class="header-content">
+            <a class="logo" href="/">
+                <img src="/images/flashlogo.png" alt="FLASH Logo" class="logo-icon">
+                <span class="logo-text">FLASH<span class="logo-subtext">CAPITAL</span></span>
+            </a>
+            <nav class="header-nav">
+                <a class="header-link" href="/flash-how-it-works.html">How it works</a>
+                <a class="header-link" href="/flash-camp-framework.html">CAMP Framework</a>
+                <a class="header-link" href="/flash-fund-page.html">FLASH Fund</a>
+                <a class="header-link" href="/flash-example.html">Example</a>
+                <a class="header-link" href="/flash-faq-page.html">FAQ</a>
+                <a class="header-link" href="/about.html">About</a>
+                <a class="header-link" href="/contact.html">Contact</a>
+                <a class="header-cta" href="https://flash.zone">Apply now</a>
+            </nav>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
     <!-- Hero Section -->
