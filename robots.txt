@@ -1,11 +1,11 @@
 # robots.txt for FLASH Fund
-# https://flash.onl
+# https://flashcapital.co.jp
 
 User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://flash.onl/sitemap.xml
+Sitemap: https://flashcapital.co.jp/sitemap.xml
 
 # Disallow utility/test pages
 Disallow: /compress_svg.html
