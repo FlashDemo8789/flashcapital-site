@@ -650,15 +650,27 @@
             }
 
             #globe-container {
-                width: 100% !important;
-                height: 50% !important;
+                position: relative !important;
                 top: auto !important;
-                bottom: 0 !important;
-                right: 0 !important;
-                left: 0 !important;
-                opacity: 0.6;
-                pointer-events: auto;
-                /* Let clicks pass through if needed, but we might want to spin it */
+                left: auto !important;
+                right: auto !important;
+                bottom: auto !important;
+                width: 100% !important;
+                height: 50vh !important;
+                max-height: 500px !important;
+                opacity: 1 !important;
+                pointer-events: none;
+                margin: 0 auto !important;
+                order: 2;
+                overflow: visible;
+            }
+
+            .hero {
+                flex-direction: column !important;
+            }
+
+            .hero>.container {
+                order: 1;
             }
         }
 
@@ -1535,12 +1547,15 @@
         /* Globe Container */
         #globe-container {
             position: absolute;
-            top: 4%;
+            top: 0;
             left: 0;
+            right: 0;
+            bottom: 0;
             width: 100%;
             height: 100%;
-            z-index: 0;
+            z-index: 1;
             overflow: hidden;
+            pointer-events: none;
         }
 
         /* Responsive System Design */
@@ -1560,19 +1575,17 @@
                 padding-bottom: 0;
             }
 
-            /* Stack: Globe Second (Order 2) */
+            /* Globe: minimized contained element on mobile (IQT-style) */
             #globe-container {
-                position: relative;
-                top: auto;
-                left: auto;
-                width: 100%;
-                height: 450px;
-                /* Fixed height for mobile interaction area */
-                order: 2;
+                position: relative !important;
+                width: 100% !important;
+                height: 45vh !important;
+                max-height: 400px !important;
                 opacity: 1;
-                /* Fade out slightly at bottom to blend */
-                mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
-                -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+                pointer-events: none;
+                margin: -20px auto 0 !important;
+                order: 2;
+                overflow: visible;
             }
 
             .hero-title {
@@ -2493,8 +2506,7 @@
         </div>
     </footer>
     <script>
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const headerNav = document.querySelector('.header-nav');
+        const mobileMenuBtn = document.getElementById('mobileMenuBt const headerNav = document.querySelector('.header - nav');
 
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenuBtn.classList.toggle('active');
@@ -2503,21 +2515,21 @@
     </script>
     <script>
         // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        document.querySelectorAll('a[^ach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const headerOffset = 80;
-                    const elementPosition = target.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                const headerOffset = 80;
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            });
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
         });
 
         // Hero CTA hover effect
@@ -2655,9 +2667,8 @@
     </script>
     <script type="module">
         import { FlashGlobe } from './js/globe.js';
-
         // Initialize Globe
-        // We use a slight delay or wait for load to ensuring container is ready
+        // We use a slight delay or wait for load to ensure container is ready
         window.addEventListener('load', () => {
             window.globeInstance = new FlashGlobe('globe-container');
         });

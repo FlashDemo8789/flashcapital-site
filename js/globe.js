@@ -131,7 +131,7 @@ export class FlashGlobe {
         this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 
         this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
-        this.renderer.setPixelRatio(window.devicePixelRatio);
+        this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
         this.renderer.toneMapping = THREE.ReinhardToneMapping;
         this.container.appendChild(this.renderer.domElement);
 
@@ -424,12 +424,19 @@ export class FlashGlobe {
         this.controls.addEventListener('end', () => { setTimeout(() => this.isDragging = false, 100); }); // Small delay to prevent click firing
         this.controls.enableZoom = false;
         this.controls.enablePan = false;
-        this.controls.enableRotate = true;
         this.controls.enableDamping = true;
         this.controls.dampingFactor = 0.05;
         this.controls.autoRotate = true;
         this.controls.autoRotateSpeed = 0.5;
         this.controls.target.set(0, 0, 0);
+
+        // On mobile/tablet: keep auto-rotation but disable user touch interaction
+        if ('ontouchstart' in window || window.innerWidth <= 1024) {
+            this.controls.enableRotate = false;
+            // controls.enabled stays true so autoRotate keeps working
+        } else {
+            this.controls.enableRotate = true;
+        }
 
         // Initial Camera Position
         this.camera.position.set(0, 0, 3.2);
@@ -440,9 +447,12 @@ export class FlashGlobe {
 
     onResize() {
         if (!this.container) return;
-        this.camera.aspect = this.container.clientWidth / this.container.clientHeight;
+        const w = this.container.clientWidth;
+        const h = this.container.clientHeight;
+        if (w === 0 || h === 0) return; // Guard against collapsed containers
+        this.camera.aspect = w / h;
         this.camera.updateProjectionMatrix();
-        this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
+        this.renderer.setSize(w, h);
         this.updateCameraOffset();
     }
 
