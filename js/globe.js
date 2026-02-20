@@ -426,17 +426,10 @@ export class FlashGlobe {
         this.controls.enablePan = false;
         this.controls.enableDamping = true;
         this.controls.dampingFactor = 0.05;
+        this.controls.enableRotate = true; // explicitly enable manual rotation
         this.controls.autoRotate = true;
-        this.controls.autoRotateSpeed = 0.5;
+        this.controls.autoRotateSpeed = 0.2; // slowed down to make manual spinning feel deliberate
         this.controls.target.set(0, 0, 0);
-
-        // On mobile/tablet: keep auto-rotation but disable user touch interaction
-        if ('ontouchstart' in window || window.innerWidth <= 1024) {
-            this.controls.enableRotate = false;
-            // controls.enabled stays true so autoRotate keeps working
-        } else {
-            this.controls.enableRotate = true;
-        }
 
         // Initial Camera Position
         this.camera.position.set(0, 0, 3.2);
