@@ -188,7 +188,7 @@ function sendConfirmationEmail(data) {
       <hr style="margin: 30px 0; border: none; border-top: 1px solid #eee;">
       
       <p style="font-size: 12px; color: #666;">
-        FLASH Fund | $25K-$100K for seed startups<br>
+        FLASH Fund | $250K-$500K for seed startups<br>
         No warm intros. No bullshit. Just data.
       </p>
     </div>
