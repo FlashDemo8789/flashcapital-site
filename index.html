@@ -529,8 +529,8 @@
         .bg-grid {
             background-size: 40px 40px;
             background-image:
-                linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+                linear-gradient(to right, rgba(0, 0, 0, 0.022) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 0, 0, 0.022) 1px, transparent 1px);
         }
 
         .hero-content {
@@ -559,30 +559,30 @@
             color: #52525b;
             margin-bottom: 24px;
             padding: 6px 12px;
-            background: rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.62);
+            border: 1px solid rgba(126, 156, 194, 0.28);
             border-radius: 100px;
-            backdrop-filter: blur(8px);
+            backdrop-filter: blur(6px);
             animation: fadeIn 0.6s ease-out;
         }
 
         .badge-icon {
             width: 8px;
             height: 8px;
-            background: #4ade80;
+            background: #8ca9cb;
             border-radius: 50%;
             position: relative;
-            box-shadow: 0 0 10px rgba(74, 222, 128, 0.5);
+            box-shadow: 0 0 8px rgba(140, 169, 203, 0.42);
         }
 
         .badge-icon::after {
             content: '';
             position: absolute;
             inset: -4px;
-            background: #4ade80;
+            background: #8ca9cb;
             border-radius: 50%;
-            opacity: 0.3;
-            animation: pulse 2s ease-in-out infinite;
+            opacity: 0.24;
+            animation: pulse 2.4s ease-in-out infinite;
         }
 
         @keyframes pulse {
@@ -659,7 +659,7 @@
                 height: 50vh !important;
                 max-height: 500px !important;
                 opacity: 1 !important;
-                pointer-events: none;
+                pointer-events: auto;
                 margin: 0 auto !important;
                 order: 2;
                 overflow: visible;
@@ -1565,6 +1565,26 @@
             z-index: 1;
             overflow: hidden;
             pointer-events: auto;
+            isolation: isolate;
+        }
+
+        #globe-container canvas {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        #globe-container::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            pointer-events: none;
+            opacity: 0.68;
+            background: radial-gradient(56% 56% at 72% 44%,
+                    rgba(139, 168, 199, 0.22) 0%,
+                    rgba(139, 168, 199, 0.1) 34%,
+                    rgba(139, 168, 199, 0) 74%);
         }
 
         /* Responsive System Design */
@@ -1591,10 +1611,18 @@
                 height: 45vh !important;
                 max-height: 400px !important;
                 opacity: 1;
-                pointer-events: none;
+                pointer-events: auto;
                 margin: -20px auto 0 !important;
                 order: 2;
                 overflow: visible;
+            }
+
+            #globe-container::after {
+                opacity: 0.5;
+                background: radial-gradient(60% 60% at 50% 42%,
+                        rgba(139, 168, 199, 0.16) 0%,
+                        rgba(139, 168, 199, 0.07) 38%,
+                        rgba(139, 168, 199, 0) 78%);
             }
 
             .hero-title {
@@ -2676,10 +2704,21 @@
     </script>
     <script type="module">
         import { FlashGlobe } from './js/globe.js';
-        // Initialize Globe
-        // We use a slight delay or wait for load to ensure container is ready
         window.addEventListener('load', () => {
-            window.globeInstance = new FlashGlobe('globe-container');
+            if (window.globeInstance && typeof window.globeInstance.dispose === 'function') {
+                window.globeInstance.dispose();
+            }
+
+            window.globeInstance = new FlashGlobe('globe-container', {
+                quality: 'auto',
+                theme: 'calm'
+            });
+        });
+
+        window.addEventListener('beforeunload', () => {
+            if (window.globeInstance && typeof window.globeInstance.dispose === 'function') {
+                window.globeInstance.dispose();
+            }
         });
     </script>
 </body>

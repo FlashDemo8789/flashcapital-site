@@ -1,13 +1,12 @@
 /**
- * Globe.js - Vanilla Three.js implementation of the Flash Capital Globe
- * Ported from ServerNode.tsx
+ * Globe.js - Three.js globe for the Flash Capital homepage hero.
+ * Refactored for lifecycle safety, calmer visual design, and mobile-aware performance.
  */
 
 import * as THREE from 'https://cdn.skypack.dev/three@0.128.0';
 import { OrbitControls } from 'https://cdn.skypack.dev/three@0.128.0/examples/jsm/controls/OrbitControls.js';
 
-// Configuration
-const CONFIG = {
+const BASE_CONFIG = {
     textures: {
         map: 'images/textures/earth_atmos_2048.jpg',
         lights: 'images/textures/earth_lights_2048.png',
@@ -15,17 +14,57 @@ const CONFIG = {
         specular: 'images/textures/earth_specular_2048.jpg'
     },
     offices: [
-        { name: "New York", lat: 40.7001, lon: -73.9685, url: "https://www.google.com/maps/search/?api=1&query=1+Dock+72+Way+Brooklyn+NY+11249" },
-        { name: "Tokyo", lat: 35.6664, lon: 139.7052, url: "https://www.google.com/maps/search/?api=1&query=6-12-18+Jingumae+Shibuya+Tokyo+Japan" },
-        { name: "Dubai", lat: 25.0754, lon: 55.1387, url: "https://www.google.com/maps/search/?api=1&query=Jumeirah+Village+Circle+Dubai" },
-        { name: "Bangalore", lat: 12.9716, lon: 77.5946, url: "https://www.google.com/maps/search/?api=1&query=The+Pavilion+Church+Street+Bangalore" }
+        { name: 'New York', lat: 40.7001, lon: -73.9685, url: 'https://www.google.com/maps/search/?api=1&query=1+Dock+72+Way+Brooklyn+NY+11249' },
+        { name: 'Tokyo', lat: 35.6664, lon: 139.7052, url: 'https://www.google.com/maps/search/?api=1&query=6-12-18+Jingumae+Shibuya+Tokyo+Japan' },
+        { name: 'Dubai', lat: 25.0754, lon: 55.1387, url: 'https://www.google.com/maps/search/?api=1&query=Jumeirah+Village+Circle+Dubai' },
+        { name: 'Bangalore', lat: 12.9716, lon: 77.5946, url: 'https://www.google.com/maps/search/?api=1&query=The+Pavilion+Church+Street+Bangalore' }
     ],
-    rotationSpeed: 0.05,
-    cloudSpeed: 0.07,
-    positionOffset: new THREE.Vector3(0, 0, 0)
+    rotationSpeed: 0.03,
+    cloudSpeed: 0.04,
+    markerPulseSpeed: 0.9,
+    markerPulseScale: 1.4,
+    markerRingOpacity: 0.28,
+    markerHeadOpacity: 0.92,
+    markerHaloOpacity: 0.2,
+    sunUpdateIntervalMs: 60000,
+    desktopCameraDistance: 3.2,
+    mobileCameraDistance: 2.95
 };
 
-// Shaders
+const QUALITY_PRESETS = {
+    desktop: {
+        pixelRatioCap: 1.75,
+        sphereSegments: 64,
+        cloudSegments: 56,
+        atmosphereSegments: 56,
+        cloudOpacity: 0.22,
+        cloudShadowOpacity: 0.08,
+        enableCloudShadows: true,
+        autoRotateSpeed: 0.16
+    },
+    mobile: {
+        pixelRatioCap: 1.2,
+        sphereSegments: 36,
+        cloudSegments: 28,
+        atmosphereSegments: 32,
+        cloudOpacity: 0.14,
+        cloudShadowOpacity: 0.0,
+        enableCloudShadows: false,
+        autoRotateSpeed: 0.1
+    }
+};
+
+const THEME_PRESETS = {
+    calm: {
+        markerStemColor: '#7e9cc2',
+        markerHeadColor: '#b9cee6',
+        markerHeadHoverColor: '#d9e6f6',
+        markerHaloColor: '#9fbad8',
+        markerRingColor: '#86a9cf',
+        atmosphereColor: '#8ba8c7'
+    }
+};
+
 const ATMOSPHERE_VERTEX = `
 varying vec3 vNormal;
 void main() {
@@ -41,8 +80,11 @@ uniform float p;
 uniform vec3 sunDirection;
 varying vec3 vNormal;
 void main() {
-    float intensity = pow(c - dot(vNormal, vec3(0, 0, 1.0)), p);
-    intensity = clamp(intensity, 0.0, 0.4); 
+    vec3 normal = normalize(vNormal);
+    float rim = pow(max(c - dot(normal, vec3(0.0, 0.0, 1.0)), 0.0), p);
+    float sunBoost = max(dot(normal, normalize(sunDirection)), 0.0);
+    float intensity = rim * mix(0.65, 1.0, sunBoost);
+    intensity = clamp(intensity, 0.0, 0.22);
     gl_FragColor = vec4(glowColor, intensity);
 }
 `;
@@ -53,7 +95,7 @@ varying vec3 vNormalModel;
 varying vec3 vViewPosition;
 void main() {
     vUv = uv;
-    vNormalModel = normalize(normal); 
+    vNormalModel = normalize(normal);
     vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
     vViewPosition = -mvPosition.xyz;
     gl_Position = projectionMatrix * mvPosition;
@@ -75,44 +117,42 @@ void main() {
     vec3 sunDir = normalize(sunDirection);
 
     float sunOrientation = dot(normal, sunDir);
-    float dayFactor = smoothstep(-0.15, 0.15, sunOrientation);
+    float dayFactor = smoothstep(-0.16, 0.16, sunOrientation);
 
     vec3 dayColor = texture2D(dayTexture, vUv).rgb;
     vec3 nightColor = texture2D(nightTexture, vUv).rgb;
     float specularMask = texture2D(specularMap, vUv).r;
 
-    vec3 halfVector = normalize(sunDir + vec3(0,0,1));
+    vec3 halfVector = normalize(sunDir + vec3(0.0, 0.0, 1.0));
     float NdotH = max(0.0, dot(normal, halfVector));
-    float specularIntensity = pow(NdotH, 80.0) * specularMask * 0.5;
+    float specularIntensity = pow(NdotH, 60.0) * specularMask * 0.35;
 
     vec3 daySide = (dayColor * 0.9) + vec3(specularIntensity);
-    vec3 nightSide = nightColor * vec3(2.5, 2.0, 1.2); 
+    vec3 nightSide = nightColor * vec3(1.8, 1.55, 1.0);
 
     vec3 finalColor = mix(nightSide, daySide, dayFactor);
     gl_FragColor = vec4(finalColor, 1.0);
 }
 `;
 
-// Helper Functions
 function latLonToVector3(lat, lon, radius) {
     const phi = (90 - lat) * (Math.PI / 180);
     const theta = (lon + 180) * (Math.PI / 180);
     const x = -(radius * Math.sin(phi) * Math.cos(theta));
-    const z = (radius * Math.sin(phi) * Math.sin(theta));
-    const y = (radius * Math.cos(phi));
+    const z = radius * Math.sin(phi) * Math.sin(theta);
+    const y = radius * Math.cos(phi);
     return new THREE.Vector3(x, y, z);
 }
 
 function getSolarPosition(date) {
-    const pi = Math.PI;
-    const rad = pi / 180;
+    const rad = Math.PI / 180;
     const start = new Date(date.getFullYear(), 0, 0);
     const diff = date.getTime() - start.getTime();
     const oneDay = 1000 * 60 * 60 * 24;
     const dayOfYear = Math.floor(diff / oneDay);
     const declination = 23.45 * Math.sin((360 / 365) * (dayOfYear - 81) * rad);
-    const B = (360 / 365) * (dayOfYear - 81) * rad;
-    const eot = 9.87 * Math.sin(2 * B) - 7.53 * Math.cos(B) - 1.5 * Math.sin(B);
+    const b = (360 / 365) * (dayOfYear - 81) * rad;
+    const eot = 9.87 * Math.sin(2 * b) - 7.53 * Math.cos(b) - 1.5 * Math.sin(b);
     const utcHours = date.getUTCHours() + date.getUTCMinutes() / 60 + date.getUTCSeconds() / 3600;
     const solarLon = 15 * (12 - (utcHours + eot / 60));
     let finalLon = solarLon % 360;
@@ -121,76 +161,155 @@ function getSolarPosition(date) {
     return { lat: declination, lon: finalLon };
 }
 
+function disposeMaterial(material) {
+    if (!material) return;
+    if (Array.isArray(material)) {
+        material.forEach((item) => disposeMaterial(item));
+        return;
+    }
+
+    if (material.uniforms) {
+        Object.values(material.uniforms).forEach((uniform) => {
+            if (uniform && uniform.value && uniform.value.isTexture) {
+                uniform.value.dispose();
+            }
+        });
+    }
+
+    Object.keys(material).forEach((key) => {
+        const value = material[key];
+        if (value && value.isTexture) {
+            value.dispose();
+        }
+    });
+
+    material.dispose();
+}
+
+function resolveQualityMode(optionValue) {
+    if (optionValue === 'desktop' || optionValue === 'mobile') {
+        return optionValue;
+    }
+    return window.innerWidth <= 1024 ? 'mobile' : 'desktop';
+}
+
+function resolveOptions(userOptions = {}) {
+    const qualityMode = resolveQualityMode(userOptions.quality);
+    const quality = QUALITY_PRESETS[qualityMode];
+    const theme = THEME_PRESETS[userOptions.theme] || THEME_PRESETS.calm;
+
+    return {
+        ...BASE_CONFIG,
+        ...quality,
+        ...theme,
+        ...userOptions,
+        qualityMode
+    };
+}
+
 export class FlashGlobe {
-    constructor(containerId) {
+    constructor(containerId, options = {}) {
         this.container = document.getElementById(containerId);
-        if (!this.container) return; // Silent fail if container missing
+        if (!this.container) return;
 
+        this.options = resolveOptions(options);
+
+        this.isDisposed = false;
+        this.isDragging = false;
+        this.dragResetTimeoutId = null;
+        this.animationFrameId = null;
+        this.sunTimerId = null;
+        this.hoveredMarker = null;
+        this.markers = [];
+        this.sunDir = new THREE.Vector3(1, 0, 0);
+        this.textures = {};
+        this.clock = new THREE.Clock();
+
+        this.handlers = {
+            onResize: this.onResize.bind(this),
+            onClick: this.onClick.bind(this),
+            onMouseMove: this.onMouseMove.bind(this),
+            onMouseLeave: this.onMouseLeave.bind(this),
+            onControlStart: this.onControlStart.bind(this),
+            onControlEnd: this.onControlEnd.bind(this)
+        };
+
+        this.frame = this.frame.bind(this);
+
+        this.init().catch((error) => {
+            console.error('FlashGlobe init failed:', error);
+            this.dispose();
+        });
+    }
+
+    async init() {
+        this.setupScene();
+        await this.loadAssets();
+
+        if (this.isDisposed) return;
+
+        this.buildScene();
+        this.bindEvents();
+        this.start();
+    }
+
+    setupScene() {
         this.scene = new THREE.Scene();
-        this.camera = new THREE.PerspectiveCamera(45, this.container.clientWidth / this.container.clientHeight, 0.1, 1000);
-        this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-
+        this.camera = new THREE.PerspectiveCamera(45, 1, 0.1, 1000);
+        this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
+        this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
+        this.renderer.outputEncoding = THREE.sRGBEncoding;
         this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
-        this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-        this.renderer.toneMapping = THREE.ReinhardToneMapping;
+        this.renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, this.options.pixelRatioCap));
+
         this.container.appendChild(this.renderer.domElement);
+        this.container.setAttribute('role', 'img');
+        this.container.setAttribute('aria-label', 'Interactive globe showing Flash Capital office locations');
 
-        // Group to hold Earth + Markers + Atmos
         this.mainGroup = new THREE.Group();
-        this.mainGroup.position.set(0, 0, 0); // Kept at center for correct rotation
-        this.scene.add(this.mainGroup);
-
-        // Sub-groups for rotation
         this.earthGroup = new THREE.Group();
         this.cloudsGroup = new THREE.Group();
         this.mainGroup.add(this.earthGroup);
         this.mainGroup.add(this.cloudsGroup);
+        this.scene.add(this.mainGroup);
 
-        this.sunDir = new THREE.Vector3(1, 0, 0);
-        this.clock = new THREE.Clock();
-
-        this.loadAssets().then(() => {
-            this.initEarth();
-            this.initAtmosphere();
-            this.initMarkers();
-            this.initLights();
-            this.initControls();
-            this.initInteraction();
-
-            // Start Update Loops
-            this.updateSunPosition();
-            setInterval(() => this.updateSunPosition(), 60000);
-            this.animate();
-        });
-
-        window.addEventListener('resize', this.onResize.bind(this));
+        this.raycaster = new THREE.Raycaster();
+        this.mouse = new THREE.Vector2();
     }
 
     async loadAssets() {
         const loader = new THREE.TextureLoader();
-        const loadTexture = (url) => new Promise(resolve => loader.load(url, resolve, undefined, () => resolve(null)));
+        const loadTexture = (url) => new Promise((resolve) => {
+            loader.load(url, resolve, undefined, () => resolve(null));
+        });
+
+        const loaded = await Promise.all([
+            loadTexture(this.options.textures.map),
+            loadTexture(this.options.textures.lights),
+            loadTexture(this.options.textures.clouds),
+            loadTexture(this.options.textures.specular)
+        ]);
 
         this.textures = {
-            map: await loadTexture(CONFIG.textures.map),
-            lights: await loadTexture(CONFIG.textures.lights),
-            clouds: await loadTexture(CONFIG.textures.clouds),
-            specular: await loadTexture(CONFIG.textures.specular)
+            map: loaded[0],
+            lights: loaded[1],
+            clouds: loaded[2],
+            specular: loaded[3]
         };
     }
 
-    updateSunPosition() {
-        const now = new Date();
-        const solarPos = getSolarPosition(now);
-        this.sunDir = latLonToVector3(solarPos.lat, solarPos.lon, 5).normalize();
-
-        // Update shader uniforms if they exist
-        if (this.earthMaterial) this.earthMaterial.uniforms.sunDirection.value.copy(this.sunDir);
-        if (this.atmosMaterial) this.atmosMaterial.uniforms.sunDirection.value.copy(this.sunDir);
+    buildScene() {
+        this.initEarth();
+        this.initAtmosphere();
+        this.initMarkers();
+        this.initLights();
+        this.initControls();
+        this.onResize();
+        this.updateSunPosition();
     }
 
     initEarth() {
-        // Earth Base
-        const geometry = new THREE.SphereGeometry(1, 64, 64);
+        const earthGeometry = new THREE.SphereGeometry(1, this.options.sphereSegments, this.options.sphereSegments);
         this.earthMaterial = new THREE.ShaderMaterial({
             uniforms: {
                 dayTexture: { value: this.textures.map },
@@ -202,310 +321,418 @@ export class FlashGlobe {
             fragmentShader: EARTH_FRAGMENT
         });
 
-        const earthMesh = new THREE.Mesh(geometry, this.earthMaterial);
-        this.earthGroup.add(earthMesh);
+        this.earthMesh = new THREE.Mesh(earthGeometry, this.earthMaterial);
+        this.earthGroup.add(this.earthMesh);
 
-        // Clouds (Shadow)
         if (this.textures.clouds) {
-            const cloudShadowGeo = new THREE.SphereGeometry(1, 64, 64);
-            const cloudShadowMat = new THREE.MeshBasicMaterial({
-                map: this.textures.clouds,
-                transparent: true,
-                opacity: 0.15,
-                color: 0x000000,
-                blending: THREE.NormalBlending,
-                side: THREE.DoubleSide,
-                depthWrite: false
-            });
-            this.cloudShadowMesh = new THREE.Mesh(cloudShadowGeo, cloudShadowMat);
-            this.cloudShadowMesh.scale.set(1.005, 1.005, 1.005);
-            this.cloudsGroup.add(this.cloudShadowMesh);
+            if (this.options.enableCloudShadows && this.options.cloudShadowOpacity > 0) {
+                const cloudShadowGeometry = new THREE.SphereGeometry(1, this.options.cloudSegments, this.options.cloudSegments);
+                const cloudShadowMaterial = new THREE.MeshBasicMaterial({
+                    map: this.textures.clouds,
+                    transparent: true,
+                    opacity: this.options.cloudShadowOpacity,
+                    color: 0x000000,
+                    blending: THREE.NormalBlending,
+                    depthWrite: false,
+                    side: THREE.DoubleSide
+                });
 
-            // Clouds (Visible)
-            const cloudGeo = new THREE.SphereGeometry(1, 64, 64);
-            const cloudMat = new THREE.MeshPhongMaterial({
+                this.cloudShadowMesh = new THREE.Mesh(cloudShadowGeometry, cloudShadowMaterial);
+                this.cloudShadowMesh.scale.set(1.004, 1.004, 1.004);
+                this.cloudsGroup.add(this.cloudShadowMesh);
+            }
+
+            const cloudGeometry = new THREE.SphereGeometry(1, this.options.cloudSegments, this.options.cloudSegments);
+            const cloudMaterial = new THREE.MeshPhongMaterial({
                 map: this.textures.clouds,
                 transparent: true,
-                opacity: 0.4,
-                blending: THREE.AdditiveBlending,
-                side: THREE.DoubleSide,
-                depthWrite: false
+                opacity: this.options.cloudOpacity,
+                blending: THREE.NormalBlending,
+                depthWrite: false,
+                side: THREE.DoubleSide
             });
-            this.cloudMesh = new THREE.Mesh(cloudGeo, cloudMat);
-            this.cloudMesh.scale.set(1.015, 1.015, 1.015);
+
+            this.cloudMesh = new THREE.Mesh(cloudGeometry, cloudMaterial);
+            this.cloudMesh.scale.set(1.013, 1.013, 1.013);
             this.cloudsGroup.add(this.cloudMesh);
         }
     }
 
     initAtmosphere() {
-        const geometry = new THREE.SphereGeometry(1, 64, 64);
+        const atmosphereGeometry = new THREE.SphereGeometry(1, this.options.atmosphereSegments, this.options.atmosphereSegments);
         this.atmosMaterial = new THREE.ShaderMaterial({
             blending: THREE.NormalBlending,
             side: THREE.BackSide,
             transparent: true,
             uniforms: {
-                glowColor: { value: new THREE.Color('#60a5fa') },
-                c: { value: 0.1 },
-                p: { value: 6.0 },
+                glowColor: { value: new THREE.Color(this.options.atmosphereColor) },
+                c: { value: 0.13 },
+                p: { value: 5.0 },
                 sunDirection: { value: this.sunDir }
             },
             vertexShader: ATMOSPHERE_VERTEX,
             fragmentShader: ATMOSPHERE_FRAGMENT
         });
-        const mesh = new THREE.Mesh(geometry, this.atmosMaterial);
-        mesh.scale.set(1.02, 1.02, 1.02);
-        this.mainGroup.add(mesh); // Add to main group, doesn't rotate with earth
+
+        this.atmosphereMesh = new THREE.Mesh(atmosphereGeometry, this.atmosMaterial);
+        this.atmosphereMesh.scale.set(1.019, 1.019, 1.019);
+        this.mainGroup.add(this.atmosphereMesh);
     }
 
     initMarkers() {
         this.markersGroup = new THREE.Group();
-        this.earthGroup.add(this.markersGroup); // Rotate with Earth
-        this.pulsingMarkers = []; // Store refs for animation
+        this.earthGroup.add(this.markersGroup);
+        this.markers = [];
 
-        CONFIG.offices.forEach((office, index) => {
-            const pos = latLonToVector3(office.lat, office.lon, 1);
+        this.options.offices.forEach((office, index) => {
             const markerGroup = new THREE.Group();
-            markerGroup.position.copy(pos);
+            const markerPosition = latLonToVector3(office.lat, office.lon, 1);
+            markerGroup.position.copy(markerPosition);
             markerGroup.lookAt(new THREE.Vector3(0, 0, 0));
             markerGroup.userData = { url: office.url, isMarker: true, name: office.name };
 
-            // Glowing point light (cyan/electric blue)
-            const light = new THREE.PointLight(0x00d4ff, 1.5, 0.5, 2);
-            light.position.set(0, 0, 0.05);
-            markerGroup.add(light);
-
-            // Stick (gradient effect - brighter at top)
-            const stickGeo = new THREE.CylinderGeometry(0.004, 0.004, 0.12, 8);
-            const stickMat = new THREE.MeshBasicMaterial({
-                color: 0x00d4ff,
+            const stemGeometry = new THREE.CylinderGeometry(0.0032, 0.0032, 0.1, 8);
+            const stemMaterial = new THREE.MeshBasicMaterial({
+                color: this.options.markerStemColor,
                 transparent: true,
-                opacity: 0.7,
+                opacity: 0.58,
                 toneMapped: false
             });
-            const stick = new THREE.Mesh(stickGeo, stickMat);
-            stick.position.set(0, 0, 0.06);
-            stick.rotation.set(Math.PI / 2, 0, 0);
-            markerGroup.add(stick);
+            const stem = new THREE.Mesh(stemGeometry, stemMaterial);
+            stem.position.set(0, 0, 0.05);
+            stem.rotation.set(Math.PI / 2, 0, 0);
+            markerGroup.add(stem);
 
-            // Core head (bright cyan)
-            const headGeo = new THREE.SphereGeometry(0.018, 16, 16);
-            const headMat = new THREE.MeshBasicMaterial({
-                color: 0x00d4ff,
+            const headGeometry = new THREE.SphereGeometry(0.013, 12, 12);
+            const headMaterial = new THREE.MeshBasicMaterial({
+                color: this.options.markerHeadColor,
+                transparent: true,
+                opacity: this.options.markerHeadOpacity,
                 toneMapped: false
             });
-            const head = new THREE.Mesh(headGeo, headMat);
-            head.position.set(0, 0, 0.12);
-            head.userData = { parentGroup: markerGroup };
+            const head = new THREE.Mesh(headGeometry, headMaterial);
+            head.position.set(0, 0, 0.1);
             markerGroup.add(head);
 
-            // Outer glow sphere (soft glow effect)
-            const glowGeo = new THREE.SphereGeometry(0.025, 16, 16);
-            const glowMat = new THREE.MeshBasicMaterial({
-                color: 0x00d4ff,
+            const haloGeometry = new THREE.SphereGeometry(0.021, 12, 12);
+            const haloMaterial = new THREE.MeshBasicMaterial({
+                color: this.options.markerHaloColor,
                 transparent: true,
-                opacity: 0.3,
+                opacity: this.options.markerHaloOpacity,
                 toneMapped: false
             });
-            const glow = new THREE.Mesh(glowGeo, glowMat);
-            glow.position.set(0, 0, 0.12);
-            markerGroup.add(glow);
+            const halo = new THREE.Mesh(haloGeometry, haloMaterial);
+            halo.position.set(0, 0, 0.1);
+            markerGroup.add(halo);
 
-            // Pulsing ring (animates outward)
-            const pulseRingGeo = new THREE.RingGeometry(0.02, 0.025, 32);
-            const pulseRingMat = new THREE.MeshBasicMaterial({
-                color: 0x00d4ff,
+            const ringGeometry = new THREE.RingGeometry(0.018, 0.022, 24);
+            const ringMaterial = new THREE.MeshBasicMaterial({
+                color: this.options.markerRingColor,
                 transparent: true,
-                opacity: 0.6,
+                opacity: this.options.markerRingOpacity,
                 side: THREE.DoubleSide,
                 toneMapped: false
             });
-            const pulseRing = new THREE.Mesh(pulseRingGeo, pulseRingMat);
-            pulseRing.position.set(0, 0, 0.12);
-            pulseRing.userData = { initialScale: 1, phaseOffset: index * 0.5 };
-            markerGroup.add(pulseRing);
+            const ring = new THREE.Mesh(ringGeometry, ringMaterial);
+            ring.position.set(0, 0, 0.1);
+            markerGroup.add(ring);
 
-            // Second pulsing ring (offset timing)
-            const pulseRing2Geo = new THREE.RingGeometry(0.02, 0.025, 32);
-            const pulseRing2Mat = new THREE.MeshBasicMaterial({
-                color: 0x00d4ff,
+            const hitGeometry = new THREE.SphereGeometry(0.055, 8, 8);
+            const hitMaterial = new THREE.MeshBasicMaterial({
                 transparent: true,
-                opacity: 0.4,
-                side: THREE.DoubleSide,
+                opacity: 0,
+                depthWrite: false,
                 toneMapped: false
             });
-            const pulseRing2 = new THREE.Mesh(pulseRing2Geo, pulseRing2Mat);
-            pulseRing2.position.set(0, 0, 0.12);
-            pulseRing2.userData = { initialScale: 1, phaseOffset: index * 0.5 + 1.0 };
-            markerGroup.add(pulseRing2);
-
-            // Store references for animation
-            this.pulsingMarkers.push({
-                head,
-                glow,
-                light,
-                pulseRing,
-                pulseRing2,
-                headMat,
-                glowMat,
-                pulseRingMat,
-                pulseRing2Mat,
-                phaseOffset: index * 0.7 // Stagger animations
-            });
-
-            // Larger Hit Box (Invisible) for easier clicking
-            const hitGeo = new THREE.SphereGeometry(0.06, 8, 8);
-            const hitMat = new THREE.MeshBasicMaterial({ visible: false });
-            const hitMesh = new THREE.Mesh(hitGeo, hitMat);
-            hitMesh.position.set(0, 0, 0.12);
-            hitMesh.userData = { parentGroup: markerGroup };
+            const hitMesh = new THREE.Mesh(hitGeometry, hitMaterial);
+            hitMesh.position.set(0, 0, 0.1);
             markerGroup.add(hitMesh);
 
+            const markerRecord = {
+                office,
+                group: markerGroup,
+                head,
+                halo,
+                ring,
+                headMaterial,
+                haloMaterial,
+                ringMaterial,
+                baseHeadColor: new THREE.Color(this.options.markerHeadColor),
+                hoverHeadColor: new THREE.Color(this.options.markerHeadHoverColor),
+                hoverProgress: 0,
+                phaseOffset: index * 0.8
+            };
+
+            hitMesh.userData.parentMarker = markerRecord;
+            head.userData.parentMarker = markerRecord;
+            halo.userData.parentMarker = markerRecord;
+            ring.userData.parentMarker = markerRecord;
+
+            this.markers.push(markerRecord);
             this.markersGroup.add(markerGroup);
         });
     }
 
-    initInteraction() {
-        this.raycaster = new THREE.Raycaster();
-        this.mouse = new THREE.Vector2();
-
-        // Bind events
-        this.container.addEventListener('click', this.onClick.bind(this));
-        this.container.addEventListener('mousemove', this.onMouseMove.bind(this));
-    }
-
-    getIntersects(event) {
-        const rect = this.container.getBoundingClientRect();
-        this.mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
-        this.mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
-
-        this.raycaster.setFromCamera(this.mouse, this.camera);
-
-        // Raycast against markersGroup children (recursive to hit parts)
-        if (!this.markersGroup) return [];
-        return this.raycaster.intersectObjects(this.markersGroup.children, true);
-    }
-
-    onClick(event) {
-        if (this.isDragging) return; // Prevent click after drag
-
-        const intersects = this.getIntersects(event);
-        if (intersects.length > 0) {
-            // Find the first hit that has a parentGroup (our marker)
-            const hit = intersects.find(i => i.object.userData.parentGroup);
-            if (hit) {
-                const url = hit.object.userData.parentGroup.userData.url;
-                if (url) window.open(url, '_blank');
-            }
-        }
-    }
-
-    onMouseMove(event) {
-        const intersects = this.getIntersects(event);
-        const hit = intersects.find(i => i.object.userData.parentGroup);
-        if (hit) {
-            this.container.style.cursor = 'pointer';
-        } else {
-            this.container.style.cursor = 'default';
-        }
-    }
-
     initLights() {
-        const sunLight = new THREE.DirectionalLight(0xffffff, 4.0);
-        sunLight.position.set(5, 0, 2);
-        this.scene.add(sunLight);
+        this.sunLight = new THREE.DirectionalLight(0xffffff, 2.4);
+        this.sunLight.position.set(5, 0, 2);
+        this.scene.add(this.sunLight);
 
-        const ambientLight = new THREE.AmbientLight(0xffffff, 0.9);
-        this.scene.add(ambientLight);
+        this.ambientLight = new THREE.AmbientLight(0xffffff, 0.62);
+        this.scene.add(this.ambientLight);
     }
 
     initControls() {
         this.controls = new OrbitControls(this.camera, this.renderer.domElement);
-        this.controls.addEventListener('start', () => { this.isDragging = true; });
-        this.controls.addEventListener('end', () => { setTimeout(() => this.isDragging = false, 100); }); // Small delay to prevent click firing
         this.controls.enableZoom = false;
         this.controls.enablePan = false;
         this.controls.enableDamping = true;
-        this.controls.dampingFactor = 0.05;
-        this.controls.enableRotate = true; // explicitly enable manual rotation
+        this.controls.dampingFactor = 0.06;
+        this.controls.rotateSpeed = 0.45;
+        this.controls.enableRotate = true;
         this.controls.autoRotate = true;
-        this.controls.autoRotateSpeed = 0.2; // slowed down to make manual spinning feel deliberate
+        this.controls.autoRotateSpeed = this.options.autoRotateSpeed;
         this.controls.target.set(0, 0, 0);
 
-        // Initial Camera Position
-        this.camera.position.set(0, 0, 3.2);
+        this.controls.addEventListener('start', this.handlers.onControlStart);
+        this.controls.addEventListener('end', this.handlers.onControlEnd);
+    }
 
-        // Offset the camera view so (0,0,0) appears on the right
-        this.updateCameraOffset();
+    bindEvents() {
+        window.addEventListener('resize', this.handlers.onResize);
+        this.container.addEventListener('click', this.handlers.onClick);
+        this.container.addEventListener('mousemove', this.handlers.onMouseMove);
+        this.container.addEventListener('mouseleave', this.handlers.onMouseLeave);
+    }
+
+    start() {
+        this.updateSunPosition();
+        this.sunTimerId = window.setInterval(() => {
+            this.updateSunPosition();
+        }, this.options.sunUpdateIntervalMs);
+        this.animationFrameId = requestAnimationFrame(this.frame);
+    }
+
+    onControlStart() {
+        this.isDragging = true;
+        if (this.dragResetTimeoutId) {
+            clearTimeout(this.dragResetTimeoutId);
+            this.dragResetTimeoutId = null;
+        }
+    }
+
+    onControlEnd() {
+        if (this.dragResetTimeoutId) clearTimeout(this.dragResetTimeoutId);
+        this.dragResetTimeoutId = window.setTimeout(() => {
+            this.isDragging = false;
+            this.dragResetTimeoutId = null;
+        }, 90);
+    }
+
+    updateSunPosition() {
+        const solarPos = getSolarPosition(new Date());
+        this.sunDir = latLonToVector3(solarPos.lat, solarPos.lon, 5).normalize();
+        if (this.earthMaterial) this.earthMaterial.uniforms.sunDirection.value.copy(this.sunDir);
+        if (this.atmosMaterial) this.atmosMaterial.uniforms.sunDirection.value.copy(this.sunDir);
+    }
+
+    getIntersects(event) {
+        if (!this.markersGroup) return [];
+
+        const rect = this.container.getBoundingClientRect();
+        if (!rect.width || !rect.height) return [];
+
+        this.mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+        this.mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+        this.raycaster.setFromCamera(this.mouse, this.camera);
+
+        return this.raycaster.intersectObjects(this.markersGroup.children, true);
+    }
+
+    onClick(event) {
+        if (this.isDragging) return;
+
+        const hit = this.getIntersects(event).find((intersection) => intersection.object.userData.parentMarker);
+        if (!hit) return;
+
+        const marker = hit.object.userData.parentMarker;
+        if (marker && marker.office && marker.office.url) {
+            window.open(marker.office.url, '_blank', 'noopener,noreferrer');
+        }
+    }
+
+    onMouseMove(event) {
+        const hit = this.getIntersects(event).find((intersection) => intersection.object.userData.parentMarker);
+        if (hit) {
+            this.hoveredMarker = hit.object.userData.parentMarker;
+            this.container.style.cursor = 'pointer';
+            return;
+        }
+
+        this.hoveredMarker = null;
+        this.container.style.cursor = 'default';
+    }
+
+    onMouseLeave() {
+        this.hoveredMarker = null;
+        if (this.container) this.container.style.cursor = 'default';
     }
 
     onResize() {
-        if (!this.container) return;
-        const w = this.container.clientWidth;
-        const h = this.container.clientHeight;
-        if (w === 0 || h === 0) return; // Guard against collapsed containers
-        this.camera.aspect = w / h;
+        if (!this.container || !this.camera || !this.renderer) return;
+
+        const width = this.container.clientWidth;
+        const height = this.container.clientHeight;
+        if (!width || !height) return;
+
+        const mobileCap = Math.min(this.options.pixelRatioCap, 1.2);
+        const adaptiveCap = window.innerWidth <= 1024 ? mobileCap : this.options.pixelRatioCap;
+        this.renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, adaptiveCap));
+        this.renderer.setSize(width, height);
+
+        this.camera.aspect = width / height;
         this.camera.updateProjectionMatrix();
-        this.renderer.setSize(w, h);
+
+        if (window.innerWidth <= 1024) {
+            this.camera.position.set(0, 0, this.options.mobileCameraDistance);
+        } else {
+            this.camera.position.set(0, 0, this.options.desktopCameraDistance);
+        }
+
         this.updateCameraOffset();
     }
 
     updateCameraOffset() {
+        if (!this.camera || !this.container) return;
+
+        const width = this.container.clientWidth;
+        const height = this.container.clientHeight;
+        if (!width || !height) return;
+
         if (window.innerWidth <= 1024) {
             this.camera.clearViewOffset();
             return;
         }
 
-        // Shift center to the left, making the object appear on the right
-        const offset = this.container.clientWidth * 0.25;
-        this.camera.setViewOffset(
-            this.container.clientWidth,
-            this.container.clientHeight,
-            -offset, 0, // Negative x offset shifts window left, effectively moving scene right? Or vice versa.
-            this.container.clientWidth,
-            this.container.clientHeight
-        );
+        const offset = width * 0.22;
+        this.camera.setViewOffset(width, height, -offset, 0, width, height);
     }
 
-    animate() {
-        requestAnimationFrame(this.animate.bind(this));
+    animateMarkers(time) {
+        this.markers.forEach((marker) => {
+            const pulse = (Math.sin((time * this.options.markerPulseSpeed) + marker.phaseOffset) + 1) * 0.5;
+            const isHovered = marker === this.hoveredMarker;
+            marker.hoverProgress += ((isHovered ? 1 : 0) - marker.hoverProgress) * 0.1;
 
-        const delta = this.clock.getDelta();
+            const ringScale = 1 + (pulse * this.options.markerPulseScale) + (marker.hoverProgress * 0.18);
+            marker.ring.scale.set(ringScale, ringScale, 1);
+            marker.ringMaterial.opacity = (this.options.markerRingOpacity * (1 - (pulse * 0.55))) + (marker.hoverProgress * 0.06);
+            marker.haloMaterial.opacity = this.options.markerHaloOpacity + (pulse * 0.05) + (marker.hoverProgress * 0.06);
+            marker.headMaterial.opacity = this.options.markerHeadOpacity + (marker.hoverProgress * 0.08);
+
+            marker.headMaterial.color.copy(marker.baseHeadColor).lerp(marker.hoverHeadColor, marker.hoverProgress);
+            const scale = 1 + (marker.hoverProgress * 0.06);
+            marker.group.scale.set(scale, scale, scale);
+        });
+    }
+
+    frame() {
+        if (this.isDisposed) return;
+
         const time = this.clock.getElapsedTime();
+        if (this.earthGroup) this.earthGroup.rotation.y = time * this.options.rotationSpeed;
+        if (this.cloudsGroup) this.cloudsGroup.rotation.y = time * this.options.cloudSpeed;
 
-        // Custom Rotations to match usage
-        if (this.earthGroup) this.earthGroup.rotation.y = time * 0.05;
-        if (this.cloudsGroup) this.cloudsGroup.rotation.y = time * 0.07;
+        this.animateMarkers(time);
 
-        // Animate pulsing markers
-        if (this.pulsingMarkers) {
-            this.pulsingMarkers.forEach((marker, i) => {
-                const t = time + marker.phaseOffset;
+        if (this.controls) this.controls.update();
+        if (this.renderer && this.scene && this.camera) {
+            this.renderer.render(this.scene, this.camera);
+        }
 
-                // Head brightness pulse
-                const brightness = 0.85 + 0.15 * Math.sin(t * 2);
-                marker.headMat.color.setRGB(0, brightness * 0.83, brightness);
+        this.animationFrameId = requestAnimationFrame(this.frame);
+    }
 
-                // Glow opacity pulse
-                marker.glowMat.opacity = 0.2 + 0.15 * Math.sin(t * 2 + 0.5);
+    dispose() {
+        if (this.isDisposed) return;
+        this.isDisposed = true;
+        const handlers = this.handlers || {};
 
-                // Light intensity pulse
-                marker.light.intensity = 1.2 + 0.5 * Math.sin(t * 2.5);
+        if (this.sunTimerId) {
+            clearInterval(this.sunTimerId);
+            this.sunTimerId = null;
+        }
 
-                // Pulsing ring 1 animation (expands outward and fades)
-                const pulse1 = (t * 0.8) % 2; // 0 to 2 cycle
-                const scale1 = 1 + pulse1 * 2.5;
-                marker.pulseRing.scale.set(scale1, scale1, 1);
-                marker.pulseRingMat.opacity = Math.max(0, 0.6 * (1 - pulse1 / 2));
+        if (this.dragResetTimeoutId) {
+            clearTimeout(this.dragResetTimeoutId);
+            this.dragResetTimeoutId = null;
+        }
 
-                // Pulsing ring 2 animation (offset timing)
-                const pulse2 = ((t + 1) * 0.8) % 2;
-                const scale2 = 1 + pulse2 * 2.5;
-                marker.pulseRing2.scale.set(scale2, scale2, 1);
-                marker.pulseRing2Mat.opacity = Math.max(0, 0.4 * (1 - pulse2 / 2));
+        if (this.animationFrameId) {
+            cancelAnimationFrame(this.animationFrameId);
+            this.animationFrameId = null;
+        }
+
+        if (handlers.onResize) {
+            window.removeEventListener('resize', handlers.onResize);
+        }
+        if (this.container) {
+            if (handlers.onClick) this.container.removeEventListener('click', handlers.onClick);
+            if (handlers.onMouseMove) this.container.removeEventListener('mousemove', handlers.onMouseMove);
+            if (handlers.onMouseLeave) this.container.removeEventListener('mouseleave', handlers.onMouseLeave);
+            this.container.style.cursor = 'default';
+        }
+
+        if (this.controls) {
+            if (handlers.onControlStart) this.controls.removeEventListener('start', handlers.onControlStart);
+            if (handlers.onControlEnd) this.controls.removeEventListener('end', handlers.onControlEnd);
+            this.controls.dispose();
+            this.controls = null;
+        }
+
+        if (this.scene) {
+            this.scene.traverse((object) => {
+                if (object.geometry) {
+                    object.geometry.dispose();
+                }
+                if (object.material) {
+                    disposeMaterial(object.material);
+                }
             });
         }
 
-        this.controls.update();
-        this.renderer.render(this.scene, this.camera);
+        if (this.textures) {
+            Object.values(this.textures).forEach((texture) => {
+                if (texture && texture.isTexture) texture.dispose();
+            });
+            this.textures = null;
+        }
+
+        if (this.renderer) {
+            this.renderer.dispose();
+            if (typeof this.renderer.forceContextLoss === 'function') {
+                this.renderer.forceContextLoss();
+            }
+
+            const canvas = this.renderer.domElement;
+            if (canvas && canvas.parentNode) {
+                canvas.parentNode.removeChild(canvas);
+            }
+            this.renderer = null;
+        }
+
+        this.scene = null;
+        this.camera = null;
+        this.mainGroup = null;
+        this.earthGroup = null;
+        this.cloudsGroup = null;
+        this.markersGroup = null;
+        this.markers = [];
+        this.hoveredMarker = null;
+        this.handlers = null;
+    }
+
+    destroy() {
+        this.dispose();
     }
 }
