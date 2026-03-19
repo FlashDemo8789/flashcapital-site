@@ -589,6 +589,7 @@
                 // Collect form data
                 const formData = new FormData(form);
                 const data = {
+                    submissionType: 'application',
                     timestamp: new Date().toISOString(),
                     firstName: formData.get('firstName'),
                     lastName: formData.get('lastName'),
