@@ -212,6 +212,34 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             animation: fadeInUp 0.6s ease-out 0.2s both;
         }
 
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            animation: fadeInUp 0.6s ease-out 0.3s both;
+        }
+
+        .hero-secondary-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 16px;
+            border: 1px solid var(--gray-300);
+            border-radius: 6px;
+            color: var(--gray-800);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .hero-secondary-cta:hover {
+            border-color: var(--gray-400);
+            background: var(--white);
+            transform: translateY(-1px);
+        }
+
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -310,6 +338,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     .hero-title {
         font-size: 2rem;
+    }
+
+    .hero-actions {
+        gap: 10px;
     }
 
     .timeline-line {
@@ -1029,6 +1061,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p class="hero-subtitle">
                 A data-driven methodology that transforms startup evaluation from guesswork into science
             </p>
+            <div class="hero-actions">
+                <a href="/insights/camp-framework-deep-dive.html" class="header-cta">Read Full Deep-Dive</a>
+                <a href="/insights/" class="hero-secondary-cta">Explore Insights</a>
+            </div>
         </div>
     </section>
 
