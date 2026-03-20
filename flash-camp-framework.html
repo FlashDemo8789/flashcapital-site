@@ -150,6 +150,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
 
         .header-link {
+            display: inline-flex;
+            align-items: center;
+            min-height: 44px;
             font-size: 0.875rem;
             font-weight: 500;
             color: var(--gray-600);
@@ -162,9 +165,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
 
         .header-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
             font-size: 0.875rem;
             font-weight: 600;
-            padding: 8px 16px;
+            padding: 0 16px;
             background: var(--black);
             color: var(--white);
             text-decoration: none;
@@ -224,7 +231,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 8px 16px;
+            min-height: 44px;
+            padding: 0 16px;
             border: 1px solid var(--gray-300);
             border-radius: 6px;
             color: var(--gray-800);
@@ -259,8 +267,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
        /* Hide menu button on desktop */
                .mobile-menu-btn {
             display: none;
-            width: 32px;
-            height: 32px;
+            width: 44px;
+            height: 44px;
             background: none;
             border: none;
             cursor: pointer;
@@ -306,8 +314,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         position: fixed;
         top: 16px;
         right: 16px;
-        width: 32px;
-        height: 32px;
+        width: 44px;
+        height: 44px;
         background: none;
         border: none;
         cursor: pointer;
@@ -380,6 +388,33 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         text-align: center;
     }
 }
+
+        .header-link:focus-visible,
+        .header-cta:focus-visible,
+        .hero-secondary-cta:focus-visible,
+        .mobile-menu-btn:focus-visible {
+            outline: 2px solid var(--black);
+            outline-offset: 2px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero-badge,
+            .hero-title,
+            .hero-subtitle,
+            .hero-actions,
+            .header-link,
+            .header-cta,
+            .hero-secondary-cta,
+            .mobile-menu-btn span,
+            .pillar-circle,
+            .why-card,
+            .pillar-card,
+            .reveal {
+                animation: none !important;
+                transition: none !important;
+                transform: none !important;
+            }
+        }
 
 
 
@@ -455,14 +490,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            transition: all 0.3s ease;
-            cursor: pointer;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            cursor: default;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
         .pillar-circle:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transform: scale(1.04);
+            box-shadow: 0 8px 20px rgba(17, 24, 39, 0.16);
         }
 
         .pillar-circle.capital {
@@ -498,8 +533,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
 
         .pillar-icon {
-            font-size: 2rem;
-            margin-bottom: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 6px;
         }
 
         .pillar-label {
@@ -606,7 +644,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
             flex-shrink: 0;
         }
 
@@ -651,6 +692,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             font-size: 1rem;
             color: var(--gray-700);
             line-height: 1.7;
+        }
+
+        .pillar-description p + p {
+            margin-top: 16px;
         }
 
         .key-metrics {
@@ -1042,7 +1087,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <a href="/insights/" class="header-link">Insights</a>
                     <a href="/flash-faq-page.html" class="header-link">FAQ</a>
                     <a href="/about.html" class="header-link">About</a>
-                    <a href="/contact.html" class="header-link">Contact</a>                    <a href="https://flash.zone" class="header-cta">Apply now</a>
+                    <a href="/contact.html" class="header-link">Contact</a>
+                    <a href="https://flash.zone" class="header-cta">Apply now</a>
                 </nav>
                 <button class="mobile-menu-btn" id="mobileMenuBtn">
                     <span></span>
@@ -1088,19 +1134,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <div class="camp-diagram">
                         <div class="diagram-center">CAMP</div>
                         <div class="pillar-circle capital">
-                            <div class="pillar-icon">💰</div>
+                            <div class="pillar-icon">C</div>
                             <div class="pillar-label">Capital</div>
                         </div>
                         <div class="pillar-circle advantage">
-                            <div class="pillar-icon">⚡</div>
+                            <div class="pillar-icon">A</div>
                             <div class="pillar-label">Advantage</div>
                         </div>
                         <div class="pillar-circle market">
-                            <div class="pillar-icon">📈</div>
+                            <div class="pillar-icon">M</div>
                             <div class="pillar-label">Market</div>
                         </div>
                         <div class="pillar-circle people">
-                            <div class="pillar-icon">👥</div>
+                            <div class="pillar-icon">P</div>
                             <div class="pillar-label">People</div>
                         </div>
                     </div>
@@ -1172,7 +1218,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <!-- Capital Pillar -->
             <div class="pillar-card pillar-capital">
                 <div class="pillar-header">
-                    <div class="pillar-icon-large">💰</div>
+                    <div class="pillar-icon-large">C</div>
                     <div class="pillar-info">
                         <h3>Capital</h3>
                         <p class="pillar-tagline">Financial Health & Efficiency</p>
@@ -1183,7 +1229,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <p>
                             The Capital pillar evaluates how efficiently you manage money and whether you've built investor confidence. It's not just about how much you've raised—it's about what you've done with it.
                         </p>
-                        <p style="margin-top: 16px;">
+                        <p>
                             VCs want to see disciplined growth, not reckless burning. Strong capital metrics show you can turn investment into value, making you a safer bet for their next check.
                         </p>
                     </div>
@@ -1220,7 +1266,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <!-- Advantage Pillar -->
             <div class="pillar-card pillar-advantage">
                 <div class="pillar-header">
-                    <div class="pillar-icon-large">⚡</div>
+                    <div class="pillar-icon-large">A</div>
                     <div class="pillar-info">
                         <h3>Advantage</h3>
                         <p class="pillar-tagline">Competitive Moats & Differentiation</p>
@@ -1231,7 +1277,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <p>
                             The Advantage pillar assesses your sustainable competitive advantages and barriers to entry. It answers the critical question: "Why can't someone else just copy this?"
                         </p>
-                        <p style="margin-top: 16px;">
+                        <p>
                             In competitive markets, sustainable advantages determine long-term winners. VCs invest in companies that can defend their position and maintain pricing power as they scale.
                         </p>
                     </div>
@@ -1268,7 +1314,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <!-- Market Pillar -->
             <div class="pillar-card pillar-market">
                 <div class="pillar-header">
-                    <div class="pillar-icon-large">📈</div>
+                    <div class="pillar-icon-large">M</div>
                     <div class="pillar-info">
                         <h3>Market</h3>
                         <p class="pillar-tagline">Opportunity Size & Traction</p>
@@ -1279,7 +1325,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <p>
                             The Market pillar analyzes your total addressable market, growth dynamics, and current traction. It validates whether you're fishing in a big enough pond.
                         </p>
-                        <p style="margin-top: 16px;">
+                        <p>
                             Great teams in small markets struggle to scale. VCs need to see not just a problem worth solving, but one that affects enough people to build a billion-dollar business.
                         </p>
                     </div>
@@ -1316,7 +1362,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <!-- People Pillar -->
             <div class="pillar-card pillar-people">
                 <div class="pillar-header">
-                    <div class="pillar-icon-large">👥</div>
+                    <div class="pillar-icon-large">P</div>
                     <div class="pillar-info">
                         <h3>People</h3>
                         <p class="pillar-tagline">Team Capability & Execution</p>
@@ -1327,7 +1373,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <p>
                             The People pillar evaluates your team's composition, experience, and ability to execute. It's often the most important factor in early-stage investing.
                         </p>
-                        <p style="margin-top: 16px;">
+                        <p>
                             Ideas are commodities; execution is everything. VCs bet on teams that can navigate uncertainty, iterate quickly, and build something extraordinary.
                         </p>
                     </div>

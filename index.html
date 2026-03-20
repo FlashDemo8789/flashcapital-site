@@ -394,6 +394,9 @@
         }
 
         .header-link {
+            display: inline-flex;
+            align-items: center;
+            min-height: 44px;
             font-size: 0.875rem;
             /* Slightly smaller for better fit */
             font-weight: 500;
@@ -409,9 +412,13 @@
         }
 
         .header-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
             font-size: 0.95rem;
             font-weight: 600;
-            padding: 10px 20px;
+            padding: 0 20px;
             /* Balanced, standard padding */
             background: #000000;
             color: var(--white);
@@ -431,8 +438,8 @@
         /* Mobile Menu */
         .mobile-menu-btn {
             display: none;
-            width: 32px;
-            height: 32px;
+            width: 44px;
+            height: 44px;
             background: none;
             border: none;
             cursor: pointer;
@@ -468,8 +475,8 @@
                 position: fixed;
                 top: 16px;
                 right: 16px;
-                width: 32px;
-                height: 32px;
+                width: 44px;
+                height: 44px;
                 background: none;
                 border: none;
                 cursor: pointer;
@@ -1004,51 +1011,33 @@
 
         .camp-card {
             padding: 32px;
-            background: var(--gray-50);
+            background: #ffffff;
             border: 1px solid var(--gray-200);
             border-radius: 12px;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(17, 24, 39, 0.04);
+            cursor: default;
         }
 
         .camp-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -5px rgba(0, 0, 0, 0.04);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(17, 24, 39, 0.07);
             border-color: var(--gray-300);
         }
 
         .camp-icon {
             width: 56px;
             height: 56px;
-            background: var(--white);
+            background: #f8fafc;
             border: 1px solid var(--gray-200);
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--gray-700);
             margin-bottom: 20px;
-        }
-
-        .camp-card:nth-child(1) .camp-icon {
-            background: #f3f4ff;
-            color: var(--purple);
-        }
-
-        .camp-card:nth-child(2) .camp-icon {
-            background: #fff4f4;
-            color: var(--red);
-        }
-
-        .camp-card:nth-child(3) .camp-icon {
-            background: #f0f9ff;
-            color: var(--blue);
-        }
-
-        .camp-card:nth-child(4) .camp-icon {
-            background: #f0fdf4;
-            color: var(--green);
         }
 
         .camp-title {
@@ -1061,6 +1050,56 @@
             font-size: 0.875rem;
             color: var(--gray-600);
             line-height: 1.6;
+        }
+
+        .camp-teaser-actions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 14px;
+            margin-top: 40px;
+        }
+
+        .camp-teaser-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            padding: 0 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .camp-teaser-link.primary {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .camp-teaser-link.primary:hover {
+            background: var(--gray-800);
+        }
+
+        .camp-teaser-link.secondary {
+            background: var(--white);
+            color: var(--black);
+            border: 1px solid var(--gray-300);
+        }
+
+        .camp-teaser-link.secondary:hover {
+            border-color: var(--gray-400);
+            background: #fafafa;
+        }
+
+        .header-link:focus-visible,
+        .header-cta:focus-visible,
+        .mobile-menu-btn:focus-visible,
+        .hero-cta-btn:focus-visible,
+        .camp-teaser-link:focus-visible,
+        .fund-apply-btn:focus-visible {
+            outline: 2px solid var(--black);
+            outline-offset: 2px;
         }
 
         /* Fund Teaser Section */
@@ -1134,6 +1173,117 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+        }
+
+        .fund-qualifier-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            border-radius: 999px;
+            border: 1px solid var(--gray-200);
+            background: #eef2f7;
+            color: var(--gray-700);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .fund-qualifier-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 999px;
+            background: var(--gray-500);
+        }
+
+        .fund-checklist-wrap {
+            max-width: 620px;
+            margin: 0 auto;
+        }
+
+        .fund-checklist {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 40px;
+        }
+
+        .fund-check-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 14px;
+            font-size: 1.0625rem;
+            color: var(--gray-700);
+            text-align: left;
+        }
+
+        .fund-check-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .fund-check-mark {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 1px solid rgba(34, 197, 94, 0.28);
+            background: rgba(34, 197, 94, 0.08);
+            color: var(--green);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 0.78rem;
+            font-weight: 700;
+            margin-top: 1px;
+        }
+
+        .fund-qualifier-note {
+            margin: 0 0 30px;
+            text-align: center;
+            color: var(--black);
+            font-size: 1.125rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+
+        .fund-apply-wrap {
+            text-align: center;
+        }
+
+        .fund-apply-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            min-height: 44px;
+            padding: 0 32px;
+            border-radius: 10px;
+            border: 1px solid transparent;
+            background: var(--black);
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            box-shadow: 0 10px 24px rgba(17, 24, 39, 0.13);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        }
+
+        .fund-apply-btn:hover {
+            background: var(--gray-800);
+            transform: translateY(-1px);
+            box-shadow: 0 12px 28px rgba(17, 24, 39, 0.18);
+        }
+
+        .fund-apply-arrow {
+            font-size: 1.1rem;
+            line-height: 1;
+            transition: transform 0.2s ease;
+        }
+
+        .fund-apply-btn:hover .fund-apply-arrow {
+            transform: translateX(2px);
         }
 
         /* Sample Analysis */
@@ -1673,6 +1823,28 @@
                 gap: 32px;
             }
 
+            .camp-teaser-actions {
+                gap: 10px;
+            }
+
+            .camp-teaser-link {
+                width: 100%;
+                max-width: 320px;
+            }
+
+            .fund-check-item {
+                font-size: 1rem;
+            }
+
+            .fund-qualifier-note {
+                font-size: 1rem;
+            }
+
+            .fund-apply-btn {
+                width: 100%;
+                max-width: 340px;
+            }
+
             /* Problem section mobile fix */
             .problem-stats-grid {
                 grid-template-columns: 1fr !important;
@@ -1745,6 +1917,23 @@
         .toast.show {
             transform: translateY(0);
             opacity: 1;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .header-link,
+            .header-cta,
+            .hero-cta-btn,
+            .camp-card,
+            .camp-teaser-link,
+            .fund-apply-btn,
+            .fund-apply-arrow,
+            .mobile-menu-btn span,
+            .reveal,
+            .toast {
+                animation: none !important;
+                transition: none !important;
+                transform: none !important;
+            }
         }
 
         /* Desktop Alignment Fixes */
@@ -2112,9 +2301,9 @@
                     <p class="camp-description">Execution quality, governance discipline, and learning velocity.</p>
                 </article>
             </div>
-            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-top: 40px;">
-                <a href="/insights/camp-framework-deep-dive.html" style="display: inline-flex; align-items: center; gap: 10px; padding: 14px 24px; background: var(--black); color: var(--white); text-decoration: none; font-weight: 600; border-radius: 8px; transition: all 0.2s ease;">Read The Full Deep-Dive</a>
-                <a href="/flash-camp-framework.html" style="display: inline-flex; align-items: center; gap: 10px; padding: 14px 24px; background: var(--white); color: var(--black); text-decoration: none; font-weight: 600; border: 1px solid var(--gray-300); border-radius: 8px; transition: all 0.2s ease;">View CAMP Overview</a>
+            <div class="camp-teaser-actions">
+                <a href="/insights/camp-framework-deep-dive.html" class="camp-teaser-link primary">Read The Full Deep-Dive</a>
+                <a href="/flash-camp-framework.html" class="camp-teaser-link secondary">View CAMP Overview</a>
             </div>
         </div>
     </section>
@@ -2122,53 +2311,44 @@
     <section class="fund-teaser-section reveal" id="fund">
         <div class="container">
             <div class="fund-teaser-content">
-                <div class="section-badge" style="background: rgba(88, 86, 214, 0.1); color: var(--purple);">
-                    <span>💰</span>
+                <div class="fund-qualifier-badge">
+                    <span class="fund-qualifier-dot" aria-hidden="true"></span>
                     <span>Do you qualify?</span>
                 </div>
                 <h2 class="section-title">Who we fund</h2>
                 <p class="section-subtitle">
                     We're looking for seed-stage startups with real traction and full-time founders.
                 </p>
-                <div style="max-width: 600px; margin: 0 auto;">
-                    <ul style="list-style: none; padding: 0; margin-bottom: 48px;">
-                        <li
-                            style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 1.125rem; color: var(--gray-700);">
-                            <span style="color: var(--green); font-size: 1.5rem;">✓</span>
+                <div class="fund-checklist-wrap">
+                    <ul class="fund-checklist">
+                        <li class="fund-check-item">
+                            <span class="fund-check-mark" aria-hidden="true">&#10003;</span>
                             <span>Seed stage (pre-seed to Series A)</span>
                         </li>
-                        <li
-                            style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 1.125rem; color: var(--gray-700);">
-                            <span style="color: var(--green); font-size: 1.5rem;">✓</span>
+                        <li class="fund-check-item">
+                            <span class="fund-check-mark" aria-hidden="true">&#10003;</span>
                             <span>Some traction (revenue, users, or pilots)</span>
                         </li>
-                        <li
-                            style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 1.125rem; color: var(--gray-700);">
-                            <span style="color: var(--green); font-size: 1.5rem;">✓</span>
+                        <li class="fund-check-item">
+                            <span class="fund-check-mark" aria-hidden="true">&#10003;</span>
                             <span>Full-time founders</span>
                         </li>
-                        <li
-                            style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 1.125rem; color: var(--gray-700);">
-                            <span style="color: var(--green); font-size: 1.5rem;">✓</span>
+                        <li class="fund-check-item">
+                            <span class="fund-check-mark" aria-hidden="true">&#10003;</span>
                             <span>Delaware C-Corp or equivalent</span>
                         </li>
-                        <li
-                            style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 1.125rem; color: var(--gray-700);">
-                            <span style="color: var(--green); font-size: 1.5rem;">✓</span>
+                        <li class="fund-check-item">
+                            <span class="fund-check-mark" aria-hidden="true">&#10003;</span>
                             <span>Building software or tech-enabled business</span>
                         </li>
                     </ul>
-                    <p
-                        style="font-size: 1.25rem; font-weight: 600; text-align: center; color: var(--black); margin-bottom: 32px;">
-                        Score 75+ on our assessment to unlock funding application.
+                    <p class="fund-qualifier-note">
+                        Score 75+ on our assessment to unlock a $250K to $500K funding path.
                     </p>
-                    <div style="text-align: center;">
-                        <a href="https://flash.zone"
-                            onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 8px 32px rgba(0, 0, 0, 0.1)'"
-                            onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 12px 48px rgba(0, 0, 0, 0.15)'"
-                            style="display: inline-flex; align-items: center; gap: 12px; padding: 20px 48px; background: var(--black); color: var(--white); text-decoration: none; font-weight: 600; font-size: 1.125rem; border-radius: 8px; transition: all 0.2s ease; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);">
+                    <div class="fund-apply-wrap">
+                        <a href="https://flash.zone" class="fund-apply-btn">
                             <span>Apply for FLASH Fund</span>
-                            <span style="transition: transform 0.2s ease;">→</span>
+                            <span class="fund-apply-arrow" aria-hidden="true">→</span>
                         </a>
                     </div>
                 </div>

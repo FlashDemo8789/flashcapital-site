@@ -60,9 +60,12 @@ a {
 }
 
 .content-nav a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
     font-size: 0.92rem;
     text-decoration: none;
-    padding: 6px 10px;
+    padding: 0 12px;
     border-radius: 999px;
     color: #1f2937;
 }
@@ -75,8 +78,12 @@ a {
 
 .content-cta {
     margin-left: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
     text-decoration: none;
-    padding: 10px 16px;
+    padding: 0 16px;
     border-radius: 999px;
     background: var(--content-accent);
     color: #ffffff;
@@ -268,8 +275,9 @@ a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    min-height: 44px;
     text-decoration: none;
-    padding: 10px 14px;
+    padding: 0 14px;
     border-radius: 10px;
     border: 1px solid #cfd7e3;
     color: #0f172a;
@@ -311,14 +319,16 @@ a {
     width: 100%;
     border: 1px solid #cfd7e3;
     border-radius: 10px;
-    padding: 11px 12px;
+    min-height: 44px;
+    padding: 0 12px;
     font-size: 0.95rem;
 }
 
 .newsletter-signup-form button {
     border: 0;
     border-radius: 10px;
-    padding: 11px 14px;
+    min-height: 44px;
+    padding: 0 14px;
     background: #0f172a;
     color: #ffffff;
     font-weight: 600;
@@ -366,6 +376,26 @@ a {
 
 .content-footer-links a {
     text-decoration: none;
+}
+
+.content-nav a:focus-visible,
+.content-cta:focus-visible,
+.btn:focus-visible,
+.newsletter-signup-form button:focus-visible,
+.newsletter-signup-form input[type="email"]:focus-visible,
+.newsletter-signup-form input[type="checkbox"]:focus-visible {
+    outline: 2px solid #0f172a;
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .content-header,
+    .btn,
+    .content-cta,
+    .content-nav a,
+    .newsletter-signup-form button {
+        transition: none !important;
+    }
 }
 
 @media (min-width: 768px) {
