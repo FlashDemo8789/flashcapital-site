@@ -104,6 +104,20 @@ a {
     padding: 28px;
     box-shadow: var(--content-shadow);
     margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-block::after {
+    content: "";
+    position: absolute;
+    top: -120px;
+    right: -120px;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(15, 23, 42, 0.08) 0%, rgba(15, 23, 42, 0) 72%);
+    pointer-events: none;
 }
 
 .hero-kicker {
@@ -211,6 +225,48 @@ a {
     line-height: 1.6;
 }
 
+.case-abstract {
+    margin-top: 16px;
+    border: 1px solid #d8dee8;
+    border-radius: 12px;
+    background: #ffffff;
+    padding: 14px 16px;
+}
+
+.case-abstract h3 {
+    margin: 0 0 8px;
+    font-size: 1rem;
+}
+
+.case-abstract p {
+    margin: 0;
+    color: #1f2937;
+    line-height: 1.65;
+}
+
+.decision-question {
+    margin-top: 14px;
+    border: 1px solid #c7d2e3;
+    border-radius: 12px;
+    background: #f8fbff;
+    padding: 12px 14px;
+}
+
+.decision-question strong {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #334155;
+}
+
+.decision-question p {
+    margin: 0;
+    color: #0f172a;
+    line-height: 1.6;
+}
+
 .insight-table-wrap {
     margin-top: 16px;
     overflow-x: auto;
@@ -240,8 +296,46 @@ a {
     font-weight: 600;
 }
 
+.insight-table tbody tr:nth-child(even) td {
+    background: #fbfcff;
+}
+
 .insight-table tr:last-child td {
     border-bottom: 0;
+}
+
+.exhibit-caption {
+    margin-top: 8px;
+    font-size: 0.82rem;
+    color: #64748b;
+}
+
+.discussion-questions {
+    margin-top: 18px;
+    border: 1px solid #d8dee8;
+    border-radius: 12px;
+    background: #ffffff;
+    padding: 14px 16px;
+}
+
+.discussion-questions h3 {
+    margin: 0 0 8px;
+    font-size: 1rem;
+}
+
+.discussion-questions ol {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.discussion-questions li {
+    margin: 0 0 8px;
+    color: #1f2937;
+    line-height: 1.6;
+}
+
+.discussion-questions li:last-child {
+    margin-bottom: 0;
 }
 
 .grid {
@@ -324,20 +418,22 @@ a {
 .article-body {
     margin-top: 18px;
     display: grid;
-    gap: 14px;
+    gap: 16px;
 }
 
 .article-section {
     border: 1px solid var(--content-border);
-    background: #ffffff;
+    background: linear-gradient(180deg, #ffffff 0%, #fcfdff 100%);
     border-radius: 12px;
-    padding: 16px;
+    padding: 18px;
 }
 
 .article-section h2 {
     margin: 0 0 10px;
-    font-size: 1.16rem;
+    font-size: 1.18rem;
     line-height: 1.35;
+    padding-left: 12px;
+    border-left: 3px solid #dbe4f0;
 }
 
 .article-section p {
