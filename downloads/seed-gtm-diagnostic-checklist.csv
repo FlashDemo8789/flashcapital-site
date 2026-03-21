@@ -1,0 +1,7 @@
+diagnostic_area,current_state,red_flag,corrective_action,owner,target_date,evidence_metric
+ICP definition,Multiple segments pursued without ranking,Channel spend spread across weak-fit segments,Select one primary ICP and one secondary ICP,Head of Growth,2026-04-05,Primary ICP conversion rate
+Funnel quality,High lead volume with unstable conversion,Lead growth masks activation weakness,Instrument funnel steps and enforce qualification rubric,Growth Ops Lead,2026-04-08,Trial-to-paid by ICP
+Cohort retention,Aggregate retention reported only,Cohort deterioration hidden by new acquisition,Track retention by signup month and segment,Product Lead,2026-04-10,90-day retention by cohort
+Channel allocation,Paid spend unchanged despite quality drift,Low-quality channels continue due to historical momentum,Reallocate spend to channels with stable cohort behavior,CFO,2026-04-12,Payback period by channel
+Update narrative,Deck emphasizes outcomes without mechanism,Investors ask repeated clarifying questions,Rewrite update sequence: wedge, mechanism, cohort, risk, capital,CEO,2026-04-15,Second-meeting diligence progression
+

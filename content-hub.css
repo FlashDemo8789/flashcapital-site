@@ -134,6 +134,116 @@ a {
     line-height: 1.65;
 }
 
+.authority-meta {
+    margin-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.authority-meta-item {
+    display: inline-flex;
+    align-items: center;
+    min-height: 34px;
+    padding: 0 10px;
+    border-radius: 999px;
+    border: 1px solid #d8dee8;
+    background: #f8fafc;
+    color: #334155;
+    font-size: 0.78rem;
+    letter-spacing: 0.02em;
+}
+
+.evidence-snapshot {
+    margin-top: 18px;
+    border: 1px solid #d8dee8;
+    border-radius: 12px;
+    background: #ffffff;
+    padding: 14px 16px;
+}
+
+.evidence-snapshot h3 {
+    margin: 0 0 10px;
+    font-size: 1rem;
+}
+
+.evidence-snapshot ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.evidence-snapshot li {
+    margin: 0 0 8px;
+    color: #1f2937;
+    line-height: 1.55;
+}
+
+.evidence-snapshot li:last-child {
+    margin-bottom: 0;
+}
+
+.download-row {
+    margin-top: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.download-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: 0 12px;
+    border-radius: 10px;
+    border: 1px solid #cfd7e3;
+    text-decoration: none;
+    font-size: 0.84rem;
+    color: #0f172a;
+    background: #ffffff;
+    font-weight: 600;
+}
+
+.insight-note {
+    margin-top: 12px;
+    font-size: 0.88rem;
+    color: #475569;
+    line-height: 1.6;
+}
+
+.insight-table-wrap {
+    margin-top: 16px;
+    overflow-x: auto;
+}
+
+.insight-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #d8dee8;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.insight-table th,
+.insight-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #e8edf4;
+    text-align: left;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.insight-table th {
+    background: #f8fafc;
+    color: #334155;
+    font-weight: 600;
+}
+
+.insight-table tr:last-child td {
+    border-bottom: 0;
+}
+
 .grid {
     display: grid;
     grid-template-columns: repeat(12, minmax(0, 1fr));
@@ -381,6 +491,7 @@ a {
 .content-nav a:focus-visible,
 .content-cta:focus-visible,
 .btn:focus-visible,
+.download-link:focus-visible,
 .newsletter-signup-form button:focus-visible,
 .newsletter-signup-form input[type="email"]:focus-visible,
 .newsletter-signup-form input[type="checkbox"]:focus-visible {

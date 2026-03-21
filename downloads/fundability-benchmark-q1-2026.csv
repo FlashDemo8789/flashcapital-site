@@ -1,0 +1,6 @@
+dimension,top_quartile_pattern,middle_quartiles_pattern,bottom_quartile_pattern,interpretation_note
+Milestone clarity,Single threshold plus owner and date,Threshold exists but ownership incomplete,Milestone statement broad or changes cycle-to-cycle,Clarity improves diligence speed more than slide polish
+Risk register quality,Top risks with mitigation deltas every cycle,Risks listed with limited movement tracking,Risks implied but not managed explicitly,Risk ownership quality is a trust signal
+Capital-to-proof linkage,Each spend bucket tied to evidence unlock,Partial mapping with weak threshold detail,Capital ask disconnected from proof milestones,Capital logic should be explicit in investor updates
+Update cadence stability,Consistent structure even during misses,Mostly stable cadence with occasional resets,Frequent format shifts and metric redefinitions,Cadence consistency is a confidence signal
+

@@ -16,10 +16,13 @@
     }
 
     function wireContentCtas() {
-        const ctas = document.querySelectorAll('[data-content-cta]');
+        const ctas = document.querySelectorAll('[data-content-cta], .content-cta[href*="flash.zone"]');
         ctas.forEach((cta) => {
-            const contentType = cta.getAttribute('data-content-type') || 'content';
-            const contentSlug = cta.getAttribute('data-content-slug') || 'unknown';
+            const body = document.body;
+            const pageType = body ? body.getAttribute('data-content-type') : '';
+            const pageSlug = body ? body.getAttribute('data-content-slug') : '';
+            const contentType = cta.getAttribute('data-content-type') || pageType || 'content';
+            const contentSlug = cta.getAttribute('data-content-slug') || pageSlug || 'unknown';
             const href = cta.getAttribute('href');
 
             if (href && href.indexOf('flash.zone') !== -1) {

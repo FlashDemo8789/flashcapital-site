@@ -1,0 +1,3 @@
+review_month,stage,target_milestone,milestone_threshold,current_status,capital_score,advantage_score,market_score,people_score,top_risk_1,risk_1_owner,risk_1_mitigation_eta,top_risk_2,risk_2_owner,risk_2_mitigation_eta,next_30_day_commitment,next_60_day_commitment,support_needed
+2026-03,Seed,Repeatable ICP conversion,25% trial-to-paid for ICP segment,In progress,3,3,2,4,Channel quality variance,Head of Growth,2026-04-15,Onboarding drop-off,Product Lead,2026-04-10,Fix activation event tracking,Ship ICP-specific onboarding playbook,2 ICP intros with retention benchmark references
+

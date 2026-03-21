@@ -1,0 +1,7 @@
+section,question,score_1_definition,score_3_definition,score_5_definition,current_score,evidence_source,last_updated,owner,next_action
+Milestone Clarity,Is the next financing unlock explicit?,No threshold or date,Threshold defined but accountability incomplete,Threshold, date, and owner are explicit and stable,3,Board update + operating review,2026-03-21,CEO,Publish monthly milestone delta
+Signal Quality,Are leading indicators separated from lagging outcomes?,Only lagging outcomes reported,Leading indicators present but inconsistent,Leading and lagging indicators reported consistently with variance notes,2,Analytics dashboard + investor update,2026-03-21,Head of Growth,Standardize KPI definitions
+Risk Ownership,Are top risks owner-assigned with mitigation status?,Risks described without owners,Owners listed without mitigation progress,Owners and mitigation deltas updated each cycle,2,Risk register,2026-03-21,COO,Add mitigation ETA field
+Capital Logic,Is use of capital mapped to evidence unlocks?,Ask amount disconnected from milestones,Partial linkage,clear spend-to-proof linkage with thresholds,3,Finance plan + memo,2026-03-21,CFO,Map each spend bucket to threshold
+Execution Cadence,Can the team report consistently under pressure?,Format changes every cycle,Mostly stable cadence with occasional resets,Stable cadence and variance explanation every cycle,3,Monthly operating review archive,2026-03-21,COO,Enforce fixed monthly format
+

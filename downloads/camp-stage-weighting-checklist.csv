@@ -1,0 +1,5 @@
+stage,capital_weight,advantage_weight,market_weight,people_weight,assumption_note,primary_evidence_required,confidence_break_signal,owner,next_review_date
+Pre-seed,20,20,20,40,Learning speed prioritized over scale confidence,Weekly experiment-to-learning loop with decision log,Learning loops reported without decision outcomes,CEO,2026-04-01
+Seed,25,30,25,20,Wedge defensibility and early repeatability prioritized,Segment-level conversion and retention trend by cohort,Top-line growth without cohort quality disclosure,Head of Growth,2026-04-01
+Series A,35,25,25,15,Capital efficiency and repeatability prioritized,Unit economics trend with variance annotations and mitigation plans,Spend growth without milestone-to-capital linkage,CFO,2026-04-01
+
