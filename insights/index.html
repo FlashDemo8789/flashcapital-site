@@ -48,8 +48,16 @@
             </div>
         </section>
 
-        <section class="grid">
-            <article class="card span-4">
+        <section class="content-tabs" data-filter-tabs data-filter-target="#insights-grid" aria-label="Filter insights">
+            <button class="content-tab is-active" type="button" data-filter="all" aria-pressed="true">Latest</button>
+            <button class="content-tab" type="button" data-filter="camp" aria-pressed="false">CAMP</button>
+            <button class="content-tab" type="button" data-filter="fundraising" aria-pressed="false">Fundraising</button>
+            <button class="content-tab" type="button" data-filter="gtm" aria-pressed="false">GTM</button>
+            <button class="content-tab" type="button" data-filter="benchmark" aria-pressed="false">Benchmark</button>
+        </section>
+
+        <section class="grid" id="insights-grid">
+            <article class="card span-4 featured-card" data-tags="camp,framework,fundraising">
                 <h3><a href="/insights/camp-framework-deep-dive.html">CAMP Framework Deep-Dive: Stage-Aware Startup Evaluation</a></h3>
                 <p>An operating manual for founders: underwriting questions, allocation alternatives, governance cadence, and implementation path.</p>
                 <div class="meta">
@@ -61,7 +69,7 @@
                     <a class="btn primary" data-content-cta data-content-type="insight" data-content-slug="camp-framework-deep-dive" href="/insights/camp-framework-deep-dive.html">Read article</a>
                 </div>
             </article>
-            <article class="card span-4">
+            <article class="card span-4" data-tags="benchmark,fundability,fundraising">
                 <h3><a href="/insights/fundability-benchmark-q1-2026.html">Fundability Benchmark Q1 2026: What Moves Investor Confidence</a></h3>
                 <p>Distribution-level benchmark analysis with score-band bar exhibits, movement patterns, and a 90-day founder execution playbook.</p>
                 <div class="meta">
@@ -73,7 +81,7 @@
                     <a class="btn primary" data-content-cta data-content-type="insight" data-content-slug="fundability-benchmark-q1-2026" href="/insights/fundability-benchmark-q1-2026.html">Read article</a>
                 </div>
             </article>
-            <article class="card span-4">
+            <article class="card span-4" data-tags="camp,fundraising,capital-readiness">
                 <h3><a href="/insights/camp-stage-weighting.html">How Stage Weighting Changes CAMP Decisions</a></h3>
                 <p>A stage-aware decision guide with weighting-shift visuals showing how identical metrics are interpreted differently by round.</p>
                 <div class="meta">
@@ -85,7 +93,7 @@
                     <a class="btn primary" data-content-cta data-content-type="insight" data-content-slug="camp-stage-weighting" href="/insights/camp-stage-weighting.html">Read article</a>
                 </div>
             </article>
-            <article class="card span-4">
+            <article class="card span-4" data-tags="fundraising,investor-updates,operations">
                 <h3><a href="/insights/investor-readiness-scorecard.html">The Investor Readiness Scorecard We Actually Use</a></h3>
                 <p>A decision-first investor update architecture with scoring thresholds, exhibit templates, and weekly repair workflow.</p>
                 <div class="meta">
@@ -97,7 +105,7 @@
                     <a class="btn primary" data-content-cta data-content-type="insight" data-content-slug="investor-readiness-scorecard" href="/insights/investor-readiness-scorecard.html">Read article</a>
                 </div>
             </article>
-            <article class="card span-4">
+            <article class="card span-4" data-tags="gtm,teardown,fundraising">
                 <h3><a href="/insights/seed-gtm-diagnostic-teardown.html">Seed GTM Diagnostic Teardown: From Traction Noise to Investor Clarity</a></h3>
                 <p>A deep tactical teardown with visual diagnostics, evidence redesign, and a six-week mechanism-first recovery sprint.</p>
                 <div class="meta">
