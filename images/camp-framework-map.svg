@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">CAMP Matrix Quadrant Map</title>
+  <desc id="desc">A four-quadrant CAMP matrix showing a trajectory from hidden gem to rocketship.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fbff"/>
+      <stop offset="1" stop-color="#f1f5fb"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="760" fill="url(#bg)"/>
+  <rect x="74" y="82" width="1052" height="620" rx="24" fill="#ffffff" stroke="#dbe4f0"/>
+
+  <text x="120" y="136" fill="#0f172a" font-size="28" font-family="Arial, Helvetica, sans-serif" font-weight="700">CAMP Quadrant Overview</text>
+  <text x="120" y="166" fill="#475569" font-size="17" font-family="Arial, Helvetica, sans-serif">Evidence-quality and execution-reliability map for founder decision calibration.</text>
+
+  <g transform="translate(140 210)">
+    <rect x="0" y="0" width="920" height="420" rx="18" fill="#ffffff" stroke="#d8e1ee"/>
+    <line x1="460" y1="0" x2="460" y2="420" stroke="#d5deeb" stroke-width="2"/>
+    <line x1="0" y1="210" x2="920" y2="210" stroke="#d5deeb" stroke-width="2"/>
+
+    <rect x="0" y="0" width="460" height="210" fill="#f8fafc"/>
+    <rect x="460" y="0" width="460" height="210" fill="#ecfdf5"/>
+    <rect x="0" y="210" width="460" height="210" fill="#fff1f2"/>
+    <rect x="460" y="210" width="460" height="210" fill="#eff6ff"/>
+
+    <text x="22" y="38" fill="#0f172a" font-size="24" font-family="Arial, Helvetica, sans-serif" font-weight="700">Hidden Gem</text>
+    <text x="22" y="66" fill="#475569" font-size="15" font-family="Arial, Helvetica, sans-serif">Strong people and wedge, proof still forming.</text>
+
+    <text x="490" y="38" fill="#0f172a" font-size="24" font-family="Arial, Helvetica, sans-serif" font-weight="700">Rocketship</text>
+    <text x="490" y="66" fill="#475569" font-size="15" font-family="Arial, Helvetica, sans-serif">Durable evidence across all CAMP pillars.</text>
+
+    <text x="22" y="248" fill="#0f172a" font-size="24" font-family="Arial, Helvetica, sans-serif" font-weight="700">Chaos Zone</text>
+    <text x="22" y="276" fill="#475569" font-size="15" font-family="Arial, Helvetica, sans-serif">Fragmented signal and weak risk control.</text>
+
+    <text x="490" y="248" fill="#0f172a" font-size="24" font-family="Arial, Helvetica, sans-serif" font-weight="700">Starved Visionary</text>
+    <text x="490" y="276" fill="#475569" font-size="15" font-family="Arial, Helvetica, sans-serif">Market pull exists; capital discipline lags.</text>
+
+    <circle cx="240" cy="126" r="16" fill="#1d4ed8"/>
+    <text x="272" y="132" fill="#1d4ed8" font-size="15" font-family="Arial, Helvetica, sans-serif" font-weight="700">Typical launch position</text>
+
+    <circle cx="704" cy="98" r="16" fill="#0f172a"/>
+    <text x="736" y="104" fill="#0f172a" font-size="15" font-family="Arial, Helvetica, sans-serif" font-weight="700">Target confidence state</text>
+
+    <path d="M258 126 C360 90, 520 110, 688 98" fill="none" stroke="#1d4ed8" stroke-width="6" marker-end="url(#arrow)" stroke-linecap="round"/>
+    <text x="426" y="78" fill="#1d4ed8" font-size="14" font-family="Arial, Helvetica, sans-serif" font-weight="700">Evidence and execution compounding</text>
+
+    <text x="-52" y="220" fill="#64748b" font-size="14" font-family="Arial, Helvetica, sans-serif" transform="rotate(-90 -52 220)">Execution Reliability</text>
+    <text x="340" y="456" fill="#64748b" font-size="14" font-family="Arial, Helvetica, sans-serif">Evidence Quality</text>
+  </g>
+</svg>
