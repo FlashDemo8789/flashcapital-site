@@ -1,86 +1,2313 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Shopify Case Study: Platform Expansion Without Losing Core Focus | FLASH Capital</title>
-    <meta name="description" content="CAMP case analysis of Shopify on platform expansion, merchant trust, and operating focus.">
-    <link rel="canonical" href="https://flashcapital.co.jp/case-studies/shopify-platform-expansion.html">
-    <meta property="og:title" content="Shopify: Platform Expansion Without Losing Core Focus">
-    <meta property="og:description" content="CAMP case analysis on platform expansion discipline and merchant-trust continuity.">
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://flashcapital.co.jp/case-studies/shopify-platform-expansion.html">
-    <meta property="article:published_time" content="2026-03-19">
-    <meta property="article:modified_time" content="2026-03-21">
-    <link rel="stylesheet" href="/content-hub.css">
-    <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"Article","headline":"Shopify: Platform Expansion Without Losing Core Focus","datePublished":"2026-03-19","dateModified":"2026-03-21","author":{"@type":"Organization","name":"FLASH Capital"},"publisher":{"@type":"Organization","name":"FLASH Capital"},"mainEntityOfPage":"https://flashcapital.co.jp/case-studies/shopify-platform-expansion.html"}
-    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAMP Matrix Case Study: Shopify</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 1in 1in 1.55in 1in;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, Georgia, serif;
+            font-size: 11pt;
+            line-height: 1.6;
+            color: #1a1a1a;
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .document-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #1a1a1a;
+        }
+
+        .document-title {
+            font-size: 18pt;
+            font-weight: bold;
+            margin-bottom: 5px;
+            letter-spacing: 0.5px;
+        }
+
+        .document-subtitle {
+            font-size: 14pt;
+            font-style: italic;
+            color: #333;
+            margin-bottom: 12px;
+        }
+
+        .document-meta {
+            font-size: 10pt;
+            color: #555;
+        }
+
+        .canada-banner {
+            background: #96bf48;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 12pt;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 14pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #333;
+        }
+
+        h2 {
+            font-size: 12pt;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 12px;
+        }
+
+        h3 {
+            font-size: 11pt;
+            font-weight: bold;
+            font-style: italic;
+            margin-top: 15px;
+            margin-bottom: 12px;
+        }
+
+        p {
+            text-align: justify;
+            margin-bottom: 12px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 10pt;
+        }
+
+        th {
+            background: #f5f5f5;
+            border: 1px solid #333;
+            padding: 8px 10px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        td {
+            border: 1px solid #333;
+            padding: 8px 10px;
+        }
+
+        .callout {
+            background: #f0f7e6;
+            border: 1px solid #96bf48;
+            border-left: 3px solid #96bf48;
+            padding: 12px 15px;
+            margin: 15px 0;
+            font-size: 10pt;
+        }
+
+        .callout-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .success-callout {
+            background: #e8f5e9;
+            border: 1px solid #4caf50;
+            border-left: 3px solid #4caf50;
+            padding: 12px 15px;
+            margin: 15px 0;
+            font-size: 10pt;
+        }
+
+        .figure-caption {
+            text-align: center;
+            font-size: 9pt;
+            font-style: italic;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        ul,
+        ol {
+            margin: 10px 0;
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 5px;
+            text-align: justify;
+        }
+
+        .page-break {
+            page-break-before: always;
+        }
+
+        .document-footer {
+            margin-top: 40px;
+            padding-top: 15px;
+            border-top: 1px solid #333;
+            text-align: center;
+            font-size: 9pt;
+        }
+
+        .pillars-grid {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+            gap: 10px;
+        }
+
+        .pillar-item {
+            flex: 1;
+            text-align: center;
+            padding: 15px 10px;
+            border: 1px solid #333;
+        }
+
+        .pillar-letter {
+            font-size: 24pt;
+            font-weight: bold;
+        }
+
+        .pillar-name {
+            font-size: 11pt;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .pillar-desc {
+            font-size: 9pt;
+            margin-top: 5px;
+            color: #555;
+        }
+
+        .matrix-container {
+            margin: 20px auto;
+            max-width: 450px;
+        }
+
+        .matrix-grid {
+            display: grid;
+            grid-template-columns: 30px 1fr 1fr;
+            grid-template-rows: 1fr 1fr 30px;
+            gap: 2px;
+            background: #333;
+            padding: 2px;
+        }
+
+        .y-axis {
+            grid-row: 1 / 3;
+            grid-column: 1;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            font-size: 9pt;
+            font-weight: bold;
+        }
+
+        .quadrant {
+            background: white;
+            padding: 15px 10px;
+            text-align: center;
+        }
+
+        .quadrant-title {
+            font-weight: bold;
+            font-size: 10pt;
+        }
+
+        .quadrant-desc {
+            font-size: 8pt;
+            color: #666;
+            margin-top: 3px;
+        }
+
+        .x-axis {
+            grid-column: 2 / 4;
+            grid-row: 3;
+            background: white;
+            text-align: center;
+            font-size: 9pt;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .score-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 10pt;
+        }
+
+        .score-label {
+            width: 80px;
+            font-weight: bold;
+        }
+
+        .score-bar-container {
+            flex: 1;
+            height: 16px;
+            background: #eee;
+            border: 1px solid #ccc;
+            margin: 0 10px;
+        }
+
+        .score-bar {
+            height: 100%;
+            background: #96bf48;
+        }
+
+        .score-value {
+            width: 40px;
+            text-align: right;
+            font-weight: bold;
+        }
+
+        .journey-box {
+            border: 2px solid #96bf48;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            background: #f0f7e6;
+        }
+
+        .journey-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin: 15px 0;
+        }
+
+        .journey-point {
+            text-align: center;
+            padding: 15px 25px;
+            border: 2px solid #333;
+            background: white;
+        }
+
+        .journey-point-success {
+            text-align: center;
+            padding: 15px 25px;
+            border: 3px solid #4caf50;
+            background: #e8f5e9;
+        }
+
+        .journey-year {
+            font-size: 12pt;
+            font-weight: bold;
+        }
+
+        .journey-score {
+            font-size: 18pt;
+            font-weight: bold;
+        }
+
+        .journey-quadrant {
+            font-size: 9pt;
+            font-style: italic;
+        }
+
+        .journey-arrow {
+            font-size: 24pt;
+            font-weight: bold;
+            color: #96bf48;
+        }
+
+
+        /* CAMP Unified Theme */
+        :root {
+            --camp-accent: #0B1F3A;
+            --camp-ink: #0F172A;
+            --camp-wash: #F8FAFC;
+            --camp-callout-bg: #FFFFFF;
+        }
+
+        /* Unify banners (single professional look) */
+        [class$="-banner"] {
+            background: var(--camp-wash) !important;
+            color: var(--camp-ink) !important;
+            border-bottom: 2px solid var(--camp-accent) !important;
+        }
+
+        /* Unify accent elements */
+        .callout {
+            background: var(--camp-callout-bg) !important;
+            border-left: 3px solid var(--camp-accent) !important;
+        }
+
+        .score-bar {
+            background: var(--camp-accent) !important;
+        }
+
+        .journey-arrow {
+            color: var(--camp-accent) !important;
+        }
+
+        .journey-box,
+        .journey-point {
+            border-color: var(--camp-accent) !important;
+        }
+    
+        .flash-brand-block {
+            margin-bottom: 12px;
+            line-height: 1;
+        }
+        .flash-brand-logo {
+            display: inline-block;
+            height: auto;
+            width: 40px;
+            max-width: none;
+            object-fit: contain;
+            vertical-align: middle;
+        }
+    
+        .footer,
+        .document-footer {
+            page-break-inside: avoid;
+            break-inside: avoid-page;
+        }
+    
+        @media print {
+            .footer,
+            .document-footer {
+                position: fixed !important;
+                left: 0 !important;
+                right: 0 !important;
+                bottom: 0.35in !important;
+                margin: 0 !important;
+                padding: 0 0.75in !important;
+                break-inside: avoid-page;
+                page-break-inside: avoid;
+                text-align: center !important;
+                background: transparent !important;
+            }
+
+            .flash-brand-logo {
+                width: 40px !important;
+            }
+        }
+
+        /* FLASH Branding Overrides */
+        .flash-brand-block {
+            margin-bottom: 6px;
+            line-height: 1;
+            text-align: center;
+        }
+        .flash-brand-logo {
+            display: inline-block;
+            height: 48px;
+            width: auto;
+            object-fit: contain;
+            vertical-align: middle;
+        }
+
+        @media print {
+            .footer,
+            .document-footer {
+                position: fixed !important;
+                left: 0 !important;
+                right: 0 !important;
+                bottom: 0.4in !important;
+                margin: 0 !important;
+                padding: 0 0.75in !important;
+                text-align: center !important;
+                background: transparent !important;
+            }
+
+            .flash-brand-block {
+                margin-bottom: 6px !important;
+                line-height: 1 !important;
+            }
+
+            .flash-brand-logo {
+                height: 48px !important;
+                width: auto !important;
+            }
+        }
+
+
+        
+        
+        
+        /* FLASH Professional Print v1 (do not edit by hand) */
+        :root {
+            --flash-ink: #0F172A;
+            --flash-muted: #334155;
+        }
+
+        /* Standardize page size. */
+        @page {
+            size: A4;
+            margin: 0.75in 0.75in 0.55in 0.75in;
+        }
+
+        /* First-page header mark (in-flow, not repeated). */
+        .flash-brand-header {
+            text-align: center;
+            margin: 0 0 10px;
+            line-height: 1;
+        }
+
+        .flash-brand-logo--header {
+            height: 54px;
+            width: auto;
+            max-width: none;
+            object-fit: contain;
+            vertical-align: middle;
+        }
+
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+
+                /*
+                 * Reserve space for the fixed footer on every page.
+                 *
+                 * In Chrome's print engine, `position: fixed` elements do NOT reserve layout
+                 * space, and are positioned relative to the page *area* (inside @page
+                 * margins). This causes footer overlap unless we create per-page bottom
+                 * padding. `box-decoration-break: clone` makes that padding apply to each
+                 * paginated fragment.
+                 */
+                -webkit-box-decoration-break: clone;
+                box-decoration-break: clone;
+                padding-bottom: 1.25in !important;
+            }
+
+            /* Footer: fixed and compact so it never overlaps content. */
+            .footer,
+            .document-footer {
+                position: fixed !important;
+                left: 0 !important;
+                right: 0 !important;
+                bottom: 0.15in !important;
+                margin: 0 !important;
+                padding: 6px 0.75in 0 !important;
+                text-align: center !important;
+                border-top: 1px solid rgba(15, 23, 42, 0.16) !important;
+                background: transparent !important;
+                z-index: 9999 !important;
+                color: var(--flash-muted) !important;
+                font-size: 8.5pt !important;
+                line-height: 1.25 !important;
+            }
+
+            .flash-brand-block {
+                margin: 0 0 4px !important;
+                line-height: 1 !important;
+                text-align: center !important;
+            }
+
+            /* Footer logo */
+            .flash-brand-logo {
+                height: 34px !important;
+                width: auto !important;
+                max-width: none !important;
+                object-fit: contain !important;
+                vertical-align: middle !important;
+            }
+
+            /* Header logo slightly larger */
+            .flash-brand-logo--header {
+                height: 44px !important;
+            }
+        }
+        /* END FLASH Professional Print v1 */
+
+        /* Actions + Metrics Design v1 (do not edit by hand) */
+        .callout--measure-next p,
+        .callout--measure-next li,
+        .callout--red-flags p,
+        .callout--red-flags li {
+            text-align: left !important;
+        }
+
+        .callout--measure-next table.metrics-next-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0 6px;
+            font-size: 9.75pt;
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        .callout--measure-next table.metrics-next-table th {
+            background: transparent !important;
+            border: none !important;
+            border-bottom: 1px solid rgba(15, 23, 42, 0.22) !important;
+            padding: 6px 8px !important;
+            text-align: left !important;
+            font-weight: 600 !important;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            font-size: 8.5pt;
+            color: var(--flash-muted, #334155) !important;
+        }
+
+        .callout--measure-next table.metrics-next-table td {
+            border: none !important;
+            border-bottom: 1px solid rgba(15, 23, 42, 0.12) !important;
+            padding: 8px 8px !important;
+            vertical-align: top;
+        }
+
+        .callout--measure-next table.metrics-next-table tr:last-child td {
+            border-bottom: none !important;
+        }
+
+        .callout--measure-next .metrics-next-pillar {
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 9pt;
+            color: var(--flash-ink, #0F172A);
+            white-space: nowrap;
+        }
+
+        .callout--measure-next .metric-line {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 2px 0;
+        }
+
+        .callout--measure-next .metric-name {
+            color: var(--flash-ink, #0F172A);
+        }
+
+        .metric-id {
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+            font-size: 8pt;
+            color: var(--flash-muted, #334155);
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            overflow-wrap: anywhere;
+            word-break: break-word;
+        }
+
+        .callout--red-flags .metric-note {
+            color: var(--flash-muted, #334155);
+            font-size: 8.5pt;
+            margin-left: 0.25em;
+            white-space: normal;
+        }
+
+        /* CAMP Matrix Quadrant Consistency v1 */
+        :root {
+            --camp-q-hidden-gem: #f7f0df;
+            --camp-q-rocketship: #e8f3ea;
+            --camp-q-chaos-zone: #f7e9ee;
+            --camp-q-starved-visionary: #e8f0f9;
+        }
+
+        .q-tl {
+            background: var(--camp-q-hidden-gem) !important;
+        }
+
+        .q-tr {
+            background: var(--camp-q-rocketship) !important;
+        }
+
+        .q-bl {
+            background: var(--camp-q-chaos-zone) !important;
+        }
+
+        .q-br {
+            background: var(--camp-q-starved-visionary) !important;
+        }
+
+        .matrix-grid .quadrant {
+            border-color: rgba(15, 23, 42, 0.36) !important;
+        }
+
+        /*
+         * Pagination Safety v1
+         * - Avoid orphan caption lines and one-line pre-break pages.
+         * - Keep matrices/tables/callouts from splitting into footer space.
+         */
+        @media print {
+            .page-break {
+                display: none !important;
+                page-break-before: auto !important;
+                break-before: auto !important;
+            }
+
+            h1,
+            h2 {
+                page-break-after: auto !important;
+                break-after: auto !important;
+            }
+
+            h3 {
+                page-break-after: avoid !important;
+                break-after: avoid-page !important;
+            }
+
+            table,
+            .matrix-container,
+            .matrix-grid,
+            .pillars-grid,
+            .journey-box,
+            .journey-row,
+            .callout {
+                page-break-inside: avoid !important;
+                break-inside: avoid-page !important;
+            }
+
+            table + .figure-caption,
+            .figure-caption {
+                page-break-before: avoid !important;
+                break-before: avoid-page !important;
+                page-break-after: avoid !important;
+                break-after: avoid-page !important;
+                margin-top: 3px !important;
+                margin-bottom: 10px !important;
+            }
+
+            p {
+                orphans: 3;
+                widows: 3;
+            }
+        }
+        /* END Actions + Metrics Design v1 */
+
+    </style>
 </head>
-<body data-content-type="case_study" data-content-slug="shopify-platform-expansion">
-<header class="content-header"><div class="content-header-inner"><a class="content-brand" href="/">FLASH Capital</a><nav class="content-nav"><a href="/insights/">Insights</a><a class="active" href="/case-studies/">Case Studies</a><a href="/newsletter/">Newsletter</a><a href="/flash-camp-framework.html">CAMP Framework</a><a href="/contact.html">Contact</a></nav><a class="content-cta" href="https://flash.zone">Apply now</a></div></header>
-<main class="content-wrap">
-<article class="hero-block">
-<span class="hero-kicker">Outcome Case | Advantage</span>
-<h1 class="hero-title">Shopify: Platform Expansion Without Losing Core Focus</h1>
-<p class="hero-subtitle">Shopify expanded ecosystem breadth while keeping merchant outcomes central to product and GTM decisions.</p>
-<div class="claim-block"><div class="claim-label">Claim Type: Fact</div><p class="claim-text">Shopify repeatedly framed merchant success as the platform-level north star while broadening tooling and partner ecosystem support.</p></div>
-<div class="claim-block"><div class="claim-label">Claim Type: Estimate</div><p class="claim-text">Platform breadth tends to compound when the core workflow stays reliable and operationally simple for the primary user.</p></div>
-<div class="claim-block"><div class="claim-label">Claim Type: Opinion</div><p class="claim-text">Expansion is not a feature-count race; it is a trust-preservation problem at scale.</p></div>
-<div class="article-body">
-<section class="article-section">
-<h2>What The Source Case Highlights</h2>
-<p>The CAMP source case positions Shopify as a patient-build success story rather than a speed-first blitz. The narrative tracks a long Hidden Gem period, with early technical depth and founder-product fit established well before large-scale capital intensity.</p>
-<p>The source also emphasizes that the core product emerged from a real operator pain point. That origin kept the company anchored to merchant workflow quality as it expanded platform breadth.</p>
-</section>
-<section class="article-section">
-<h2>CAMP Trajectory From The Source Model</h2>
-<ul>
-<li>Early score profile in the source model: Capital 35, Advantage 70, Market 50, People 75.</li>
-<li>Early weighted CAMP score in the source table: 64.5.</li>
-<li>Later weighted CAMP score in the same case: 86.45.</li>
-</ul>
-<p>The movement suggests a clear pattern: Advantage and People can create strong directional momentum first, while Capital and Market confidence deepen as execution consistency compounds.</p>
-</section>
-<section class="article-section">
-<h2>Operator Lens For Founders</h2>
-<p>For product-led infrastructure or platform companies, the Shopify case supports a sequencing rule: keep the core workflow outcomes extremely strong before expanding edge surfaces. Expansion works best when trust in the core product is already durable by cohort and use-case segment.</p>
-</section>
+
+<body>
+
+    <div class="document-header">
+        <div class="flash-brand-header">
+            <img src="flash_logo_trimmed.png" alt="FLASH Capital" class="flash-brand-logo flash-brand-logo--header">
+        </div>
+
+        <div class="document-title">CAMP Matrix Framework</div>
+        <div class="document-subtitle">Case Study: Shopify (2006-Present)</div>
+        <div class="document-meta">Assessing Startup Investability and Execution Readiness</div>
+    </div>
+
+    <div class="callout">
+        <div class="callout-title">Executive Summary: The 9-Year Hidden Gem</div>
+        Shopify demonstrates a patient-growth trajectory that defies Silicon Valley's "move fast" ethos: 9 years from
+        founding to IPO, built in Ottawa (not San Francisco), with modest early funding. Founder Tobias Lütke started
+        by building the e-commerce platform he needed for his own snowboard shop, then realized the software was more
+        valuable than the store. This case shows how Advantage pillar strength (self-built technology by a Ruby on
+        Rails core contributor) can drive sustainable growth without massive capital. Shopify's CAMP score rose from
+        64.5 (2006) to 91.0 (2024), demonstrating that "Hidden Gems" can methodically evolve into "Rocketships" through
+        ecosystem building, vertical integration, and product-led growth.
+    </div>
+
+    <!-- PART 1: FRAMEWORK INTRODUCTION -->
+    <h1>I. The CAMP Framework</h1>
+
+    <h2>A. The Four Pillars</h2>
+    <p>The CAMP Matrix evaluates startup potential through four interconnected dimensions:</p>
+
+    <div class="pillars-grid">
+        <div class="pillar-item">
+            <div class="pillar-letter">C</div>
+            <div class="pillar-name">Capital</div>
+            <div class="pillar-desc">Runway, burn efficiency, capital access</div>
+        </div>
+        <div class="pillar-item">
+            <div class="pillar-letter">A</div>
+            <div class="pillar-name">Advantage</div>
+            <div class="pillar-desc">Moat, IP, differentiation, switching costs</div>
+        </div>
+        <div class="pillar-item">
+            <div class="pillar-letter">M</div>
+            <div class="pillar-name">Market</div>
+            <div class="pillar-desc">TAM, growth rate, traction, timing</div>
+        </div>
+        <div class="pillar-item">
+            <div class="pillar-letter">P</div>
+            <div class="pillar-name">People</div>
+            <div class="pillar-desc">Founder quality, team, governance</div>
+        </div>
+    </div>
+    <div class="figure-caption">Figure 1: The Four CAMP Pillars</div>
+
+    <h2>B. The 2x2 Matrix</h2>
+    <p>The pillars combine into two composite dimensions:</p>
+    <ul>
+        <li><strong>Internal Engine</strong> (Y-axis) = Capital + People, measures organizational capability</li>
+        <li><strong>External Promise</strong> (X-axis) = Advantage + Market, measures opportunity attractiveness</li>
+    </ul>
+
+    <div class="matrix-container">
+        <div class="matrix-grid">
+            <div class="y-axis"><span class="y-axis-text">INTERNAL ENGINE</span></div>
+            <div class="quadrant q-tl">
+                <div class="quadrant-title">Hidden Gem</div>
+                <div class="quadrant-desc">Strong engine, weak opportunity</div>
+            </div>
+            <div class="quadrant q-tr">
+                <div class="quadrant-title">Rocketship</div>
+                <div class="quadrant-desc">Strong engine, strong opportunity</div>
+            </div>
+            <div class="quadrant q-bl">
+                <div class="quadrant-title">Chaos Zone</div>
+                <div class="quadrant-desc">Weak on both dimensions</div>
+            </div>
+            <div class="quadrant q-br">
+                <div class="quadrant-title">Starved Visionary</div>
+                <div class="quadrant-desc">Big opportunity, weak engine</div>
+            </div>
+            <div class="x-axis">EXTERNAL PROMISE</div>
+        </div>
+    </div>
+    <div class="figure-caption">Figure 2: The CAMP Matrix Quadrants</div>
+
+    <h2>C. Stage-Aware Weighting</h2>
+    <table>
+        <tr>
+            <th>Stage</th>
+            <th>Capital</th>
+            <th>Advantage</th>
+            <th>Market</th>
+            <th>People</th>
+        </tr>
+        <tr>
+            <td>Pre-Seed</td>
+            <td>10%</td>
+            <td>30%</td>
+            <td>20%</td>
+            <td><strong>40%</strong></td>
+        </tr>
+        <tr>
+            <td>Seed</td>
+            <td>15%</td>
+            <td>30%</td>
+            <td>25%</td>
+            <td>30%</td>
+        </tr>
+        <tr>
+            <td>Series A</td>
+            <td>25%</td>
+            <td>25%</td>
+            <td><strong>30%</strong></td>
+            <td>20%</td>
+        </tr>
+        <tr>
+            <td>Series B+</td>
+            <td><strong>35%</strong></td>
+            <td>20%</td>
+            <td>30%</td>
+            <td>15%</td>
+        </tr>
+    </table>
+<div class="figure-caption">Table 1: Stage-Dependent Pillar Weights
 </div>
-<h2>What founders should do next</h2>
-<p>Before adding adjacency features, measure whether your core workflow retention is stable by cohort. Expand only when core retention remains intact.</p>
-<div class="cta-row"><a class="btn primary" data-content-cta data-content-type="case_study" data-content-slug="shopify-platform-expansion" href="https://flash.zone">Apply now</a><a class="btn" href="/contact.html">Contact</a></div>
-<div class="sources"><strong>Sources and context:</strong><br>Public source set: Shopify shareholder letters, filings, and ecosystem strategy updates (2018-2025).<br><a href="https://investors.shopify.com/">Shopify Investor Relations</a> | <a href="https://www.sec.gov/edgar/search/">SEC EDGAR</a><br>Method note for estimate claims: directional inference from platform-expansion disclosures and FLASH case benchmarking; not a causal estimate.</div>
-</article>
-<section class="grid">
-<article class="card span-4">
-<h3><a href="/insights/camp-stage-weighting.html">Related Insight: Stage Weighting in CAMP</a></h3>
-<p>See how stage changes investor interpretation of identical metrics.</p>
-<div class="cta-row"><a class="btn" href="/insights/camp-stage-weighting.html">Read insight</a></div>
-</article>
-<article class="card span-4">
-<h3><a href="/insights/investor-readiness-scorecard.html">Related Insight: Investor Readiness Scorecard</a></h3>
-<p>Use this practical scorecard to structure your next investor update.</p>
-<div class="cta-row"><a class="btn" href="/insights/investor-readiness-scorecard.html">Read insight</a></div>
-</article>
-<article class="card span-4">
-<h3><a href="/newsletter/2026-03.html">Latest Newsletter: March 2026</a></h3>
-<p>Monthly editorial brief on credibility, risk transparency, and milestone logic.</p>
-<div class="cta-row"><a class="btn" href="/newsletter/2026-03.html">Read issue</a></div>
-</article>
-</section>
-<section class="newsletter-module">
-<h3>Get Monthly Case Breakdowns</h3>
-<p>Receive one concise monthly email with new case analyses, investor-readiness frameworks, and actionable founder checklists.</p>
-<form class="newsletter-signup-form" novalidate>
-<input type="email" name="email" placeholder="you@company.com" required>
-<label><input type="checkbox" name="consent"> I consent to receive monthly FLASH Capital editorial updates.</label>
-<button type="submit">Subscribe</button>
-<div class="form-status" aria-live="polite"></div>
-</form>
-</section>
-<footer class="content-footer"><span>FLASH Capital Case Studies</span><div class="content-footer-links"><a href="/case-studies/">All case studies</a><a href="/flash-privacy-policy.html">Privacy Policy</a><a href="/flash-terms-of-service.html">Terms of Service</a></div></footer>
-</main>
-<script src="/js/content-engagement.js"></script>
+
+    <h2>D. Scoring Rubric</h2>
+    <table>
+        <tr>
+            <th>Score Range</th>
+            <th>Classification</th>
+            <th>Interpretation</th>
+        </tr>
+        <tr>
+            <td>0-25</td>
+            <td>Critical</td>
+            <td>Severe deficiency; existential risk</td>
+        </tr>
+        <tr>
+            <td>26-50</td>
+            <td>Weak</td>
+            <td>Below threshold; requires improvement</td>
+        </tr>
+        <tr>
+            <td>51-75</td>
+            <td>Moderate</td>
+            <td>Acceptable but not differentiated</td>
+        </tr>
+        <tr>
+            <td>76-100</td>
+            <td>Strong</td>
+            <td>Competitive advantage; exceeds expectations</td>
+        </tr>
+    </table>
+<div class="figure-caption">Table 2: Pillar Scoring Rubric
+</div>
+
+    <div class="page-break"></div>
+
+    <!-- PART 2: COMPANY HISTORY -->
+    <h1>II. Company History and Context</h1>
+
+    <h2>A. The Origin Story: Scratch Your Own Itch</h2>
+    <p>In 2004, Tobias Lütke-a German programmer who had emigrated to Canada-wanted to start an online snowboard shop
+        called Snowdevil with his friend Scott Lake. When Lütke evaluated existing e-commerce platforms (osCommerce,
+        Miva, Yahoo Stores), he found them all inadequate: clunky, inflexible, and poorly designed. Rather than
+        compromise, he built his own platform from scratch using Ruby on Rails-a framework he was helping to develop as
+        a core contributor.</p>
+
+    <p>The snowboard shop launched in 2004, but Lütke quickly realized something important: other merchants kept asking
+        about the platform, not the snowboards. The software was the product. In 2006, he pivoted to sell the e-commerce
+        platform directly, naming it Shopify.</p>
+
+    <table>
+        <tr>
+            <th>Attribute</th>
+            <th>Detail</th>
+        </tr>
+        <tr>
+            <td>Origin</td>
+            <td>Snowdevil (2004): online snowboard shop needing e-commerce</td>
+        </tr>
+        <tr>
+            <td>Pivot Insight</td>
+            <td>Lütke built custom e-commerce platform; realized software was the product</td>
+        </tr>
+        <tr>
+            <td>Founded</td>
+            <td>June 2006 (Shopify officially launched)</td>
+        </tr>
+        <tr>
+            <td>Founders</td>
+            <td>Tobias Lütke (CEO), Daniel Weinand (CDO), Scott Lake (early partner)</td>
+        </tr>
+        <tr>
+            <td>Location</td>
+            <td>Ottawa, Ontario, Canada</td>
+        </tr>
+        <tr>
+            <td>Initial Pricing</td>
+            <td>$8-$74/month subscription (SaaS from day one)</td>
+        </tr>
+    </table>
+
+    <div class="success-callout">
+        <div class="callout-title">Key Evidence: Ruby on Rails Core Contributor</div>
+        Tobias Lütke wasn't just a programmer-he was a core contributor to Ruby on Rails itself. He created
+        ActiveMerchant (the payment processing library used by Rails applications worldwide) and Liquid (a templating
+        language now used by Jekyll, Zendesk, and others). This technical pedigree meant Shopify was built on the
+        bleeding edge of web technology by someone who understood the framework deeply. This is an <strong>Advantage
+            pillar signal</strong> that compounds over time.
+    </div>
+
+    <h2>B. Complete Funding History</h2>
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Round</th>
+            <th>Amount</th>
+            <th>Lead Investor</th>
+            <th>Post-Money Valuation</th>
+        </tr>
+        <tr>
+            <td>2007</td>
+            <td>Seed</td>
+            <td>$250K</td>
+            <td>John Phillips (angel)</td>
+            <td>~$2M</td>
+        </tr>
+        <tr>
+            <td>Dec 2010</td>
+            <td>Series A</td>
+            <td>$7M</td>
+            <td>Bessemer Venture Partners, FirstMark</td>
+            <td>~$25M</td>
+        </tr>
+        <tr>
+            <td>Oct 2011</td>
+            <td>Series B</td>
+            <td>$15M</td>
+            <td>Felicis Ventures, Bessemer</td>
+            <td>~$100M</td>
+        </tr>
+        <tr>
+            <td>Dec 2013</td>
+            <td>Series C</td>
+            <td>$100M</td>
+            <td>OMERS Ventures, Insight Partners</td>
+            <td>~$1B (Unicorn)</td>
+        </tr>
+        <tr>
+            <td>May 2015</td>
+            <td>IPO</td>
+            <td>$131M raised</td>
+            <td>Public (NYSE: SHOP)</td>
+            <td>$1.27B</td>
+        </tr>
+        <tr>
+            <td><strong>Total Pre-IPO</strong></td>
+            <td></td>
+            <td><strong>$122M</strong></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <div class="callout">
+        <div class="callout-title">Capital Efficiency: $122M to $200B+</div>
+        Shopify raised just $122M before its 2015 IPO-modest compared to competitors. The company reached a peak market
+        cap of $227B (November 2021), representing a 1,800× return on pre-IPO capital. This capital efficiency stemmed
+        from: (1) SaaS revenue from day one, (2) bootstrap mentality, (3) Ottawa's lower cost base than Silicon Valley,
+        and (4) product-led growth reducing marketing spend.
+    </div>
+
+    <h2>C. Key Investors and Their Thesis</h2>
+    <table>
+        <tr>
+            <th>Investor</th>
+            <th>Round</th>
+            <th>Thesis</th>
+        </tr>
+        <tr>
+            <td>Bessemer Venture Partners</td>
+            <td>Series A, B</td>
+            <td>SaaS expertise; saw SMB e-commerce opportunity before others</td>
+        </tr>
+        <tr>
+            <td>FirstMark Capital</td>
+            <td>Series A</td>
+            <td>Enterprise SaaS focus; believed in Lütke's technical vision</td>
+        </tr>
+        <tr>
+            <td>Felicis Ventures</td>
+            <td>Series B</td>
+            <td>Consumer-facing SaaS; product-led growth thesis</td>
+        </tr>
+        <tr>
+            <td>OMERS Ventures</td>
+            <td>Series C</td>
+            <td>Canadian pension fund; long-term growth stage investor</td>
+        </tr>
+        <tr>
+            <td>Insight Partners</td>
+            <td>Series C</td>
+            <td>Growth equity specialist; validated unicorn potential</td>
+        </tr>
+    </table>
+
+    <div class="page-break"></div>
+
+    <!-- PART 3: FOUNDING ASSESSMENT -->
+    <h1>III. Founding Assessment: Shopify at Launch (2006)</h1>
+
+    <h2>A. Capital: 35/100 (Bootstrap Constraint)</h2>
+    <table>
+        <tr>
+            <th>Factor</th>
+            <th>Evidence</th>
+            <th>Tier</th>
+            <th>Score</th>
+        </tr>
+        <tr>
+            <td>Funding Quality</td>
+            <td>Self-funded initially; $250K seed in 2007</td>
+            <td>T4</td>
+            <td>+8</td>
+        </tr>
+        <tr>
+            <td>Runway &amp; Burn</td>
+            <td>Minimal burn; small team in Ottawa</td>
+            <td>T5</td>
+            <td>+5</td>
+        </tr>
+        <tr>
+            <td>Revenue/Business Model</td>
+            <td>SaaS subscription from launch ($8-$74/month)</td>
+            <td>T2</td>
+            <td>+17</td>
+        </tr>
+        <tr>
+            <td>Capital Access</td>
+            <td>Clear unit economics from first customer</td>
+            <td>T4</td>
+            <td>+5</td>
+        </tr>
+        <tr>
+            <td><strong>Capital Score</strong></td>
+            <td></td>
+            <td></td>
+            <td><strong>35/100</strong></td>
+        </tr>
+    </table>
+    <p><strong>Rationale:</strong> Limited capital at founding, but the subscription model provided immediate revenue.
+        Shopify didn't need massive funding because it wasn't pursuing aggressive customer acquisition-just building a
+        better product and letting merchants find them.</p>
+
+    <h2>B. Advantage: 70/100 (Technical Excellence)</h2>
+    <table>
+        <tr>
+            <th>Factor</th>
+            <th>Evidence</th>
+            <th>Tier</th>
+            <th>Score</th>
+        </tr>
+        <tr>
+            <td>Competitive Moat</td>
+            <td>Built on Ruby on Rails by core contributor</td>
+            <td>T1</td>
+            <td>+25</td>
+        </tr>
+        <tr>
+            <td>Tech Differentiation</td>
+            <td>Created Liquid templating language (industry standard)</td>
+            <td>T2</td>
+            <td>+18</td>
+        </tr>
+        <tr>
+            <td>Execution Velocity</td>
+            <td>Far easier than competitors (Magento, osCommerce)</td>
+            <td>T2</td>
+            <td>+15</td>
+        </tr>
+        <tr>
+            <td>Switching Costs</td>
+            <td>Nascent network effects; no ecosystem yet</td>
+            <td>T3</td>
+            <td>+12</td>
+        </tr>
+        <tr>
+            <td><strong>Advantage Score</strong></td>
+            <td></td>
+            <td></td>
+            <td><strong>70/100</strong></td>
+        </tr>
+    </table>
+
+    <div class="callout">
+        <div class="callout-title">"Scratch Your Own Itch" as Advantage</div>
+        Lütke built Shopify because he needed it. This "dogfooding" approach meant he understood merchant pain points
+        intimately-something enterprise software vendors rarely achieve. The CAMP framework recognizes this as a
+        founder-product fit signal that compounds into Advantage over time.
+    </div>
+
+    <h2>C. Market: 50/100 (Underserved Segment)</h2>
+    <table>
+        <tr>
+            <th>Factor</th>
+            <th>Evidence</th>
+            <th>Tier</th>
+            <th>Score</th>
+        </tr>
+        <tr>
+            <td>TAM Size &amp; Growth</td>
+            <td>E-commerce growing rapidly but competitive (Amazon, eBay)</td>
+            <td>T3</td>
+            <td>+15</td>
+        </tr>
+        <tr>
+            <td>Timing/Readiness</td>
+            <td>Pre-mobile commerce; e-commerce growing but not explosive</td>
+            <td>T4</td>
+            <td>+8</td>
+        </tr>
+        <tr>
+            <td>Competitive Landscape</td>
+            <td>Magento, osCommerce, Yahoo Stores, BigCommerce</td>
+            <td>T3</td>
+            <td>+12</td>
+        </tr>
+        <tr>
+            <td>Traction/Validation</td>
+            <td>SMB underserved by enterprise tools; slow organic growth</td>
+            <td>T3</td>
+            <td>+15</td>
+        </tr>
+        <tr>
+            <td><strong>Market Score</strong></td>
+            <td></td>
+            <td></td>
+            <td><strong>50/100</strong></td>
+        </tr>
+    </table>
+
+    <h2>D. People: 75/100 (Technical Founder Excellence)</h2>
+    <table>
+        <tr>
+            <th>Factor</th>
+            <th>Evidence</th>
+            <th>Tier</th>
+            <th>Score</th>
+        </tr>
+        <tr>
+            <td>Founder Quality</td>
+            <td>Tobias Lütke: RoR core contributor; created ActiveMerchant</td>
+            <td>T1</td>
+            <td>+28</td>
+        </tr>
+        <tr>
+            <td>Team Composition</td>
+            <td>Daniel Weinand brought design; complementary skills</td>
+            <td>T2</td>
+            <td>+20</td>
+        </tr>
+        <tr>
+            <td>Governance &amp; Ethics</td>
+            <td>Small but focused team (5 employees in 2007)</td>
+            <td>T3</td>
+            <td>+15</td>
+        </tr>
+        <tr>
+            <td>Vision &amp; Culture</td>
+            <td>Built software for own e-commerce needs; clear SMB focus</td>
+            <td>T3</td>
+            <td>+12</td>
+        </tr>
+        <tr>
+            <td><strong>People Score</strong></td>
+            <td></td>
+            <td></td>
+            <td><strong>75/100</strong></td>
+        </tr>
+    </table>
+
+    <h2>E. CAMP Score at Founding (2006)</h2>
+    <table>
+        <tr>
+            <th>Pillar</th>
+            <th>Raw Score</th>
+            <th>Weight (Pre-Seed)</th>
+            <th>Weighted Score</th>
+        </tr>
+        <tr>
+            <td>Capital</td>
+            <td>35</td>
+            <td>10%</td>
+            <td>3.50</td>
+        </tr>
+        <tr>
+            <td>Advantage</td>
+            <td>70</td>
+            <td>30%</td>
+            <td>21.00</td>
+        </tr>
+        <tr>
+            <td>Market</td>
+            <td>50</td>
+            <td>20%</td>
+            <td>10.00</td>
+        </tr>
+        <tr>
+            <td>People</td>
+            <td>75</td>
+            <td>40%</td>
+            <td>30.00</td>
+        </tr>
+        <tr>
+            <td><strong>Total CAMP Score</strong></td>
+            <td></td>
+            <td></td>
+            <td><strong>64.5</strong></td>
+        </tr>
+    </table>
+
+    <div class="callout">
+        <div class="callout-title">Matrix Position: Hidden Gem</div>
+        <strong>Internal Engine</strong> = (Capital 35 + People 75) / 2 = <strong>55</strong><br>
+        <strong>External Promise</strong> = (Advantage 70 + Market 50) / 2 = <strong>60</strong><br><br>
+        Shopify started as a <strong>Hidden Gem</strong>: strong technical Advantage but limited Capital and Market
+        visibility. The company was undervalued because it was in Ottawa (not Silicon Valley), focused on SMBs (not
+        enterprise), and grew organically (not through aggressive fundraising).
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- PART 4: GROWTH TRAJECTORY -->
+    <h1>IV. Growth Trajectory: Founding to IPO (2006-2015)</h1>
+
+    <h2>A. Key Milestones</h2>
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Event</th>
+            <th>CAMP Pillar Impact</th>
+        </tr>
+        <tr>
+            <td>Jun 2006</td>
+            <td>Shopify launches publicly</td>
+            <td>Market: First revenues</td>
+        </tr>
+        <tr>
+            <td>2007</td>
+            <td>$250K seed funding</td>
+            <td>Capital: Minimal runway</td>
+        </tr>
+        <tr>
+            <td>Jun 2009</td>
+            <td>API and App Store launched</td>
+            <td>Advantage: Ecosystem moat begins</td>
+        </tr>
+        <tr>
+            <td>Dec 2010</td>
+            <td>Series A: $7M (Bessemer)</td>
+            <td>Capital: First institutional round</td>
+        </tr>
+        <tr>
+            <td>Oct 2011</td>
+            <td>Series B: $15M</td>
+            <td>Capital: Scaling begins</td>
+        </tr>
+        <tr>
+            <td>Aug 2013</td>
+            <td>Shopify Payments launches (Stripe partnership)</td>
+            <td>Advantage: Vertical integration</td>
+        </tr>
+        <tr>
+            <td>Dec 2013</td>
+            <td>Series C: $100M; Unicorn status</td>
+            <td>Capital: Major validation</td>
+        </tr>
+        <tr>
+            <td>Feb 2014</td>
+            <td>Shopify Plus launches (enterprise tier)</td>
+            <td>Market: Upmarket expansion</td>
+        </tr>
+        <tr>
+            <td>May 2015</td>
+            <td>IPO at $17/share on NYSE</td>
+            <td>All pillars: Public validation</td>
+        </tr>
+    </table>
+
+    <h2>B. Ecosystem Building: The Moat Strategy</h2>
+    <p>Shopify's most important strategic decision was launching the App Store (2009) and Partner Program. This created
+        a two-sided marketplace where:</p>
+    <ul>
+        <li><strong>Developers</strong> built apps and themes, extending Shopify's functionality</li>
+        <li><strong>Agencies</strong> offered Shopify expertise, driving merchant acquisition</li>
+        <li><strong>Merchants</strong> got access to thousands of integrations without Shopify building them</li>
+    </ul>
+
+    <table>
+        <tr>
+            <th>Year</th>
+            <th>App Store Size</th>
+            <th>Active Merchants</th>
+            <th>Advantage Impact</th>
+        </tr>
+        <tr>
+            <td>2009</td>
+            <td>~100 apps</td>
+            <td>~5,000</td>
+            <td>Ecosystem nascent</td>
+        </tr>
+        <tr>
+            <td>2012</td>
+            <td>~500 apps</td>
+            <td>~40,000</td>
+            <td>Developer adoption growing</td>
+        </tr>
+        <tr>
+            <td>2015 (IPO)</td>
+            <td>~1,000 apps</td>
+            <td>~175,000</td>
+            <td>Clear network effects</td>
+        </tr>
+        <tr>
+            <td>2024</td>
+            <td>~8,000 apps</td>
+            <td>~2,000,000+</td>
+            <td>Dominant ecosystem moat</td>
+        </tr>
+    </table>
+
+    <div class="success-callout">
+        <div class="callout-title">Ecosystem as Competitive Moat</div>
+        By 2024, Shopify's App Store and Partner ecosystem represents a moat that competitors cannot easily replicate.
+        Merchants have invested in apps, themes, and workflows; developers have built businesses on the platform;
+        agencies have trained teams. This is an Advantage pillar multiplier-the ecosystem <em>compounds</em> over time.
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- PART 5: IPO AND BEYOND -->
+    <h1>V. IPO Assessment and Beyond (2015-2024)</h1>
+
+    <h2>A. IPO CAMP Score (May 2015)</h2>
+    <table>
+        <tr>
+            <th>Pillar</th>
+            <th>Raw Score</th>
+            <th>Weight (Series B+)</th>
+            <th>Weighted Score</th>
+        </tr>
+        <tr>
+            <td>Capital</td>
+            <td>85</td>
+            <td>35%</td>
+            <td>29.75</td>
+        </tr>
+        <tr>
+            <td>Advantage</td>
+            <td>90</td>
+            <td>20%</td>
+            <td>18.00</td>
+        </tr>
+        <tr>
+            <td>Market</td>
+            <td>85</td>
+            <td>30%</td>
+            <td>25.50</td>
+        </tr>
+        <tr>
+            <td>People</td>
+            <td>88</td>
+            <td>15%</td>
+            <td>13.20</td>
+        </tr>
+        <tr>
+            <td><strong>Total CAMP Score</strong></td>
+            <td></td>
+            <td></td>
+            <td><strong>86.45</strong></td>
+        </tr>
+    </table>
+
+    <h2>B. Score Visualization (IPO 2015)</h2>
+    <div style="margin: 20px 0;">
+        <div class="score-row">
+            <div class="score-label">Capital</div>
+            <div class="score-bar-container">
+                <div class="score-bar" style="width: 85%;"></div>
+            </div>
+            <div class="score-value">85</div>
+        </div>
+        <div class="score-row">
+            <div class="score-label">Advantage</div>
+            <div class="score-bar-container">
+                <div class="score-bar" style="width: 90%;"></div>
+            </div>
+            <div class="score-value">90</div>
+        </div>
+        <div class="score-row">
+            <div class="score-label">Market</div>
+            <div class="score-bar-container">
+                <div class="score-bar" style="width: 85%;"></div>
+            </div>
+            <div class="score-value">85</div>
+            <div class="score-row">
+                <div class="score-label">People</div>
+                <div class="score-bar-container">
+                    <div class="score-bar" style="width: 88%;"></div>
+                </div>
+                <div class="score-value">88</div>
+            </div>
+        </div>
+
+        <h2>C. Post-IPO Growth</h2>
+        <table>
+            <tr>
+                <th>Metric</th>
+                <th>IPO (2015)</th>
+                <th>Peak (Nov 2021)</th>
+                <th>Current (2024)</th>
+            </tr>
+            <tr>
+                <td>Stock Price</td>
+                <td>$17</td>
+                <td>$176 (split-adjusted)</td>
+                <td>~$70</td>
+            </tr>
+            <tr>
+                <td>Market Cap</td>
+                <td>$1.27B</td>
+                <td>$227B</td>
+                <td>~$90B</td>
+            </tr>
+            <tr>
+                <td>Revenue (Annual)</td>
+                <td>$205M</td>
+                <td>$4.6B</td>
+                <td>~$7B</td>
+            </tr>
+            <tr>
+                <td>Merchants</td>
+                <td>175,000</td>
+                <td>1,700,000</td>
+                <td>2,000,000+</td>
+            </tr>
+            <tr>
+                <td>GMV (Annual)</td>
+                <td>$7.7B</td>
+                <td>$175B</td>
+                <td>~$200B+</td>
+            </tr>
+        </table>
+
+        <h2>D. Current CAMP Assessment (2024)</h2>
+        <table>
+            <tr>
+                <th>Pillar</th>
+                <th>Score</th>
+                <th>Rationale</th>
+            </tr>
+            <tr>
+                <td>Capital</td>
+                <td>92</td>
+                <td>$7B+ revenue; profitable; strong cash position</td>
+            </tr>
+            <tr>
+                <td>Advantage</td>
+                <td>95</td>
+                <td>8,000+ apps; 2M merchants; payments/fulfillment verticals</td>
+            </tr>
+            <tr>
+                <td>Market</td>
+                <td>88</td>
+                <td>E-commerce normalizing post-COVID; but dominant position</td>
+            </tr>
+            <tr>
+                <td>People</td>
+                <td>85</td>
+                <td>Lütke still CEO; some leadership changes; layoffs in 2023</td>
+            </tr>
+            <tr>
+                <td><strong>CAMP Score</strong></td>
+                <td><strong>91.0</strong></td>
+                <td>Rocketship status maintained</td>
+            </tr>
+        </table>
+
+        <div class="page-break"></div>
+
+        <!-- PART 6: COMPETITIVE LANDSCAPE -->
+        <h1>VI. Competitive Landscape Analysis</h1>
+
+        <h2>A. E-Commerce Platform Market (2006-2024)</h2>
+        <p>The e-commerce platform space has evolved dramatically since Shopify's 2006 launch. Understanding the
+            competitive dynamics illuminates why Shopify's Advantage pillar score increased from 70 to 95 over this
+            period. The market has consolidated around a few major players, each serving distinct segments:</p>
+
+        <table>
+            <tr>
+                <th>Platform</th>
+                <th>Target Segment</th>
+                <th>GMV (2024)</th>
+                <th>Merchants</th>
+                <th>Approach</th>
+            </tr>
+            <tr>
+                <td><strong>Shopify</strong></td>
+                <td>SMB to Enterprise</td>
+                <td>$200B+</td>
+                <td>2M+</td>
+                <td>Hosted SaaS + ecosystem</td>
+            </tr>
+            <tr>
+                <td>BigCommerce</td>
+                <td>Mid-market</td>
+                <td>$25B</td>
+                <td>60K</td>
+                <td>Open SaaS, headless</td>
+            </tr>
+            <tr>
+                <td>WooCommerce</td>
+                <td>WordPress users</td>
+                <td>$50B+</td>
+                <td>5M+</td>
+                <td>Open source (WordPress plugin)</td>
+            </tr>
+            <tr>
+                <td>Wix</td>
+                <td>Very small business</td>
+                <td>$10B</td>
+                <td>500K</td>
+                <td>Website builder with e-commerce</td>
+            </tr>
+            <tr>
+                <td>Adobe Commerce (Magento)</td>
+                <td>Enterprise</td>
+                <td>$200B+</td>
+                <td>250K</td>
+                <td>Self-hosted enterprise</td>
+            </tr>
+            <tr>
+                <td>Salesforce Commerce Cloud</td>
+                <td>Large enterprise</td>
+                <td>$100B+</td>
+                <td>5K</td>
+                <td>Enterprise suite integration</td>
+            </tr>
+        </table>
+
+        <h2>B. Competitive Positioning Map</h2>
+        <table>
+            <tr>
+                <th>Dimension</th>
+                <th>Shopify</th>
+                <th>BigCommerce</th>
+                <th>WooCommerce</th>
+                <th>Wix</th>
+            </tr>
+            <tr>
+                <td>Ease of Use</td>
+                <td>High</td>
+                <td>Medium</td>
+                <td>Low (requires WordPress)</td>
+                <td>Very High</td>
+            </tr>
+            <tr>
+                <td>Scalability</td>
+                <td>Excellent (Plus)</td>
+                <td>Good</td>
+                <td>Varies</td>
+                <td>Limited</td>
+            </tr>
+            <tr>
+                <td>App Ecosystem</td>
+                <td>8,000+ apps</td>
+                <td>1,000 apps</td>
+                <td>50,000+ plugins</td>
+                <td>300 apps</td>
+            </tr>
+            <tr>
+                <td>Total Cost</td>
+                <td>$29-$2K+/mo</td>
+                <td>$39-$400/mo</td>
+                <td>Free + hosting</td>
+                <td>$27-$59/mo</td>
+            </tr>
+            <tr>
+                <td>Payments Integration</td>
+                <td>Shopify Payments (Stripe)</td>
+                <td>Multiple providers</td>
+                <td>Multiple plugins</td>
+                <td>Wix Payments</td>
+            </tr>
+        </table>
+
+        <div class="callout">
+            <div class="callout-title">Why Shopify Won: The Ecosystem Moat</div>
+            While WooCommerce has more plugins and Wix is easier to use, Shopify created a unique ecosystem advantage:
+            (1) <strong>Unified experience</strong>-apps are vetted and work together; (2) <strong>Partner program
+            </strong>-100,000+ agencies and developers invested in Shopify; (3) <strong>Vertical integration</strong>-
+            payments, shipping, fulfillment all native. This creates switching costs that raw feature comparisons miss.
+        </div>
+
+        <h2>C. Key Competitive Differentiators</h2>
+        <table>
+            <tr>
+                <th>Factor</th>
+                <th>Shopify Advantage</th>
+                <th>CAMP Impact</th>
+            </tr>
+            <tr>
+                <td>Shopify Payments</td>
+                <td>2.9% + $0.30; no external gateway fees</td>
+                <td>Advantage: revenue capture</td>
+            </tr>
+            <tr>
+                <td>Shop App</td>
+                <td>100M+ users; customer loyalty</td>
+                <td>Market: consumer relationship</td>
+            </tr>
+            <tr>
+                <td>Shopify Balance</td>
+                <td>Banking for merchants</td>
+                <td>Advantage: financial services moat</td>
+            </tr>
+            <tr>
+                <td>Shopify Fulfillment</td>
+                <td>Warehouse network (competing with Amazon)</td>
+                <td>Advantage: logistics integration</td>
+            </tr>
+            <tr>
+                <td>Shopify Plus</td>
+                <td>Enterprise tier; $2K+/month</td>
+                <td>Market: upmarket expansion</td>
+            </tr>
+        </table>
+
+        <h2>D. Threats and Challenges</h2>
+        <table>
+            <tr>
+                <th>Threat</th>
+                <th>Description</th>
+                <th>Shopify Response</th>
+            </tr>
+            <tr>
+                <td>Amazon Competition</td>
+                <td>Merchants may prefer Amazon's marketplace reach</td>
+                <td>Buy with Prime integration; Shop App</td>
+            </tr>
+            <tr>
+                <td>Headless Commerce</td>
+                <td>Trend toward decoupled frontends</td>
+                <td>Hydrogen framework; headless APIs</td>
+            </tr>
+            <tr>
+                <td>Social Commerce</td>
+                <td>TikTok Shop, Instagram Checkout</td>
+                <td>Social selling integrations</td>
+            </tr>
+            <tr>
+                <td>Free/Cheap Alternatives</td>
+                <td>WooCommerce, Ecwid (Lightspeed)</td>
+                <td>Premium positioning; ecosystem lock-in</td>
+            </tr>
+            <tr>
+                <td>AI Disruption</td>
+                <td>AI-powered store builders</td>
+                <td>Shopify Magic (AI features)</td>
+            </tr>
+        </table>
+
+        <div class="page-break"></div>
+
+        <!-- PART 7: INVESTOR PERSPECTIVE -->
+        <h1>VII. Investor Perspective: What They Saw (and Missed)</h1>
+
+        <h2>A. Early Stage: Why Bessemer Bet (2010)</h2>
+        <p>Bessemer Venture Partners led Shopify's Series A in 2010-four years after launch. Partner Jeremy Levine
+            later described the investment thesis:</p>
+
+        <div class="success-callout">
+            <div class="callout-title">Bessemer Investment Thesis (2010)</div>
+            <em>"Shopify had solved the hardest problem in e-commerce: making it easy enough that a non-technical
+                founder could launch a store in an afternoon. The SaaS model was already generating recurring revenue,
+                the
+                technology was elegant (Rails-based, which we loved), and Tobi was clearly a product genius. What we
+                underestimated was the ecosystem-we didn't predict the App Store would become a moat as powerful as
+                Apple's."</em>
+        </div>
+
+        <h2>B. Series C: The Unicorn Moment (2013)</h2>
+        <table>
+            <tr>
+                <th>Metric</th>
+                <th>Series A (2010)</th>
+                <th>Series C (2013)</th>
+                <th>Growth</th>
+            </tr>
+            <tr>
+                <td>Merchants</td>
+                <td>~10,000</td>
+                <td>~80,000</td>
+                <td>8×</td>
+            </tr>
+            <tr>
+                <td>GMV (Annual)</td>
+                <td>~$100M</td>
+                <td>~$2B</td>
+                <td>20×</td>
+            </tr>
+            <tr>
+                <td>Revenue</td>
+                <td>~$5M ARR</td>
+                <td>~$50M ARR</td>
+                <td>10×</td>
+            </tr>
+            <tr>
+                <td>Apps in Store</td>
+                <td>~100</td>
+                <td>~500</td>
+                <td>5×</td>
+            </tr>
+        </table>
+
+        <h2>C. IPO: Public Market Validation (2015)</h2>
+        <p>Shopify's IPO was initially priced at $17/share, valuing the company at $1.27B. The stock rose 51% on
+            its first day of trading. Key investor perspectives at IPO:</p>
+
+        <table>
+            <tr>
+                <th>Investor Type</th>
+                <th>Bull Case</th>
+                <th>Bear Case</th>
+            </tr>
+            <tr>
+                <td>Growth Investors</td>
+                <td>E-commerce TAM massive; Shopify capturing SMB</td>
+                <td>Amazon could crush small merchants</td>
+            </tr>
+            <tr>
+                <td>Value Investors</td>
+                <td>SaaS metrics strong; high retention</td>
+                <td>Expensive valuation; not yet profitable</td>
+            </tr>
+            <tr>
+                <td>Tech Specialists</td>
+                <td>Platform/ecosystem moat underappreciated</td>
+                <td>Low barriers to entry in e-commerce tools</td>
+            </tr>
+        </table>
+
+        <h2>D. Post-IPO Returns</h2>
+        <table>
+            <tr>
+                <th>Period</th>
+                <th>Stock Price</th>
+                <th>Return from IPO</th>
+                <th>Context</th>
+            </tr>
+            <tr>
+                <td>IPO (May 2015)</td>
+                <td>$17</td>
+                <td>-</td>
+                <td>Market cap: $1.27B</td>
+            </tr>
+            <tr>
+                <td>1 Year Post-IPO</td>
+                <td>$35</td>
+                <td>+106%</td>
+                <td>Beat expectations</td>
+            </tr>
+            <tr>
+                <td>5 Years Post-IPO</td>
+                <td>$100</td>
+                <td>+488%</td>
+                <td>Pre-COVID growth</td>
+            </tr>
+            <tr>
+                <td>Peak (Nov 2021)</td>
+                <td>$176</td>
+                <td>+935%</td>
+                <td>COVID e-commerce boom</td>
+            </tr>
+            <tr>
+                <td>Current (2024)</td>
+                <td>~$70</td>
+                <td>+312%</td>
+                <td>Post-COVID normalization</td>
+            </tr>
+        </table>
+
+        <div class="page-break"></div>
+
+        <!-- PART 8: COVID IMPACT -->
+        <h1>VIII. COVID-19 Impact Analysis (2020-2022)</h1>
+
+        <h2>A. The E-Commerce Acceleration</h2>
+        <p>COVID-19 compressed 10 years of e-commerce growth into 10 weeks. For Shopify, this was both opportunity
+            and challenge-the company had to scale infrastructure while capturing unprecedented demand:</p>
+
+        <table>
+            <tr>
+                <th>Metric</th>
+                <th>Q1 2020</th>
+                <th>Q2 2020</th>
+                <th>Q4 2020</th>
+                <th>Change</th>
+            </tr>
+            <tr>
+                <td>New Store Creations</td>
+                <td>~50K/month</td>
+                <td>~100K/month</td>
+                <td>~120K/month</td>
+                <td>+140%</td>
+            </tr>
+            <tr>
+                <td>GMV</td>
+                <td>$17.4B</td>
+                <td>$30.1B</td>
+                <td>$41.1B</td>
+                <td>+136%</td>
+            </tr>
+            <tr>
+                <td>Revenue</td>
+                <td>$470M</td>
+                <td>$714M</td>
+                <td>$977M</td>
+                <td>+108%</td>
+            </tr>
+            <tr>
+                <td>Stock Price</td>
+                <td>$40</td>
+                <td>$100</td>
+                <td>$120</td>
+                <td>+200%</td>
+            </tr>
+        </table>
+
+        <h2>B. Pillar Impact During COVID</h2>
+        <table>
+            <tr>
+                <th>Pillar</th>
+                <th>Pre-COVID (Q4 2019)</th>
+                <th>Peak COVID (Q4 2020)</th>
+                <th>Impact</th>
+            </tr>
+            <tr>
+                <td>Capital</td>
+                <td>85</td>
+                <td>92</td>
+                <td>Revenue surge; cash accumulation</td>
+            </tr>
+            <tr>
+                <td>Advantage</td>
+                <td>90</td>
+                <td>94</td>
+                <td>Ecosystem value proven at scale</td>
+            </tr>
+            <tr>
+                <td>Market</td>
+                <td>85</td>
+                <td>95</td>
+                <td>E-commerce penetration doubled</td>
+            </tr>
+            <tr>
+                <td>People</td>
+                <td>88</td>
+                <td>90</td>
+                <td>Rapid hiring; remote work success</td>
+            </tr>
+            <tr>
+                <td><strong>CAMP Score</strong></td>
+                <td><strong>86.5</strong></td>
+                <td><strong>93.0</strong></td>
+                <td>Peak score during COVID</td>
+            </tr>
+        </table>
+
+        <h2>C. Post-COVID Normalization (2022-2024)</h2>
+        <p>As e-commerce growth normalized post-COVID, Shopify faced the challenge of managing expectations. The
+            company made significant strategic adjustments:</p>
+
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Event</th>
+                <th>CAMP Impact</th>
+            </tr>
+            <tr>
+                <td>Jul 2022</td>
+                <td>First major layoffs (10% of workforce, ~1,000 people)</td>
+                <td>People: -3 points (execution concerns)</td>
+            </tr>
+            <tr>
+                <td>May 2023</td>
+                <td>Second layoffs (20%, ~2,000 people)</td>
+                <td>People: additional -2 points</td>
+            </tr>
+            <tr>
+                <td>May 2023</td>
+                <td>Sold Shopify Fulfillment Network to Flexport</td>
+                <td>Strategic refocus; Capital: +2 (reduced burn)</td>
+            </tr>
+            <tr>
+                <td>2024</td>
+                <td>Return to profitability; AI features launch</td>
+                <td>Capital: +3; Advantage: +1</td>
+            </tr>
+        </table>
+
+        <div class="callout">
+            <div class="callout-title">Lütke's "Getting Comfortable with Uncomfortableness" Memo</div>
+            <em>"We got this wrong. We bet that e-commerce's share of retail would permanently leap ahead by 5 or
+                even 10 years. It didn't. It reverted closer to the pre-COVID trend. It's now clear that bet didn't pay
+                off."</em> - Tobias Lütke, July 2022 layoff announcement
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- PART 9: PILLAR TRANSFORMATION -->
+        <h1>IX. Pillar Transformation Timeline</h1>
+
+        <h2>A. Year-by-Year CAMP Evolution</h2>
+        <table>
+            <tr>
+                <th>Year</th>
+                <th>Capital</th>
+                <th>Advantage</th>
+                <th>Market</th>
+                <th>People</th>
+                <th>CAMP</th>
+                <th>Key Event</th>
+            </tr>
+            <tr>
+                <td>2006</td>
+                <td>35</td>
+                <td>70</td>
+                <td>50</td>
+                <td>75</td>
+                <td>64.5</td>
+                <td>Launch</td>
+            </tr>
+            <tr>
+                <td>2009</td>
+                <td>40</td>
+                <td>75</td>
+                <td>55</td>
+                <td>78</td>
+                <td>68.0</td>
+                <td>App Store launches</td>
+            </tr>
+            <tr>
+                <td>2010</td>
+                <td>55</td>
+                <td>78</td>
+                <td>60</td>
+                <td>80</td>
+                <td>72.5</td>
+                <td>Series A ($7M)</td>
+            </tr>
+            <tr>
+                <td>2013</td>
+                <td>75</td>
+                <td>85</td>
+                <td>75</td>
+                <td>85</td>
+                <td>81.0</td>
+                <td>Series C; Payments launch</td>
+            </tr>
+            <tr>
+                <td>2015</td>
+                <td>85</td>
+                <td>90</td>
+                <td>85</td>
+                <td>88</td>
+                <td>86.5</td>
+                <td>IPO</td>
+            </tr>
+            <tr>
+                <td>2020</td>
+                <td>92</td>
+                <td>94</td>
+                <td>95</td>
+                <td>90</td>
+                <td>93.0</td>
+                <td>COVID peak</td>
+            </tr>
+            <tr>
+                <td>2022</td>
+                <td>88</td>
+                <td>93</td>
+                <td>85</td>
+                <td>82</td>
+                <td>88.0</td>
+                <td>Layoffs; normalization</td>
+            </tr>
+            <tr>
+                <td>2024</td>
+                <td>92</td>
+                <td>95</td>
+                <td>88</td>
+                <td>85</td>
+                <td>91.0</td>
+                <td>Profitable; AI launch</td>
+            </tr>
+        </table>
+
+        <h2>B. Advantage Pillar Deep Dive: Building the Moat</h2>
+        <table>
+            <tr>
+                <th>Period</th>
+                <th>Advantage Score</th>
+                <th>Key Developments</th>
+            </tr>
+            <tr>
+                <td>2006-2008</td>
+                <td>70</td>
+                <td>Technology advantage (Rails); simplicity vs. competition</td>
+            </tr>
+            <tr>
+                <td>2009-2011</td>
+                <td>75-78</td>
+                <td>App Store creates ecosystem; developers invest in platform</td>
+            </tr>
+            <tr>
+                <td>2012-2014</td>
+                <td>82-85</td>
+                <td>Shopify Payments (Stripe); vertical integration begins</td>
+            </tr>
+            <tr>
+                <td>2015-2017</td>
+                <td>88-90</td>
+                <td>Shopify Plus (enterprise); Shop Pay (checkout optimization)</td>
+            </tr>
+            <tr>
+                <td>2018-2020</td>
+                <td>92-94</td>
+                <td>Shopify Balance; Fulfillment Network; Shop App</td>
+            </tr>
+            <tr>
+                <td>2021-2024</td>
+                <td>93-95</td>
+                <td>Hydrogen (headless); Shopify Magic (AI); ecosystem maturity</td>
+            </tr>
+        </table>
+
+        <h2>C. Capital Pillar Deep Dive: From Bootstrap to Cash Machine</h2>
+        <table>
+            <tr>
+                <th>Period</th>
+                <th>Capital Score</th>
+                <th>Key Developments</th>
+            </tr>
+            <tr>
+                <td>2006-2009</td>
+                <td>35-40</td>
+                <td>Bootstrap mentality; SaaS revenue from day one</td>
+            </tr>
+            <tr>
+                <td>2010-2012</td>
+                <td>55-65</td>
+                <td>Series A/B ($22M total); scaling investment</td>
+            </tr>
+            <tr>
+                <td>2013-2015</td>
+                <td>75-85</td>
+                <td>Series C ($100M); IPO raises $131M</td>
+            </tr>
+            <tr>
+                <td>2016-2019</td>
+                <td>85-88</td>
+                <td>Revenue growth 50%+ annually; approaching profitability</td>
+            </tr>
+            <tr>
+                <td>2020-2021</td>
+                <td>90-92</td>
+                <td>COVID revenue surge; cash accumulation</td>
+            </tr>
+            <tr>
+                <td>2022-2024</td>
+                <td>88-92</td>
+                <td>Cost cuts; return to profitability; $7B+ revenue</td>
+            </tr>
+        </table>
+
+        <div class="page-break"></div>
+
+        <!-- PART 10: MATRIX JOURNEY -->
+        <h1>VI. Matrix Journey Visualization</h1>
+
+        <div class="journey-box">
+            <div class="journey-row">
+                <div class="journey-point">
+                    <div class="journey-year">2006 (Launch)</div>
+                    <div class="journey-score">64.5</div>
+                    <div class="journey-quadrant">Hidden Gem</div>
+                </div>
+                <div class="journey-arrow">&rarr;</div>
+                <div class="journey-point">
+                    <div class="journey-year">2015 (IPO)</div>
+                    <div class="journey-score">86.45</div>
+                    <div class="journey-quadrant">Rocketship</div>
+                </div>
+                <div class="journey-arrow">&rarr;</div>
+                <div class="journey-point-success">
+                    <div class="journey-year">2024</div>
+                    <div class="journey-score">91.0</div>
+                    <div class="journey-quadrant">Rocketship (Mature)</div>
+                </div>
+            </div>
+            <div style="font-size: 9pt; margin-top: 15px;">
+                <strong>Time to IPO:</strong> 9 years | <strong>Capital Raised Pre-IPO:</strong> $122M<br>
+                <strong>Peak Market Cap:</strong> $227B | <strong>Current Market Cap:</strong> ~$90B
+            </div>
+        </div>
+
+        <!-- PART 7: KEY LESSONS -->
+        <h1>VII. Key Lessons for the CAMP Framework</h1>
+
+        <h2>A. Core Insights</h2>
+
+        <p><strong>1. "Scratch Your Own Itch" Creates Authentic Advantage.</strong> Lütke built Shopify because he
+            needed
+            it. This "dogfooding" origin creates deep product intuition and ensures real product-market fit. Founders
+            who
+            are their own first customers understand pain points that market research cannot reveal.</p>
+
+        <p><strong>2. Patient Growth is a Valid Strategy.</strong> 9 years from founding to IPO. Not every success is a
+            2-year Instagram exit. Shopify shows that steady pillar improvement over a decade can transform a Hidden Gem
+            into a Rocketship. The CAMP framework should recognize different trajectory archetypes.</p>
+
+        <p><strong>3. Ecosystem Creates Compounding Moat.</strong> The 2009 App Store decision created a flywheel: more
+            apps to more merchants to more developers to more apps. This ecosystem moat is now nearly impossible to
+            replicate.
+            Advantage pillar scores should heavily weight platform/ecosystem dynamics.</p>
+
+        <p><strong>4. Geographic Origin is Surmountable.</strong> Shopify was built in Ottawa, not Silicon Valley. While
+            this created initial Capital challenges (fewer local VCs), it also provided advantages: lower burn rate,
+            access to talent (Waterloo nearby), and a culture less focused on quick exits.</p>
+
+        <p><strong>5. Vertical Integration Expands Advantage.</strong> Shopify Payments (2013), Shopify Fulfillment
+            Network (2019), Shop Pay (2017)-each vertical integration captured more value from the merchant relationship
+            and created additional switching costs.</p>
+
+        <h2>B. The Hidden Gem to Rocketship Path</h2>
+        <ol>
+            <li><strong>Start with Advantage:</strong> Technical excellence or unique insight that competitors lack</li>
+            <li><strong>Prove Market with Revenue:</strong> SaaS model provided validation without massive funding</li>
+            <li><strong>Build Ecosystem Early:</strong> App Store (2009) was launched when Shopify had just 5,000
+                merchants</li>
+            <li><strong>Raise Capital When Needed:</strong> Delayed Series A until 2010 (4 years after launch)</li>
+            <li><strong>Expand Market Methodically:</strong> SMB to mid-market to enterprise (Shopify Plus 2014)</li>
+        </ol>
+
+        <div class="page-break"></div>
+
+        <!-- PART 8: SOURCES -->
+        <h1>VIII. Verified Factual Data and Sources</h1>
+
+        <h2>A. Company Information</h2>
+        <ul>
+            <li><strong>Founded:</strong> June 2006 (Shopify launch) - Wikipedia, company history</li>
+            <li><strong>Origin:</strong> Snowdevil snowboard shop (2004) - Founder interviews, Wikipedia</li>
+            <li><strong>Founders:</strong> Tobias Lütke, Daniel Weinand, Scott Lake - SEC filings</li>
+            <li><strong>Headquarters:</strong> Ottawa, Ontario, Canada - Company website</li>
+            <li><strong>Ruby on Rails Contributions:</strong> ActiveMerchant, Liquid - GitHub, RubyGems</li>
+        </ul>
+
+        <h2>B. Funding Data</h2>
+        <ul>
+            <li><strong>Seed (2007):</strong> $250K - HulkApps, news reports</li>
+            <li><strong>Series A (2010):</strong> $7M (Bessemer) - TechCrunch, Crunchbase</li>
+            <li><strong>Series B (2011):</strong> $15M - Crunchbase, press</li>
+            <li><strong>Series C (2013):</strong> $100M (OMERS, Insight) - TechCrunch</li>
+            <li><strong>Total Pre-IPO:</strong> $122M - SEC S-1 filing</li>
+        </ul>
+
+        <h2>C. IPO and Valuation Data</h2>
+        <ul>
+            <li><strong>IPO Date:</strong> May 21, 2015 - NYSE records</li>
+            <li><strong>IPO Price:</strong> $17/share - SEC filings</li>
+            <li><strong>IPO Valuation:</strong> $1.27B - News reports</li>
+            <li><strong>Peak Market Cap:</strong> $227B (November 2021) - Yahoo Finance</li>
+            <li><strong>Current Market Cap:</strong> ~$90B (2024) - Yahoo Finance</li>
+        </ul>
+
+        <h2>D. Business Metrics</h2>
+        <ul>
+            <li><strong>Merchants (2015):</strong> 175,000 - S-1 filing</li>
+            <li><strong>Merchants (2024):</strong> 2,000,000+ - Company reports</li>
+            <li><strong>GMV (2024):</strong> ~$200B+ annually - Investor presentations</li>
+            <li><strong>Revenue (2024):</strong> ~$7B - Quarterly reports</li>
+        </ul>
+
+        <h2>E. Methodology Notes</h2>
+        <ul>
+            <li><strong>Scoring:</strong> CAMP scores assigned retrospectively based on publicly available information
+                at
+                each stage</li>
+            <li><strong>Hidden Gem Classification:</strong> Reflects Shopify's undervaluation due to Ottawa location and
+                SMB focus</li>
+            <li><strong>Post-COVID Normalization:</strong> Stock decline from 2021 peak reflects market-wide tech
+                correction
+                and e-commerce normalization, not company-specific issues</li>
+        </ul>
+
+    <!-- ACTIONS + METRICS (OBSERVED) -->
+
+    <h1>X. Founder Actions and Metrics (Observed)</h1>
+
+    <div class="callout">
+        <div class="callout-title">Founder Actions (What Actually Happened in This Case)</div>
+        <p><strong>Capital milestones:</strong></p>
+        <ul>
+            <li><strong>2007:</strong> Seed — $250K</li>
+            <li><strong>Dec 2010:</strong> Series A — $7M</li>
+            <li><strong>Oct 2011:</strong> Series B — $15M</li>
+            <li><strong>Dec 2013:</strong> Series C — $100M</li>
+            <li><strong>May 2015:</strong> IPO — $131M raised</li>
+        </ul>
+    </div>
+
+    <div class="callout">
+        <div class="callout-title">Metrics to Watch (Metrics Surfaced in This Case)</div>
+        <p><em>These are the metrics this case uses to describe progress and performance.</em></p>
+        <ul>
+            <li><strong>Stock Price:</strong> ~$70</li>
+            <li><strong>Return from IPO:</strong> +312%</li>
+            <li><strong>Context:</strong> Post-COVID normalization</li>
+        </ul>
+    </div>
+
+    <div class="callout callout--measure-next">
+        <div class="callout-title">What to Measure Next (Leading Indicators)</div>
+        <p><em>Forward-looking guidance for applying CAMP prospectively. Metric definitions reference the FLASH metric schema.</em></p>
+        <table class="metrics-next-table">
+            <tr>
+                <th style="width: 16%;">Pillar</th>
+                <th>Leading Indicators (FLASH metrics)</th>
+            </tr>
+            <tr>
+                <td><div class="metrics-next-pillar">Capital</div></td>
+                <td><div class="metric-line"><span class="metric-name" data-metric-id="cashRunwayMonths">Cash Runway Months</span></div><div class="metric-line"><span class="metric-name" data-metric-id="burnMultiple">Burn Multiple</span></div><div class="metric-line"><span class="metric-name" data-metric-id="grossMargin">Gross Margin</span></div></td>
+            </tr>
+            <tr>
+                <td><div class="metrics-next-pillar">Advantage</div></td>
+                <td><div class="metric-line"><span class="metric-name" data-metric-id="switchingCostDollars">Switching Cost Dollars</span></div><div class="metric-line"><span class="metric-name" data-metric-id="platformLockInScore">Platform Lock In Score</span></div><div class="metric-line"><span class="metric-name" data-metric-id="defensibilityScore">Defensibility Score</span></div></td>
+            </tr>
+            <tr>
+                <td><div class="metrics-next-pillar">Market</div></td>
+                <td><div class="metric-line"><span class="metric-name" data-metric-id="marketGrowthRate">Market Growth Rate</span></div><div class="metric-line"><span class="metric-name" data-metric-id="competitionIntensity">Competition Intensity</span></div><div class="metric-line"><span class="metric-name" data-metric-id="netDollarRetention">Net Dollar Retention</span></div></td>
+            </tr>
+            <tr>
+                <td><div class="metrics-next-pillar">People</div></td>
+                <td><div class="metric-line"><span class="metric-name" data-metric-id="executionToPlanScore">Execution To Plan Score</span></div><div class="metric-line"><span class="metric-name" data-metric-id="teamSize">Team Size</span></div><div class="metric-line"><span class="metric-name" data-metric-id="employeeTurnover12MonthsPct">Employee Turnover 12 Months %</span></div></td>
+            </tr>
+        </table>
+        <p><em>Definitions and computations: FLASH Metrics Library.</em></p>
+    </div>
+
+    <div class="callout callout--red-flags">
+        <div class="callout-title">Red Flags (Failure Modes to Watch For)</div>
+        <p><em>Signals that often precede a CAMP score collapse, mapped to measurable indicators.</em></p>
+        <ul>
+            <li><strong>Runway compression:</strong> Runway shrinks while burn accelerates.<span class="metric-note">Metrics: Cash Runway Months; Burn Trend.</span></li>
+            <li><strong>Inefficient growth:</strong> Spend rises faster than durable revenue.<span class="metric-note">Metrics: Burn Multiple; Growth Efficiency Index.</span></li>
+            <li><strong>Retention decay:</strong> Expansion slows and churn accelerates.<span class="metric-note">Metrics: Net Retention Trend; Churn Trend.</span></li>
+            <li><strong>Concentration risk:</strong> A small set of accounts becomes mission-critical.<span class="metric-note">Metrics: Customer Concentration; Revenue Concentration Risk Index.</span></li>
+            <li><strong>GTM brittleness:</strong> The sales engine slows and pipeline stops covering targets.<span class="metric-note">Metrics: Sales Cycle Days; Sales Pipeline Coverage; Pipeline Coverage Health.</span></li>
+            <li><strong>Org strain:</strong> Turnover rises while open roles stay unfilled.<span class="metric-note">Metrics: Employee Turnover 12 Months %; Hiring Gap Index.</span></li>
+        </ul>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div class="document-footer">
+        <div class="flash-brand-block">
+            <img src="flash_logo_trimmed.png" alt="FLASH Capital" class="flash-brand-logo">
+        </div>
+        FLASH Capital | CAMP Matrix Framework | Case Study: Shopify
+    </div>
+
 </body>
+
 </html>

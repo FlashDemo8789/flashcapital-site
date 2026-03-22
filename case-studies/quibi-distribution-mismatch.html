@@ -1,86 +1,1709 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Quibi Case Study: Product-Distribution Mismatch | FLASH Capital</title>
-    <meta name="description" content="Failure-pattern case analysis of Quibi on behavior-channel mismatch and launch risk.">
-    <link rel="canonical" href="https://flashcapital.co.jp/case-studies/quibi-distribution-mismatch.html">
-    <meta property="og:title" content="Quibi: Product-Distribution Mismatch">
-    <meta property="og:description" content="Failure-pattern case analysis on behavior-channel mismatch and launch risk.">
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://flashcapital.co.jp/case-studies/quibi-distribution-mismatch.html">
-    <meta property="article:published_time" content="2026-03-19">
-    <meta property="article:modified_time" content="2026-03-21">
-    <link rel="stylesheet" href="/content-hub.css">
-    <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"Article","headline":"Quibi: Product-Distribution Mismatch","datePublished":"2026-03-19","dateModified":"2026-03-21","author":{"@type":"Organization","name":"FLASH Capital"},"publisher":{"@type":"Organization","name":"FLASH Capital"},"mainEntityOfPage":"https://flashcapital.co.jp/case-studies/quibi-distribution-mismatch.html"}
-    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAMP Matrix Case Study: Quibi (FAILURE)</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 1in 1in 1.55in 1in;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, Georgia, serif;
+            font-size: 11pt;
+            line-height: 1.6;
+            color: #1a1a1a;
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .document-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #1a1a1a;
+        }
+
+        .document-title {
+            font-size: 18pt;
+            font-weight: bold;
+            margin-bottom: 5px;
+            letter-spacing: 0.5px;
+        }
+
+        .document-subtitle {
+            font-size: 14pt;
+            font-style: italic;
+            color: #333;
+            margin-bottom: 12px;
+        }
+
+        .document-meta {
+            font-size: 10pt;
+            color: #555;
+        }
+
+        .failure-banner {
+            background: #dc3545;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 12pt;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        h1 {
+            font-size: 14pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #333;
+        }
+
+        h2 {
+            font-size: 12pt;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 12px;
+        }
+
+        h3 {
+            font-size: 11pt;
+            font-weight: bold;
+            font-style: italic;
+            margin-top: 15px;
+            margin-bottom: 12px;
+        }
+
+        p {
+            text-align: justify;
+            margin-bottom: 12px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 10pt;
+        }
+
+        th {
+            background: #f5f5f5;
+            border: 1px solid #333;
+            padding: 8px 10px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        td {
+            border: 1px solid #333;
+            padding: 8px 10px;
+        }
+
+        .callout {
+            background: #f9f9f9;
+            border: 1px solid #ccc;
+            border-left: 3px solid #333;
+            padding: 12px 15px;
+            margin: 15px 0;
+            font-size: 10pt;
+        }
+
+        .callout-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .warning-callout {
+            background: #f8d7da;
+            border: 1px solid #dc3545;
+            border-left: 3px solid #dc3545;
+            padding: 12px 15px;
+            margin: 15px 0;
+            font-size: 10pt;
+        }
+
+        .figure-caption {
+            text-align: center;
+            font-size: 9pt;
+            font-style: italic;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        ul,
+        ol {
+            margin: 10px 0;
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 5px;
+            text-align: justify;
+        }
+
+        .page-break {
+            page-break-before: always;
+        }
+
+        .document-footer {
+            margin-top: 40px;
+            padding-top: 15px;
+            border-top: 1px solid #333;
+            text-align: center;
+            font-size: 9pt;
+        }
+
+        .pillars-grid {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+            gap: 10px;
+        }
+
+        .pillar-item {
+            flex: 1;
+            text-align: center;
+            padding: 15px 10px;
+            border: 1px solid #333;
+        }
+
+        .pillar-letter {
+            font-size: 24pt;
+            font-weight: bold;
+        }
+
+        .pillar-name {
+            font-size: 11pt;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .pillar-desc {
+            font-size: 9pt;
+            margin-top: 5px;
+            color: #555;
+        }
+
+        .matrix-container {
+            margin: 20px auto;
+            max-width: 450px;
+        }
+
+        .matrix-grid {
+            display: grid;
+            grid-template-columns: 30px 1fr 1fr;
+            grid-template-rows: 1fr 1fr 30px;
+            gap: 2px;
+            background: #333;
+            padding: 2px;
+        }
+
+        .y-axis {
+            grid-row: 1 / 3;
+            grid-column: 1;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            font-size: 9pt;
+            font-weight: bold;
+        }
+
+        .quadrant {
+            background: white;
+            padding: 15px 10px;
+            text-align: center;
+        }
+
+        .quadrant-title {
+            font-weight: bold;
+            font-size: 10pt;
+        }
+
+        .quadrant-desc {
+            font-size: 8pt;
+            color: #666;
+            margin-top: 3px;
+        }
+
+        .x-axis {
+            grid-column: 2 / 4;
+            grid-row: 3;
+            background: white;
+            text-align: center;
+            font-size: 9pt;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .journey-box {
+            border: 2px solid #dc3545;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            background: #fff5f5;
+        }
+
+        .journey-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin: 15px 0;
+        }
+
+        .journey-point {
+            text-align: center;
+            padding: 15px 25px;
+            border: 2px solid #333;
+        }
+
+        .journey-point-fail {
+            text-align: center;
+            padding: 15px 25px;
+            border: 3px solid #dc3545;
+            background: #fff5f5;
+        }
+
+        .journey-year {
+            font-size: 12pt;
+            font-weight: bold;
+        }
+
+        .journey-score {
+            font-size: 18pt;
+            font-weight: bold;
+        }
+
+        .journey-quadrant {
+            font-size: 9pt;
+            font-style: italic;
+        }
+
+        .journey-arrow {
+            font-size: 24pt;
+            font-weight: bold;
+            color: #dc3545;
+        }
+
+        .red-flag {
+            color: #dc3545;
+            font-weight: bold;
+        }
+
+
+        /* CAMP Unified Theme */
+        :root {
+            --camp-accent: #0B1F3A;
+            --camp-ink: #0F172A;
+            --camp-wash: #F8FAFC;
+            --camp-callout-bg: #FFFFFF;
+        }
+
+        /* Unify banners (single professional look) */
+        [class$="-banner"] {
+            background: var(--camp-wash) !important;
+            color: var(--camp-ink) !important;
+            border-bottom: 2px solid var(--camp-accent) !important;
+        }
+
+        /* Unify accent elements */
+        .callout {
+            background: var(--camp-callout-bg) !important;
+            border-left: 3px solid var(--camp-accent) !important;
+        }
+
+        .score-bar {
+            background: var(--camp-accent) !important;
+        }
+
+        .journey-arrow {
+            color: var(--camp-accent) !important;
+        }
+
+        .journey-box,
+        .journey-point {
+            border-color: var(--camp-accent) !important;
+        }
+    
+        .flash-brand-block {
+            margin-bottom: 12px;
+            line-height: 1;
+        }
+        .flash-brand-logo {
+            display: inline-block;
+            height: auto;
+            width: 40px;
+            max-width: none;
+            object-fit: contain;
+            vertical-align: middle;
+        }
+    
+        .footer,
+        .document-footer {
+            page-break-inside: avoid;
+            break-inside: avoid-page;
+        }
+    
+        @media print {
+            .footer,
+            .document-footer {
+                position: fixed !important;
+                left: 0 !important;
+                right: 0 !important;
+                bottom: 0.35in !important;
+                margin: 0 !important;
+                padding: 0 0.75in !important;
+                break-inside: avoid-page;
+                page-break-inside: avoid;
+                text-align: center !important;
+                background: transparent !important;
+            }
+
+            .flash-brand-logo {
+                width: 40px !important;
+            }
+        }
+
+        /* FLASH Branding Overrides */
+        .flash-brand-block {
+            margin-bottom: 6px;
+            line-height: 1;
+            text-align: center;
+        }
+        .flash-brand-logo {
+            display: inline-block;
+            height: 48px;
+            width: auto;
+            object-fit: contain;
+            vertical-align: middle;
+        }
+
+        @media print {
+            .footer,
+            .document-footer {
+                position: fixed !important;
+                left: 0 !important;
+                right: 0 !important;
+                bottom: 0.4in !important;
+                margin: 0 !important;
+                padding: 0 0.75in !important;
+                text-align: center !important;
+                background: transparent !important;
+            }
+
+            .flash-brand-block {
+                margin-bottom: 6px !important;
+                line-height: 1 !important;
+            }
+
+            .flash-brand-logo {
+                height: 48px !important;
+                width: auto !important;
+            }
+        }
+
+
+        
+        
+        
+        /* FLASH Professional Print v1 (do not edit by hand) */
+        :root {
+            --flash-ink: #0F172A;
+            --flash-muted: #334155;
+        }
+
+        /* Standardize page size. */
+        @page {
+            size: A4;
+            margin: 0.75in 0.75in 0.55in 0.75in;
+        }
+
+        /* First-page header mark (in-flow, not repeated). */
+        .flash-brand-header {
+            text-align: center;
+            margin: 0 0 10px;
+            line-height: 1;
+        }
+
+        .flash-brand-logo--header {
+            height: 54px;
+            width: auto;
+            max-width: none;
+            object-fit: contain;
+            vertical-align: middle;
+        }
+
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+
+                /*
+                 * Reserve space for the fixed footer on every page.
+                 *
+                 * In Chrome's print engine, `position: fixed` elements do NOT reserve layout
+                 * space, and are positioned relative to the page *area* (inside @page
+                 * margins). This causes footer overlap unless we create per-page bottom
+                 * padding. `box-decoration-break: clone` makes that padding apply to each
+                 * paginated fragment.
+                 */
+                -webkit-box-decoration-break: clone;
+                box-decoration-break: clone;
+                padding-bottom: 1.25in !important;
+            }
+
+            /* Footer: fixed and compact so it never overlaps content. */
+            .footer,
+            .document-footer {
+                position: fixed !important;
+                left: 0 !important;
+                right: 0 !important;
+                bottom: 0.15in !important;
+                margin: 0 !important;
+                padding: 6px 0.75in 0 !important;
+                text-align: center !important;
+                border-top: 1px solid rgba(15, 23, 42, 0.16) !important;
+                background: transparent !important;
+                z-index: 9999 !important;
+                color: var(--flash-muted) !important;
+                font-size: 8.5pt !important;
+                line-height: 1.25 !important;
+            }
+
+            .flash-brand-block {
+                margin: 0 0 4px !important;
+                line-height: 1 !important;
+                text-align: center !important;
+            }
+
+            /* Footer logo */
+            .flash-brand-logo {
+                height: 34px !important;
+                width: auto !important;
+                max-width: none !important;
+                object-fit: contain !important;
+                vertical-align: middle !important;
+            }
+
+            /* Header logo slightly larger */
+            .flash-brand-logo--header {
+                height: 44px !important;
+            }
+        }
+        /* END FLASH Professional Print v1 */
+
+        /* Actions + Metrics Design v1 (do not edit by hand) */
+        .callout--measure-next p,
+        .callout--measure-next li,
+        .callout--red-flags p,
+        .callout--red-flags li {
+            text-align: left !important;
+        }
+
+        .callout--measure-next table.metrics-next-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0 6px;
+            font-size: 9.75pt;
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        .callout--measure-next table.metrics-next-table th {
+            background: transparent !important;
+            border: none !important;
+            border-bottom: 1px solid rgba(15, 23, 42, 0.22) !important;
+            padding: 6px 8px !important;
+            text-align: left !important;
+            font-weight: 600 !important;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            font-size: 8.5pt;
+            color: var(--flash-muted, #334155) !important;
+        }
+
+        .callout--measure-next table.metrics-next-table td {
+            border: none !important;
+            border-bottom: 1px solid rgba(15, 23, 42, 0.12) !important;
+            padding: 8px 8px !important;
+            vertical-align: top;
+        }
+
+        .callout--measure-next table.metrics-next-table tr:last-child td {
+            border-bottom: none !important;
+        }
+
+        .callout--measure-next .metrics-next-pillar {
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 9pt;
+            color: var(--flash-ink, #0F172A);
+            white-space: nowrap;
+        }
+
+        .callout--measure-next .metric-line {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 2px 0;
+        }
+
+        .callout--measure-next .metric-name {
+            color: var(--flash-ink, #0F172A);
+        }
+
+        .metric-id {
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+            font-size: 8pt;
+            color: var(--flash-muted, #334155);
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            overflow-wrap: anywhere;
+            word-break: break-word;
+        }
+
+        .callout--red-flags .metric-note {
+            color: var(--flash-muted, #334155);
+            font-size: 8.5pt;
+            margin-left: 0.25em;
+            white-space: normal;
+        }
+
+        /* CAMP Matrix Quadrant Consistency v1 */
+        :root {
+            --camp-q-hidden-gem: #f7f0df;
+            --camp-q-rocketship: #e8f3ea;
+            --camp-q-chaos-zone: #f7e9ee;
+            --camp-q-starved-visionary: #e8f0f9;
+        }
+
+        .q-tl {
+            background: var(--camp-q-hidden-gem) !important;
+        }
+
+        .q-tr {
+            background: var(--camp-q-rocketship) !important;
+        }
+
+        .q-bl {
+            background: var(--camp-q-chaos-zone) !important;
+        }
+
+        .q-br {
+            background: var(--camp-q-starved-visionary) !important;
+        }
+
+        .matrix-grid .quadrant {
+            border-color: rgba(15, 23, 42, 0.36) !important;
+        }
+
+        /*
+         * Pagination Safety v1
+         * - Avoid orphan caption lines and one-line pre-break pages.
+         * - Keep matrices/tables/callouts from splitting into footer space.
+         */
+        @media print {
+            .page-break {
+                display: none !important;
+                page-break-before: auto !important;
+                break-before: auto !important;
+            }
+
+            h1,
+            h2 {
+                page-break-after: auto !important;
+                break-after: auto !important;
+            }
+
+            h3 {
+                page-break-after: avoid !important;
+                break-after: avoid-page !important;
+            }
+
+            table,
+            .matrix-container,
+            .matrix-grid,
+            .pillars-grid,
+            .journey-box,
+            .journey-row,
+            .callout {
+                page-break-inside: avoid !important;
+                break-inside: avoid-page !important;
+            }
+
+            table + .figure-caption,
+            .figure-caption {
+                page-break-before: avoid !important;
+                break-before: avoid-page !important;
+                page-break-after: avoid !important;
+                break-after: avoid-page !important;
+                margin-top: 3px !important;
+                margin-bottom: 10px !important;
+            }
+
+            p {
+                orphans: 3;
+                widows: 3;
+            }
+        }
+        /* END Actions + Metrics Design v1 */
+
+    </style>
 </head>
-<body data-content-type="case_study" data-content-slug="quibi-distribution-mismatch">
-<header class="content-header"><div class="content-header-inner"><a class="content-brand" href="/">FLASH Capital</a><nav class="content-nav"><a href="/insights/">Insights</a><a class="active" href="/case-studies/">Case Studies</a><a href="/newsletter/">Newsletter</a><a href="/flash-camp-framework.html">CAMP Framework</a><a href="/contact.html">Contact</a></nav><a class="content-cta" href="https://flash.zone">Apply now</a></div></header>
-<main class="content-wrap">
-<article class="hero-block">
-<span class="hero-kicker">Failure Pattern | Market</span>
-<h1 class="hero-title">Quibi: Product-Distribution Mismatch</h1>
-<p class="hero-subtitle">Quibi highlights the risk of strong production execution paired with weak audience-channel fit at launch.</p>
-<div class="claim-block"><div class="claim-label">Claim Type: Fact</div><p class="claim-text">Public reporting and executive commentary described adoption challenges tied to market behavior assumptions and distribution context at launch.</p></div>
-<div class="claim-block"><div class="claim-label">Claim Type: Estimate</div><p class="claim-text">When behavior assumptions are unproven, high upfront content spend can increase downside exposure before product-market evidence is established.</p></div>
-<div class="claim-block"><div class="claim-label">Claim Type: Opinion</div><p class="claim-text">Launch quality cannot compensate for unresolved behavior-channel mismatch.</p></div>
-<div class="article-body">
-<section class="article-section">
-<h2>What The Source Case Actually Shows</h2>
-<p>The CAMP source case for Quibi frames this as a textbook capital-without-fit failure. The executive summary emphasizes that world-class credentials and large pre-launch funding were insufficient because external validation never materialized in a meaningful way.</p>
-<p>The central analytical point is simple: strong internal engine signals cannot replace Market and Advantage evidence when user behavior and distribution dynamics are misread.</p>
-</section>
-<section class="article-section">
-<h2>CAMP Snapshot From The Source Model</h2>
-<ul>
-<li>Launch-profile scores in the source model: Capital 95, Advantage 35, Market 25, People 80.</li>
-<li>Weighted CAMP score in the source table: 56.0.</li>
-<li>The source case identifies this as a Starved Visionary pattern with high internal resources but weak external validation.</li>
-</ul>
-<p>The result is a fragile launch structure: high spend and high expectation with insufficient proof of durable demand.</p>
-</section>
-<section class="article-section">
-<h2>Operator Lens For Founders</h2>
-<p>Treat distribution-fit validation as a precondition for scaling spend. Before major capital deployment, confirm that behavior assumptions hold in real channel conditions and that your product has a defensible reason to win against free alternatives.</p>
-</section>
+
+<body>
+
+    <div class="document-header">
+        <div class="flash-brand-header">
+            <img src="flash_logo_trimmed.png" alt="FLASH Capital" class="flash-brand-logo flash-brand-logo--header">
+        </div>
+
+        <div class="document-title">CAMP Matrix Framework</div>
+        <div class="document-subtitle">Case Study: Quibi (2018-2020)</div>
+        <div class="document-meta">Assessing Startup Investability and Execution Readiness</div>
+    </div>
+
+    <div class="warning-callout">
+        <div class="callout-title">Executive Summary: When Capital Cannot Buy Product-Market Fit</div>
+        Quibi raised $1.75 billion pre-launch-one of the largest funding rounds in entertainment history-from every
+        major Hollywood studio and had two of the most credentialed executives in business: Jeffrey Katzenberg
+        (DreamWorks) and Meg Whitman (eBay, HP). Yet the company shut down just 6 months after launch, returning $350
+        million to investors and selling its content library for less than $100 million. The CAMP framework would have
+        identified the fatal flaw: a strong People pillar (credentials) and Capital pillar (funding) cannot compensate
+        for a fundamentally weak Market pillar (no product-market fit) and weak Advantage pillar (competing against
+        free). This is the quintessential "Starved Visionary" case-strong internal engine, zero external validation.
+    </div>
+
+    <!-- PART 1: FRAMEWORK INTRODUCTION -->
+    <h1>I. The CAMP Framework</h1>
+
+    <h2>A. The Four Pillars</h2>
+    <p>The CAMP Matrix evaluates startup potential through four interconnected dimensions:</p>
+
+    <div class="pillars-grid">
+        <div class="pillar-item">
+            <div class="pillar-letter">C</div>
+            <div class="pillar-name">Capital</div>
+            <div class="pillar-desc">Runway, burn efficiency, capital access</div>
+        </div>
+        <div class="pillar-item">
+            <div class="pillar-letter">A</div>
+            <div class="pillar-name">Advantage</div>
+            <div class="pillar-desc">Moat, IP, differentiation, switching costs</div>
+        </div>
+        <div class="pillar-item">
+            <div class="pillar-letter">M</div>
+            <div class="pillar-name">Market</div>
+            <div class="pillar-desc">TAM, growth rate, traction, timing</div>
+        </div>
+        <div class="pillar-item">
+            <div class="pillar-letter">P</div>
+            <div class="pillar-name">People</div>
+            <div class="pillar-desc">Founder quality, team, governance</div>
+        </div>
+    </div>
+    <div class="figure-caption">Figure 1: The Four CAMP Pillars</div>
+
+    <h2>B. The 2x2 Matrix</h2>
+    <p>The pillars combine into two composite dimensions:</p>
+    <ul>
+        <li><strong>Internal Engine</strong> (Y-axis) = Capital + People, measures organizational capability</li>
+        <li><strong>External Promise</strong> (X-axis) = Advantage + Market, measures opportunity attractiveness</li>
+    </ul>
+
+    <div class="matrix-container">
+        <div class="matrix-grid">
+            <div class="y-axis"><span class="y-axis-text">INTERNAL ENGINE</span></div>
+            <div class="quadrant q-tl">
+                <div class="quadrant-title">Hidden Gem</div>
+                <div class="quadrant-desc">Strong engine, weak opportunity</div>
+            </div>
+            <div class="quadrant q-tr">
+                <div class="quadrant-title">Rocketship</div>
+                <div class="quadrant-desc">Strong engine, strong opportunity</div>
+            </div>
+            <div class="quadrant q-bl">
+                <div class="quadrant-title">Chaos Zone</div>
+                <div class="quadrant-desc">Weak on both dimensions</div>
+            </div>
+            <div class="quadrant q-br">
+                <div class="quadrant-title">Starved Visionary</div>
+                <div class="quadrant-desc">Big opportunity, weak engine</div>
+            </div>
+            <div class="x-axis">EXTERNAL PROMISE</div>
+        </div>
+    </div>
+    <div class="figure-caption">Figure 2: The CAMP Matrix Quadrants</div>
+
+    <h2>C. Stage-Aware Weighting</h2>
+    <table>
+        <tr>
+            <th>Stage</th>
+            <th>Capital</th>
+            <th>Advantage</th>
+            <th>Market</th>
+            <th>People</th>
+        </tr>
+        <tr>
+            <td>Pre-Seed</td>
+            <td>10%</td>
+            <td>30%</td>
+            <td>20%</td>
+            <td><strong>40%</strong></td>
+        </tr>
+        <tr>
+            <td>Seed</td>
+            <td>15%</td>
+            <td>30%</td>
+            <td>25%</td>
+            <td>30%</td>
+        </tr>
+        <tr>
+            <td>Series A</td>
+            <td>25%</td>
+            <td>25%</td>
+            <td><strong>30%</strong></td>
+            <td>20%</td>
+        </tr>
+        <tr>
+            <td>Series B+</td>
+            <td><strong>35%</strong></td>
+            <td>20%</td>
+            <td>30%</td>
+            <td>15%</td>
+        </tr>
+    </table>
+<div class="figure-caption">Table 1: Stage-Dependent Pillar Weights
 </div>
-<h2>What founders should do next</h2>
-<p>Before scaling spend, test your core consumption behavior in realistic channel conditions. Treat distribution fit as a first-order product decision.</p>
-<div class="cta-row"><a class="btn primary" data-content-cta data-content-type="case_study" data-content-slug="quibi-distribution-mismatch" href="https://flash.zone">Apply now</a><a class="btn" href="/contact.html">Contact</a></div>
-<div class="sources"><strong>Sources and context:</strong><br>Public source set: company statements and market reporting on Quibi launch assumptions, channel fit, and shutdown timeline (2020-2025).<br><a href="https://www.sec.gov/edgar/search/">SEC EDGAR</a><br>Method note for estimate claims: directional inference from launch-channel mismatch patterns and FLASH case benchmarking; not a causal estimate.</div>
-</article>
-<section class="grid">
-<article class="card span-4">
-<h3><a href="/insights/camp-stage-weighting.html">Related Insight: Stage Weighting in CAMP</a></h3>
-<p>See how stage changes investor interpretation of identical metrics.</p>
-<div class="cta-row"><a class="btn" href="/insights/camp-stage-weighting.html">Read insight</a></div>
-</article>
-<article class="card span-4">
-<h3><a href="/insights/investor-readiness-scorecard.html">Related Insight: Investor Readiness Scorecard</a></h3>
-<p>Use this practical scorecard to structure your next investor update.</p>
-<div class="cta-row"><a class="btn" href="/insights/investor-readiness-scorecard.html">Read insight</a></div>
-</article>
-<article class="card span-4">
-<h3><a href="/newsletter/2026-03.html">Latest Newsletter: March 2026</a></h3>
-<p>Monthly editorial brief on credibility, risk transparency, and milestone logic.</p>
-<div class="cta-row"><a class="btn" href="/newsletter/2026-03.html">Read issue</a></div>
-</article>
-</section>
-<section class="newsletter-module">
-<h3>Get Monthly Case Breakdowns</h3>
-<p>Receive one concise monthly email with new case analyses, investor-readiness frameworks, and actionable founder checklists.</p>
-<form class="newsletter-signup-form" novalidate>
-<input type="email" name="email" placeholder="you@company.com" required>
-<label><input type="checkbox" name="consent"> I consent to receive monthly FLASH Capital editorial updates.</label>
-<button type="submit">Subscribe</button>
-<div class="form-status" aria-live="polite"></div>
-</form>
-</section>
-<footer class="content-footer"><span>FLASH Capital Case Studies</span><div class="content-footer-links"><a href="/case-studies/">All case studies</a><a href="/flash-privacy-policy.html">Privacy Policy</a><a href="/flash-terms-of-service.html">Terms of Service</a></div></footer>
-</main>
-<script src="/js/content-engagement.js"></script>
+
+    <h2>D. Scoring Rubric</h2>
+    <table>
+        <tr>
+            <th>Score Range</th>
+            <th>Classification</th>
+            <th>Interpretation</th>
+        </tr>
+        <tr>
+            <td>0-25</td>
+            <td>Critical</td>
+            <td>Severe deficiency; existential risk</td>
+        </tr>
+        <tr>
+            <td>26-50</td>
+            <td>Weak</td>
+            <td>Below threshold; requires improvement</td>
+        </tr>
+        <tr>
+            <td>51-75</td>
+            <td>Moderate</td>
+            <td>Acceptable but not differentiated</td>
+        </tr>
+        <tr>
+            <td>76-100</td>
+            <td>Strong</td>
+            <td>Competitive advantage; exceeds expectations</td>
+        </tr>
+    </table>
+<div class="figure-caption">Table 2: Pillar Scoring Rubric
+</div>
+
+    <div class="page-break"></div>
+
+    <!-- PART 2: COMPANY HISTORY -->
+    <h1>II. Company History and Context</h1>
+
+    <h2>A. Founding Story</h2>
+    <p>Jeffrey Katzenberg, former chairman of Walt Disney Studios and co-founder of DreamWorks Animation, conceived
+        Quibi (short for "quick bites") after observing mobile content consumption patterns. His thesis: young viewers
+        wanted premium, Hollywood-quality content in short (under 10-minute) episodes designed specifically for mobile
+        viewing during commutes and breaks. He recruited Meg Whitman-former CEO of eBay and HP-as CEO to bring
+        operational expertise to his content vision.</p>
+
+    <table>
+        <tr>
+            <th>Attribute</th>
+            <th>Detail</th>
+        </tr>
+        <tr>
+            <td>Founded</td>
+            <td>August 2018 (as NewTV, Inc.)</td>
+        </tr>
+        <tr>
+            <td>Renamed</td>
+            <td>Quibi ("quick bites") in October 2018</td>
+        </tr>
+        <tr>
+            <td>Founders</td>
+            <td>Jeffrey Katzenberg (Chairman), Meg Whitman (CEO)</td>
+        </tr>
+        <tr>
+            <td>Headquarters</td>
+            <td>Los Angeles, California</td>
+        </tr>
+        <tr>
+            <td>Concept</td>
+            <td>Premium short-form mobile video (under 10 minutes)</td>
+        </tr>
+        <tr>
+            <td>Target Audience</td>
+            <td>18-44 year olds, primarily on mobile</td>
+        </tr>
+        <tr>
+            <td>Pricing</td>
+            <td>$4.99/month (with ads), $7.99/month (ad-free)</td>
+        </tr>
+    </table>
+
+    <h2>B. Complete Funding History</h2>
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Round</th>
+            <th>Amount</th>
+            <th>Key Investors</th>
+        </tr>
+        <tr>
+            <td>Aug 2018</td>
+            <td>Series A</td>
+            <td>$1.0 billion</td>
+            <td>Disney, NBCUniversal, Sony, Viacom, WarnerMedia, Lionsgate, MGM, ITV</td>
+        </tr>
+        <tr>
+            <td>Mar 2020</td>
+            <td>Series B</td>
+            <td>$750 million</td>
+            <td>Same studios plus Alibaba, Goldman Sachs, JPMorgan Chase</td>
+        </tr>
+        <tr>
+            <td><strong>Total</strong></td>
+            <td></td>
+            <td><strong>$1.75 billion</strong></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <div class="warning-callout">
+        <div class="callout-title">Historic Pre-Launch Funding</div>
+        Quibi's $1.75 billion pre-launch raise was unprecedented in entertainment history. For comparison: Netflix
+        raised $30M before launch (1999); Hulu raised $100M (2007); Disney+ launched with $0 external funding (built
+        internally). Quibi raised more before launching than most streaming services raised in their first decade.
+    </div>
+
+    <h2>C. Investor Composition Analysis</h2>
+    <p>The investor list reveals a critical CAMP insight: every major Hollywood studio invested, creating a unique
+        conflict of interest and herd mentality.</p>
+
+    <table>
+        <tr>
+            <th>Investor</th>
+            <th>Investment</th>
+            <th>Strategic Interest</th>
+            <th>Conflict</th>
+        </tr>
+        <tr>
+            <td>The Walt Disney Company</td>
+            <td>~$200M</td>
+            <td>Content partner; launching Disney+</td>
+            <td>Competing streaming service</td>
+        </tr>
+        <tr>
+            <td>NBCUniversal (Comcast)</td>
+            <td>~$200M</td>
+            <td>Content partner; launching Peacock</td>
+            <td>Competing streaming service</td>
+        </tr>
+        <tr>
+            <td>WarnerMedia (AT&amp;T)</td>
+            <td>~$200M</td>
+            <td>Content partner; launching HBO Max</td>
+            <td>Competing streaming service</td>
+        </tr>
+        <tr>
+            <td>Viacom/CBS</td>
+            <td>~$200M</td>
+            <td>Content partner; launching Paramount+</td>
+            <td>Competing streaming service</td>
+        </tr>
+        <tr>
+            <td>Sony Pictures</td>
+            <td>~$100M</td>
+            <td>Content partner</td>
+            <td>License to competitors</td>
+        </tr>
+        <tr>
+            <td>Alibaba Group</td>
+            <td>~$150M</td>
+            <td>China expansion potential</td>
+            <td>Limited to Asia strategy</td>
+        </tr>
+    </table>
+
+    <div class="callout">
+        <div class="callout-title">The Hollywood FOMO Phenomenon</div>
+        Every major studio invested-not because of proven product-market fit, but because Katzenberg's reputation made
+        them fear missing out. This created a "group validation" illusion: "If Disney is in, it must be good." In
+        reality, nobody had validated consumer demand. The CAMP framework would note: <strong>investor quality ≠ market
+            validation</strong>.
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- PART 3: PILLAR ANALYSIS -->
+    <h1>III. Pre-Launch CAMP Assessment (April 2020)</h1>
+
+    <h2>A. Capital: 95/100 (Misleadingly High)</h2>
+    <table>
+        <tr>
+            <th>Factor</th>
+            <th>Evidence</th>
+            <th>Tier</th>
+            <th>Score</th>
+        </tr>
+        <tr>
+            <td>Funding Quality</td>
+            <td>$1.75 billion - among largest pre-launch raises ever</td>
+            <td>T1</td>
+            <td>+30</td>
+        </tr>
+        <tr>
+            <td>Runway &amp; Burn</td>
+            <td>3-4 years at $500M annual burn rate; spending $100K+/min of content</td>
+            <td>T1</td>
+            <td>+25</td>
+        </tr>
+        <tr>
+            <td>Revenue/Business Model</td>
+            <td>Subscription model with $5-8/month pricing</td>
+            <td>T2</td>
+            <td>+15</td>
+        </tr>
+        <tr>
+            <td>Capital Access</td>
+            <td>Every major Hollywood studio + Goldman Sachs, JPMorgan; $750M raised 1 month before launch</td>
+            <td>T1</td>
+            <td>+25</td>
+        </tr>
+        <tr>
+            <td><strong>Capital Score</strong></td>
+            <td></td>
+            <td></td>
+            <td><strong>95/100</strong></td>
+        </tr>
+    </table>
+
+    <div class="warning-callout">
+        <div class="callout-title">The Capital Trap: Money Cannot Buy Product-Market Fit</div>
+        Quibi's Capital score was very high-yet this became a liability. With $1.75B to deploy, the company
+        committed to expensive content deals ($6M+ per hour) before knowing if anyone wanted the product. Capital
+        without validation accelerates failure. A $5M MVP would have revealed the Market weakness before spending $1.7B
+        on production.
+    </div>
+
+    <h2>B. Advantage: 35/100 (Critical Weakness)</h2>
+    <table>
+        <tr>
+            <th>Factor</th>
+            <th>Claimed Value</th>
+            <th>Reality</th>
+            <th>Score</th>
+        </tr>
+        <tr>
+            <td>Turnstyle Technology</td>
+            <td>"Revolutionary" rotation feature for seamless portrait/landscape</td>
+            <td>Gimmick; didn't create user value</td>
+            <td>15/25</td>
+        </tr>
+        <tr>
+            <td>Content Quality</td>
+            <td>A-list talent: Steven Spielberg, Jennifer Lopez, Chrissy Teigen</td>
+            <td>Quality content on wrong platform</td>
+            <td>15/25</td>
+        </tr>
+        <tr>
+            <td>Mobile-First Format</td>
+            <td>Content designed specifically for phone viewing</td>
+            <td>Competing against FREE content (TikTok, YouTube)</td>
+            <td>5/25</td>
+        </tr>
+        <tr>
+            <td>No TV Support</td>
+            <td>Mobile-only at launch (TV added July 2020)</td>
+            <td>Limited viewing options during COVID lockdowns</td>
+            <td>0/25</td>
+        </tr>
+        <tr>
+            <td><strong>Advantage Score</strong></td>
+            <td></td>
+            <td></td>
+            <td><strong>35/100</strong></td>
+        </tr>
+    </table>
+
+    <div class="callout">
+        <div class="callout-title">The Free vs. Premium Problem</div>
+        Quibi charged $5-8/month for short-form video. TikTok offered infinite free short-form video. YouTube offered
+        free long-form video. Netflix offered full-length movies for $9/month. Quibi's value proposition: "Pay more for
+        less content." No competitive moat existed. CAMP Advantage assessment: <strong>no sustainable
+            differentiation</strong>.
+    </div>
+
+    <h2>C. Market: 25/100 (Fatal Weakness)</h2>
+    <table>
+        <tr>
+            <th>Factor</th>
+            <th>Assessment</th>
+            <th>Score</th>
+        </tr>
+        <tr>
+            <td>Target Use Case</td>
+            <td>"On-the-go" entertainment during commutes, waiting rooms</td>
+            <td>10/25 (narrow use case)</td>
+        </tr>
+        <tr>
+            <td>Timing</td>
+            <td>Launched April 6, 2020-peak of COVID-19 lockdowns</td>
+            <td>0/25 (worst possible timing)</td>
+        </tr>
+        <tr>
+            <td>Product-Market Fit</td>
+            <td>Zero pre-launch consumer testing; assumed demand</td>
+            <td>5/25 (untested)</td>
+        </tr>
+        <tr>
+            <td>Competitive Landscape</td>
+            <td>TikTok (free, addictive), YouTube (free, massive library), Netflix ($9)</td>
+            <td>10/25 (brutal competition)</td>
+        </tr>
+        <tr>
+            <td><strong>Market Score</strong></td>
+            <td></td>
+            <td><strong>25/100</strong></td>
+        </tr>
+    </table>
+
+    <div class="warning-callout">
+        <div class="callout-title">The COVID Timing Catastrophe</div>
+        Quibi's entire thesis was mobile, on-the-go consumption. It launched when the world was locked down at
+        home-watching Netflix on TVs, not phones. But even without COVID, the product faced TikTok (which exploded
+        during lockdowns, gaining 2 billion downloads) and free YouTube content. Timing was bad; product-market fit was
+        worse.
+    </div>
+
+    <h2>D. People: 80/100 (Credentials Without Domain Fit)</h2>
+    <table>
+        <tr>
+            <th>Factor</th>
+            <th>Evidence</th>
+            <th>Problem</th>
+            <th>Score</th>
+        </tr>
+        <tr>
+            <td>Katzenberg (Chairman)</td>
+            <td>Disney Studios chairman; DreamWorks founder; 40+ years in Hollywood</td>
+            <td>Traditional media, not mobile-first</td>
+            <td>20/25</td>
+        </tr>
+        <tr>
+            <td>Whitman (CEO)</td>
+            <td>eBay CEO (10 years); HP CEO; $20B+ market cap experience</td>
+            <td>E-commerce/enterprise, not content</td>
+            <td>20/25</td>
+        </tr>
+        <tr>
+            <td>Team Depth</td>
+            <td>Senior hires from Netflix, Hulu, Disney</td>
+            <td>Streaming experience, but legacy playbook</td>
+            <td>20/25</td>
+        </tr>
+        <tr>
+            <td>Domain Fit</td>
+            <td>Combined 80+ years leadership</td>
+            <td>Zero mobile-first or social content experience</td>
+            <td>10/25</td>
+        </tr>
+        <tr>
+            <td>Governance</td>
+            <td>Strong board oversight</td>
+            <td>No one challenged core assumptions</td>
+            <td>10/25</td>
+        </tr>
+        <tr>
+            <td><strong>People Score</strong></td>
+            <td></td>
+            <td></td>
+            <td><strong>80/100</strong></td>
+        </tr>
+    </table>
+
+    <div class="callout">
+        <div class="callout-title">The Credentials Trap</div>
+        Katzenberg and Whitman had well-known track records-in different industries. Katzenberg understood theatrical
+        movies, not viral mobile content. Whitman understood marketplace economics, not content subscription psychology.
+        Neither had built anything mobile-native. The CAMP framework emphasizes: <strong>domain relevance > raw
+            credentials</strong>.
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2>E. CAMP Score Calculation at Launch</h2>
+    <table>
+        <tr>
+            <th>Pillar</th>
+            <th>Raw Score</th>
+            <th>Weight (Series A)</th>
+            <th>Weighted Score</th>
+        </tr>
+        <tr>
+            <td>Capital</td>
+            <td>95</td>
+            <td>25%</td>
+            <td>23.75</td>
+        </tr>
+        <tr>
+            <td>Advantage</td>
+            <td>35</td>
+            <td>25%</td>
+            <td>8.75</td>
+        </tr>
+        <tr>
+            <td>Market</td>
+            <td>25</td>
+            <td>30%</td>
+            <td>7.50</td>
+        </tr>
+        <tr>
+            <td>People</td>
+            <td>80</td>
+            <td>20%</td>
+            <td>16.00</td>
+        </tr>
+        <tr>
+            <td><strong>Total CAMP Score</strong></td>
+            <td></td>
+            <td></td>
+            <td><strong>56.0</strong></td>
+        </tr>
+    </table>
+
+    <div class="warning-callout">
+        <div class="callout-title">Matrix Position: Starved Visionary</div>
+        <strong>Internal Engine</strong> = (Capital 95 + People 80) / 2 = <strong>87.5</strong> (Very High)<br>
+        <strong>External Promise</strong> = (Advantage 35 + Market 25) / 2 = <strong>30.0</strong> (Critical)<br><br>
+        Quibi was a textbook <strong>Starved Visionary</strong>: exceptional internal resources (money + credentials)
+        with no external validation (product-market fit). The quadrant correctly predicted failure: strong engines
+        without market traction burn resources faster and fail harder.
+    </div>
+
+    <!-- PART 4: THE COLLAPSE -->
+    <h1>IV. The Collapse: A 6-Month Timeline</h1>
+
+    <h2>A. Launch and Immediate Struggles</h2>
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Event</th>
+            <th>Metric</th>
+        </tr>
+        <tr>
+            <td>Apr 6, 2020</td>
+            <td>Launch with 90-day free trial</td>
+            <td>1.7M downloads in first week</td>
+        </tr>
+        <tr>
+            <td>Apr 14, 2020</td>
+            <td>App drops to #27 in App Store (from #3)</td>
+            <td>Rapid user interest decline</td>
+        </tr>
+        <tr>
+            <td>May 2020</td>
+            <td>Post-trial conversion begins</td>
+            <td>Only 72,000 paying subscribers (4.2% conversion)</td>
+        </tr>
+        <tr>
+            <td>May 2020</td>
+            <td>Daily engagement time</td>
+            <td>Average: 7 minutes/day (vs. 52 minutes for TikTok)</td>
+        </tr>
+        <tr>
+            <td>Jun 2020</td>
+            <td>Downloads continue decline</td>
+            <td>~100K/week (down from 1.7M at launch)</td>
+        </tr>
+    </table>
+
+    <h2>B. Desperate Pivots</h2>
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Action</th>
+            <th>Result</th>
+        </tr>
+        <tr>
+            <td>Jun 2020</td>
+            <td>Extended free trial to 3 months</td>
+            <td>Delayed revenue; didn't improve retention</td>
+        </tr>
+        <tr>
+            <td>Jul 2020</td>
+            <td>Added TV app support (Roku, Fire TV)</td>
+            <td>Too late; mobile-first thesis abandoned</td>
+        </tr>
+        <tr>
+            <td>Aug 2020</td>
+            <td>Explored sale to Apple, Facebook, NBCUniversal</td>
+            <td>All passed</td>
+        </tr>
+        <tr>
+            <td>Sep 2020</td>
+            <td>Launched free tier with ads</td>
+            <td>Did not change trajectory</td>
+        </tr>
+    </table>
+
+    <h2>C. Shutdown and Aftermath</h2>
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Event</th>
+        </tr>
+        <tr>
+            <td>Oct 21, 2020</td>
+            <td>Quibi announces shutdown; Katzenberg and Whitman release open letter</td>
+        </tr>
+        <tr>
+            <td>Oct 2020</td>
+            <td>Total paid subscribers: estimated 500,000 (target was 7.4M Year 1)</td>
+        </tr>
+        <tr>
+            <td>Nov 2020</td>
+            <td>$350 million returned to investors (of $1.75B raised)</td>
+        </tr>
+        <tr>
+            <td>Dec 1, 2020</td>
+            <td>Service terminated; app removed from stores</td>
+        </tr>
+        <tr>
+            <td>Jan 8, 2021</td>
+            <td>Roku acquires Quibi content library for less than $100 million</td>
+        </tr>
+        <tr>
+            <td>2021</td>
+            <td>Lawsuits settled; company fully dissolved</td>
+        </tr>
+    </table>
+
+    <div class="callout">
+        <div class="callout-title">The Final Accounting</div>
+        <strong>Capital Destroyed:</strong> $1.4 billion+ (of $1.75B raised after returning $350M)<br>
+        <strong>Content Library Value:</strong> Less than $100M (Roku acquisition)<br>
+        <strong>Time to Failure:</strong> 6 months from launch; 26 months from founding<br>
+        <strong>Jobs Lost:</strong> ~200 employees<br>
+        <strong>Investor Loss:</strong> Approximately 80-90 cents on the dollar
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- PART 4.5: COMPETITIVE ANALYSIS -->
+    <h1>IV-B. Competitive Analysis: Why Quibi Lost to Free</h1>
+
+    <h2>A. Short-Form Video Market (2020)</h2>
+    <table>
+        <tr>
+            <th>Platform</th>
+            <th>Price</th>
+            <th>Content Model</th>
+            <th>Monthly Users (2020)</th>
+        </tr>
+        <tr>
+            <td>TikTok</td>
+            <td>Free</td>
+            <td>User-generated</td>
+            <td>800M+</td>
+        </tr>
+        <tr>
+            <td>YouTube</td>
+            <td>Free (ads)</td>
+            <td>Creator + studio</td>
+            <td>2B+</td>
+        </tr>
+        <tr>
+            <td>Instagram Reels</td>
+            <td>Free</td>
+            <td>User-generated</td>
+            <td>1B+ (Instagram)</td>
+        </tr>
+        <tr>
+            <td><strong>Quibi</strong></td>
+            <td>$5-8/month</td>
+            <td>Hollywood studio</td>
+            <td>~1.5M</td>
+        </tr>
+    </table>
+
+    <h2>B. Quibi vs TikTok: Why Free Won</h2>
+    <table>
+        <tr>
+            <th>Factor</th>
+            <th>Quibi</th>
+            <th>TikTok</th>
+        </tr>
+        <tr>
+            <td>Price</td>
+            <td>$5-8/month</td>
+            <td>Free</td>
+        </tr>
+        <tr>
+            <td>Content Volume</td>
+            <td>175 shows</td>
+            <td>Infinite (user-generated)</td>
+        </tr>
+        <tr>
+            <td>Algorithm</td>
+            <td>Basic recommendations</td>
+            <td>Addictive AI-driven feed</td>
+        </tr>
+        <tr>
+            <td>Social Features</td>
+            <td>None (couldn't share clips)</td>
+            <td>Duets, reactions, shares</td>
+        </tr>
+        <tr>
+            <td>Creation</td>
+            <td>Passive viewing only</td>
+            <td>Users become creators</td>
+        </tr>
+        <tr>
+            <td>Engagement</td>
+            <td>7 min/day average</td>
+            <td>52 min/day average</td>
+        </tr>
+    </table>
+
+    <div class="callout">
+        <div class="callout-title">The Fatal Assumption</div>
+        Katzenberg assumed premium Hollywood content would command a premium price on mobile-the same way HBO
+        succeeded in cable. But mobile consumption habits differ: users expect free, social, participatory content.
+        Netflix works because it replaced $100/month cable; Quibi competed against free entertainment already
+        in users' pockets.
+    </div>
+
+    <h2>C. Pillar Transformation Timeline</h2>
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Capital</th>
+            <th>Advantage</th>
+            <th>Market</th>
+            <th>People</th>
+            <th>CAMP</th>
+            <th>Key Event</th>
+        </tr>
+        <tr>
+            <td>Aug 2018</td>
+            <td>95</td>
+            <td>35</td>
+            <td>25</td>
+            <td>70</td>
+            <td>56.0</td>
+            <td>$1B raised; no product</td>
+        </tr>
+        <tr>
+            <td>Apr 2020</td>
+            <td>90</td>
+            <td>35</td>
+            <td>25</td>
+            <td>65</td>
+            <td>53.5</td>
+            <td>Launch; 1.7M downloads</td>
+        </tr>
+        <tr>
+            <td>May 2020</td>
+            <td>75</td>
+            <td>25</td>
+            <td>15</td>
+            <td>55</td>
+            <td>42.0</td>
+            <td>4.2% conversion rate</td>
+        </tr>
+        <tr>
+            <td>Oct 2020</td>
+            <td>35</td>
+            <td>15</td>
+            <td>10</td>
+            <td>40</td>
+            <td>25.0</td>
+            <td>Shutdown announced</td>
+        </tr>
+        <tr>
+            <td>Dec 2020</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>Dissolved</td>
+        </tr>
+    </table>
+
+    <div class="page-break"></div>
+
+    <!-- PART 5: MATRIX JOURNEY -->
+    <h1>V. Matrix Journey Visualization</h1>
+
+    <div class="journey-box">
+        <div class="journey-row">
+            <div class="journey-point">
+                <div class="journey-year">Launch (Apr 2020)</div>
+                <div class="journey-score">56.0</div>
+                <div class="journey-quadrant">Starved Visionary</div>
+            </div>
+            <div class="journey-arrow">&rarr;</div>
+            <div class="journey-point">
+                <div class="journey-year">May 2020</div>
+                <div class="journey-score">42.0</div>
+                <div class="journey-quadrant">Chaos Zone</div>
+            </div>
+            <div class="journey-arrow">&rarr;</div>
+            <div class="journey-point-fail">
+                <div class="journey-year">Dec 2020</div>
+                <div class="journey-score">0</div>
+                <div class="journey-quadrant">Dissolved</div>
+            </div>
+        </div>
+        <div style="font-size: 9pt; margin-top: 15px;">
+            <strong>Time to Failure:</strong> 6 months from launch | <strong>Capital Lost:</strong> $1.4 billion+<br>
+            <strong>Trajectory:</strong> Starved Visionary to Chaos Zone to Dissolution
+        </div>
+    </div>
+
+    <!-- PART 6: KEY LESSONS -->
+    <h1>VI. Key Lessons for the CAMP Framework</h1>
+
+    <h2>A. The Core Lessons</h2>
+
+    <p><strong>1. Capital Cannot Buy Product-Market Fit.</strong> $1.75 billion could not force consumers to want
+        premium short-form content on mobile. No amount of money fixes a product nobody needs. The CAMP framework
+        emphasizes Market validation before Capital deployment.</p>
+
+    <p><strong>2. Credentials Are Not Domain Fit.</strong> Katzenberg and Whitman were legends in theatrical movies and
+        e-commerce-neither had built mobile-native content. The People pillar must weight domain relevance, not just raw
+        credentials. A 25-year-old TikTok product manager understood mobile content better than 80 years of legacy media
+        experience.</p>
+
+    <p><strong>3. Test Before Scale.</strong> Quibi raised $1.75 billion before testing if consumers would pay. A $5
+        million MVP with a sample show and limited release would have revealed the Market weakness before spending $1.7
+        billion on content production. The framework should flag "pre-validation mega-raises" as high-risk.</p>
+
+    <p><strong>4. Timing Matters, But Bad Products Fail Anyway.</strong> COVID-19 devastated Quibi's commuter use case.
+        But even without the pandemic, the product faced free TikTok and YouTube. Timing was an accelerant, not the root
+        cause. Poor product-market fit would have led to failure regardless-just slower.</p>
+
+    <p><strong>5. Competing Against Free Requires 10x Value.</strong> Quibi charged $5-8/month for content similar to
+        what users got free on TikTok and YouTube. Without 10x differentiation, paid subscriptions cannot compete with
+        free alternatives. The Advantage pillar must assess competitive pricing dynamics.</p>
+
+    <h2>B. What CAMP Would Have Flagged Pre-Investment</h2>
+    <ol>
+        <li><strong>Market Score: 25/100 (Critical)</strong> - No pre-launch consumer testing; assumed demand</li>
+        <li><strong>Advantage Score: 35/100 (Weak)</strong> - Competing against free; no sustainable moat</li>
+        <li><strong>People Domain Mismatch</strong> - Legacy media experience, not mobile-first</li>
+        <li><strong>Capital Without Validation</strong> - $1.75B raised before proving unit economics</li>
+        <li><strong>Quadrant Position: Starved Visionary</strong> - High internal engine, weak external promise</li>
+    </ol>
+
+    <div class="callout">
+        <div class="callout-title">The Quibi Warning for Future Investors</div>
+        The CAMP framework would have produced a 56.0 overall score-"Moderate" but with a critical warning: External
+        Promise (Advantage + Market) averaging 30/100 places the company in the <strong>Starved Visionary</strong>
+        quadrant. This quadrant has a historical failure rate exceeding 85%. The framework would recommend: "Do not
+        invest at this valuation without demonstrated product-market fit."
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- PART 7: SOURCES -->
+    <h1>VII. Verified Factual Data and Sources</h1>
+
+    <h2>A. Company Information</h2>
+    <ul>
+        <li><strong>Founded:</strong> August 2018 as NewTV, Inc. - Wikipedia, TechCrunch</li>
+        <li><strong>Renamed:</strong> Quibi (October 2018) - Press releases</li>
+        <li><strong>Founders:</strong> Jeffrey Katzenberg, Meg Whitman - Wikipedia, SEC filings</li>
+        <li><strong>Total Funding:</strong> $1.75 billion - CrunchBase, CNBC, Variety</li>
+        <li><strong>Investors:</strong> Disney, NBCUniversal, Sony, Viacom, WarnerMedia, Alibaba, Goldman Sachs -
+            Various sources</li>
+    </ul>
+
+    <h2>B. Key Dates</h2>
+    <ul>
+        <li><strong>Launch:</strong> April 6, 2020 - Wikipedia, press coverage</li>
+        <li><strong>First Week Downloads:</strong> 1.7 million - Sensor Tower</li>
+        <li><strong>Post-Trial Subscribers:</strong> ~72,000 (May 2020) - The Verge, Wall Street Journal</li>
+        <li><strong>Shutdown Announcement:</strong> October 21, 2020 - Official press release</li>
+        <li><strong>Service Terminated:</strong> December 1, 2020 - Official announcement</li>
+        <li><strong>Roku Acquisition:</strong> January 8, 2021; less than $100M - Reuters, Variety</li>
+    </ul>
+
+    <h2>C. Financial Data</h2>
+    <ul>
+        <li><strong>Series A:</strong> $1.0 billion (August 2018) - TechCrunch, Variety</li>
+        <li><strong>Series B:</strong> $750 million (March 2020) - Wall Street Journal</li>
+        <li><strong>Returned to Investors:</strong> $350 million - Wall Street Journal</li>
+        <li><strong>Content Cost per Minute:</strong> $100,000+ - Industry reports</li>
+        <li><strong>Target Year 1 Subscribers:</strong> 7.4 million - Internal projections (leaked)</li>
+    </ul>
+
+    <h2>D. Key Resources</h2>
+    <ul>
+        <li><a href="https://www.cnbc.com/2020/10/21/quibi-shutting-down-after-raising-1point75-billion.html">Katzenberg
+                &amp; Whitman shutdown announcement context (October 21, 2020)</a></li>
+        <li><a href="https://variety.com/2020/digital/news/quibi-shutting-down-1234810939/">Variety coverage of Quibi
+                collapse (2020)</a></li>
+        <li><a href="https://www.wsj.com/articles/why-quibi-failed-11603307561">Wall Street Journal analysis: "Why
+                Quibi Failed"</a></li>
+        <li><a href="https://www.theverge.com/2020/10/21/21527517/quibi-shutting-down-meg-whitman-jeffrey-katzenberg">The
+                Verge postmortem coverage</a></li>
+        <li><a href="https://www.cnbc.com/2020/10/22/inside-the-downfall-of-quibi.html">CNBC: "Inside Quibi's $1.75
+                billion failure"</a></li>
+    </ul>
+
+    <h2>E. Methodology Notes</h2>
+    <ul>
+        <li><strong>Scoring Approach:</strong> CAMP scores assigned based on publicly available information as of April
+            2020 launch</li>
+        <li><strong>Hindsight Bias:</strong> We acknowledge COVID-19's impact was unknowable. However, the Market and
+            Advantage weaknesses were visible pre-launch</li>
+        <li><strong>Subscriber Data:</strong> Exact figures varied by source; we use consensus estimates</li>
+        <li><strong>Investment Amounts:</strong> Individual studio investments estimated based on total and number of
+            investors</li>
+    </ul>
+
+    <!-- ACTIONS + METRICS (OBSERVED) -->
+
+    <h1>VIII. Founder Actions and Metrics (Observed)</h1>
+
+    <div class="callout">
+        <div class="callout-title">Founder Actions (What Actually Happened in This Case)</div>
+        <p><strong>Capital milestones:</strong></p>
+        <ul>
+            <li><strong>Aug 2018:</strong> Series A — $1.0 billion</li>
+            <li><strong>Mar 2020:</strong> Series B — $750 million</li>
+        </ul>
+        <p><strong>Additional key events (from the case narrative/sources):</strong></p>
+        <ul>
+            <li><strong>2020:</strong> Launch: April 6, 2020 - Wikipedia, press coverage</li>
+            <li><strong>Key Fact:</strong> First Week Downloads: 1.7 million - Sensor Tower</li>
+            <li><strong>2020:</strong> Post-Trial Subscribers: ~72,000 (May 2020) - The Verge, Wall Street Journal</li>
+        </ul>
+    </div>
+
+    <div class="callout">
+        <div class="callout-title">Metrics to Watch (Metrics Surfaced in This Case)</div>
+        <p><em>These are the metrics this case uses to describe progress and performance.</em></p>
+        <ul>
+            <li><strong>Platform:</strong> Quibi</li>
+            <li><strong>Price:</strong> $5-8/month</li>
+            <li><strong>Content Model:</strong> Hollywood studio</li>
+        </ul>
+    </div>
+
+    <div class="callout callout--measure-next">
+        <div class="callout-title">What to Measure Next (Leading Indicators)</div>
+        <p><em>Forward-looking guidance for applying CAMP prospectively. Metric definitions reference the FLASH metric schema.</em></p>
+        <table class="metrics-next-table">
+            <tr>
+                <th style="width: 16%;">Pillar</th>
+                <th>Leading Indicators (FLASH metrics)</th>
+            </tr>
+            <tr>
+                <td><div class="metrics-next-pillar">Market</div></td>
+                <td><div class="metric-line"><span class="metric-name" data-metric-id="userGrowthRate">User Growth Rate</span></div><div class="metric-line"><span class="metric-name" data-metric-id="customerCount">Customer Count</span></div><div class="metric-line"><span class="metric-name" data-metric-id="dauMauRatio">DAU MAU Ratio</span></div></td>
+            </tr>
+            <tr>
+                <td><div class="metrics-next-pillar">Capital</div></td>
+                <td><div class="metric-line"><span class="metric-name" data-metric-id="cashRunwayMonths">Cash Runway Months</span></div><div class="metric-line"><span class="metric-name" data-metric-id="burnMultiple">Burn Multiple</span></div><div class="metric-line"><span class="metric-name" data-metric-id="grossMargin">Gross Margin</span></div></td>
+            </tr>
+            <tr>
+                <td><div class="metrics-next-pillar">Advantage</div></td>
+                <td><div class="metric-line"><span class="metric-name" data-metric-id="networkEffectStrength">Network Effect Strength</span></div><div class="metric-line"><span class="metric-name" data-metric-id="viralCoefficient">Viral Coefficient</span></div><div class="metric-line"><span class="metric-name" data-metric-id="productRetention90d">Product Retention 90-Day</span></div></td>
+            </tr>
+            <tr>
+                <td><div class="metrics-next-pillar">People</div></td>
+                <td><div class="metric-line"><span class="metric-name" data-metric-id="executionToPlanScore">Execution To Plan Score</span></div><div class="metric-line"><span class="metric-name" data-metric-id="teamSize">Team Size</span></div><div class="metric-line"><span class="metric-name" data-metric-id="employeeTurnover12MonthsPct">Employee Turnover 12 Months %</span></div></td>
+            </tr>
+        </table>
+        <p><em>Definitions and computations: FLASH Metrics Library.</em></p>
+    </div>
+
+    <div class="callout callout--red-flags">
+        <div class="callout-title">Red Flags (Failure Modes to Watch For)</div>
+        <p><em>Signals that often precede a CAMP score collapse, mapped to measurable indicators.</em></p>
+        <ul>
+            <li><strong>Market misread:</strong> Growth slows as competition rises and share goals slip.<span class="metric-note">Metrics: Market Growth Rate; Competition Intensity; Market Share Gap To Target.</span></li>
+            <li><strong>Inefficient growth:</strong> Spend rises faster than durable revenue.<span class="metric-note">Metrics: Burn Multiple; Growth Efficiency Index.</span></li>
+            <li><strong>Retention decay:</strong> Expansion slows and churn accelerates.<span class="metric-note">Metrics: Net Retention Trend; Churn Trend.</span></li>
+            <li><strong>Concentration risk:</strong> A small set of accounts becomes mission-critical.<span class="metric-note">Metrics: Customer Concentration; Revenue Concentration Risk Index.</span></li>
+            <li><strong>GTM brittleness:</strong> The sales engine slows and pipeline stops covering targets.<span class="metric-note">Metrics: Sales Cycle Days; Sales Pipeline Coverage; Pipeline Coverage Health.</span></li>
+            <li><strong>Org strain:</strong> Turnover rises while open roles stay unfilled.<span class="metric-note">Metrics: Employee Turnover 12 Months %; Hiring Gap Index.</span></li>
+        </ul>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div class="document-footer">
+        <div class="flash-brand-block">
+            <img src="flash_logo_trimmed.png" alt="FLASH Capital" class="flash-brand-logo">
+        </div>
+        FLASH Capital | CAMP Matrix Framework | Case Study: Quibi
+    </div>
+
 </body>
+
 </html>

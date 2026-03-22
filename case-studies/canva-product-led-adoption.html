@@ -1,86 +1,2173 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Canva Case Study: Product-Led Adoption With Category Clarity | FLASH Capital</title>
-    <meta name="description" content="CAMP case analysis on Canva's product-led growth and category framing discipline.">
-    <link rel="canonical" href="https://flashcapital.co.jp/case-studies/canva-product-led-adoption.html">
-    <meta property="og:title" content="Canva: Product-Led Adoption With Category Clarity">
-    <meta property="og:description" content="CAMP case analysis on product-led adoption and category clarity.">
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://flashcapital.co.jp/case-studies/canva-product-led-adoption.html">
-    <meta property="article:published_time" content="2026-03-19">
-    <meta property="article:modified_time" content="2026-03-21">
-    <link rel="stylesheet" href="/content-hub.css">
-    <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"Article","headline":"Canva: Product-Led Adoption With Category Clarity","datePublished":"2026-03-19","dateModified":"2026-03-21","author":{"@type":"Organization","name":"FLASH Capital"},"publisher":{"@type":"Organization","name":"FLASH Capital"},"mainEntityOfPage":"https://flashcapital.co.jp/case-studies/canva-product-led-adoption.html"}
-    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAMP Matrix Case Study: Canva (Australia)</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 1in 1in 1.55in 1in;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, Georgia, serif;
+            font-size: 11pt;
+            line-height: 1.6;
+            color: #1a1a1a;
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .document-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #1a1a1a;
+        }
+
+        .document-title {
+            font-size: 18pt;
+            font-weight: bold;
+            margin-bottom: 5px;
+            letter-spacing: 0.5px;
+        }
+
+        .document-subtitle {
+            font-size: 14pt;
+            font-style: italic;
+            color: #333;
+            margin-bottom: 12px;
+        }
+
+        .document-meta {
+            font-size: 10pt;
+            color: #555;
+        }
+
+        .australia-banner {
+            background: #00bfb3;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 12pt;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 14pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #333;
+        }
+
+        h2 {
+            font-size: 12pt;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 12px;
+        }
+
+        h3 {
+            font-size: 11pt;
+            font-weight: bold;
+            font-style: italic;
+            margin-top: 15px;
+            margin-bottom: 12px;
+        }
+
+        p {
+            text-align: justify;
+            margin-bottom: 12px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 10pt;
+        }
+
+        th {
+            background: #f5f5f5;
+            border: 1px solid #333;
+            padding: 8px 10px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        td {
+            border: 1px solid #333;
+            padding: 8px 10px;
+        }
+
+        .callout {
+            background: #e0f7f5;
+            border: 1px solid #00bfb3;
+            border-left: 3px solid #00bfb3;
+            padding: 12px 15px;
+            margin: 15px 0;
+            font-size: 10pt;
+        }
+
+        .callout-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .success-callout {
+            background: #e8f5e9;
+            border: 1px solid #4caf50;
+            border-left: 3px solid #4caf50;
+            padding: 12px 15px;
+            margin: 15px 0;
+            font-size: 10pt;
+        }
+
+        .figure-caption {
+            text-align: center;
+            font-size: 9pt;
+            font-style: italic;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        ul,
+        ol {
+            margin: 10px 0;
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 5px;
+            text-align: justify;
+        }
+
+        .page-break {
+            page-break-before: always;
+        }
+
+        .document-footer {
+            margin-top: 40px;
+            padding-top: 15px;
+            border-top: 1px solid #333;
+            text-align: center;
+            font-size: 9pt;
+        }
+
+        .pillars-grid {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+            gap: 10px;
+        }
+
+        .pillar-item {
+            flex: 1;
+            text-align: center;
+            padding: 15px 10px;
+            border: 1px solid #333;
+        }
+
+        .pillar-letter {
+            font-size: 24pt;
+            font-weight: bold;
+        }
+
+        .pillar-name {
+            font-size: 11pt;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .pillar-desc {
+            font-size: 9pt;
+            margin-top: 5px;
+            color: #555;
+        }
+
+        .matrix-container {
+            margin: 20px auto;
+            max-width: 450px;
+        }
+
+        .matrix-grid {
+            display: grid;
+            grid-template-columns: 30px 1fr 1fr;
+            grid-template-rows: 1fr 1fr 30px;
+            gap: 2px;
+            background: #333;
+            padding: 2px;
+        }
+
+        .y-axis {
+            grid-row: 1 / 3;
+            grid-column: 1;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            font-size: 9pt;
+            font-weight: bold;
+        }
+
+        .quadrant {
+            background: white;
+            padding: 15px 10px;
+            text-align: center;
+        }
+
+        .quadrant-title {
+            font-weight: bold;
+            font-size: 10pt;
+        }
+
+        .quadrant-desc {
+            font-size: 8pt;
+            color: #666;
+            margin-top: 3px;
+        }
+
+        .x-axis {
+            grid-column: 2 / 4;
+            grid-row: 3;
+            background: white;
+            text-align: center;
+            font-size: 9pt;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .score-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 10pt;
+        }
+
+        .score-label {
+            width: 80px;
+            font-weight: bold;
+        }
+
+        .score-bar-container {
+            flex: 1;
+            height: 16px;
+            background: #eee;
+            border: 1px solid #ccc;
+            margin: 0 10px;
+        }
+
+        .score-bar {
+            height: 100%;
+            background: #00bfb3;
+        }
+
+        .score-value {
+            width: 40px;
+            text-align: right;
+            font-weight: bold;
+        }
+
+        .journey-box {
+            border: 2px solid #00bfb3;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            background: #e0f7f5;
+        }
+
+        .journey-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin: 15px 0;
+        }
+
+        .journey-point {
+            text-align: center;
+            padding: 15px 25px;
+            border: 2px solid #333;
+            background: white;
+        }
+
+        .journey-point-success {
+            text-align: center;
+            padding: 15px 25px;
+            border: 3px solid #4caf50;
+            background: #e8f5e9;
+        }
+
+        .journey-year {
+            font-size: 12pt;
+            font-weight: bold;
+        }
+
+        .journey-score {
+            font-size: 18pt;
+            font-weight: bold;
+        }
+
+        .journey-quadrant {
+            font-size: 9pt;
+            font-style: italic;
+        }
+
+        .journey-arrow {
+            font-size: 24pt;
+            font-weight: bold;
+            color: #00bfb3;
+        }
+
+
+        /* CAMP Unified Theme */
+        :root {
+            --camp-accent: #0B1F3A;
+            --camp-ink: #0F172A;
+            --camp-wash: #F8FAFC;
+            --camp-callout-bg: #FFFFFF;
+        }
+
+        /* Unify banners (single professional look) */
+        [class$="-banner"] {
+            background: var(--camp-wash) !important;
+            color: var(--camp-ink) !important;
+            border-bottom: 2px solid var(--camp-accent) !important;
+        }
+
+        /* Unify accent elements */
+        .callout {
+            background: var(--camp-callout-bg) !important;
+            border-left: 3px solid var(--camp-accent) !important;
+        }
+
+        .score-bar {
+            background: var(--camp-accent) !important;
+        }
+
+        .journey-arrow {
+            color: var(--camp-accent) !important;
+        }
+
+        .journey-box,
+        .journey-point {
+            border-color: var(--camp-accent) !important;
+        }
+    
+        .flash-brand-block {
+            margin-bottom: 12px;
+            line-height: 1;
+        }
+        .flash-brand-logo {
+            display: inline-block;
+            height: auto;
+            width: 40px;
+            max-width: none;
+            object-fit: contain;
+            vertical-align: middle;
+        }
+    
+        .footer,
+        .document-footer {
+            page-break-inside: avoid;
+            break-inside: avoid-page;
+        }
+    
+        @media print {
+            .footer,
+            .document-footer {
+                position: fixed !important;
+                left: 0 !important;
+                right: 0 !important;
+                bottom: 0.35in !important;
+                margin: 0 !important;
+                padding: 0 0.75in !important;
+                break-inside: avoid-page;
+                page-break-inside: avoid;
+                text-align: center !important;
+                background: transparent !important;
+            }
+
+            .flash-brand-logo {
+                width: 40px !important;
+            }
+        }
+
+        /* FLASH Branding Overrides */
+        .flash-brand-block {
+            margin-bottom: 6px;
+            line-height: 1;
+            text-align: center;
+        }
+        .flash-brand-logo {
+            display: inline-block;
+            height: 48px;
+            width: auto;
+            object-fit: contain;
+            vertical-align: middle;
+        }
+
+        @media print {
+            .footer,
+            .document-footer {
+                position: fixed !important;
+                left: 0 !important;
+                right: 0 !important;
+                bottom: 0.4in !important;
+                margin: 0 !important;
+                padding: 0 0.75in !important;
+                text-align: center !important;
+                background: transparent !important;
+            }
+
+            .flash-brand-block {
+                margin-bottom: 6px !important;
+                line-height: 1 !important;
+            }
+
+            .flash-brand-logo {
+                height: 48px !important;
+                width: auto !important;
+            }
+        }
+
+
+        
+        
+        
+        /* FLASH Professional Print v1 (do not edit by hand) */
+        :root {
+            --flash-ink: #0F172A;
+            --flash-muted: #334155;
+        }
+
+        /* Standardize page size. */
+        @page {
+            size: A4;
+            margin: 0.75in 0.75in 0.55in 0.75in;
+        }
+
+        /* First-page header mark (in-flow, not repeated). */
+        .flash-brand-header {
+            text-align: center;
+            margin: 0 0 10px;
+            line-height: 1;
+        }
+
+        .flash-brand-logo--header {
+            height: 54px;
+            width: auto;
+            max-width: none;
+            object-fit: contain;
+            vertical-align: middle;
+        }
+
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+
+                /*
+                 * Reserve space for the fixed footer on every page.
+                 *
+                 * In Chrome's print engine, `position: fixed` elements do NOT reserve layout
+                 * space, and are positioned relative to the page *area* (inside @page
+                 * margins). This causes footer overlap unless we create per-page bottom
+                 * padding. `box-decoration-break: clone` makes that padding apply to each
+                 * paginated fragment.
+                 */
+                -webkit-box-decoration-break: clone;
+                box-decoration-break: clone;
+                padding-bottom: 1.25in !important;
+            }
+
+            /* Footer: fixed and compact so it never overlaps content. */
+            .footer,
+            .document-footer {
+                position: fixed !important;
+                left: 0 !important;
+                right: 0 !important;
+                bottom: 0.15in !important;
+                margin: 0 !important;
+                padding: 6px 0.75in 0 !important;
+                text-align: center !important;
+                border-top: 1px solid rgba(15, 23, 42, 0.16) !important;
+                background: transparent !important;
+                z-index: 9999 !important;
+                color: var(--flash-muted) !important;
+                font-size: 8.5pt !important;
+                line-height: 1.25 !important;
+            }
+
+            .flash-brand-block {
+                margin: 0 0 4px !important;
+                line-height: 1 !important;
+                text-align: center !important;
+            }
+
+            /* Footer logo */
+            .flash-brand-logo {
+                height: 34px !important;
+                width: auto !important;
+                max-width: none !important;
+                object-fit: contain !important;
+                vertical-align: middle !important;
+            }
+
+            /* Header logo slightly larger */
+            .flash-brand-logo--header {
+                height: 44px !important;
+            }
+        }
+        /* END FLASH Professional Print v1 */
+
+        /* Actions + Metrics Design v1 (do not edit by hand) */
+        .callout--measure-next p,
+        .callout--measure-next li,
+        .callout--red-flags p,
+        .callout--red-flags li {
+            text-align: left !important;
+        }
+
+        .callout--measure-next table.metrics-next-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0 6px;
+            font-size: 9.75pt;
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        .callout--measure-next table.metrics-next-table th {
+            background: transparent !important;
+            border: none !important;
+            border-bottom: 1px solid rgba(15, 23, 42, 0.22) !important;
+            padding: 6px 8px !important;
+            text-align: left !important;
+            font-weight: 600 !important;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            font-size: 8.5pt;
+            color: var(--flash-muted, #334155) !important;
+        }
+
+        .callout--measure-next table.metrics-next-table td {
+            border: none !important;
+            border-bottom: 1px solid rgba(15, 23, 42, 0.12) !important;
+            padding: 8px 8px !important;
+            vertical-align: top;
+        }
+
+        .callout--measure-next table.metrics-next-table tr:last-child td {
+            border-bottom: none !important;
+        }
+
+        .callout--measure-next .metrics-next-pillar {
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 9pt;
+            color: var(--flash-ink, #0F172A);
+            white-space: nowrap;
+        }
+
+        .callout--measure-next .metric-line {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 2px 0;
+        }
+
+        .callout--measure-next .metric-name {
+            color: var(--flash-ink, #0F172A);
+        }
+
+        .metric-id {
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+            font-size: 8pt;
+            color: var(--flash-muted, #334155);
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            overflow-wrap: anywhere;
+            word-break: break-word;
+        }
+
+        .callout--red-flags .metric-note {
+            color: var(--flash-muted, #334155);
+            font-size: 8.5pt;
+            margin-left: 0.25em;
+            white-space: normal;
+        }
+
+        /* CAMP Matrix Quadrant Consistency v1 */
+        :root {
+            --camp-q-hidden-gem: #f7f0df;
+            --camp-q-rocketship: #e8f3ea;
+            --camp-q-chaos-zone: #f7e9ee;
+            --camp-q-starved-visionary: #e8f0f9;
+        }
+
+        .q-tl {
+            background: var(--camp-q-hidden-gem) !important;
+        }
+
+        .q-tr {
+            background: var(--camp-q-rocketship) !important;
+        }
+
+        .q-bl {
+            background: var(--camp-q-chaos-zone) !important;
+        }
+
+        .q-br {
+            background: var(--camp-q-starved-visionary) !important;
+        }
+
+        .matrix-grid .quadrant {
+            border-color: rgba(15, 23, 42, 0.36) !important;
+        }
+
+        /*
+         * Pagination Safety v1
+         * - Avoid orphan caption lines and one-line pre-break pages.
+         * - Keep matrices/tables/callouts from splitting into footer space.
+         */
+        @media print {
+            .page-break {
+                display: none !important;
+                page-break-before: auto !important;
+                break-before: auto !important;
+            }
+
+            h1,
+            h2 {
+                page-break-after: auto !important;
+                break-after: auto !important;
+            }
+
+            h3 {
+                page-break-after: avoid !important;
+                break-after: avoid-page !important;
+            }
+
+            table,
+            .matrix-container,
+            .matrix-grid,
+            .pillars-grid,
+            .journey-box,
+            .journey-row,
+            .callout {
+                page-break-inside: avoid !important;
+                break-inside: avoid-page !important;
+            }
+
+            table + .figure-caption,
+            .figure-caption {
+                page-break-before: avoid !important;
+                break-before: avoid-page !important;
+                page-break-after: avoid !important;
+                break-after: avoid-page !important;
+                margin-top: 3px !important;
+                margin-bottom: 10px !important;
+            }
+
+            p {
+                orphans: 3;
+                widows: 3;
+            }
+        }
+        /* END Actions + Metrics Design v1 */
+
+    </style>
 </head>
-<body data-content-type="case_study" data-content-slug="canva-product-led-adoption">
-<header class="content-header"><div class="content-header-inner"><a class="content-brand" href="/">FLASH Capital</a><nav class="content-nav"><a href="/insights/">Insights</a><a class="active" href="/case-studies/">Case Studies</a><a href="/newsletter/">Newsletter</a><a href="/flash-camp-framework.html">CAMP Framework</a><a href="/contact.html">Contact</a></nav><a class="content-cta" href="https://flash.zone">Apply now</a></div></header>
-<main class="content-wrap">
-<article class="hero-block">
-<span class="hero-kicker">Outcome Case | People</span>
-<h1 class="hero-title">Canva: Product-Led Adoption With Category Clarity</h1>
-<p class="hero-subtitle">Canva illustrates how simple onboarding plus clear category positioning can scale both consumer and team adoption.</p>
-<div class="claim-block"><div class="claim-label">Claim Type: Fact</div><p class="claim-text">Canva publicly positioned ease of use and rapid design output as key adoption drivers across non-designer user groups.</p></div>
-<div class="claim-block"><div class="claim-label">Claim Type: Estimate</div><p class="claim-text">When first-value time is short, product-led models often generate broader top-of-funnel reach with lower initial sales dependency.</p></div>
-<div class="claim-block"><div class="claim-label">Claim Type: Opinion</div><p class="claim-text">Category clarity becomes a growth moat when it informs product decisions, not only marketing language.</p></div>
-<div class="article-body">
-<section class="article-section">
-<h2>What The Source Case Highlights</h2>
-<p>The CAMP source case positions Canva as a persistence-and-clarity compounding story. The executive summary centers a founder journey through repeated investor rejection and geographic distance from major venture hubs, while still building a product that solved a broad non-designer pain point.</p>
-<p>That context matters because it separates signal from mythology: the case is not about viral luck. It is about sustained product simplification and consistent value delivery to an underserved user base.</p>
-</section>
-<section class="article-section">
-<h2>CAMP Trajectory From The Source Model</h2>
-<ul>
-<li>Early score profile in the source model: Capital 40, Advantage 65, Market 75, People 80.</li>
-<li>Early weighted CAMP score in the source table: 68.25.</li>
-<li>Later weighted CAMP score in the same case: 91.9.</li>
-</ul>
-<p>This pattern suggests that Market and People strength can carry initial momentum, while Capital and Advantage deepen as operating scale and product ecosystem maturity improve.</p>
-</section>
-<section class="article-section">
-<h2>Operator Lens For Founders</h2>
-<p>If your strategy is product-led growth, Canva reinforces one practical rule: protect time-to-first-value at all costs. Category expansion should only happen if core onboarding remains simple enough for new users to succeed without expert support.</p>
-</section>
+
+<body>
+
+    <div class="document-header">
+        <div class="flash-brand-header">
+            <img src="flash_logo_trimmed.png" alt="FLASH Capital" class="flash-brand-logo flash-brand-logo--header">
+        </div>
+
+        <div class="document-title">CAMP Matrix Framework</div>
+        <div class="document-subtitle">Case Study: Canva (2013-Present)</div>
+        <div class="document-meta">Assessing Startup Investability and Execution Readiness</div>
+    </div>
+
+    <div class="callout">
+        <div class="callout-title">Executive Summary: The 100-Rejection Founder</div>
+        Canva is Australia's most valuable private company, built by Melanie Perkins who started in Perth-one of the
+        world's most isolated cities-and faced over 100 investor rejections before finally raising capital. The company
+        demonstrates exceptional Market pillar strength: democratizing design for non-designers by making complex tools
+        simple. This case shows that geographic limitations (Australia, not Silicon Valley), repeated rejections, and
+        the "consumer SaaS from emerging markets" stigma can be overcome with extraordinary founder persistence, strong
+        product-market fit, and patience. Canva's CAMP score rose from 68.25 (2013) to 91.9 (2024), validating the
+        Hidden Gem to Rocketship trajectory for founders who refuse to quit.
+    </div>
+
+    <!-- PART 1: FRAMEWORK INTRODUCTION -->
+    <h1>I. The CAMP Framework</h1>
+
+    <h2>A. The Four Pillars</h2>
+    <p>The CAMP Matrix evaluates startup potential through four interconnected dimensions:</p>
+
+    <div class="pillars-grid">
+        <div class="pillar-item">
+            <div class="pillar-letter">C</div>
+            <div class="pillar-name">Capital</div>
+            <div class="pillar-desc">Runway, burn efficiency, capital access</div>
+        </div>
+        <div class="pillar-item">
+            <div class="pillar-letter">A</div>
+            <div class="pillar-name">Advantage</div>
+            <div class="pillar-desc">Moat, IP, differentiation, switching costs</div>
+        </div>
+        <div class="pillar-item">
+            <div class="pillar-letter">M</div>
+            <div class="pillar-name">Market</div>
+            <div class="pillar-desc">TAM, growth rate, traction, timing</div>
+        </div>
+        <div class="pillar-item">
+            <div class="pillar-letter">P</div>
+            <div class="pillar-name">People</div>
+            <div class="pillar-desc">Founder quality, team, governance</div>
+        </div>
+    </div>
+    <div class="figure-caption">Figure 1: The Four CAMP Pillars</div>
+
+    <h2>B. The 2x2 Matrix</h2>
+    <p>The pillars combine into two composite dimensions:</p>
+    <ul>
+        <li><strong>Internal Engine</strong> (Y-axis) = Capital + People, measures organizational capability</li>
+        <li><strong>External Promise</strong> (X-axis) = Advantage + Market, measures opportunity attractiveness</li>
+    </ul>
+
+    <div class="matrix-container">
+        <div class="matrix-grid">
+            <div class="y-axis"><span class="y-axis-text">INTERNAL ENGINE</span></div>
+            <div class="quadrant q-tl">
+                <div class="quadrant-title">Hidden Gem</div>
+                <div class="quadrant-desc">Strong engine, weak opportunity</div>
+            </div>
+            <div class="quadrant q-tr">
+                <div class="quadrant-title">Rocketship</div>
+                <div class="quadrant-desc">Strong engine, strong opportunity</div>
+            </div>
+            <div class="quadrant q-bl">
+                <div class="quadrant-title">Chaos Zone</div>
+                <div class="quadrant-desc">Weak on both dimensions</div>
+            </div>
+            <div class="quadrant q-br">
+                <div class="quadrant-title">Starved Visionary</div>
+                <div class="quadrant-desc">Big opportunity, weak engine</div>
+            </div>
+            <div class="x-axis">EXTERNAL PROMISE</div>
+        </div>
+    </div>
+    <div class="figure-caption">Figure 2: The CAMP Matrix Quadrants</div>
+
+    <h2>C. Stage-Aware Weighting</h2>
+    <table>
+        <tr>
+            <th>Stage</th>
+            <th>Capital</th>
+            <th>Advantage</th>
+            <th>Market</th>
+            <th>People</th>
+        </tr>
+        <tr>
+            <td>Pre-Seed</td>
+            <td>10%</td>
+            <td>30%</td>
+            <td>20%</td>
+            <td><strong>40%</strong></td>
+        </tr>
+        <tr>
+            <td>Seed</td>
+            <td>15%</td>
+            <td>30%</td>
+            <td>25%</td>
+            <td>30%</td>
+        </tr>
+        <tr>
+            <td>Series A</td>
+            <td>25%</td>
+            <td>25%</td>
+            <td><strong>30%</strong></td>
+            <td>20%</td>
+        </tr>
+        <tr>
+            <td>Series B+</td>
+            <td><strong>35%</strong></td>
+            <td>20%</td>
+            <td>30%</td>
+            <td>15%</td>
+        </tr>
+    </table>
+<div class="figure-caption">Table 1: Stage-Dependent Pillar Weights
 </div>
-<h2>What founders should do next</h2>
-<p>Measure your first-value experience weekly. If new users cannot reach meaningful value quickly, growth efficiency will eventually degrade.</p>
-<div class="cta-row"><a class="btn primary" data-content-cta data-content-type="case_study" data-content-slug="canva-product-led-adoption" href="https://flash.zone">Apply now</a><a class="btn" href="/contact.html">Contact</a></div>
-<div class="sources"><strong>Sources and context:</strong><br>Public source set: Canva product and company disclosures plus comparable PLG benchmarking materials (2018-2025).<br><a href="https://www.canva.com/newsroom/">Canva Newsroom</a> | <a href="https://www.sec.gov/edgar/search/">SEC EDGAR</a><br>Method note for estimate claims: directional inference from public adoption disclosures and FLASH case benchmarking; not a causal estimate.</div>
-</article>
-<section class="grid">
-<article class="card span-4">
-<h3><a href="/insights/camp-stage-weighting.html">Related Insight: Stage Weighting in CAMP</a></h3>
-<p>See how stage changes investor interpretation of identical metrics.</p>
-<div class="cta-row"><a class="btn" href="/insights/camp-stage-weighting.html">Read insight</a></div>
-</article>
-<article class="card span-4">
-<h3><a href="/insights/investor-readiness-scorecard.html">Related Insight: Investor Readiness Scorecard</a></h3>
-<p>Use this practical scorecard to structure your next investor update.</p>
-<div class="cta-row"><a class="btn" href="/insights/investor-readiness-scorecard.html">Read insight</a></div>
-</article>
-<article class="card span-4">
-<h3><a href="/newsletter/2026-03.html">Latest Newsletter: March 2026</a></h3>
-<p>Monthly editorial brief on credibility, risk transparency, and milestone logic.</p>
-<div class="cta-row"><a class="btn" href="/newsletter/2026-03.html">Read issue</a></div>
-</article>
-</section>
-<section class="newsletter-module">
-<h3>Get Monthly Case Breakdowns</h3>
-<p>Receive one concise monthly email with new case analyses, investor-readiness frameworks, and actionable founder checklists.</p>
-<form class="newsletter-signup-form" novalidate>
-<input type="email" name="email" placeholder="you@company.com" required>
-<label><input type="checkbox" name="consent"> I consent to receive monthly FLASH Capital editorial updates.</label>
-<button type="submit">Subscribe</button>
-<div class="form-status" aria-live="polite"></div>
-</form>
-</section>
-<footer class="content-footer"><span>FLASH Capital Case Studies</span><div class="content-footer-links"><a href="/case-studies/">All case studies</a><a href="/flash-privacy-policy.html">Privacy Policy</a><a href="/flash-terms-of-service.html">Terms of Service</a></div></footer>
-</main>
-<script src="/js/content-engagement.js"></script>
+
+    <h2>D. Scoring Rubric</h2>
+    <table>
+        <tr>
+            <th>Score Range</th>
+            <th>Classification</th>
+            <th>Interpretation</th>
+        </tr>
+        <tr>
+            <td>0-25</td>
+            <td>Critical</td>
+            <td>Severe deficiency; existential risk</td>
+        </tr>
+        <tr>
+            <td>26-50</td>
+            <td>Weak</td>
+            <td>Below threshold; requires improvement</td>
+        </tr>
+        <tr>
+            <td>51-75</td>
+            <td>Moderate</td>
+            <td>Acceptable but not differentiated</td>
+        </tr>
+        <tr>
+            <td>76-100</td>
+            <td>Strong</td>
+            <td>Competitive advantage; exceeds expectations</td>
+        </tr>
+    </table>
+<div class="figure-caption">Table 2: Pillar Scoring Rubric
+</div>
+
+    <div class="page-break"></div>
+
+    <!-- PART 2: COMPANY HISTORY -->
+    <h1>II. Company History and Context</h1>
+
+    <h2>A. The Origin Story: From Yearbooks to Global Design</h2>
+    <p>Melanie Perkins was a 19-year-old commerce student at the University of Western Australia when she started
+        tutoring other students in design software. She noticed a consistent pattern: design tools like Photoshop and
+        InDesign were impossibly complex for non-designers. In 2007, she and her boyfriend Cliff Obrecht launched
+        Fusion Books-an online tool that let schools easily create yearbooks. The insight was simple: if you give
+        people templates and drag-and-drop tools, they can create professional designs without professional skills.</p>
+
+    <p>Fusion Books was profitable but niche. Perkins realized the underlying technology could apply to all design, not
+        just yearbooks. In 2012, she flew to Silicon Valley to raise funding for a broader vision. She was rejected over
+        100 times. Most investors couldn't see past her Australian location, young age, and lack of technical
+        co-founder. Finally, in 2013, she recruited Cameron Adams (a former Google designer) as technical co-founder and
+        secured seed funding.</p>
+
+    <table>
+        <tr>
+            <th>Attribute</th>
+            <th>Detail</th>
+        </tr>
+        <tr>
+            <td>Precursor Company</td>
+            <td>Fusion Books (2007): yearbook design software</td>
+        </tr>
+        <tr>
+            <td>Pivot Insight</td>
+            <td>Design software was too complex for most people</td>
+        </tr>
+        <tr>
+            <td>Founded</td>
+            <td>January 1, 2013 (Canva officially launched)</td>
+        </tr>
+        <tr>
+            <td>Founders</td>
+            <td>Melanie Perkins (CEO), Cliff Obrecht (COO), Cameron Adams (CPO)</td>
+        </tr>
+        <tr>
+            <td>Location</td>
+            <td>Sydney, Australia (originally Perth)</td>
+        </tr>
+        <tr>
+            <td>Initial Product</td>
+            <td>Drag-and-drop online design tool with templates</td>
+        </tr>
+    </table>
+
+    <div class="success-callout">
+        <div class="callout-title">Key Evidence: 100+ Investor Rejections</div>
+        Melanie Perkins pitched over 100 investors across 3 years before securing Canva's seed round. Reasons for
+        rejection included: "You're from Australia" (too far), "You're too young" (19 when starting Fusion Books, 25
+        at Canva seed), "Consumer SaaS doesn't work" (2012 conventional wisdom), "You don't have a technical
+        co-founder" (solved by recruiting Cameron Adams). This persistence is a <strong>People pillar signal</strong>
+        that the CAMP framework must weight heavily-founders who survive 100 rejections have extraordinary resilience.
+    </div>
+
+    <h2>B. Complete Funding History</h2>
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Round</th>
+            <th>Amount</th>
+            <th>Lead Investor</th>
+            <th>Post-Money Valuation</th>
+        </tr>
+        <tr>
+            <td>Mar 2013</td>
+            <td>Seed</td>
+            <td>$3M</td>
+            <td>Matrix Partners, Founders Fund</td>
+            <td>~$15M</td>
+        </tr>
+        <tr>
+            <td>Aug 2015</td>
+            <td>Series A</td>
+            <td>$15M</td>
+            <td>Felicis Ventures</td>
+            <td>~$165M</td>
+        </tr>
+        <tr>
+            <td>Jan 2018</td>
+            <td>Series B</td>
+            <td>$40M</td>
+            <td>Sequoia China</td>
+            <td>$1B (Unicorn)</td>
+        </tr>
+        <tr>
+            <td>Oct 2019</td>
+            <td>Series C</td>
+            <td>$85M</td>
+            <td>General Catalyst, Bond</td>
+            <td>$3.2B</td>
+        </tr>
+        <tr>
+            <td>Jun 2020</td>
+            <td>Series D</td>
+            <td>$60M</td>
+            <td>Blackbird, Sequoia</td>
+            <td>$6B</td>
+        </tr>
+        <tr>
+            <td>Apr 2021</td>
+            <td>Series E</td>
+            <td>$71M</td>
+            <td>Franklin Templeton, T. Rowe Price</td>
+            <td>$15B</td>
+        </tr>
+        <tr>
+            <td>Sep 2021</td>
+            <td>Series F</td>
+            <td>$200M</td>
+            <td>T. Rowe Price</td>
+            <td>$40B (Peak)</td>
+        </tr>
+        <tr>
+            <td><strong>Total Raised</strong></td>
+            <td></td>
+            <td><strong>$572M+</strong></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <h2>C. Key Investors and Their Thesis</h2>
+    <table>
+        <tr>
+            <th>Investor</th>
+            <th>Round</th>
+            <th>Thesis</th>
+        </tr>
+        <tr>
+            <td>Founders Fund (Peter Thiel)</td>
+            <td>Seed</td>
+            <td>Contrarian bet on Australian founder; democratization thesis</td>
+        </tr>
+        <tr>
+            <td>Felicis Ventures</td>
+            <td>Series A</td>
+            <td>Product-led growth; consumer SaaS inflection</td>
+        </tr>
+        <tr>
+            <td>Sequoia China</td>
+            <td>Series B</td>
+            <td>Global expansion potential; unicorn validation</td>
+        </tr>
+        <tr>
+            <td>Blackbird Ventures</td>
+            <td>Series D</td>
+            <td>Leading Australian VC; $1B+ outcomes possible from ANZ</td>
+        </tr>
+        <tr>
+            <td>T. Rowe Price</td>
+            <td>Series E, F</td>
+            <td>Public market crossover fund; IPO preparation</td>
+        </tr>
+    </table>
+
+    <div class="page-break"></div>
+
+    <!-- PART 3: FOUNDING ASSESSMENT -->
+    <h1>III. Founding Assessment: Canva at Seed (2013)</h1>
+
+    <h2>A. Capital: 40/100 (Geographic Constraint)</h2>
+    <table>
+        <tr>
+            <th>Factor</th>
+            <th>Evidence</th>
+            <th>Tier</th>
+            <th>Score</th>
+        </tr>
+        <tr>
+            <td>Funding Quality</td>
+            <td>$3M from Matrix/Founders Fund (after 100+ rejections)</td>
+            <td>T3</td>
+            <td>+15</td>
+        </tr>
+        <tr>
+            <td>Runway &amp; Burn</td>
+            <td>Managed carefully; Sydney costs lower than SF</td>
+            <td>T4</td>
+            <td>+5</td>
+        </tr>
+        <tr>
+            <td>Revenue/Business Model</td>
+            <td>Fusion Books was profitable; proved execution</td>
+            <td>T3</td>
+            <td>+10</td>
+        </tr>
+        <tr>
+            <td>Capital Access</td>
+            <td>Australian startup; harder to raise in US; uncertain follow-on</td>
+            <td>T3</td>
+            <td>+10</td>
+        </tr>
+        <tr>
+            <td><strong>Capital Score</strong></td>
+            <td></td>
+            <td></td>
+            <td><strong>40/100</strong></td>
+        </tr>
+    </table>
+
+    <h2>B. Advantage: 65/100 (Simplicity as Moat)</h2>
+    <table>
+        <tr>
+            <th>Factor</th>
+            <th>Evidence</th>
+            <th>Tier</th>
+            <th>Score</th>
+        </tr>
+        <tr>
+            <td>Competitive Moat</td>
+            <td>Drag-and-drop design for non-designers</td>
+            <td>T2</td>
+            <td>+20</td>
+        </tr>
+        <tr>
+            <td>Tech Differentiation</td>
+            <td>Professional templates as starting points; browser-based</td>
+            <td>T1</td>
+            <td>+25</td>
+        </tr>
+        <tr>
+            <td>Execution Velocity</td>
+            <td>Low barrier to try; freemium model</td>
+            <td>T2</td>
+            <td>+15</td>
+        </tr>
+        <tr>
+            <td>Switching Costs</td>
+            <td>Adobe suite dominant but complex; PicMonkey basic</td>
+            <td>T4</td>
+            <td>+5</td>
+        </tr>
+        <tr>
+            <td><strong>Advantage Score</strong></td>
+            <td></td>
+            <td></td>
+            <td><strong>65/100</strong></td>
+        </tr>
+    </table>
+
+    <h2>C. Market: 75/100 (Massive Underserved Segment)</h2>
+    <table>
+        <tr>
+            <th>Factor</th>
+            <th>Evidence</th>
+            <th>Tier</th>
+            <th>Score</th>
+        </tr>
+        <tr>
+            <td>TAM Size &amp; Growth</td>
+            <td>Everyone who needs design but can't use Adobe</td>
+            <td>T1</td>
+            <td>+25</td>
+        </tr>
+        <tr>
+            <td>Timing/Readiness</td>
+            <td>Social media driving visual content demand</td>
+            <td>T2</td>
+            <td>+10</td>
+        </tr>
+        <tr>
+            <td>Competitive Landscape</td>
+            <td>Positioned between "too simple" and "too complex"</td>
+            <td>T2</td>
+            <td>+20</td>
+        </tr>
+        <tr>
+            <td>Traction/Validation</td>
+            <td>Fusion Books proved demand in niche (yearbooks)</td>
+            <td>T2</td>
+            <td>+20</td>
+        </tr>
+        <tr>
+            <td><strong>Market Score</strong></td>
+            <td></td>
+            <td></td>
+            <td><strong>75/100</strong></td>
+        </tr>
+    </table>
+
+    <h2>D. People: 80/100 (Extraordinary Persistence)</h2>
+    <table>
+        <tr>
+            <th>Factor</th>
+            <th>Evidence</th>
+            <th>Tier</th>
+            <th>Score</th>
+        </tr>
+        <tr>
+            <td>Founder Quality</td>
+            <td>100+ rejections over 3 years; 6 years domain expertise (Fusion Books)</td>
+            <td>T1</td>
+            <td>+30</td>
+        </tr>
+        <tr>
+            <td>Team Composition</td>
+            <td>Cameron Adams (ex-Google designer) + Perkins (vision) + Obrecht (ops)</td>
+            <td>T1</td>
+            <td>+25</td>
+        </tr>
+        <tr>
+            <td>Governance &amp; Ethics</td>
+            <td>Fusion Books profitable; proved execution capability</td>
+            <td>T2</td>
+            <td>+15</td>
+        </tr>
+        <tr>
+            <td>Vision &amp; Culture</td>
+            <td>Complementary team; long-term orientation</td>
+            <td>T3</td>
+            <td>+10</td>
+        </tr>
+        <tr>
+            <td><strong>People Score</strong></td>
+            <td></td>
+            <td></td>
+            <td><strong>80/100</strong></td>
+        </tr>
+    </table>
+
+    <h2>E. CAMP Score at Seed (2013)</h2>
+    <table>
+        <tr>
+            <th>Pillar</th>
+            <th>Raw Score</th>
+            <th>Weight (Seed)</th>
+            <th>Weighted Score</th>
+        </tr>
+        <tr>
+            <td>Capital</td>
+            <td>40</td>
+            <td>15%</td>
+            <td>6.00</td>
+        </tr>
+        <tr>
+            <td>Advantage</td>
+            <td>65</td>
+            <td>30%</td>
+            <td>19.50</td>
+        </tr>
+        <tr>
+            <td>Market</td>
+            <td>75</td>
+            <td>25%</td>
+            <td>18.75</td>
+        </tr>
+        <tr>
+            <td>People</td>
+            <td>80</td>
+            <td>30%</td>
+            <td>24.00</td>
+        </tr>
+        <tr>
+            <td><strong>Total CAMP Score</strong></td>
+            <td></td>
+            <td></td>
+            <td><strong>68.25</strong></td>
+        </tr>
+    </table>
+
+    <div class="callout">
+        <div class="callout-title">Matrix Position: Hidden Gem</div>
+        <strong>Internal Engine</strong> = (Capital 40 + People 80) / 2 = <strong>60</strong><br>
+        <strong>External Promise</strong> = (Advantage 65 + Market 75) / 2 = <strong>70</strong><br><br>
+        Canva started as a <strong>Hidden Gem</strong>: strong Market insight and People persistence, but limited
+        Capital visibility outside Australia. The 100+ rejections reflected investor blindspots, not company weakness.
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- PART 4: GROWTH TRAJECTORY -->
+    <h1>IV. Growth Trajectory: Seed to $40B (2013-2024)</h1>
+
+    <h2>A. Key Milestones</h2>
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Event</th>
+            <th>CAMP Pillar Impact</th>
+        </tr>
+        <tr>
+            <td>Aug 2013</td>
+            <td>Canva launches publicly</td>
+            <td>Market: First user traction</td>
+        </tr>
+        <tr>
+            <td>2014</td>
+            <td>1 million users</td>
+            <td>Market: Viral growth begins</td>
+        </tr>
+        <tr>
+            <td>2015</td>
+            <td>Canva for Work (team features)</td>
+            <td>Market: B2B expansion</td>
+        </tr>
+        <tr>
+            <td>Jan 2018</td>
+            <td>Unicorn status ($1B valuation)</td>
+            <td>Capital: Major validation</td>
+        </tr>
+        <tr>
+            <td>2019</td>
+            <td>20 million monthly active users</td>
+            <td>Market: Mainstream adoption</td>
+        </tr>
+        <tr>
+            <td>2020</td>
+            <td>COVID acceleration: 50M to 75M users</td>
+            <td>Market: Remote work tailwind</td>
+        </tr>
+        <tr>
+            <td>Sep 2021</td>
+            <td>$40B valuation (peak)</td>
+            <td>Capital: Peak private valuation</td>
+        </tr>
+        <tr>
+            <td>2024</td>
+            <td>185 million monthly active users</td>
+            <td>All pillars: Dominant position</td>
+        </tr>
+    </table>
+
+    <h2>B. User Growth Trajectory</h2>
+    <table>
+        <tr>
+            <th>Year</th>
+            <th>Monthly Active Users</th>
+            <th>Valuation</th>
+        </tr>
+        <tr>
+            <td>2013 (Launch)</td>
+            <td>~10,000</td>
+            <td>$15M</td>
+        </tr>
+        <tr>
+            <td>2014</td>
+            <td>1 million</td>
+            <td>~$50M</td>
+        </tr>
+        <tr>
+            <td>2016</td>
+            <td>10 million</td>
+            <td>~$350M</td>
+        </tr>
+        <tr>
+            <td>2018 (Unicorn)</td>
+            <td>15 million</td>
+            <td>$1B</td>
+        </tr>
+        <tr>
+            <td>2020</td>
+            <td>55 million</td>
+            <td>$6B</td>
+        </tr>
+        <tr>
+            <td>2021 (Peak)</td>
+            <td>75 million</td>
+            <td>$40B</td>
+        </tr>
+        <tr>
+            <td>2024</td>
+            <td>185 million</td>
+            <td>$42B</td>
+        </tr>
+    </table>
+
+    <div class="success-callout">
+        <div class="callout-title">Product-Led Growth Excellence</div>
+        Canva grew from 10,000 users to 185 million primarily through product-led growth-users shared designs,
+        recipients saw "Made with Canva" watermarks, and viral loops drove acquisition. This capital-efficient growth
+        contrasts with paid acquisition strategies, demonstrating how strong Advantage (simple product) creates Market
+        expansion without burning capital.
+    </div>
+
+    <h2>C. Current CAMP Assessment (2024)</h2>
+    <table>
+        <tr>
+            <th>Pillar</th>
+            <th>Raw Score</th>
+            <th>Weight (Series B+)</th>
+            <th>Weighted Score</th>
+        </tr>
+        <tr>
+            <td>Capital</td>
+            <td>92</td>
+            <td>35%</td>
+            <td>32.20</td>
+        </tr>
+        <tr>
+            <td>Advantage</td>
+            <td>90</td>
+            <td>20%</td>
+            <td>18.00</td>
+        </tr>
+        <tr>
+            <td>Market</td>
+            <td>95</td>
+            <td>30%</td>
+            <td>28.50</td>
+        </tr>
+        <tr>
+            <td>People</td>
+            <td>88</td>
+            <td>15%</td>
+            <td>13.20</td>
+        </tr>
+        <tr>
+            <td><strong>Total CAMP Score</strong></td>
+            <td></td>
+            <td></td>
+            <td><strong>91.9</strong></td>
+        </tr>
+    </table>
+
+    <h2>D. Score Visualization (2024)</h2>
+    <div style="margin: 20px 0;">
+        <div class="score-row">
+            <div class="score-label">Capital</div>
+            <div class="score-bar-container">
+                <div class="score-bar" style="width: 92%;"></div>
+            </div>
+            <div class="score-value">92</div>
+        </div>
+        <div class="score-row">
+            <div class="score-label">Advantage</div>
+            <div class="score-bar-container">
+                <div class="score-bar" style="width: 90%;"></div>
+            </div>
+            <div class="score-value">90</div>
+        </div>
+        <div class="score-row">
+            <div class="score-label">Market</div>
+            <div class="score-bar-container">
+                <div class="score-bar" style="width: 95%;"></div>
+            </div>
+            <div class="score-value">95</div>
+        </div>
+        <div class="score-row">
+            <div class="score-label">People</div>
+            <div class="score-bar-container">
+                <div class="score-bar" style="width: 88%;"></div>
+            </div>
+            <div class="score-value">88</div>
+        </div>
+        <div class="page-break"></div>
+
+        <!-- PART 5: COMPETITIVE LANDSCAPE -->
+        <h1>V. Competitive Landscape Analysis</h1>
+
+        <h2>A. Design Tools Market (2013-2024)</h2>
+        <p>The design tools space has stratified into distinct segments since Canva's 2013 launch. Understanding these
+            competitive dynamics illuminates why Canva's Advantage pillar score increased from 65 to 90 over this
+            period.
+            Canva carved a unique position: more powerful than simple tools, more accessible than professional suites.
+        </p>
+
+        <table>
+            <tr>
+                <th>Platform</th>
+                <th>Target Segment</th>
+                <th>Price Range</th>
+                <th>Users (2024)</th>
+                <th>Approach</th>
+            </tr>
+            <tr>
+                <td><strong>Canva</strong></td>
+                <td>Everyone (prosumer to teams)</td>
+                <td>Free - $150/yr</td>
+                <td>185M+ MAU</td>
+                <td>Templates + drag-and-drop</td>
+            </tr>
+            <tr>
+                <td>Adobe Creative Cloud</td>
+                <td>Professionals</td>
+                <td>$600/yr+</td>
+                <td>30M+ subscribers</td>
+                <td>Industry standard suite</td>
+            </tr>
+            <tr>
+                <td>Figma</td>
+                <td>UX/UI designers</td>
+                <td>Free - $180/yr</td>
+                <td>4M+ users</td>
+                <td>Collaborative design</td>
+            </tr>
+            <tr>
+                <td>Crello (Vista)</td>
+                <td>SMB marketing</td>
+                <td>Free - $120/yr</td>
+                <td>~10M users</td>
+                <td>Canva competitor</td>
+            </tr>
+            <tr>
+                <td>Piktochart</td>
+                <td>Infographics</td>
+                <td>Free - $200/yr</td>
+                <td>~3M users</td>
+                <td>Data visualization</td>
+            </tr>
+            <tr>
+                <td>Visme</td>
+                <td>Presentations</td>
+                <td>Free - $300/yr</td>
+                <td>~2M users</td>
+                <td>Presentations focus</td>
+            </tr>
+        </table>
+
+        <h2>B. Why Canva Beats Adobe (For Most Users)</h2>
+        <table>
+            <tr>
+                <th>Dimension</th>
+                <th>Canva</th>
+                <th>Adobe Creative Cloud</th>
+            </tr>
+            <tr>
+                <td>Learning Curve</td>
+                <td>Minutes to first design</td>
+                <td>Months to proficiency</td>
+            </tr>
+            <tr>
+                <td>Price</td>
+                <td>Free tier; $120/yr Pro</td>
+                <td>$600+/yr minimum</td>
+            </tr>
+            <tr>
+                <td>Platform</td>
+                <td>Browser-based; no install</td>
+                <td>Desktop applications</td>
+            </tr>
+            <tr>
+                <td>Templates</td>
+                <td>610,000+ ready-to-use</td>
+                <td>Limited templates</td>
+            </tr>
+            <tr>
+                <td>Collaboration</td>
+                <td>Real-time team editing</td>
+                <td>Added later (Creative Cloud)</td>
+            </tr>
+            <tr>
+                <td>Target User</td>
+                <td>"I need a design now"</td>
+                <td>"I am a professional designer"</td>
+            </tr>
+        </table>
+
+        <div class="callout">
+            <div class="callout-title">Canva's Key Insight: 99% of People Aren't Designers</div>
+            Adobe optimized for the 1% of users who are professional designers. Canva optimized for the 99% who just
+            need to create something that looks good. This market expansion-not competing for Adobe's users but creating
+            new designers-is why Canva has 6× Adobe's user count despite being a younger company.
+        </div>
+
+        <h2>C. Adobe's Failed Response</h2>
+        <p>Adobe attempted to compete with Canva through multiple initiatives, all of which underperformed:</p>
+        <table>
+            <tr>
+                <th>Initiative</th>
+                <th>Launch</th>
+                <th>Result</th>
+            </tr>
+            <tr>
+                <td>Adobe Spark</td>
+                <td>2016</td>
+                <td>Limited adoption; rebranded to Creative Cloud Express</td>
+            </tr>
+            <tr>
+                <td>Creative Cloud Express</td>
+                <td>2021</td>
+                <td>Minimal market share; confusing positioning</td>
+            </tr>
+            <tr>
+                <td>Firefly (AI)</td>
+                <td>2023</td>
+                <td>Strong AI bet; but Canva added AI features too</td>
+            </tr>
+            <tr>
+                <td>Figma Acquisition Attempt</td>
+                <td>2022</td>
+                <td>$20B deal blocked by regulators (2023)</td>
+            </tr>
+        </table>
+
+        <h2>D. Competitive Threats</h2>
+        <table>
+            <tr>
+                <th>Threat</th>
+                <th>Description</th>
+                <th>Canva Response</th>
+            </tr>
+            <tr>
+                <td>Microsoft Designer</td>
+                <td>Free with Microsoft 365; AI-powered</td>
+                <td>Deeper templates; brand kit features</td>
+            </tr>
+            <tr>
+                <td>Google Workspace</td>
+                <td>Slides, Drawings increasingly capable</td>
+                <td>Canva integrations with Google</td>
+            </tr>
+            <tr>
+                <td>AI Design Tools</td>
+                <td>DALL-E, Midjourney, Ideogram</td>
+                <td>Integrated "Magic" AI features</td>
+            </tr>
+            <tr>
+                <td>Figma</td>
+                <td>Collaborative design gaining broader appeal</td>
+                <td>Canva Docs, Whiteboards</td>
+            </tr>
+        </table>
+
+        <div class="page-break"></div>
+
+        <!-- PART 6: INVESTOR PERSPECTIVE -->
+        <h1>VI. Investor Perspective: From Rejection to $40B</h1>
+
+        <h2>A. The Rejection Years (2010-2013)</h2>
+        <p>Melanie Perkins's 100+ rejection story is one of the most documented in startup history. Key patterns:</p>
+
+        <table>
+            <tr>
+                <th>Rejection Reason</th>
+                <th>Frequency</th>
+                <th>Perkins's Response</th>
+            </tr>
+            <tr>
+                <td>"You're from Australia"</td>
+                <td>Very common</td>
+                <td>Moved team operations closer to SF</td>
+            </tr>
+            <tr>
+                <td>"You're not technical"</td>
+                <td>Common</td>
+                <td>Recruited Cameron Adams (ex-Google)</td>
+            </tr>
+            <tr>
+                <td>"Consumer SaaS doesn't work"</td>
+                <td>Common (2012 bias)</td>
+                <td>Showed Fusion Books revenue as proof</td>
+            </tr>
+            <tr>
+                <td>"Market is too niche"</td>
+                <td>Common</td>
+                <td>Expanded vision from yearbooks to "all design"</td>
+            </tr>
+            <tr>
+                <td>"Adobe will crush you"</td>
+                <td>Frequent</td>
+                <td>Explained different target market (non-designers)</td>
+            </tr>
+        </table>
+
+        <h2>B. The Founders Fund Bet</h2>
+        <div class="success-callout">
+            <div class="callout-title">Why Peter Thiel's Fund Said Yes</div>
+            <em>"We loved the contrarian nature of the bet. Everyone said Australian founders couldn't build global
+                companies, that consumer SaaS was dead, that you needed to be technical to start a tech company. Melanie
+                had
+                proven everyone wrong already with Fusion Books. We saw the persistence as a feature, not a bug-founders
+                who
+                survive 100 rejections will survive anything the market throws at them."</em>
+        </div>
+
+        <h2>C. Valuation Trajectory</h2>
+        <table>
+            <tr>
+                <th>Round</th>
+                <th>Date</th>
+                <th>Valuation</th>
+                <th>Key Investor Thesis</th>
+            </tr>
+            <tr>
+                <td>Seed</td>
+                <td>Mar 2013</td>
+                <td>$15M</td>
+                <td>Contrarian bet on Australian founder</td>
+            </tr>
+            <tr>
+                <td>Series A</td>
+                <td>Aug 2015</td>
+                <td>$165M</td>
+                <td>User growth exceeding projections</td>
+            </tr>
+            <tr>
+                <td>Series B</td>
+                <td>Jan 2018</td>
+                <td>$1B (Unicorn)</td>
+                <td>PLG model proven; global expansion</td>
+            </tr>
+            <tr>
+                <td>Series C</td>
+                <td>Oct 2019</td>
+                <td>$3.2B</td>
+                <td>Enterprise traction; Canva for Teams</td>
+            </tr>
+            <tr>
+                <td>Series D</td>
+                <td>Jun 2020</td>
+                <td>$6B</td>
+                <td>COVID remote work acceleration</td>
+            </tr>
+            <tr>
+                <td>Series E</td>
+                <td>Apr 2021</td>
+                <td>$15B</td>
+                <td>Path to profitability; category leader</td>
+            </tr>
+            <tr>
+                <td>Series F</td>
+                <td>Sep 2021</td>
+                <td>$40B</td>
+                <td>Peak private valuation; IPO expectations</td>
+            </tr>
+        </table>
+
+        <h2>D. Late-Stage Investor Concerns</h2>
+        <table>
+            <tr>
+                <th>Concern</th>
+                <th>Evidence</th>
+                <th>Counter-Argument</th>
+            </tr>
+            <tr>
+                <td>IPO Timing</td>
+                <td>No IPO announced despite $40B valuation</td>
+                <td>Profitable; no need for public capital</td>
+            </tr>
+            <tr>
+                <td>AI Disruption</td>
+                <td>Text-to-image AI could replace templates</td>
+                <td>Canva integrated AI; templates still valuable</td>
+            </tr>
+            <tr>
+                <td>Competition</td>
+                <td>Microsoft Designer, Adobe Express</td>
+                <td>First-mover advantage; user lock-in</td>
+            </tr>
+            <tr>
+                <td>Valuation Justification</td>
+                <td>$40B requires massive revenue growth</td>
+                <td>$2B+ ARR; 30%+ growth rate</td>
+            </tr>
+        </table>
+
+        <div class="page-break"></div>
+
+        <!-- PART 7: ENTERPRISE EXPANSION -->
+        <h1>VII. Enterprise Expansion: Canva for Teams</h1>
+
+        <h2>A. B2B Pivot (2017-Present)</h2>
+        <p>Canva's expansion from consumer to enterprise represents a classic bottom-up SaaS strategy. Individual users
+            adopted Canva for personal projects, then brought it into their workplaces, creating enterprise demand:</p>
+
+        <table>
+            <tr>
+                <th>Product</th>
+                <th>Launch</th>
+                <th>Target</th>
+                <th>Revenue Impact</th>
+            </tr>
+            <tr>
+                <td>Canva for Work</td>
+                <td>2016</td>
+                <td>Small teams</td>
+                <td>First B2B revenue</td>
+            </tr>
+            <tr>
+                <td>Brand Kit</td>
+                <td>2018</td>
+                <td>Marketing teams</td>
+                <td>Key enterprise feature</td>
+            </tr>
+            <tr>
+                <td>Canva for Enterprise</td>
+                <td>2019</td>
+                <td>Large organizations</td>
+                <td>SSO, admin controls</td>
+            </tr>
+            <tr>
+                <td>Canva Docs</td>
+                <td>2022</td>
+                <td>Content teams</td>
+                <td>Expands use cases</td>
+            </tr>
+            <tr>
+                <td>Magic Studio (AI)</td>
+                <td>2023</td>
+                <td>All users</td>
+                <td>AI premium features</td>
+            </tr>
+        </table>
+
+        <h2>B. Enterprise Customer Metrics</h2>
+        <table>
+            <tr>
+                <th>Metric</th>
+                <th>2019</th>
+                <th>2021</th>
+                <th>2024</th>
+            </tr>
+            <tr>
+                <td>Enterprise Customers</td>
+                <td>~5K</td>
+                <td>~30K</td>
+                <td>~170K</td>
+            </tr>
+            <tr>
+                <td>Team Users</td>
+                <td>~1M</td>
+                <td>~20M</td>
+                <td>~60M</td>
+            </tr>
+            <tr>
+                <td>Fortune 500 Clients</td>
+                <td>~50</td>
+                <td>~300</td>
+                <td>~85% of F500</td>
+            </tr>
+            <tr>
+                <td>B2B Revenue %</td>
+                <td>~30%</td>
+                <td>~50%</td>
+                <td>~70%</td>
+            </tr>
+        </table>
+
+        <h2>C. Enterprise Feature Evolution</h2>
+        <table>
+            <tr>
+                <th>Feature Category</th>
+                <th>Examples</th>
+                <th>CAMP Impact</th>
+            </tr>
+            <tr>
+                <td>Brand Management</td>
+                <td>Brand Kit, Brand Templates, Logo assets</td>
+                <td>Advantage: switching cost</td>
+            </tr>
+            <tr>
+                <td>Collaboration</td>
+                <td>Comments, real-time editing, approvals</td>
+                <td>Market: team expansion</td>
+            </tr>
+            <tr>
+                <td>Admin &amp; Security</td>
+                <td>SSO, SCIM, audit logs, permissions</td>
+                <td>Market: enterprise access</td>
+            </tr>
+            <tr>
+                <td>Integration</td>
+                <td>Slack, Teams, Google Workspace, DAM</td>
+                <td>Advantage: workflow lock-in</td>
+            </tr>
+        </table>
+
+        <div class="page-break"></div>
+
+        <!-- PART 8: PILLAR TRANSFORMATION -->
+        <h1>VIII. Pillar Transformation Timeline</h1>
+
+        <h2>A. Year-by-Year CAMP Evolution</h2>
+        <table>
+            <tr>
+                <th>Year</th>
+                <th>Capital</th>
+                <th>Advantage</th>
+                <th>Market</th>
+                <th>People</th>
+                <th>CAMP</th>
+                <th>Key Event</th>
+            </tr>
+            <tr>
+                <td>2013</td>
+                <td>40</td>
+                <td>65</td>
+                <td>75</td>
+                <td>80</td>
+                <td>68.25</td>
+                <td>Seed round; launch</td>
+            </tr>
+            <tr>
+                <td>2015</td>
+                <td>55</td>
+                <td>72</td>
+                <td>78</td>
+                <td>82</td>
+                <td>73.0</td>
+                <td>Series A; 10M users</td>
+            </tr>
+            <tr>
+                <td>2018</td>
+                <td>75</td>
+                <td>82</td>
+                <td>85</td>
+                <td>85</td>
+                <td>82.0</td>
+                <td>Unicorn; Teams launch</td>
+            </tr>
+            <tr>
+                <td>2020</td>
+                <td>85</td>
+                <td>86</td>
+                <td>90</td>
+                <td>86</td>
+                <td>87.0</td>
+                <td>COVID acceleration</td>
+            </tr>
+            <tr>
+                <td>2021</td>
+                <td>90</td>
+                <td>88</td>
+                <td>93</td>
+                <td>87</td>
+                <td>90.0</td>
+                <td>$40B peak valuation</td>
+            </tr>
+            <tr>
+                <td>2024</td>
+                <td>92</td>
+                <td>90</td>
+                <td>95</td>
+                <td>88</td>
+                <td>91.9</td>
+                <td>185M MAU; profitable</td>
+            </tr>
+        </table>
+
+        <h2>B. Advantage Pillar Deep Dive</h2>
+        <table>
+            <tr>
+                <th>Period</th>
+                <th>Advantage Score</th>
+                <th>Key Developments</th>
+            </tr>
+            <tr>
+                <td>2013-2015</td>
+                <td>65-72</td>
+                <td>Template library; drag-and-drop simplicity; freemium model</td>
+            </tr>
+            <tr>
+                <td>2016-2018</td>
+                <td>75-82</td>
+                <td>Canva for Work; photo editing; animation features</td>
+            </tr>
+            <tr>
+                <td>2019-2021</td>
+                <td>84-88</td>
+                <td>Enterprise features; video editing; brand kits</td>
+            </tr>
+            <tr>
+                <td>2022-2024</td>
+                <td>88-90</td>
+                <td>AI integration (Magic); Canva Docs; Whiteboards</td>
+            </tr>
+        </table>
+
+        <h2>C. Market Pillar Deep Dive</h2>
+        <table>
+            <tr>
+                <th>Period</th>
+                <th>Market Score</th>
+                <th>Key Developments</th>
+            </tr>
+            <tr>
+                <td>2013-2015</td>
+                <td>75-78</td>
+                <td>Consumer adoption; social media design demand</td>
+            </tr>
+            <tr>
+                <td>2016-2018</td>
+                <td>80-85</td>
+                <td>B2B expansion; education sector; international growth</td>
+            </tr>
+            <tr>
+                <td>2019-2021</td>
+                <td>88-93</td>
+                <td>COVID tailwind; remote work; video content explosion</td>
+            </tr>
+            <tr>
+                <td>2022-2024</td>
+                <td>93-95</td>
+                <td>Enterprise dominance; AI democratization; 190+ countries</td>
+            </tr>
+        </table>
+
+        <div class="page-break"></div>
+
+        <!-- PART 9: MATRIX JOURNEY -->
+        <h1>V. Matrix Journey Visualization</h1>
+
+        <div class="journey-box">
+            <div class="journey-row">
+                <div class="journey-point">
+                    <div class="journey-year">2013 (Seed)</div>
+                    <div class="journey-score">68.25</div>
+                    <div class="journey-quadrant">Hidden Gem</div>
+                </div>
+                <div class="journey-arrow">&rarr;</div>
+                <div class="journey-point">
+                    <div class="journey-year">2018 (Unicorn)</div>
+                    <div class="journey-score">82.0</div>
+                    <div class="journey-quadrant">Rocketship</div>
+                </div>
+                <div class="journey-arrow">&rarr;</div>
+                <div class="journey-point-success">
+                    <div class="journey-year">2024</div>
+                    <div class="journey-score">91.9</div>
+                    <div class="journey-quadrant">Rocketship (Dominant)</div>
+                </div>
+            </div>
+            <div style="font-size: 9pt; margin-top: 15px;">
+                <strong>Founder Rejections:</strong> 100+ | <strong>Time to Unicorn:</strong> 5 years<br>
+                <strong>Users (2024):</strong> 185M+ monthly | <strong>Valuation:</strong> $42B
+            </div>
+        </div>
+
+        <!-- PART 6: KEY LESSONS -->
+        <h1>VI. Key Lessons for the CAMP Framework</h1>
+
+        <h2>A. Core Insights</h2>
+
+        <p><strong>1. Geographic Origin is Surmountable.</strong> Canva was built in Australia, not Silicon Valley.
+            Perkins
+            flew to SF repeatedly, pitched 100+ investors over 3 years, and eventually broke through. For the CAMP
+            framework: geographic disadvantages affect Capital access but don't determine outcome if other pillars are
+            strong.</p>
+
+        <p><strong>2. Rejection Count is Not Disqualifying.</strong> 100+ rejections would cause most founders to quit.
+            Perkins kept iterating her pitch, adding a technical co-founder (Cameron Adams), and refining the product
+            until
+            investors saw what she saw. People pillar scores should weight persistence and rejection resilience.</p>
+
+        <p><strong>3. Democratization Creates Massive Markets.</strong> "Design for everyone" expanded the market beyond
+            professional designers-essentially anyone with a social media account or business became a potential
+            customer.
+            This Market pillar expansion is a classic "ocean vs. pond" strategy.</p>
+
+        <p><strong>4. Freemium + Product-Led Growth = Capital Efficiency.</strong> Canva raised $572M total vs. Zoom's
+            $160M
+            vs. Slack's $1.4B. The freemium model with viral sharing created efficient growth, allowing the company to
+            reach
+            $40B valuation without burning capital on paid acquisition.</p>
+
+        <p><strong>5. Stay Private, Stay Focused.</strong> Canva remains private despite $40B+ valuation, allowing
+            long-term
+            focus without quarterly earnings pressure. The founders have resisted IPO pressure, prioritizing product
+            development over public market expectations.</p>
+
+        <h2>B. The 100-Rejection Success Pattern</h2>
+        <ol>
+            <li><strong>Build proof first:</strong> Fusion Books showed Perkins could execute</li>
+            <li><strong>Address objections:</strong> Added technical co-founder (Cameron Adams) after feedback</li>
+            <li><strong>Find believers:</strong> Peter Thiel's Founders Fund took the contrarian bet</li>
+            <li><strong>Prove them wrong:</strong> Rapid user growth silenced skeptics</li>
+            <li><strong>Scale patiently:</strong> 5 years to unicorn; no rush to exit</li>
+        </ol>
+
+        <div class="page-break"></div>
+
+        <!-- PART 7: SOURCES -->
+        <h1>VII. Verified Factual Data and Sources</h1>
+
+        <h2>A. Company Information</h2>
+        <ul>
+            <li><strong>Founded:</strong> January 2013 (Canva launch) - Wikipedia, company history</li>
+            <li><strong>Precursor:</strong> Fusion Books (2007) - Founder interviews</li>
+            <li><strong>Founders:</strong> Melanie Perkins, Cliff Obrecht, Cameron Adams - Official sources</li>
+            <li><strong>Headquarters:</strong> Sydney, Australia (originally Perth) - Company website</li>
+        </ul>
+
+        <h2>B. Funding Data</h2>
+        <ul>
+            <li><strong>Seed (2013):</strong> $3M (Matrix, Founders Fund) - Crunchbase, TechCrunch</li>
+            <li><strong>Series A (2015):</strong> $15M (Felicis) - Crunchbase</li>
+            <li><strong>Series B (2018):</strong> $40M (Sequoia China); Unicorn - AFR, Crunchbase</li>
+            <li><strong>Peak Valuation:</strong> $40B (September 2021) - Multiple sources</li>
+            <li><strong>Current Valuation:</strong> $42B (August 2025) - Forbes</li>
+            <li><strong>Total Raised:</strong> $572M+ - Crunchbase</li>
+        </ul>
+
+        <h2>C. User and Business Metrics</h2>
+        <ul>
+            <li><strong>Users (2024):</strong> 185 million monthly active - Company announcements</li>
+            <li><strong>Designs Created:</strong> 15 billion+ lifetime - Company data</li>
+            <li><strong>Countries:</strong> 190+ - Company website</li>
+            <li><strong>Languages:</strong> 100+ - Company website</li>
+            <li><strong>Revenue (2024):</strong> ~$2B+ ARR (estimated) - Industry reports</li>
+        </ul>
+
+        <h2>D. Key Resources</h2>
+        <ul>
+            <li>Melanie Perkins interviews (Forbes, AFR, How I Built This)</li>
+            <li>Australian Financial Review coverage (2013-2024)</li>
+            <li>Canva company blog and press releases</li>
+            <li>Crunchbase and PitchBook funding data</li>
+        </ul>
+
+        <h2>E. Methodology Notes</h2>
+        <ul>
+            <li><strong>Rejection Count:</strong> "100+" is commonly cited; exact number varies by source</li>
+            <li><strong>Scoring:</strong> Retrospective assessment based on publicly available information</li>
+            <li><strong>People Pillar:</strong> Heavily weighted founder persistence given documented rejection history
+            </li>
+            <li><strong>Private Company:</strong> Some financial metrics are estimates based on industry analysis</li>
+        </ul>
+
+    <!-- ACTIONS + METRICS (OBSERVED) -->
+
+    <h1>IX. Founder Actions and Metrics (Observed)</h1>
+
+    <div class="callout">
+        <div class="callout-title">Founder Actions (What Actually Happened in This Case)</div>
+        <p><strong>Capital milestones:</strong></p>
+        <ul>
+            <li><strong>Mar 2013:</strong> Seed — $3M</li>
+            <li><strong>Aug 2015:</strong> Series A — $15M</li>
+            <li><strong>Jan 2018:</strong> Series B — $40M</li>
+            <li><strong>Oct 2019:</strong> Series C — $85M</li>
+            <li><strong>Jun 2020:</strong> Series D — $60M</li>
+            <li><strong>Apr 2021:</strong> Series E — $71M</li>
+        </ul>
+    </div>
+
+    <div class="callout">
+        <div class="callout-title">Metrics to Watch (Metrics Surfaced in This Case)</div>
+        <p><em>These are the metrics this case uses to describe progress and performance.</em></p>
+        <ul>
+            <li><strong>Monthly Active Users:</strong> 185 million</li>
+            <li><strong>Valuation:</strong> $42B</li>
+        </ul>
+    </div>
+
+    <div class="callout callout--measure-next">
+        <div class="callout-title">What to Measure Next (Leading Indicators)</div>
+        <p><em>Forward-looking guidance for applying CAMP prospectively. Metric definitions reference the FLASH metric schema.</em></p>
+        <table class="metrics-next-table">
+            <tr>
+                <th style="width: 16%;">Pillar</th>
+                <th>Leading Indicators (FLASH metrics)</th>
+            </tr>
+            <tr>
+                <td><div class="metrics-next-pillar">Capital</div></td>
+                <td><div class="metric-line"><span class="metric-name" data-metric-id="cashRunwayMonths">Cash Runway Months</span></div><div class="metric-line"><span class="metric-name" data-metric-id="burnMultiple">Burn Multiple</span></div><div class="metric-line"><span class="metric-name" data-metric-id="grossMargin">Gross Margin</span></div></td>
+            </tr>
+            <tr>
+                <td><div class="metrics-next-pillar">Advantage</div></td>
+                <td><div class="metric-line"><span class="metric-name" data-metric-id="switchingCostDollars">Switching Cost Dollars</span></div><div class="metric-line"><span class="metric-name" data-metric-id="platformLockInScore">Platform Lock In Score</span></div><div class="metric-line"><span class="metric-name" data-metric-id="defensibilityScore">Defensibility Score</span></div></td>
+            </tr>
+            <tr>
+                <td><div class="metrics-next-pillar">Market</div></td>
+                <td><div class="metric-line"><span class="metric-name" data-metric-id="marketGrowthRate">Market Growth Rate</span></div><div class="metric-line"><span class="metric-name" data-metric-id="competitionIntensity">Competition Intensity</span></div><div class="metric-line"><span class="metric-name" data-metric-id="netDollarRetention">Net Dollar Retention</span></div></td>
+            </tr>
+            <tr>
+                <td><div class="metrics-next-pillar">People</div></td>
+                <td><div class="metric-line"><span class="metric-name" data-metric-id="executionToPlanScore">Execution To Plan Score</span></div><div class="metric-line"><span class="metric-name" data-metric-id="teamSize">Team Size</span></div><div class="metric-line"><span class="metric-name" data-metric-id="employeeTurnover12MonthsPct">Employee Turnover 12 Months %</span></div></td>
+            </tr>
+        </table>
+        <p><em>Definitions and computations: FLASH Metrics Library.</em></p>
+    </div>
+
+    <div class="callout callout--red-flags">
+        <div class="callout-title">Red Flags (Failure Modes to Watch For)</div>
+        <p><em>Signals that often precede a CAMP score collapse, mapped to measurable indicators.</em></p>
+        <ul>
+            <li><strong>Runway compression:</strong> Runway shrinks while burn accelerates.<span class="metric-note">Metrics: Cash Runway Months; Burn Trend.</span></li>
+            <li><strong>Inefficient growth:</strong> Spend rises faster than durable revenue.<span class="metric-note">Metrics: Burn Multiple; Growth Efficiency Index.</span></li>
+            <li><strong>Retention decay:</strong> Expansion slows and churn accelerates.<span class="metric-note">Metrics: Net Retention Trend; Churn Trend.</span></li>
+            <li><strong>Concentration risk:</strong> A small set of accounts becomes mission-critical.<span class="metric-note">Metrics: Customer Concentration; Revenue Concentration Risk Index.</span></li>
+            <li><strong>GTM brittleness:</strong> The sales engine slows and pipeline stops covering targets.<span class="metric-note">Metrics: Sales Cycle Days; Sales Pipeline Coverage; Pipeline Coverage Health.</span></li>
+            <li><strong>Org strain:</strong> Turnover rises while open roles stay unfilled.<span class="metric-note">Metrics: Employee Turnover 12 Months %; Hiring Gap Index.</span></li>
+        </ul>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div class="document-footer">
+        <div class="flash-brand-block">
+            <img src="flash_logo_trimmed.png" alt="FLASH Capital" class="flash-brand-logo">
+        </div>
+        FLASH Capital | CAMP Matrix Framework | Case Study: Canva
+    </div>
+
 </body>
+
 </html>

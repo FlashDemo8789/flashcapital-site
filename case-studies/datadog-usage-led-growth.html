@@ -1,86 +1,1961 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Datadog Case Study: Usage-Led Growth and Expansion Economics | FLASH Capital</title>
-    <meta name="description" content="CAMP case analysis on Datadog's usage-led expansion model and enterprise growth mechanics.">
-    <link rel="canonical" href="https://flashcapital.co.jp/case-studies/datadog-usage-led-growth.html">
-    <meta property="og:title" content="Datadog: Usage-Led Growth and Expansion Economics">
-    <meta property="og:description" content="CAMP case analysis on usage-led expansion and enterprise growth mechanics.">
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://flashcapital.co.jp/case-studies/datadog-usage-led-growth.html">
-    <meta property="article:published_time" content="2026-03-19">
-    <meta property="article:modified_time" content="2026-03-21">
-    <link rel="stylesheet" href="/content-hub.css">
-    <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"Article","headline":"Datadog: Usage-Led Growth and Expansion Economics","datePublished":"2026-03-19","dateModified":"2026-03-21","author":{"@type":"Organization","name":"FLASH Capital"},"publisher":{"@type":"Organization","name":"FLASH Capital"},"mainEntityOfPage":"https://flashcapital.co.jp/case-studies/datadog-usage-led-growth.html"}
-    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAMP Matrix Case Study: Datadog</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 0.75in 0.75in 1.55in 0.75in;
+        }
+
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            table {
+                page-break-inside: avoid;
+            }
+
+            tr {
+                page-break-inside: avoid;
+            }
+
+            thead {
+                display: table-header-group;
+            }
+
+            h1,
+            h2,
+            h3 {
+                page-break-after: avoid;
+            }
+
+            .callout,
+            .warning-callout,
+            .success-callout,
+            .journey-box,
+            .matrix-container {
+                page-break-inside: avoid;
+            }
+
+            .page-break {
+                page-break-before: always;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, Georgia, serif;
+            font-size: 11pt;
+            line-height: 1.6;
+            color: #1a1a1a;
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .document-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #1a1a1a;
+        }
+
+        .document-title {
+            font-size: 18pt;
+            font-weight: bold;
+            margin-bottom: 5px;
+            letter-spacing: 0.5px;
+        }
+
+        .document-subtitle {
+            font-size: 14pt;
+            font-style: italic;
+            color: #333;
+            margin-bottom: 12px;
+        }
+
+        .document-meta {
+            font-size: 10pt;
+            color: #555;
+        }
+
+        .datadog-banner {
+            background: linear-gradient(135deg, #632ca6, #3f1f74);
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 12pt;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        h1 {
+            font-size: 14pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #333;
+        }
+
+        h2 {
+            font-size: 12pt;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 12px;
+        }
+
+        h3 {
+            font-size: 11pt;
+            font-weight: bold;
+            font-style: italic;
+            margin-top: 15px;
+            margin-bottom: 12px;
+        }
+
+        p {
+            text-align: justify;
+            margin-bottom: 12px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 10pt;
+        }
+
+        th {
+            background: #f5f5f5;
+            border: 1px solid #333;
+            padding: 8px 10px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        td {
+            border: 1px solid #333;
+            padding: 8px 10px;
+        }
+
+        .callout {
+            background: #f4effa;
+            border: 1px solid #cdbce6;
+            border-left: 3px solid #632ca6;
+            padding: 12px 15px;
+            margin: 15px 0;
+            font-size: 10pt;
+        }
+
+        .callout-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .success-callout {
+            background: #e8f5e9;
+            border: 1px solid #4caf50;
+            border-left: 3px solid #4caf50;
+            padding: 12px 15px;
+            margin: 15px 0;
+            font-size: 10pt;
+        }
+
+        .warning-callout {
+            background: #fff3cd;
+            border: 1px solid #856404;
+            border-left: 3px solid #856404;
+            padding: 12px 15px;
+            margin: 15px 0;
+            font-size: 10pt;
+        }
+
+        ul,
+        ol {
+            margin: 10px 0;
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 5px;
+            text-align: justify;
+        }
+
+        .page-break {
+            page-break-before: always;
+        }
+
+        .document-footer {
+            margin-top: 40px;
+            padding-top: 15px;
+            border-top: 1px solid #333;
+            text-align: center;
+            font-size: 9pt;
+        }
+
+        .figure-caption {
+            text-align: center;
+            font-size: 9pt;
+            font-style: italic;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        .pillars-grid {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+            gap: 10px;
+        }
+
+        .pillar-item {
+            flex: 1;
+            text-align: center;
+            padding: 15px 10px;
+            border: 1px solid #333;
+        }
+
+        .pillar-letter {
+            font-size: 24pt;
+            font-weight: bold;
+        }
+
+        .pillar-name {
+            font-size: 11pt;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .pillar-desc {
+            font-size: 9pt;
+            margin-top: 5px;
+            color: #555;
+        }
+
+        .matrix-container {
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        .matrix-grid {
+            display: grid;
+            grid-template-columns: 30px 1fr 1fr;
+            grid-template-rows: 1fr 1fr 30px;
+            gap: 2px;
+            background: #333;
+            padding: 2px;
+            margin: 0 auto;
+            max-width: 450px;
+        }
+
+        .y-axis {
+            grid-row: 1 / 3;
+            grid-column: 1;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            font-size: 9pt;
+            font-weight: bold;
+        }
+
+        .quadrant {
+            background: white;
+            padding: 15px 10px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .quadrant-title {
+            font-weight: bold;
+            font-size: 10pt;
+        }
+
+        .quadrant-desc {
+            font-size: 8pt;
+            color: #666;
+            margin-top: 3px;
+        }
+
+        .q-tl {
+            grid-column: 2;
+            grid-row: 1;
+            background: #f0f0f0;
+        }
+
+        .q-tr {
+            grid-column: 3;
+            grid-row: 1;
+            background: #e8e8e8;
+        }
+
+        .q-bl {
+            grid-column: 2;
+            grid-row: 2;
+            background: #f8f8f8;
+        }
+
+        .q-br {
+            grid-column: 3;
+            grid-row: 2;
+            background: #f0f0f0;
+        }
+
+        .x-axis {
+            grid-column: 2 / 4;
+            grid-row: 3;
+            background: white;
+            text-align: center;
+            font-size: 9pt;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .journey-box {
+            border: 2px solid #632ca6;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            background: #fbfaff;
+        }
+
+        .journey-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin: 15px 0;
+            flex-wrap: wrap;
+        }
+
+        .journey-point {
+            text-align: center;
+            padding: 12px 20px;
+            border: 2px solid #333;
+            background: white;
+        }
+
+        .journey-year {
+            font-size: 11pt;
+            font-weight: bold;
+        }
+
+        .journey-score {
+            font-size: 16pt;
+            font-weight: bold;
+        }
+
+        .journey-quadrant {
+            font-size: 8pt;
+            font-style: italic;
+        }
+
+        .journey-arrow {
+            font-size: 20pt;
+            font-weight: bold;
+            color: #632ca6;
+        }
+
+
+        /* CAMP Unified Theme */
+        :root {
+            --camp-accent: #0B1F3A;
+            --camp-ink: #0F172A;
+            --camp-wash: #F8FAFC;
+            --camp-callout-bg: #FFFFFF;
+        }
+
+        /* Unify banners (single professional look) */
+        [class$="-banner"] {
+            background: var(--camp-wash) !important;
+            color: var(--camp-ink) !important;
+            border-bottom: 2px solid var(--camp-accent) !important;
+        }
+
+        /* Unify accent elements */
+        .callout {
+            background: var(--camp-callout-bg) !important;
+            border-left: 3px solid var(--camp-accent) !important;
+        }
+
+        .score-bar {
+            background: var(--camp-accent) !important;
+        }
+
+        .journey-arrow {
+            color: var(--camp-accent) !important;
+        }
+
+        .journey-box,
+        .journey-point {
+            border-color: var(--camp-accent) !important;
+        }
+    
+        .flash-brand-block {
+            margin-bottom: 12px;
+            line-height: 1;
+        }
+        .flash-brand-logo {
+            display: inline-block;
+            height: auto;
+            width: 40px;
+            max-width: none;
+            object-fit: contain;
+            vertical-align: middle;
+        }
+    
+        .footer,
+        .document-footer {
+            page-break-inside: avoid;
+            break-inside: avoid-page;
+        }
+
+        /* FLASH Branding Overrides */
+        .flash-brand-block {
+            margin-bottom: 6px;
+            line-height: 1;
+            text-align: center;
+        }
+        .flash-brand-logo {
+            display: inline-block;
+            height: 48px;
+            width: auto;
+            object-fit: contain;
+            vertical-align: middle;
+        }
+
+        @media print {
+            .footer,
+            .document-footer {
+                position: fixed !important;
+                left: 0 !important;
+                right: 0 !important;
+                bottom: 0.4in !important;
+                margin: 0 !important;
+                padding: 0 0.75in !important;
+                text-align: center !important;
+                background: transparent !important;
+            }
+
+            .flash-brand-block {
+                margin-bottom: 6px !important;
+                line-height: 1 !important;
+            }
+
+            .flash-brand-logo {
+                height: 48px !important;
+                width: auto !important;
+            }
+        }
+
+
+        
+        
+        
+        /* FLASH Professional Print v1 (do not edit by hand) */
+        :root {
+            --flash-ink: #0F172A;
+            --flash-muted: #334155;
+        }
+
+        /* Standardize page size. */
+        @page {
+            size: A4;
+            margin: 0.75in 0.75in 0.55in 0.75in;
+        }
+
+        /* First-page header mark (in-flow, not repeated). */
+        .flash-brand-header {
+            text-align: center;
+            margin: 0 0 10px;
+            line-height: 1;
+        }
+
+        .flash-brand-logo--header {
+            height: 54px;
+            width: auto;
+            max-width: none;
+            object-fit: contain;
+            vertical-align: middle;
+        }
+
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+
+                /*
+                 * Reserve space for the fixed footer on every page.
+                 *
+                 * In Chrome's print engine, `position: fixed` elements do NOT reserve layout
+                 * space, and are positioned relative to the page *area* (inside @page
+                 * margins). This causes footer overlap unless we create per-page bottom
+                 * padding. `box-decoration-break: clone` makes that padding apply to each
+                 * paginated fragment.
+                 */
+                -webkit-box-decoration-break: clone;
+                box-decoration-break: clone;
+                padding-bottom: 1.25in !important;
+            }
+
+            /* Footer: fixed and compact so it never overlaps content. */
+            .footer,
+            .document-footer {
+                position: fixed !important;
+                left: 0 !important;
+                right: 0 !important;
+                bottom: 0.15in !important;
+                margin: 0 !important;
+                padding: 6px 0.75in 0 !important;
+                text-align: center !important;
+                border-top: 1px solid rgba(15, 23, 42, 0.16) !important;
+                background: transparent !important;
+                z-index: 9999 !important;
+                color: var(--flash-muted) !important;
+                font-size: 8.5pt !important;
+                line-height: 1.25 !important;
+            }
+
+            .flash-brand-block {
+                margin: 0 0 4px !important;
+                line-height: 1 !important;
+                text-align: center !important;
+            }
+
+            /* Footer logo */
+            .flash-brand-logo {
+                height: 34px !important;
+                width: auto !important;
+                max-width: none !important;
+                object-fit: contain !important;
+                vertical-align: middle !important;
+            }
+
+            /* Header logo slightly larger */
+            .flash-brand-logo--header {
+                height: 44px !important;
+            }
+        }
+        /* END FLASH Professional Print v1 */
+
+        /* Actions + Metrics Design v1 (do not edit by hand) */
+        .callout--measure-next p,
+        .callout--measure-next li,
+        .callout--red-flags p,
+        .callout--red-flags li {
+            text-align: left !important;
+        }
+
+        .callout--measure-next table.metrics-next-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0 6px;
+            font-size: 9.75pt;
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        .callout--measure-next table.metrics-next-table th {
+            background: transparent !important;
+            border: none !important;
+            border-bottom: 1px solid rgba(15, 23, 42, 0.22) !important;
+            padding: 6px 8px !important;
+            text-align: left !important;
+            font-weight: 600 !important;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            font-size: 8.5pt;
+            color: var(--flash-muted, #334155) !important;
+        }
+
+        .callout--measure-next table.metrics-next-table td {
+            border: none !important;
+            border-bottom: 1px solid rgba(15, 23, 42, 0.12) !important;
+            padding: 8px 8px !important;
+            vertical-align: top;
+        }
+
+        .callout--measure-next table.metrics-next-table tr:last-child td {
+            border-bottom: none !important;
+        }
+
+        .callout--measure-next .metrics-next-pillar {
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 9pt;
+            color: var(--flash-ink, #0F172A);
+            white-space: nowrap;
+        }
+
+        .callout--measure-next .metric-line {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 2px 0;
+        }
+
+        .callout--measure-next .metric-name {
+            color: var(--flash-ink, #0F172A);
+        }
+
+        .metric-id {
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+            font-size: 8pt;
+            color: var(--flash-muted, #334155);
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            overflow-wrap: anywhere;
+            word-break: break-word;
+        }
+
+        .callout--red-flags .metric-note {
+            color: var(--flash-muted, #334155);
+            font-size: 8.5pt;
+            margin-left: 0.25em;
+            white-space: normal;
+        }
+
+        /* CAMP Matrix Quadrant Consistency v1 */
+        :root {
+            --camp-q-hidden-gem: #f7f0df;
+            --camp-q-rocketship: #e8f3ea;
+            --camp-q-chaos-zone: #f7e9ee;
+            --camp-q-starved-visionary: #e8f0f9;
+        }
+
+        .q-tl {
+            background: var(--camp-q-hidden-gem) !important;
+        }
+
+        .q-tr {
+            background: var(--camp-q-rocketship) !important;
+        }
+
+        .q-bl {
+            background: var(--camp-q-chaos-zone) !important;
+        }
+
+        .q-br {
+            background: var(--camp-q-starved-visionary) !important;
+        }
+
+        .matrix-grid .quadrant {
+            border-color: rgba(15, 23, 42, 0.36) !important;
+        }
+
+        /*
+         * Pagination Safety v1
+         * - Avoid orphan caption lines and one-line pre-break pages.
+         * - Keep matrices/tables/callouts from splitting into footer space.
+         */
+        @media print {
+            .page-break {
+                display: none !important;
+                page-break-before: auto !important;
+                break-before: auto !important;
+            }
+
+            h1,
+            h2 {
+                page-break-after: auto !important;
+                break-after: auto !important;
+            }
+
+            h3 {
+                page-break-after: avoid !important;
+                break-after: avoid-page !important;
+            }
+
+            table,
+            .matrix-container,
+            .matrix-grid,
+            .pillars-grid,
+            .journey-box,
+            .journey-row,
+            .callout {
+                page-break-inside: avoid !important;
+                break-inside: avoid-page !important;
+            }
+
+            table + .figure-caption,
+            .figure-caption {
+                page-break-before: avoid !important;
+                break-before: avoid-page !important;
+                page-break-after: avoid !important;
+                break-after: avoid-page !important;
+                margin-top: 3px !important;
+                margin-bottom: 10px !important;
+            }
+
+            p {
+                orphans: 3;
+                widows: 3;
+            }
+        }
+        /* END Actions + Metrics Design v1 */
+
+    </style>
 </head>
-<body data-content-type="case_study" data-content-slug="datadog-usage-led-growth">
-<header class="content-header"><div class="content-header-inner"><a class="content-brand" href="/">FLASH Capital</a><nav class="content-nav"><a href="/insights/">Insights</a><a class="active" href="/case-studies/">Case Studies</a><a href="/newsletter/">Newsletter</a><a href="/flash-camp-framework.html">CAMP Framework</a><a href="/contact.html">Contact</a></nav><a class="content-cta" href="https://flash.zone">Apply now</a></div></header>
-<main class="content-wrap">
-<article class="hero-block">
-<span class="hero-kicker">Outcome Case | Market</span>
-<h1 class="hero-title">Datadog: Usage-Led Growth and Expansion Economics</h1>
-<p class="hero-subtitle">Datadog demonstrates how product usage depth can become a high-signal growth and retention engine in enterprise categories.</p>
-<div class="claim-block"><div class="claim-label">Claim Type: Fact</div><p class="claim-text">Datadog publicly highlighted land-and-expand behavior and product adoption breadth as central components of its growth narrative.</p></div>
-<div class="claim-block"><div class="claim-label">Claim Type: Estimate</div><p class="claim-text">Usage-led products generally see stronger expansion potential when onboarding friction is low and multi-team adoption is measurable.</p></div>
-<div class="claim-block"><div class="claim-label">Claim Type: Opinion</div><p class="claim-text">Usage data is only persuasive when it maps clearly to customer value, not just activity volume.</p></div>
-<div class="article-body">
-<section class="article-section">
-<h2>What The Source Case Shows</h2>
-<p>The full CAMP case frames Datadog as a wedge-to-platform execution model: an initial monitoring use case expanded into a broader observability surface while preserving a coherent operator workflow. The case emphasizes that product adjacency was not random feature accumulation; it was connected through shared data and shared user context.</p>
-<p>That is why the expansion story became investable. The model linked usage breadth to concrete account-level value rather than vanity activity.</p>
-</section>
-<section class="article-section">
-<h2>CAMP Trajectory From The Source Model</h2>
-<ul>
-<li>Early score profile in the source model: Capital 60, Advantage 65, Market 70, People 65.</li>
-<li>Later score profile in the same case: Capital 85, Advantage 88, Market 90, People 82.</li>
-<li>Weighted CAMP movement in the source tables: 65.50 to 86.65.</li>
-</ul>
-<p>This progression indicates a healthy compounding pattern where Advantage and Market gains are supported by improving Capital efficiency and team execution maturity.</p>
-</section>
-<section class="article-section">
-<h2>Operator Lens For Founders</h2>
-<p>Use this case to validate expansion discipline. New product surfaces should share data gravity, distribution logic, and user workflow with your wedge product. If expansion cannot be explained through those three links, growth may look broad while weakening core product focus.</p>
-</section>
+
+<body>
+
+    <div class="document-header">
+        <div class="flash-brand-header">
+            <img src="flash_logo_trimmed.png" alt="FLASH Capital" class="flash-brand-logo flash-brand-logo--header">
+        </div>
+
+        <div class="document-title">CAMP Matrix Framework</div>
+        <div class="document-subtitle">Case Study: Datadog, Inc. (2010–Present)</div>
+        <div class="document-meta">Assessing Startup Investability and Execution Readiness</div>
+    </div>
+
+    <div class="callout">
+        <div class="callout-title">Executive Summary</div>
+        Datadog is a defining "observability-as-a-platform" case study: founded in 2010 by Olivier Pomel and Alexis
+        Lê-Quôc, the company turned an initially narrow monitoring wedge into a broad product surface area (metrics,
+        logs, traces, security signals) with a shared workflow and consistent developer/operator experience. With
+        With $2.68B revenue in FY2024 (year ended Dec 31, 2024), 30,500 customers (as of Mar 31, 2025), 6,500
+        employees (as of Dec 31, 2024), and a $47.69B market cap (Dec 31, 2025 close), Datadog represents one of the
+        most successful infrastructure platform buildouts in cloud software history. The CAMP lesson is that in
+        infrastructure categories, compounding Advantage often comes less from a single breakthrough feature and more
+        from a defensible distribution loop: ubiquitous integrations, instrumentation switching costs, and expansion
+        within accounts.
+
+        <h3>Key lessons preview</h3>
+        <ul>
+            <li><strong>Capital:</strong> Platform companies compound when pricing and packaging reinforce expansion
+                without requiring proportional headcount growth.</li>
+            <li><strong>Advantage:</strong> "Integration gravity" (many inputs to one system of record) creates durable
+                switching costs and defensible workflow ownership.</li>
+            <li><strong>Market:</strong> Observability demand rises with cloud complexity; the market grows as software
+                systems become more distributed.</li>
+            <li><strong>People:</strong> Sustained execution requires product discipline to avoid a fragmented "toolbox"
+                and keep the platform coherent.</li>
+        </ul>
+    </div>
+
+    <h1>I. The CAMP Framework</h1>
+
+    <h2>A. The Four Pillars</h2>
+    <div class="pillars-grid">
+        <div class="pillar-item">
+            <div class="pillar-letter">C</div>
+            <div class="pillar-name">Capital</div>
+            <div class="pillar-desc">Runway, burn efficiency</div>
+        </div>
+        <div class="pillar-item">
+            <div class="pillar-letter">A</div>
+            <div class="pillar-name">Advantage</div>
+            <div class="pillar-desc">Moat, switching costs</div>
+        </div>
+        <div class="pillar-item">
+            <div class="pillar-letter">M</div>
+            <div class="pillar-name">Market</div>
+            <div class="pillar-desc">TAM, growth rate</div>
+        </div>
+        <div class="pillar-item">
+            <div class="pillar-letter">P</div>
+            <div class="pillar-name">People</div>
+            <div class="pillar-desc">Founder quality, team</div>
+        </div>
+    </div>
+
+    <h2>B. The 2x2 Matrix</h2>
+    <p>The four pillars combine into two composite dimensions:</p>
+    <ul>
+        <li><strong>Internal Engine</strong> (Y-axis) = (Capital + People) / 2</li>
+        <li><strong>External Promise</strong> (X-axis) = (Advantage + Market) / 2</li>
+    </ul>
+
+    <div class="matrix-container">
+        <div class="matrix-grid">
+            <div class="y-axis"><span>INTERNAL ENGINE</span></div>
+            <div class="quadrant q-tl">
+                <div class="quadrant-title">Hidden Gem</div>
+                <div class="quadrant-desc">Strong engine, weak opportunity</div>
+            </div>
+            <div class="quadrant q-tr">
+                <div class="quadrant-title">Rocketship</div>
+                <div class="quadrant-desc">Strong engine, strong opportunity</div>
+            </div>
+            <div class="quadrant q-bl">
+                <div class="quadrant-title">Chaos Zone</div>
+                <div class="quadrant-desc">Weak on both dimensions</div>
+            </div>
+            <div class="quadrant q-br">
+                <div class="quadrant-title">Starved Visionary</div>
+                <div class="quadrant-desc">Big opportunity, weak engine</div>
+            </div>
+            <div class="x-axis">EXTERNAL PROMISE</div>
+        </div>
+    </div>
+    <div class="figure-caption">Figure 1: The CAMP Matrix Quadrants</div>
+
+    <h2>C. Stage-Aware Weighting</h2>
+    <table>
+        <tr>
+            <th>Stage</th>
+            <th>Capital</th>
+            <th>Advantage</th>
+            <th>Market</th>
+            <th>People</th>
+        </tr>
+        <tr>
+            <td>Pre-Seed</td>
+            <td>10%</td>
+            <td>30%</td>
+            <td>20%</td>
+            <td>40%</td>
+        </tr>
+        <tr>
+            <td>Seed</td>
+            <td>15%</td>
+            <td>30%</td>
+            <td>25%</td>
+            <td>30%</td>
+        </tr>
+        <tr>
+            <td>Series A</td>
+            <td>25%</td>
+            <td>25%</td>
+            <td>30%</td>
+            <td>20%</td>
+        </tr>
+        <tr>
+            <td>Series B+</td>
+            <td>35%</td>
+            <td>20%</td>
+            <td>30%</td>
+            <td>15%</td>
+        </tr>
+    </table>
+<div class="figure-caption">Table 1: Stage-Dependent Pillar Weights
 </div>
-<h2>What founders should do next</h2>
-<p>Track three expansion signals monthly: breadth of internal adoption, depth of recurring usage, and time-to-value for new accounts.</p>
-<div class="cta-row"><a class="btn primary" data-content-cta data-content-type="case_study" data-content-slug="datadog-usage-led-growth" href="https://flash.zone">Apply now</a><a class="btn" href="/contact.html">Contact</a></div>
-<div class="sources"><strong>Sources and context:</strong><br>Public source set: Datadog investor communications, filings, and product-expansion disclosures (2019-2025).<br><a href="https://investors.datadoghq.com/">Datadog Investor Relations</a> | <a href="https://www.sec.gov/edgar/search/">SEC EDGAR</a><br>Method note for estimate claims: directional inference from usage-expansion disclosure patterns and FLASH case benchmarking; not a causal estimate.</div>
-</article>
-<section class="grid">
-<article class="card span-4">
-<h3><a href="/insights/camp-stage-weighting.html">Related Insight: Stage Weighting in CAMP</a></h3>
-<p>See how stage changes investor interpretation of identical metrics.</p>
-<div class="cta-row"><a class="btn" href="/insights/camp-stage-weighting.html">Read insight</a></div>
-</article>
-<article class="card span-4">
-<h3><a href="/insights/investor-readiness-scorecard.html">Related Insight: Investor Readiness Scorecard</a></h3>
-<p>Use this practical scorecard to structure your next investor update.</p>
-<div class="cta-row"><a class="btn" href="/insights/investor-readiness-scorecard.html">Read insight</a></div>
-</article>
-<article class="card span-4">
-<h3><a href="/newsletter/2026-03.html">Latest Newsletter: March 2026</a></h3>
-<p>Monthly editorial brief on credibility, risk transparency, and milestone logic.</p>
-<div class="cta-row"><a class="btn" href="/newsletter/2026-03.html">Read issue</a></div>
-</article>
-</section>
-<section class="newsletter-module">
-<h3>Get Monthly Case Breakdowns</h3>
-<p>Receive one concise monthly email with new case analyses, investor-readiness frameworks, and actionable founder checklists.</p>
-<form class="newsletter-signup-form" novalidate>
-<input type="email" name="email" placeholder="you@company.com" required>
-<label><input type="checkbox" name="consent"> I consent to receive monthly FLASH Capital editorial updates.</label>
-<button type="submit">Subscribe</button>
-<div class="form-status" aria-live="polite"></div>
-</form>
-</section>
-<footer class="content-footer"><span>FLASH Capital Case Studies</span><div class="content-footer-links"><a href="/case-studies/">All case studies</a><a href="/flash-privacy-policy.html">Privacy Policy</a><a href="/flash-terms-of-service.html">Terms of Service</a></div></footer>
-</main>
-<script src="/js/content-engagement.js"></script>
+
+    <h2>D. Scoring Rubric</h2>
+    <table>
+        <tr>
+            <th>Score Range</th>
+            <th>Classification</th>
+            <th>Interpretation</th>
+        </tr>
+        <tr>
+            <td>0-25</td>
+            <td>Critical</td>
+            <td>Severe deficiency; existential risk to the venture</td>
+        </tr>
+        <tr>
+            <td>26-50</td>
+            <td>Weak</td>
+            <td>Below threshold; requires significant improvement</td>
+        </tr>
+        <tr>
+            <td>51-75</td>
+            <td>Moderate</td>
+            <td>Acceptable but not differentiated; room for growth</td>
+        </tr>
+        <tr>
+            <td>76-100</td>
+            <td>Strong</td>
+            <td>Competitive advantage; meets or exceeds investor expectations</td>
+        </tr>
+    </table>
+<div class="figure-caption">Table 2: Pillar Scoring Rubric
+</div>
+
+    <div class="page-break"></div>
+
+    <h1>II. Company History and Context</h1>
+
+    <h2>A. The Origin Story: From Monitoring Wedge to Platform</h2>
+    <p>Datadog’s category-level insight is straightforward: cloud infrastructure becomes harder to operate as systems
+        become more distributed. Monitoring, logging, tracing, and security signals accumulate across many tools and
+        teams, and the operator pain shifts from “collect data” to “make sense of data fast enough to act.” A platform
+        that unifies telemetry and workflows can win by reducing mean time to detection and mean time to resolution,
+        while also becoming deeply embedded in day-to-day engineering operations.</p>
+
+    <div class="success-callout">
+        <div class="callout-title">The Observability Platform Play</div>
+        Datadog's founders understood that as cloud infrastructure becomes more complex, the pain shifts from
+        "collecting data" to "making sense of data fast enough to act." By building a unified platform that correlates
+        metrics, logs, and traces in one experience, Datadog became the system of record for cloud operations.
+    </div>
+
+    <h2>B. Company Snapshot</h2>
+    <table>
+        <tr>
+            <th>Attribute</th>
+            <th>Detail</th>
+        </tr>
+        <tr>
+            <td>Founded</td>
+            <td>2010 (New York City)</td>
+        </tr>
+        <tr>
+            <td>Founders</td>
+            <td>Olivier Pomel (CEO), Alexis Lê-Quôc (CTO)</td>
+        </tr>
+        <tr>
+            <td>Headquarters</td>
+            <td>New York City, New York, U.S.</td>
+        </tr>
+        <tr>
+            <td>What it sells</td>
+            <td>Unified observability and security platform for cloud-scale infrastructure and applications</td>
+        </tr>
+        <tr>
+            <td>Public / Private</td>
+            <td>Public (NASDAQ: DDOG)</td>
+        </tr>
+        <tr>
+            <td>IPO Date</td>
+            <td>September 19, 2019</td>
+        </tr>
+        <tr>
+            <td>IPO Valuation</td>
+            <td>Valued at $8.7B; raised $648M (24M shares at $27)</td>
+        </tr>
+        <tr>
+            <td>FY2024 Revenue</td>
+            <td>$2.684B (FY ended Dec 31, 2024)</td>
+        </tr>
+        <tr>
+            <td>Customers (total)</td>
+            <td>30,500 (as of Mar 31, 2025)</td>
+        </tr>
+        <tr>
+            <td>Customers (ARR ≥$100K)</td>
+            <td>3,770 (as of Mar 31, 2025)</td>
+        </tr>
+        <tr>
+            <td>Customers (ARR ≥$1M)</td>
+            <td>462 (as of Dec 31, 2024)</td>
+        </tr>
+        <tr>
+            <td>Employees</td>
+            <td>6,500 (as of Dec 31, 2024)</td>
+        </tr>
+        <tr>
+            <td>S&amp;P 500 inclusion</td>
+            <td>July 9, 2025</td>
+        </tr>
+        <tr>
+            <td>Market Cap</td>
+            <td>$47.69B (Dec 31, 2025 close)</td>
+        </tr>
+    </table>
+
+    <h2>C. Complete Funding History</h2>
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Round</th>
+            <th>Amount</th>
+            <th>Key Investors / Notes</th>
+        </tr>
+        <tr>
+            <td>2010</td>
+            <td>Seed</td>
+            <td>$1.12M</td>
+            <td>Seed round participants included NYC Seed, Contour Venture Partners, IA Ventures, Jerry Neumann, and
+                Alex Payne, among others.</td>
+        </tr>
+        <tr>
+            <td>2012</td>
+            <td>Series A</td>
+            <td>$6.2M</td>
+            <td>Co-led by Index Ventures and RTP Ventures.</td>
+        </tr>
+        <tr>
+            <td>2014</td>
+            <td>Series B</td>
+            <td>$15M</td>
+            <td>Led by OpenView Venture Partners.</td>
+        </tr>
+        <tr>
+            <td>2015</td>
+            <td>Series C</td>
+            <td>$31M</td>
+            <td>Led by Index Ventures.</td>
+        </tr>
+        <tr>
+            <td>2016</td>
+            <td>Series D</td>
+            <td>$94.5M</td>
+            <td>Led by ICONIQ Capital.</td>
+        </tr>
+        <tr>
+            <td>2019 (Sep)</td>
+            <td>IPO</td>
+            <td>$648M</td>
+            <td>24M shares at $27; valued at $8.7B at IPO (NASDAQ: DDOG).</td>
+        </tr>
+        <tr>
+            <td><strong>Total (Series A–D)</strong></td>
+            <td></td>
+            <td><strong>$146.7M</strong></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <div class="callout">
+        <div class="callout-title">Capital Efficiency: $146.7M (Series A–D) to $47.69B (Dec 31, 2025 close)</div>
+        Across its Series A–D rounds, Datadog raised $146.7M in disclosed amounts before its September 2019 IPO
+        (raised $648M at a $8.7B valuation). As of Dec 31, 2025 close, Datadog’s market cap was $47.69B. Relative to
+        the $146.7M Series A–D total, that implies a ~325x market-cap-to-private-capital multiple. In FY2024, Datadog
+        generated $871M of operating cash flow and $775M of free cash flow and ended the year with $4.2B in cash,
+        cash equivalents, and marketable securities (as of Dec 31, 2024).
+    </div>
+
+    <h2>D. Why This Category Exists</h2>
+    <p>Observability is not just “better monitoring.” As modern architectures evolve toward distributed services,
+        ephemeral compute, and multi-environment deployments, the limiting factor becomes correlation: turning many
+        telemetry signals into a single, trusted picture of system health. The market reward goes to platforms that
+        reduce cognitive load, provide consistent investigation workflows, and expand through integration breadth.</p>
+
+    <div class="page-break"></div>
+
+    <h1>III. Founding Assessment: Datadog at Launch (2010)</h1>
+
+    <div class="callout">
+        <div class="callout-title">The Founders</div>
+        Olivier Pomel (CEO) and Alexis Lê-Quôc (CTO) met while working at Wireless Generation, an education
+        technology company. Both had deep infrastructure and operations backgrounds and understood that cloud
+        adoption would fundamentally change how companies operate software. They founded Datadog in 2010 to build
+        “the future of monitoring,” and the company launched with a ~$1.12M seed round with participation from NYC
+        Seed, Contour Venture Partners, IA Ventures, Jerry Neumann, and Alex Payne, among others.
+    </div>
+
+    <h2>A. Capital: 60/100</h2>
+    <table>
+        <tr>
+            <th>Factor</th>
+            <th>Evidence</th>
+            <th>Tier</th>
+            <th>Score</th>
+        </tr>
+        <tr>
+            <td>Funding Quality</td>
+            <td>$1.12M seed from NYC Seed, Contour VP, IA Ventures and others</td>
+            <td>T3</td>
+            <td>+15</td>
+        </tr>
+        <tr>
+            <td>Runway &amp; Burn</td>
+            <td>Software and cloud infra; no hardware/inventory; capital-light</td>
+            <td>T2</td>
+            <td>+20</td>
+        </tr>
+        <tr>
+            <td>Revenue/Business Model</td>
+            <td>SaaS subscription model with usage-based components; clear path</td>
+            <td>T2</td>
+            <td>+18</td>
+        </tr>
+        <tr>
+            <td>Capital Access</td>
+            <td>Standard enterprise security needs; manageable regulatory risk</td>
+            <td>T4</td>
+            <td>+7</td>
+        </tr>
+        <tr>
+            <td><strong>Capital Score</strong></td>
+            <td></td>
+            <td></td>
+            <td><strong>60/100</strong></td>
+        </tr>
+    </table>
+
+    <h2>B. Advantage: 65/100</h2>
+    <table>
+        <tr>
+            <th>Factor</th>
+            <th>Evidence</th>
+            <th>Score</th>
+        </tr>
+        <tr>
+            <td>Wedge clarity</td>
+            <td>Cloud monitoring/observability solves a real operational pain and has clear product pull for
+                developers/operators</td>
+            <td>+25</td>
+        </tr>
+        <tr>
+            <td>Integration potential</td>
+            <td>Observability platforms gain power as they ingest more signals from more systems (“integration gravity”)
+            </td>
+            <td>+20</td>
+        </tr>
+        <tr>
+            <td>Switching costs</td>
+            <td>Instrumentation and dashboards create workflow inertia once deployed</td>
+            <td>+10</td>
+        </tr>
+        <tr>
+            <td>Moat maturity</td>
+            <td>At launch, the moat is not yet proven; advantage is more product + distribution than defensible tech
+            </td>
+            <td>+10</td>
+        </tr>
+        <tr>
+            <td><strong>Advantage Score</strong></td>
+            <td></td>
+            <td><strong>65/100</strong></td>
+        </tr>
+    </table>
+
+    <h2>C. Market: 70/100</h2>
+    <table>
+        <tr>
+            <th>Factor</th>
+            <th>Evidence</th>
+            <th>Score</th>
+        </tr>
+        <tr>
+            <td>Urgency</td>
+            <td>Operations and reliability pain scales with system complexity; monitoring is a “must have” category</td>
+            <td>+25</td>
+        </tr>
+        <tr>
+            <td>Tailwinds</td>
+            <td>Cloud adoption increases the need for unified observability tools as systems become more distributed
+            </td>
+            <td>+25</td>
+        </tr>
+        <tr>
+            <td>Budget ownership</td>
+            <td>Engineering/IT buyers have recurring spend for tools that improve uptime and incident response</td>
+            <td>+10</td>
+        </tr>
+        <tr>
+            <td>Market structure</td>
+            <td>Competitive market, but clear demand exists; winner benefits from consolidation dynamics</td>
+            <td>+10</td>
+        </tr>
+        <tr>
+            <td><strong>Market Score</strong></td>
+            <td></td>
+            <td><strong>70/100</strong></td>
+        </tr>
+    </table>
+
+    <h2>D. People: 65/100</h2>
+    <table>
+        <tr>
+            <th>Factor</th>
+            <th>Evidence</th>
+            <th>Tier</th>
+            <th>Score</th>
+        </tr>
+        <tr>
+            <td>Founder Quality</td>
+            <td>Olivier Pomel (CEO) + Alexis Lê-Quôc (CTO): deep infrastructure/ops backgrounds</td>
+            <td>T2</td>
+            <td>+22</td>
+        </tr>
+        <tr>
+            <td>Team Composition</td>
+            <td>Both founders experienced operator pain firsthand; understood cloud trajectory</td>
+            <td>T2</td>
+            <td>+18</td>
+        </tr>
+        <tr>
+            <td>Governance &amp; Ethics</td>
+            <td>NYC-based; strong engineering culture from day one focused on product quality</td>
+            <td>T3</td>
+            <td>+13</td>
+        </tr>
+        <tr>
+            <td>Vision &amp; Culture</td>
+            <td>Software infra products can iterate quickly with developer/operator feedback</td>
+            <td>T3</td>
+            <td>+12</td>
+        </tr>
+        <tr>
+            <td><strong>People Score</strong></td>
+            <td></td>
+            <td></td>
+            <td><strong>65/100</strong></td>
+        </tr>
+    </table>
+
+    <h2>E. Launch CAMP Score Summary (Assumed Stage: Seed)</h2>
+    <table>
+        <tr>
+            <th>Pillar</th>
+            <th>Score</th>
+            <th>Weight (Seed)</th>
+            <th>Weighted</th>
+        </tr>
+        <tr>
+            <td>Capital</td>
+            <td>60</td>
+            <td>15%</td>
+            <td>9.00</td>
+        </tr>
+        <tr>
+            <td>Advantage</td>
+            <td>65</td>
+            <td>30%</td>
+            <td>19.50</td>
+        </tr>
+        <tr>
+            <td>Market</td>
+            <td>70</td>
+            <td>25%</td>
+            <td>17.50</td>
+        </tr>
+        <tr>
+            <td>People</td>
+            <td>65</td>
+            <td>30%</td>
+            <td>19.50</td>
+        </tr>
+        <tr>
+            <td><strong>Total</strong></td>
+            <td></td>
+            <td></td>
+            <td><strong>65.50</strong></td>
+        </tr>
+    </table>
+
+    <div class="callout">
+        <div class="callout-title">Matrix Position (Launch): Rocketship Candidate</div>
+        <strong>Axis Calculation:</strong> Internal Engine = (60 + 65) / 2 = 62.5; External Promise = (65 + 70) / 2 =
+        67.5.<br><br>
+        Datadog’s launch profile is a <strong>Rocketship candidate</strong>: strong external promise driven by a large,
+        urgent market and a plausible integration-driven moat. Founder-led domain expertise and early seed
+        participation supported the execution engine from day one.
+    </div>
+
+    <div class="page-break"></div>
+
+    <h1>IV. Current Assessment: Datadog in 2025</h1>
+
+    <div class="callout">
+        <div class="callout-title">2025 Assessment Context</div>
+        FY2025 full-year results were scheduled for Feb 10, 2026. This case study treats “Current Assessment: 2025”
+        as a combination of FY2024 audited results (year ended Dec 31, 2024) plus selected 2025 as-of metrics (Q1 /
+        TTM ended Mar 31, 2025) where explicitly available. Reference points used in this section include FY2024
+        revenue of $2.684B, 30,500 customers (as of Mar 31, 2025), and a $47.69B market cap (Dec 31, 2025 close).
+    </div>
+
+    <h2>A. Capital: 85/100</h2>
+    <table>
+        <tr>
+            <th>Factor</th>
+            <th>Evidence</th>
+            <th>Score</th>
+        </tr>
+        <tr>
+            <td>Recurring revenue engine</td>
+            <td>FY2024 revenue of $2.684B (FY ended Dec 31, 2024) with 3,610 customers at ≥$100K ARR and 462 customers
+                at ≥$1M ARR (as of Dec 31, 2024)</td>
+            <td>+30</td>
+        </tr>
+        <tr>
+            <td>Operating leverage potential</td>
+            <td>FY2024 operating cash flow of $871M and free cash flow of $775M demonstrate scale economics</td>
+            <td>+20</td>
+        </tr>
+        <tr>
+            <td>Capital access</td>
+            <td>Public company (NASDAQ: DDOG) with $4.2B in cash, cash equivalents, and marketable securities (as of
+                Dec 31, 2024)</td>
+            <td>+15</td>
+        </tr>
+        <tr>
+            <td>Category resilience</td>
+            <td>Monitoring/observability tends to be budget-protected because it ties to reliability and incident costs
+            </td>
+            <td>+20</td>
+        </tr>
+        <tr>
+            <td><strong>Capital Score</strong></td>
+            <td></td>
+            <td><strong>85/100</strong></td>
+        </tr>
+    </table>
+
+    <h2>B. Advantage: 88/100</h2>
+    <table>
+        <tr>
+            <th>Factor</th>
+            <th>Evidence</th>
+            <th>Score</th>
+        </tr>
+        <tr>
+            <td>Platform expansion</td>
+            <td>Moving from one tool to a unified platform increases switching costs and wallet share</td>
+            <td>+30</td>
+        </tr>
+        <tr>
+            <td>Integration ecosystem</td>
+            <td>Broad integrations drive “default choice” dynamics in heterogeneous stacks</td>
+            <td>+25</td>
+        </tr>
+        <tr>
+            <td>Data gravity</td>
+            <td>Once telemetry is centralized, workflows (dashboards, alerts, incident response) become sticky</td>
+            <td>+18</td>
+        </tr>
+        <tr>
+            <td>Brand credibility</td>
+            <td>Infrastructure categories reward reliability and trust; brand compounds with enterprise adoption</td>
+            <td>+15</td>
+        </tr>
+        <tr>
+            <td><strong>Advantage Score</strong></td>
+            <td></td>
+            <td><strong>88/100</strong></td>
+        </tr>
+    </table>
+
+    <h2>C. Market: 90/100</h2>
+    <table>
+        <tr>
+            <th>Factor</th>
+            <th>Evidence</th>
+            <th>Score</th>
+        </tr>
+        <tr>
+            <td>Category inevitability</td>
+            <td>As systems become more distributed, the need for observability increases (complexity creates demand)
+            </td>
+            <td>+35</td>
+        </tr>
+        <tr>
+            <td>Expansion motion</td>
+            <td>Multiple products per account increases market capture (platform attach potential)</td>
+            <td>+25</td>
+        </tr>
+        <tr>
+            <td>Enterprise adoption pathway</td>
+            <td>Developer-led adoption can expand to enterprise standardization if product is coherent</td>
+            <td>+15</td>
+        </tr>
+        <tr>
+            <td>Global applicability</td>
+            <td>All modern software teams need monitoring; cross-industry applicability</td>
+            <td>+15</td>
+        </tr>
+        <tr>
+            <td><strong>Market Score</strong></td>
+            <td></td>
+            <td><strong>90/100</strong></td>
+        </tr>
+    </table>
+
+    <h2>D. People: 82/100</h2>
+    <table>
+        <tr>
+            <th>Factor</th>
+            <th>Evidence</th>
+            <th>Score</th>
+        </tr>
+        <tr>
+            <td>Product coherence</td>
+            <td>Platform expansion requires strong product leadership to avoid fragmented UX and SKU sprawl</td>
+            <td>+25</td>
+        </tr>
+        <tr>
+            <td>GTM execution</td>
+            <td>Balancing developer-led adoption with enterprise needs requires disciplined sales and customer success
+            </td>
+            <td>+22</td>
+        </tr>
+        <tr>
+            <td>Talent density</td>
+            <td>Operating a high-scale telemetry platform requires strong engineering and SRE/infra competency</td>
+            <td>+20</td>
+        </tr>
+        <tr>
+            <td>Governance</td>
+            <td>Public company governance with independent board; founder-executives (Pomel/Lê-Quôc) remain</td>
+            <td>+15</td>
+        </tr>
+        <tr>
+            <td><strong>People Score</strong></td>
+            <td></td>
+            <td><strong>82/100</strong></td>
+        </tr>
+    </table>
+
+    <h2>E. Current CAMP Score Summary (Series B+ Weights)</h2>
+    <table>
+        <tr>
+            <th>Pillar</th>
+            <th>Score</th>
+            <th>Weight (Series B+)</th>
+            <th>Weighted</th>
+        </tr>
+        <tr>
+            <td>Capital</td>
+            <td>85</td>
+            <td>35%</td>
+            <td>29.75</td>
+        </tr>
+        <tr>
+            <td>Advantage</td>
+            <td>88</td>
+            <td>20%</td>
+            <td>17.60</td>
+        </tr>
+        <tr>
+            <td>Market</td>
+            <td>90</td>
+            <td>30%</td>
+            <td>27.00</td>
+        </tr>
+        <tr>
+            <td>People</td>
+            <td>82</td>
+            <td>15%</td>
+            <td>12.30</td>
+        </tr>
+        <tr>
+            <td><strong>Total</strong></td>
+            <td></td>
+            <td></td>
+            <td><strong>86.65</strong></td>
+        </tr>
+    </table>
+
+    <div class="success-callout">
+        <div class="callout-title">Matrix Position (2025): Rocketship</div>
+        <strong>Axis Calculation:</strong> Internal Engine = (85 + 82) / 2 = 83.5; External Promise = (88 + 90) / 2 =
+        89.0.<br><br>
+        Datadog scores as a <strong>Rocketship</strong> in 2025: high external promise (market tailwinds + platform
+        advantage) paired with a strong internal engine (capital efficiency potential + sustained execution).
+    </div>
+
+    <div class="page-break"></div>
+
+    <h1>IV-B. Key Metrics and Competitive Landscape</h1>
+
+    <h2>A. Financial / Operating Trajectory</h2>
+    <table>
+        <tr>
+            <th>Period</th>
+            <th>Revenue / Metric</th>
+            <th>Key Metrics</th>
+            <th>Milestone</th>
+        </tr>
+        <tr>
+            <td>FY2022 (ended Dec 31, 2022)</td>
+            <td>$1.675B</td>
+            <td>GAAP revenue per FY2024 10‑K</td>
+            <td>GAAP revenue baseline for modern “platform scale” era</td>
+        </tr>
+        <tr>
+            <td>FY2023 (ended Dec 31, 2023)</td>
+            <td>$2.128B</td>
+            <td>~27,300 customers (as of Dec 31, 2023)</td>
+            <td>Continued expansion within existing customers</td>
+        </tr>
+        <tr>
+            <td>FY2024 (ended Dec 31, 2024)</td>
+            <td>$2.684B</td>
+            <td>~30,000 customers; 3,610 ≥$100K ARR; 462 ≥$1M ARR; 6,500 employees (as of Dec 31, 2024)</td>
+            <td>FY2024 operating cash flow $871M; free cash flow $775M</td>
+        </tr>
+        <tr>
+            <td>Q1 2025 (ended Mar 31, 2025)</td>
+            <td>$761.6M</td>
+            <td>$4.4B cash/cash equivalents/marketable securities; 3,770 ≥$100K ARR (as of Mar 31, 2025)</td>
+            <td>Early‑2025 scale reference point</td>
+        </tr>
+        <tr>
+            <td>TTM ended Mar 31, 2025</td>
+            <td>$2.8B (TTM)</td>
+            <td>30,500 customers (as of Mar 31, 2025)</td>
+            <td>Joined the S&amp;P 500 Index (effective July 9, 2025)</td>
+        </tr>
+        <tr>
+            <td>Dec 31, 2025 (close)</td>
+            <td>$47.69B market cap</td>
+            <td>Point‑in‑time public market value</td>
+            <td>Market cap is volatile; use as a dated reference</td>
+        </tr>
+    </table>
+
+    <h2>B. Product Expansion Map</h2>
+    <table>
+        <tr>
+            <th>Capability Area</th>
+            <th>Phase</th>
+            <th>Strategic Impact</th>
+        </tr>
+        <tr>
+            <td>Infrastructure monitoring</td>
+            <td>Early</td>
+            <td>Initial wedge; establishes trust and operator workflow ownership</td>
+        </tr>
+        <tr>
+            <td>APM / tracing</td>
+            <td>Expansion</td>
+            <td>Moves up the stack from infrastructure to application performance and developer workflows</td>
+        </tr>
+        <tr>
+            <td>Logs</td>
+            <td>Expansion</td>
+            <td>Completes the core observability triad; increases data gravity and cross-sell paths</td>
+        </tr>
+        <tr>
+            <td>Security signals</td>
+            <td>Platform</td>
+            <td>Extends from “observability” to “runtime posture”; increases strategic wallet share</td>
+        </tr>
+    </table>
+
+    <h2>C. Competitive Landscape (Qualitative)</h2>
+    <table>
+        <tr>
+            <th>Competitor</th>
+            <th>Positioning</th>
+            <th>Strength</th>
+            <th>Weakness</th>
+            <th>Advantage Impact</th>
+        </tr>
+        <tr>
+            <td>New Relic</td>
+            <td>APM + observability suite</td>
+            <td>Legacy footprint, broad feature set</td>
+            <td>Migration friction; platform coherence varies by era</td>
+            <td>Forces differentiation on UX, integrations, and unified workflows</td>
+        </tr>
+        <tr>
+            <td>Dynatrace</td>
+            <td>Enterprise AIOps + monitoring</td>
+            <td>Enterprise penetration, automation narrative</td>
+            <td>Perceived heaviness; adoption can be top-down</td>
+            <td>Pushes Datadog to maintain enterprise-grade capabilities</td>
+        </tr>
+        <tr>
+            <td>Elastic</td>
+            <td>Search/log analytics + observability</td>
+            <td>Flexibility; strong developer base</td>
+            <td>DIY complexity; operational overhead</td>
+            <td>Validates the “managed platform” advantage</td>
+        </tr>
+        <tr>
+            <td>Splunk</td>
+            <td>Log analytics + security</td>
+            <td>Security/log depth; enterprise footprint</td>
+            <td>Cost perception; legacy tooling complexity</td>
+            <td>Creates pressure on pricing clarity and value articulation</td>
+        </tr>
+        <tr>
+            <td>Hyperscalers</td>
+            <td>Native cloud monitoring tools</td>
+            <td>Bundled with cloud; close to the data plane</td>
+            <td>Single-cloud scope; weaker cross-environment correlation</td>
+            <td>Datadog wins by being cross-platform and workflow-first</td>
+        </tr>
+    </table>
+
+    <div class="page-break"></div>
+
+    <h1>V. Pillar Evolution: Launch to 2025</h1>
+
+    <h2>A. Capital Evolution</h2>
+    <table>
+        <tr>
+            <th>Time Marker</th>
+            <th>Milestone</th>
+            <th>Capital Impact</th>
+        </tr>
+        <tr>
+            <td>2014</td>
+            <td>Series B ($15M); product-market fit established</td>
+            <td>Proved usage-based pricing model; predictable revenue engine emerging</td>
+        </tr>
+        <tr>
+            <td>2016</td>
+            <td>Series D ($94.5M) led by ICONIQ Capital</td>
+            <td>Strong growth + capital efficiency attracted top-tier VCs; runway for platform expansion</td>
+        </tr>
+        <tr>
+            <td>2019</td>
+            <td>IPO at $8.7B; raised $648M</td>
+            <td>Public market access; stock-based compensation for talent; M&amp;A currency</td>
+        </tr>
+        <tr>
+            <td>FY2024</td>
+            <td>Revenue $2.684B; FY2024 free cash flow $775M</td>
+            <td>Cash generation and liquidity support sustained platform investment and resilience</td>
+        </tr>
+    </table>
+
+    <h2>B. Advantage Evolution</h2>
+    <table>
+        <tr>
+            <th>Time Marker</th>
+            <th>Milestone</th>
+            <th>Advantage Impact</th>
+        </tr>
+        <tr>
+            <td>2014-2017</td>
+            <td>Built a broad integration ecosystem; became a common default in heterogeneous stacks</td>
+            <td>"Integration gravity" creates switching costs; workflows become embedded</td>
+        </tr>
+        <tr>
+            <td>2017</td>
+            <td>Launched APM (tracing) alongside infrastructure monitoring</td>
+            <td>Moves from infrastructure-only to full application stack; unified investigation</td>
+        </tr>
+        <tr>
+            <td>2019</td>
+            <td>Launched Log Management (completing the "three pillars")</td>
+            <td>Platform becomes system of record for metrics, traces, and logs</td>
+        </tr>
+        <tr>
+            <td>2021+</td>
+            <td>Security monitoring and cloud security posture products</td>
+            <td>Broader scope increases stickiness and strategic wallet share</td>
+        </tr>
+    </table>
+
+    <h2>C. Market Evolution</h2>
+    <table>
+        <tr>
+            <th>Time Marker</th>
+            <th>Milestone</th>
+            <th>Market Impact</th>
+        </tr>
+        <tr>
+            <td>2010-2015</td>
+            <td>AWS growth accelerates; enterprises begin cloud migrations</td>
+            <td>Early adopters validate cloud-native monitoring demand</td>
+        </tr>
+        <tr>
+            <td>2016-2019</td>
+            <td>Kubernetes, microservices go mainstream</td>
+            <td>Complexity explosion drives demand for unified observability</td>
+        </tr>
+        <tr>
+            <td>2020</td>
+            <td>COVID accelerates cloud adoption across all industries</td>
+            <td>Observability becomes mission-critical; budget prioritization increases</td>
+        </tr>
+        <tr>
+            <td>2021-2025</td>
+            <td>Security/observability convergence; AI infra monitoring emerging</td>
+            <td>TAM expands beyond monitoring into security and developer workflows</td>
+        </tr>
+    </table>
+
+    <h2>D. People Evolution</h2>
+    <table>
+        <tr>
+            <th>Time Marker</th>
+            <th>Milestone</th>
+            <th>People Impact</th>
+        </tr>
+        <tr>
+            <td>2010-2016</td>
+            <td>Founder-led iteration; NYC engineering culture established</td>
+            <td>Strong product discipline; focused on developer/operator experience</td>
+        </tr>
+        <tr>
+            <td>2017-2019</td>
+            <td>Scaling sales and marketing; IPO-ready team built</td>
+            <td>Added enterprise sales leadership while preserving product-led motion</td>
+        </tr>
+        <tr>
+            <td>2020-2024</td>
+            <td>Scaled to 6,500 employees across 33 countries (as of Dec 31, 2024)</td>
+            <td>Scaled organization while maintaining product and engineering execution</td>
+        </tr>
+        <tr>
+            <td>2025</td>
+            <td>Olivier Pomel remains CEO; Alexis Lê-Quôc remains CTO</td>
+            <td>Founder continuity provides long-term product vision stability</td>
+        </tr>
+    </table>
+
+    <div class="page-break"></div>
+
+    <h1>VI. Risk Analysis</h1>
+    <table>
+        <tr>
+            <th>Risk</th>
+            <th>Pillar</th>
+            <th>Why It Matters</th>
+            <th>Mitigation</th>
+        </tr>
+        <tr>
+            <td>Hyperscaler competition</td>
+            <td>Advantage / Market</td>
+            <td>Native tools can be “good enough” for single-cloud customers</td>
+            <td>Win on cross-platform correlation, workflow UX, and integration breadth</td>
+        </tr>
+        <tr>
+            <td>Platform sprawl</td>
+            <td>People / Advantage</td>
+            <td>Too many SKUs can fragment user experience and slow product velocity</td>
+            <td>Maintain unified workflows, consistent primitives, and disciplined roadmap governance</td>
+        </tr>
+        <tr>
+            <td>Usage-based pricing sensitivity</td>
+            <td>Capital</td>
+            <td>Telemetry costs can be scrutinized during macro downturns</td>
+            <td>Clear value articulation, cost controls, and product-led cost optimization features</td>
+        </tr>
+        <tr>
+            <td>Enterprise sales cycle friction</td>
+            <td>Market / People</td>
+            <td>Standardization deals require security, procurement, and long cycles</td>
+            <td>Land-and-expand with strong security posture and referenceable outcomes</td>
+        </tr>
+        <tr>
+            <td>Security and privacy failures</td>
+            <td>People / Capital</td>
+            <td>Trust is central; a major incident can cause churn and procurement blocks</td>
+            <td>Security-first culture, compliance certifications, and incident response excellence</td>
+        </tr>
+        <tr>
+            <td>Data pipeline cost dynamics</td>
+            <td>Capital / Advantage</td>
+            <td>Telemetry ingest/storage/compute costs can pressure margins</td>
+            <td>Efficiency engineering, smart sampling, tiered retention, and customer cost tooling</td>
+        </tr>
+    </table>
+
+    <div class="page-break"></div>
+
+    <h1>VII. The CAMP Journey</h1>
+    <div class="journey-box">
+        <div class="journey-row">
+            <div class="journey-point">
+                <div class="journey-year">2010 (Launch)</div>
+                <div class="journey-score">65.5</div>
+                <div class="journey-quadrant">Rocketship Candidate</div>
+            </div>
+            <div class="journey-arrow">&rarr;</div>
+            <div class="journey-point">
+                <div class="journey-year">2019 (IPO)</div>
+                <div class="journey-score">78.0</div>
+                <div class="journey-quadrant">Rocketship</div>
+            </div>
+            <div class="journey-arrow">&rarr;</div>
+            <div class="journey-point" style="border-width: 3px;">
+                <div class="journey-year">2025</div>
+                <div class="journey-score">86.7</div>
+                <div class="journey-quadrant">Rocketship</div>
+            </div>
+        </div>
+    </div>
+    <div class="figure-caption">Figure 2: Datadog's CAMP Journey - From Seed to $47.69B Market Cap (Dec 31, 2025
+        close)</div>
+
+    <div class="page-break"></div>
+
+    <h1>VIII. Lessons Learned</h1>
+    <ol>
+        <li><strong>Observability is a workflow business.</strong> Winning is less about any one chart and more about
+            owning the investigation loop end-to-end.</li>
+        <li><strong>Integration breadth is a moat.</strong> The more systems you connect to, the more valuable the hub
+            becomes-and the harder it is to replace.</li>
+        <li><strong>Platform expansion must stay coherent.</strong> Multi-product strategies fail when they become a
+            disjoint toolbox instead of a unified platform.</li>
+        <li><strong>Land-and-expand is strongest when instrumentation is sticky.</strong> Once deployed broadly,
+            switching costs rise and expansion gets cheaper.</li>
+        <li><strong>Usage-based economics are powerful but fragile.</strong> Align pricing to customer value, but help
+            customers control costs or budgets will tighten.</li>
+        <li><strong>Enterprise trust compounds.</strong> Reliability, security posture, and support quality become a
+            defensible advantage over time.</li>
+        <li><strong>Competing with hyperscalers requires “cross-environment” differentiation.</strong> Multi-cloud and
+            hybrid correlation is the platform wedge against bundled native tools.</li>
+        <li><strong>Great infra companies manage complexity, not just features.</strong> Product discipline and
+            operational excellence matter as much as innovation.</li>
+    </ol>
+
+    <div class="page-break"></div>
+
+    <h1>IX. Sources and Data Notes</h1>
+
+    <h2>A. Data Sources</h2>
+    <ul>
+        <li><strong>Source registry (URLs + retrieval date):</strong> <code>Sources/Datadog/sources.md</code></li>
+        <li><strong>Numeric extracts used in this case study:</strong> <code>Sources/Datadog/extracts.md</code></li>
+    </ul>
+
+    <h2>B. Data Freshness</h2>
+    <table>
+        <tr>
+            <th>Data Point</th>
+            <th>As-Of Date</th>
+        </tr>
+        <tr>
+            <td>Revenue (FY2024)</td>
+            <td>December 31, 2024</td>
+        </tr>
+        <tr>
+            <td>Operating cash flow / free cash flow (FY2024)</td>
+            <td>December 31, 2024</td>
+        </tr>
+        <tr>
+            <td>Cash / marketable securities</td>
+            <td>December 31, 2024 (FY2024); March 31, 2025 (Q1 2025)</td>
+        </tr>
+        <tr>
+            <td>Customers (total)</td>
+            <td>March 31, 2025</td>
+        </tr>
+        <tr>
+            <td>Customers (ARR ≥$100K)</td>
+            <td>March 31, 2025</td>
+        </tr>
+        <tr>
+            <td>Customers (ARR ≥$1M)</td>
+            <td>December 31, 2024</td>
+        </tr>
+        <tr>
+            <td>Employees</td>
+            <td>December 31, 2024</td>
+        </tr>
+        <tr>
+            <td>Market cap</td>
+            <td>December 31, 2025 (close)</td>
+        </tr>
+    </table>
+
+    <h2>C. CAMP Score Methodology Note</h2>
+    <p>The CAMP pillar scores in this document are <em>illustrative assessments</em> produced by the CAMP framework's
+        rubric. They are not historical "ground truth" ratings. The purpose is to demonstrate how the framework would
+        evaluate Datadog at launch and in 2025.</p>
+
+    <h2>D. Framework Limitations and Caveats</h2>
+    <p><strong>1. Survivorship bias.</strong> This case study is written because Datadog is a category-leading outcome.
+        Many observability startups do not reach similar scale; the framework cannot guarantee outcomes.</p>
+    <p><strong>2. Filing vs. press-release presentation.</strong> Revenue figures for FY2022–FY2024 are GAAP totals
+        from the FY2024 10‑K; “as‑of” 2025 metrics are taken from SEC filings and company press releases with explicit
+        dates.</p>
+    <p><strong>3. Market volatility.</strong> Market cap figures are point-in-time and subject to significant
+        fluctuation based on market conditions.</p>
+
+    <!-- ACTIONS + METRICS (OBSERVED) -->
+
+    <h1>X. Founder Actions and Metrics (Observed)</h1>
+
+    <div class="callout">
+        <div class="callout-title">Founder Actions (What Actually Happened in This Case)</div>
+        <p><strong>Capital milestones:</strong></p>
+        <ul>
+            <li><strong>2010:</strong> Seed — $1.12M</li>
+            <li><strong>2012:</strong> Series A — $6.2M</li>
+            <li><strong>2014:</strong> Series B — $15M</li>
+            <li><strong>2015:</strong> Series C — $31M</li>
+            <li><strong>2016:</strong> Series D — $94.5M</li>
+            <li><strong>2019 (Sep):</strong> IPO — $648M</li>
+        </ul>
+    </div>
+
+    <div class="callout">
+        <div class="callout-title">Metrics to Watch (Metrics Surfaced in This Case)</div>
+        <p><em>These are the metrics this case uses to describe progress and performance.</em></p>
+        <ul>
+            <li><strong>Revenue / Metric:</strong> $47.69B market cap</li>
+            <li><strong>Key Metrics:</strong> Point‑in‑time public market value</li>
+        </ul>
+    </div>
+
+    <div class="callout callout--measure-next">
+        <div class="callout-title">What to Measure Next (Leading Indicators)</div>
+        <p><em>Forward-looking guidance for applying CAMP prospectively. Metric definitions reference the FLASH metric schema.</em></p>
+        <table class="metrics-next-table">
+            <tr>
+                <th style="width: 16%;">Pillar</th>
+                <th>Leading Indicators (FLASH metrics)</th>
+            </tr>
+            <tr>
+                <td><div class="metrics-next-pillar">Capital</div></td>
+                <td><div class="metric-line"><span class="metric-name" data-metric-id="cashRunwayMonths">Cash Runway Months</span></div><div class="metric-line"><span class="metric-name" data-metric-id="burnMultiple">Burn Multiple</span></div><div class="metric-line"><span class="metric-name" data-metric-id="grossMargin">Gross Margin</span></div></td>
+            </tr>
+            <tr>
+                <td><div class="metrics-next-pillar">Advantage</div></td>
+                <td><div class="metric-line"><span class="metric-name" data-metric-id="switchingCostDollars">Switching Cost Dollars</span></div><div class="metric-line"><span class="metric-name" data-metric-id="platformLockInScore">Platform Lock In Score</span></div><div class="metric-line"><span class="metric-name" data-metric-id="defensibilityScore">Defensibility Score</span></div></td>
+            </tr>
+            <tr>
+                <td><div class="metrics-next-pillar">Market</div></td>
+                <td><div class="metric-line"><span class="metric-name" data-metric-id="marketGrowthRate">Market Growth Rate</span></div><div class="metric-line"><span class="metric-name" data-metric-id="competitionIntensity">Competition Intensity</span></div><div class="metric-line"><span class="metric-name" data-metric-id="netDollarRetention">Net Dollar Retention</span></div></td>
+            </tr>
+            <tr>
+                <td><div class="metrics-next-pillar">People</div></td>
+                <td><div class="metric-line"><span class="metric-name" data-metric-id="executionToPlanScore">Execution To Plan Score</span></div><div class="metric-line"><span class="metric-name" data-metric-id="teamSize">Team Size</span></div><div class="metric-line"><span class="metric-name" data-metric-id="employeeTurnover12MonthsPct">Employee Turnover 12 Months %</span></div></td>
+            </tr>
+        </table>
+        <p><em>Definitions and computations: FLASH Metrics Library.</em></p>
+    </div>
+
+    <div class="callout callout--red-flags">
+        <div class="callout-title">Red Flags (Failure Modes to Watch For)</div>
+        <p><em>Signals that often precede a CAMP score collapse, mapped to measurable indicators.</em></p>
+        <ul>
+            <li><strong>Inefficient growth:</strong> Spend rises faster than durable revenue.<span class="metric-note">Metrics: Burn Multiple; Growth Efficiency Index.</span></li>
+            <li><strong>Retention decay:</strong> Expansion slows and churn accelerates.<span class="metric-note">Metrics: Net Retention Trend; Churn Trend.</span></li>
+            <li><strong>Concentration risk:</strong> A small set of accounts becomes mission-critical.<span class="metric-note">Metrics: Customer Concentration; Revenue Concentration Risk Index.</span></li>
+            <li><strong>GTM brittleness:</strong> The sales engine slows and pipeline stops covering targets.<span class="metric-note">Metrics: Sales Cycle Days; Sales Pipeline Coverage; Pipeline Coverage Health.</span></li>
+            <li><strong>Org strain:</strong> Turnover rises while open roles stay unfilled.<span class="metric-note">Metrics: Employee Turnover 12 Months %; Hiring Gap Index.</span></li>
+        </ul>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div class="document-footer">
+        <div class="flash-brand-block">
+            <img src="flash_logo_trimmed.png" alt="FLASH Capital" class="flash-brand-logo">
+        </div>
+        FLASH Capital | CAMP Matrix Framework | Case Study: Datadog, Inc.
+    </div>
+
 </body>
+
 </html>

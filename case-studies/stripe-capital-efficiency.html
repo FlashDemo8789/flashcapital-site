@@ -1,86 +1,2064 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Stripe Case Study: Capital Efficiency as Strategic Optionality | FLASH Capital</title>
-    <meta name="description" content="CAMP case analysis of Stripe with evidence-backed lessons on capital discipline and long-term optionality.">
-    <link rel="canonical" href="https://flashcapital.co.jp/case-studies/stripe-capital-efficiency.html">
-    <meta property="og:title" content="Stripe: Capital Efficiency as Strategic Optionality">
-    <meta property="og:description" content="A FLASH Capital case study with founder actions.">
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://flashcapital.co.jp/case-studies/stripe-capital-efficiency.html">
-    <meta property="article:published_time" content="2026-03-19">
-    <meta property="article:modified_time" content="2026-03-21">
-    <link rel="stylesheet" href="/content-hub.css">
-    <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"Article","headline":"Stripe: Capital Efficiency as Strategic Optionality","datePublished":"2026-03-19","dateModified":"2026-03-21","author":{"@type":"Organization","name":"FLASH Capital"},"publisher":{"@type":"Organization","name":"FLASH Capital"},"mainEntityOfPage":"https://flashcapital.co.jp/case-studies/stripe-capital-efficiency.html"}
-    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAMP Matrix Case Study: Stripe</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 1in 1in 1.55in 1in;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, Georgia, serif;
+            font-size: 11pt;
+            line-height: 1.6;
+            color: #1a1a1a;
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .document-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #1a1a1a;
+        }
+
+        .document-title {
+            font-size: 18pt;
+            font-weight: bold;
+            margin-bottom: 5px;
+            letter-spacing: 0.5px;
+        }
+
+        .document-subtitle {
+            font-size: 14pt;
+            font-style: italic;
+            color: #333;
+            margin-bottom: 12px;
+        }
+
+        .document-meta {
+            font-size: 10pt;
+            color: #555;
+        }
+
+        h1 {
+            font-size: 14pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #333;
+        }
+
+        h2 {
+            font-size: 12pt;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 12px;
+        }
+
+        h3 {
+            font-size: 11pt;
+            font-weight: bold;
+            font-style: italic;
+            margin-top: 15px;
+            margin-bottom: 12px;
+        }
+
+        p {
+            text-align: justify;
+            margin-bottom: 12px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 10pt;
+        }
+
+        th {
+            background: #f5f5f5;
+            border: 1px solid #333;
+            padding: 8px 10px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        td {
+            border: 1px solid #333;
+            padding: 8px 10px;
+        }
+
+        .callout {
+            background: #f9f9f9;
+            border: 1px solid #ccc;
+            border-left: 3px solid #333;
+            padding: 12px 15px;
+            margin: 15px 0;
+            font-size: 10pt;
+        }
+
+        .callout-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .matrix-container {
+            width: 100%;
+            margin: 25px 0;
+            page-break-inside: avoid;
+        }
+
+        .matrix-grid {
+            display: grid;
+            grid-template-columns: 30px 1fr 1fr;
+            grid-template-rows: 1fr 1fr 25px;
+            gap: 1px;
+            height: 220px;
+            background: #333;
+            padding: 1px;
+            margin: 0 auto;
+            max-width: 450px;
+        }
+
+        .y-axis {
+            grid-column: 1;
+            grid-row: 1 / 3;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8pt;
+            font-weight: bold;
+        }
+
+        .y-axis-text {
+            transform: rotate(-90deg);
+            white-space: nowrap;
+        }
+
+        .x-axis {
+            grid-column: 2 / 4;
+            grid-row: 3;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8pt;
+            font-weight: bold;
+        }
+
+        .quadrant {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            text-align: center;
+            background: white;
+        }
+
+        .quadrant-title {
+            font-weight: bold;
+            font-size: 10pt;
+            margin-bottom: 3px;
+        }
+
+        .quadrant-desc {
+            font-size: 8pt;
+            color: #555;
+            font-style: italic;
+        }
+
+        .q-tl {
+            grid-column: 2;
+            grid-row: 1;
+            background: #f0f0f0;
+        }
+
+        .q-tr {
+            grid-column: 3;
+            grid-row: 1;
+            background: #e8e8e8;
+        }
+
+        .q-bl {
+            grid-column: 2;
+            grid-row: 2;
+            background: #f8f8f8;
+        }
+
+        .q-br {
+            grid-column: 3;
+            grid-row: 2;
+            background: #f0f0f0;
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .pillar-item {
+            text-align: center;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        .pillar-letter {
+            font-size: 18pt;
+            font-weight: bold;
+            margin-bottom: 3px;
+        }
+
+        .pillar-name {
+            font-size: 9pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+        }
+
+        .pillar-desc {
+            font-size: 8pt;
+            color: #555;
+        }
+
+        .figure-caption {
+            text-align: center;
+            font-size: 9pt;
+            font-style: italic;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        ul,
+        ol {
+            margin: 10px 0;
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 5px;
+            text-align: justify;
+        }
+
+        .page-break {
+            page-break-before: always;
+        }
+
+        .document-footer {
+            margin-top: 40px;
+            padding-top: 15px;
+            border-top: 1px solid #333;
+            text-align: center;
+            font-size: 9pt;
+        }
+
+        .score-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 10pt;
+        }
+
+        .score-label {
+            width: 80px;
+            font-weight: bold;
+        }
+
+        .score-bar-container {
+            flex: 1;
+            height: 16px;
+            background: #eee;
+            border: 1px solid #ccc;
+            margin: 0 10px;
+        }
+
+        .score-bar {
+            height: 100%;
+            background: #333;
+        }
+
+        .score-value {
+            width: 40px;
+            text-align: right;
+            font-weight: bold;
+        }
+
+        .journey-box {
+            border: 1px solid #333;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .journey-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin: 15px 0;
+            flex-wrap: wrap;
+        }
+
+        .journey-point {
+            text-align: center;
+            padding: 12px 18px;
+            border: 2px solid #333;
+        }
+
+        .journey-year {
+            font-size: 11pt;
+            font-weight: bold;
+        }
+
+        .journey-score {
+            font-size: 14pt;
+            font-weight: bold;
+        }
+
+        .journey-quadrant {
+            font-size: 8pt;
+            font-style: italic;
+        }
+
+        .journey-arrow {
+            font-size: 18pt;
+            font-weight: bold;
+        }
+
+        .comparison-header {
+            text-align: center;
+            font-weight: bold;
+        }
+
+
+        /* CAMP Unified Theme */
+        :root {
+            --camp-accent: #0B1F3A;
+            --camp-ink: #0F172A;
+            --camp-wash: #F8FAFC;
+            --camp-callout-bg: #FFFFFF;
+        }
+
+        /* Unify banners (single professional look) */
+        [class$="-banner"] {
+            background: var(--camp-wash) !important;
+            color: var(--camp-ink) !important;
+            border-bottom: 2px solid var(--camp-accent) !important;
+        }
+
+        /* Unify accent elements */
+        .callout {
+            background: var(--camp-callout-bg) !important;
+            border-left: 3px solid var(--camp-accent) !important;
+        }
+
+        .score-bar {
+            background: var(--camp-accent) !important;
+        }
+
+        .journey-arrow {
+            color: var(--camp-accent) !important;
+        }
+
+        .journey-box,
+        .journey-point {
+            border-color: var(--camp-accent) !important;
+        }
+
+    
+        .flash-brand-block {
+            margin-bottom: 12px;
+            line-height: 1;
+        }
+        .flash-brand-logo {
+            display: inline-block;
+            height: auto;
+            width: 40px;
+            max-width: none;
+            object-fit: contain;
+            vertical-align: middle;
+        }
+    
+        .footer,
+        .document-footer {
+            page-break-inside: avoid;
+            break-inside: avoid-page;
+        }
+    
+        @media print {
+            .footer,
+            .document-footer {
+                position: fixed !important;
+                left: 0 !important;
+                right: 0 !important;
+                bottom: 0.35in !important;
+                margin: 0 !important;
+                padding: 0 0.75in !important;
+                break-inside: avoid-page;
+                page-break-inside: avoid;
+                text-align: center !important;
+                background: transparent !important;
+            }
+
+            .flash-brand-logo {
+                width: 40px !important;
+            }
+        }
+
+        /* FLASH Branding Overrides */
+        .flash-brand-block {
+            margin-bottom: 6px;
+            line-height: 1;
+            text-align: center;
+        }
+        .flash-brand-logo {
+            display: inline-block;
+            height: 48px;
+            width: auto;
+            object-fit: contain;
+            vertical-align: middle;
+        }
+
+        @media print {
+            .footer,
+            .document-footer {
+                position: fixed !important;
+                left: 0 !important;
+                right: 0 !important;
+                bottom: 0.4in !important;
+                margin: 0 !important;
+                padding: 0 0.75in !important;
+                text-align: center !important;
+                background: transparent !important;
+            }
+
+            .flash-brand-block {
+                margin-bottom: 6px !important;
+                line-height: 1 !important;
+            }
+
+            .flash-brand-logo {
+                height: 48px !important;
+                width: auto !important;
+            }
+        }
+
+
+        
+        
+        
+        /* FLASH Professional Print v1 (do not edit by hand) */
+        :root {
+            --flash-ink: #0F172A;
+            --flash-muted: #334155;
+        }
+
+        /* Standardize page size. */
+        @page {
+            size: A4;
+            margin: 0.75in 0.75in 0.55in 0.75in;
+        }
+
+        /* First-page header mark (in-flow, not repeated). */
+        .flash-brand-header {
+            text-align: center;
+            margin: 0 0 10px;
+            line-height: 1;
+        }
+
+        .flash-brand-logo--header {
+            height: 54px;
+            width: auto;
+            max-width: none;
+            object-fit: contain;
+            vertical-align: middle;
+        }
+
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+
+                /*
+                 * Reserve space for the fixed footer on every page.
+                 *
+                 * In Chrome's print engine, `position: fixed` elements do NOT reserve layout
+                 * space, and are positioned relative to the page *area* (inside @page
+                 * margins). This causes footer overlap unless we create per-page bottom
+                 * padding. `box-decoration-break: clone` makes that padding apply to each
+                 * paginated fragment.
+                 */
+                -webkit-box-decoration-break: clone;
+                box-decoration-break: clone;
+                padding-bottom: 1.25in !important;
+            }
+
+            /* Footer: fixed and compact so it never overlaps content. */
+            .footer,
+            .document-footer {
+                position: fixed !important;
+                left: 0 !important;
+                right: 0 !important;
+                bottom: 0.15in !important;
+                margin: 0 !important;
+                padding: 6px 0.75in 0 !important;
+                text-align: center !important;
+                border-top: 1px solid rgba(15, 23, 42, 0.16) !important;
+                background: transparent !important;
+                z-index: 9999 !important;
+                color: var(--flash-muted) !important;
+                font-size: 8.5pt !important;
+                line-height: 1.25 !important;
+            }
+
+            .flash-brand-block {
+                margin: 0 0 4px !important;
+                line-height: 1 !important;
+                text-align: center !important;
+            }
+
+            /* Footer logo */
+            .flash-brand-logo {
+                height: 34px !important;
+                width: auto !important;
+                max-width: none !important;
+                object-fit: contain !important;
+                vertical-align: middle !important;
+            }
+
+            /* Header logo slightly larger */
+            .flash-brand-logo--header {
+                height: 44px !important;
+            }
+        }
+        /* END FLASH Professional Print v1 */
+
+        /* Actions + Metrics Design v1 (do not edit by hand) */
+        .callout--measure-next p,
+        .callout--measure-next li,
+        .callout--red-flags p,
+        .callout--red-flags li {
+            text-align: left !important;
+        }
+
+        .callout--measure-next table.metrics-next-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0 6px;
+            font-size: 9.75pt;
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        .callout--measure-next table.metrics-next-table th {
+            background: transparent !important;
+            border: none !important;
+            border-bottom: 1px solid rgba(15, 23, 42, 0.22) !important;
+            padding: 6px 8px !important;
+            text-align: left !important;
+            font-weight: 600 !important;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            font-size: 8.5pt;
+            color: var(--flash-muted, #334155) !important;
+        }
+
+        .callout--measure-next table.metrics-next-table td {
+            border: none !important;
+            border-bottom: 1px solid rgba(15, 23, 42, 0.12) !important;
+            padding: 8px 8px !important;
+            vertical-align: top;
+        }
+
+        .callout--measure-next table.metrics-next-table tr:last-child td {
+            border-bottom: none !important;
+        }
+
+        .callout--measure-next .metrics-next-pillar {
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 9pt;
+            color: var(--flash-ink, #0F172A);
+            white-space: nowrap;
+        }
+
+        .callout--measure-next .metric-line {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 2px 0;
+        }
+
+        .callout--measure-next .metric-name {
+            color: var(--flash-ink, #0F172A);
+        }
+
+        .metric-id {
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+            font-size: 8pt;
+            color: var(--flash-muted, #334155);
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            overflow-wrap: anywhere;
+            word-break: break-word;
+        }
+
+        .callout--red-flags .metric-note {
+            color: var(--flash-muted, #334155);
+            font-size: 8.5pt;
+            margin-left: 0.25em;
+            white-space: normal;
+        }
+
+        /* CAMP Matrix Quadrant Consistency v1 */
+        :root {
+            --camp-q-hidden-gem: #f7f0df;
+            --camp-q-rocketship: #e8f3ea;
+            --camp-q-chaos-zone: #f7e9ee;
+            --camp-q-starved-visionary: #e8f0f9;
+        }
+
+        .q-tl {
+            background: var(--camp-q-hidden-gem) !important;
+        }
+
+        .q-tr {
+            background: var(--camp-q-rocketship) !important;
+        }
+
+        .q-bl {
+            background: var(--camp-q-chaos-zone) !important;
+        }
+
+        .q-br {
+            background: var(--camp-q-starved-visionary) !important;
+        }
+
+        .matrix-grid .quadrant {
+            border-color: rgba(15, 23, 42, 0.36) !important;
+        }
+
+        /*
+         * Pagination Safety v1
+         * - Avoid orphan caption lines and one-line pre-break pages.
+         * - Keep matrices/tables/callouts from splitting into footer space.
+         */
+        @media print {
+            .page-break {
+                display: none !important;
+                page-break-before: auto !important;
+                break-before: auto !important;
+            }
+
+            h1,
+            h2 {
+                page-break-after: auto !important;
+                break-after: auto !important;
+            }
+
+            h3 {
+                page-break-after: avoid !important;
+                break-after: avoid-page !important;
+            }
+
+            table,
+            .matrix-container,
+            .matrix-grid,
+            .pillars-grid,
+            .journey-box,
+            .journey-row,
+            .callout {
+                page-break-inside: avoid !important;
+                break-inside: avoid-page !important;
+            }
+
+            table + .figure-caption,
+            .figure-caption {
+                page-break-before: avoid !important;
+                break-before: avoid-page !important;
+                page-break-after: avoid !important;
+                break-after: avoid-page !important;
+                margin-top: 3px !important;
+                margin-bottom: 10px !important;
+            }
+
+            p {
+                orphans: 3;
+                widows: 3;
+            }
+        }
+        /* END Actions + Metrics Design v1 */
+
+    </style>
 </head>
-<body data-content-type="case_study" data-content-slug="stripe-capital-efficiency">
-<header class="content-header"><div class="content-header-inner"><a class="content-brand" href="/">FLASH Capital</a><nav class="content-nav"><a href="/insights/">Insights</a><a class="active" href="/case-studies/">Case Studies</a><a href="/newsletter/">Newsletter</a><a href="/flash-camp-framework.html">CAMP Framework</a><a href="/contact.html">Contact</a></nav><a class="content-cta" href="https://flash.zone">Apply now</a></div></header>
-<main class="content-wrap">
-<article class="hero-block">
-<span class="hero-kicker">Outcome Case | Capital</span>
-<h1 class="hero-title">Stripe: Capital Efficiency as Strategic Optionality</h1>
-<p class="hero-subtitle">This case shows how disciplined capital use can preserve strategic flexibility across uncertain market cycles.</p>
-<div class="claim-block"><div class="claim-label">Claim Type: Fact</div><p class="claim-text">Stripe publicly emphasized long-term infrastructure investment while maintaining focus on core payment reliability and developer trust.</p></div>
-<div class="claim-block"><div class="claim-label">Claim Type: Estimate</div><p class="claim-text">In this pattern, teams with tighter reinvestment discipline can sustain product velocity with less financing pressure during macro slowdowns.</p></div>
-<div class="claim-block"><div class="claim-label">Claim Type: Opinion</div><p class="claim-text">Capital efficiency is best treated as a strategic design choice, not a defensive metric.</p></div>
-<div class="article-body">
-<section class="article-section">
-<h2>What The Source Case Actually Shows</h2>
-<p>The full CAMP source case for Stripe frames it as a rare long-duration execution story: the company started as a Hidden Gem with exceptional founder quality and a clear developer-first technical edge, then moved into Rocketship territory without a major strategic reset. The executive summary in the source specifically highlights People (90) and Advantage (70) strength early, even while Market proof was still emerging.</p>
-<p>That pattern matters because it is not a turnaround narrative. Stripe did not need a late-stage identity change to become investable. The company compounded an already-strong operating base over time.</p>
-</section>
-<section class="article-section">
-<h2>CAMP Trajectory From The Source Model</h2>
-<ul>
-<li>Launch-era score profile in the source model: Capital 55, Advantage 70, Market 45, People 90.</li>
-<li>Early weighted CAMP score in the source table: 67.5.</li>
-<li>Later-period weighted CAMP score in the same case: 94.1.</li>
-</ul>
-<p>The practical implication is that Capital strength followed execution quality, not the other way around. As product reliability, ecosystem trust, and market access improved, financing flexibility expanded.</p>
-</section>
-<section class="article-section">
-<h2>Operator Lens For Founders</h2>
-<p>Use this case to calibrate sequencing. If you have strong People and a clear Advantage thesis, your highest-leverage work is often proving repeatable market conversion and reliable customer outcomes, not maximizing narrative complexity. Capital efficiency then becomes a consequence of operating clarity and disciplined reinvestment choices.</p>
-</section>
+
+<body>
+
+    <div class="document-header">
+        <div class="flash-brand-header">
+            <img src="flash_logo_trimmed.png" alt="FLASH Capital" class="flash-brand-logo flash-brand-logo--header">
+        </div>
+
+        <div class="document-title">CAMP Matrix Framework</div>
+        <div class="document-subtitle">Case Study: Stripe (2010-Present)</div>
+        <div class="document-meta">Assessing Startup Investability and Execution Readiness</div>
+    </div>
+
+    <div class="callout">
+        <div class="callout-title">Executive Summary</div>
+        Stripe represents the ideal CAMP trajectory: a company that started with strong fundamentals across all pillars
+        and systematically strengthened them over 15 years. Unlike turnaround stories, Stripe's journey demonstrates how
+        starting in the Hidden Gem quadrant with exceptional People (90) and a clear technical Advantage (70), despite
+        initially unproven Market (45), leads to Rocketship status without crisis along the way. The Collison brothers'
+        prior exit (Auctomatic, $5M at ages 17/19) validated the People pillar before Stripe even launched.
+    </div>
+
+    <!-- PART 1: FRAMEWORK INTRODUCTION -->
+    <h1>I. The CAMP Framework</h1>
+
+    <h2>A. The Four Pillars</h2>
+    <p>The CAMP Matrix evaluates startup potential through four interconnected dimensions:</p>
+
+    <div class="pillars-grid">
+        <div class="pillar-item">
+            <div class="pillar-letter">C</div>
+            <div class="pillar-name">Capital</div>
+            <div class="pillar-desc">Runway, burn efficiency, capital management</div>
+        </div>
+        <div class="pillar-item">
+            <div class="pillar-letter">A</div>
+            <div class="pillar-name">Advantage</div>
+            <div class="pillar-desc">Moat, network effects, switching costs</div>
+        </div>
+        <div class="pillar-item">
+            <div class="pillar-letter">M</div>
+            <div class="pillar-name">Market</div>
+            <div class="pillar-desc">TAM, growth rate, traction, retention</div>
+        </div>
+        <div class="pillar-item">
+            <div class="pillar-letter">P</div>
+            <div class="pillar-name">People</div>
+            <div class="pillar-desc">Founder quality, team, execution velocity</div>
+        </div>
+    </div>
+    <div class="figure-caption">Figure 1: The Four CAMP Pillars</div>
+
+    <h2>B. The 2x2 Matrix</h2>
+    <p>The pillars combine into two composite dimensions:</p>
+    <ul>
+        <li><strong>Internal Engine</strong> (Y-axis) = Capital + People, measures organizational capability</li>
+        <li><strong>External Promise</strong> (X-axis) = Advantage + Market, measures opportunity attractiveness</li>
+    </ul>
+
+    <div class="matrix-container">
+        <div class="matrix-grid">
+            <div class="y-axis"><span class="y-axis-text">INTERNAL ENGINE</span></div>
+            <div class="quadrant q-tl">
+                <div class="quadrant-title">Hidden Gem</div>
+                <div class="quadrant-desc">Strong engine, weak opportunity</div>
+            </div>
+            <div class="quadrant q-tr">
+                <div class="quadrant-title">Rocketship</div>
+                <div class="quadrant-desc">Strong engine, strong opportunity</div>
+            </div>
+            <div class="quadrant q-bl">
+                <div class="quadrant-title">Chaos Zone</div>
+                <div class="quadrant-desc">Weak on both dimensions</div>
+            </div>
+            <div class="quadrant q-br">
+                <div class="quadrant-title">Starved Visionary</div>
+                <div class="quadrant-desc">Big opportunity, weak engine</div>
+            </div>
+            <div class="x-axis">EXTERNAL PROMISE</div>
+        </div>
+    </div>
+    <div class="figure-caption">Figure 2: The CAMP Matrix Quadrants</div>
+
+    <h2>C. Stage-Aware Weighting</h2>
+    <table>
+        <tr>
+            <th>Stage</th>
+            <th>Capital</th>
+            <th>Advantage</th>
+            <th>Market</th>
+            <th>People</th>
+        </tr>
+        <tr>
+            <td>Pre-Seed</td>
+            <td>10%</td>
+            <td>30%</td>
+            <td>20%</td>
+            <td><strong>40%</strong></td>
+        </tr>
+        <tr>
+            <td>Seed</td>
+            <td>15%</td>
+            <td>30%</td>
+            <td>25%</td>
+            <td>30%</td>
+        </tr>
+        <tr>
+            <td>Series A</td>
+            <td>25%</td>
+            <td>25%</td>
+            <td><strong>30%</strong></td>
+            <td>20%</td>
+        </tr>
+        <tr>
+            <td>Series B+</td>
+            <td><strong>35%</strong></td>
+            <td>20%</td>
+            <td>30%</td>
+            <td>15%</td>
+        </tr>
+    </table>
+<div class="figure-caption">Table 1: Stage-Dependent Pillar Weights
 </div>
-<h2>What founders should do next</h2>
-<p>Map every major operating expense to a measurable capability gain or risk reduction. If it cannot be tied to one of those outcomes, defer it.</p>
-<div class="cta-row"><a class="btn primary" data-content-cta data-content-type="case_study" data-content-slug="stripe-capital-efficiency" href="https://flash.zone">Apply now</a><a class="btn" href="/contact.html">Contact</a></div>
-<div class="sources"><strong>Sources and context:</strong><br>Public source set: Stripe operating updates, leadership letters, and infrastructure strategy commentary (2019-2025).<br><a href="https://stripe.com/newsroom">Stripe Newsroom</a> | <a href="https://www.sec.gov/edgar/search/">SEC EDGAR</a><br>Method note for estimate claims: directional inference from capital-allocation disclosure patterns and FLASH case benchmarking; not a causal estimate.</div>
-</article>
-<section class="grid">
-<article class="card span-4">
-<h3><a href="/insights/camp-stage-weighting.html">Related Insight: Stage Weighting in CAMP</a></h3>
-<p>See how stage changes investor interpretation of identical metrics.</p>
-<div class="cta-row"><a class="btn" href="/insights/camp-stage-weighting.html">Read insight</a></div>
-</article>
-<article class="card span-4">
-<h3><a href="/insights/investor-readiness-scorecard.html">Related Insight: Investor Readiness Scorecard</a></h3>
-<p>Use this practical scorecard to structure your next investor update.</p>
-<div class="cta-row"><a class="btn" href="/insights/investor-readiness-scorecard.html">Read insight</a></div>
-</article>
-<article class="card span-4">
-<h3><a href="/newsletter/2026-03.html">Latest Newsletter: March 2026</a></h3>
-<p>Monthly editorial brief on credibility, risk transparency, and milestone logic.</p>
-<div class="cta-row"><a class="btn" href="/newsletter/2026-03.html">Read issue</a></div>
-</article>
-</section>
-<section class="newsletter-module">
-<h3>Get Monthly Case Breakdowns</h3>
-<p>Receive one concise monthly email with new case analyses, investor-readiness frameworks, and actionable founder checklists.</p>
-<form class="newsletter-signup-form" novalidate>
-<input type="email" name="email" placeholder="you@company.com" required>
-<label><input type="checkbox" name="consent"> I consent to receive monthly FLASH Capital editorial updates.</label>
-<button type="submit">Subscribe</button>
-<div class="form-status" aria-live="polite"></div>
-</form>
-</section>
-<footer class="content-footer"><span>FLASH Capital Case Studies</span><div class="content-footer-links"><a href="/case-studies/">All case studies</a><a href="/flash-privacy-policy.html">Privacy Policy</a><a href="/flash-terms-of-service.html">Terms of Service</a></div></footer>
-</main>
-<script src="/js/content-engagement.js"></script>
+
+    <h2>D. Scoring Rubric</h2>
+    <table>
+        <tr>
+            <th>Score Range</th>
+            <th>Classification</th>
+            <th>Interpretation</th>
+        </tr>
+        <tr>
+            <td>0-25</td>
+            <td>Critical</td>
+            <td>Severe deficiency; existential risk to the venture</td>
+        </tr>
+        <tr>
+            <td>26-50</td>
+            <td>Weak</td>
+            <td>Below threshold; requires significant improvement</td>
+        </tr>
+        <tr>
+            <td>51-75</td>
+            <td>Moderate</td>
+            <td>Acceptable but not differentiated; room for growth</td>
+        </tr>
+        <tr>
+            <td>76-100</td>
+            <td>Strong</td>
+            <td>Competitive advantage; meets or exceeds investor expectations</td>
+        </tr>
+    </table>
+<div class="figure-caption">Table 2: Pillar Scoring Rubric
+</div>
+
+    <div class="page-break"></div>
+
+    <!-- PART 2: INITIAL ASSESSMENT -->
+    <h1>II. Initial Assessment: Stripe at Launch (2011)</h1>
+
+    <h2>A. Company Context</h2>
+    <table>
+        <tr>
+            <th>Attribute</th>
+            <th>Detail</th>
+        </tr>
+        <tr>
+            <td>Founded</td>
+            <td>2010 by Patrick and John Collison (Irish brothers from Dromineer, County Tipperary)</td>
+        </tr>
+        <tr>
+            <td>Background</td>
+            <td>Both dropped out of MIT/Harvard; previously sold Auctomatic for $5M (2008)</td>
+        </tr>
+        <tr>
+            <td>Core Thesis</td>
+            <td>"7 lines of code" to accept payments (vs. months with traditional processors)</td>
+        </tr>
+        <tr>
+            <td>Stage at Launch</td>
+            <td>Seed (Y Combinator S09 batch)</td>
+        </tr>
+        <tr>
+            <td>Initial Funding</td>
+            <td>$2M from Elon Musk, Peter Thiel, Sequoia, Andreessen Horowitz (May 2011)</td>
+        </tr>
+        <tr>
+            <td>Headquarters</td>
+            <td>San Francisco (moved from Palo Alto 2012); dual HQ with Dublin now</td>
+        </tr>
+    </table>
+
+    <h2>B. Pillar Scoring</h2>
+
+    <h3>Capital: 55/100</h3>
+    <table>
+        <tr>
+            <th>Metric</th>
+            <th>Observed Value</th>
+            <th>Assessment</th>
+        </tr>
+        <tr>
+            <td>Seed Funding</td>
+            <td>$2M from elite investors (Musk, Thiel, Sequoia, a16z)</td>
+            <td>Strong validation signal</td>
+        </tr>
+        <tr>
+            <td>Prior Exit</td>
+            <td>Auctomatic sold for $5M in 2008</td>
+            <td>Founders had personal capital</td>
+        </tr>
+        <tr>
+            <td>Revenue (2011)</td>
+            <td>Early; processing volume building</td>
+            <td>Transaction fee model clear</td>
+        </tr>
+        <tr>
+            <td>Burn Rate</td>
+            <td>Low (small team, lean operation)</td>
+            <td>Capital discipline from start</td>
+        </tr>
+    </table>
+
+    <div class="callout">
+        <div class="callout-title">Key Evidence and Derivation</div>
+        <strong>Funding:</strong> $2M seed in May 2011 from PayPal co-founders (Musk, Thiel), Sequoia Capital, and
+        Andreessen Horowitz (verified via Wikipedia, YC, TechCrunch).<br>
+        <strong>Prior Exit:</strong> Auctomatic (auction management software) sold to Live Current Media in March 2008
+        for $5M when Patrick was 19 and John was 17 (verified via Wikipedia, Forbes).<br>
+        <strong>YC Batch:</strong> Summer 2009 (S09), before product launch (verified via Y Combinator).
+    </div>
+
+    <h3>Advantage: 70/100</h3>
+    <table>
+        <tr>
+            <th>Factor</th>
+            <th>Status</th>
+            <th>Assessment</th>
+        </tr>
+        <tr>
+            <td>Developer Experience</td>
+            <td>"7 lines of code" vs competitors' months of integration</td>
+            <td>10x better UX, clear moat</td>
+        </tr>
+        <tr>
+            <td>API Design</td>
+            <td>Clean, RESTful, well-documented</td>
+            <td>Technical moat forming</td>
+        </tr>
+        <tr>
+            <td>Network Effects</td>
+            <td>Not yet activated (but platform potential visible)</td>
+            <td>Future upside identified</td>
+        </tr>
+        <tr>
+            <td>Brand</td>
+            <td>Emerging developer credibility; word-of-mouth strong</td>
+            <td>YC network amplification</td>
+        </tr>
+    </table>
+
+    <h3>Market: 45/100</h3>
+    <table>
+        <tr>
+            <th>Factor</th>
+            <th>Status</th>
+            <th>Assessment</th>
+        </tr>
+        <tr>
+            <td>TAM</td>
+            <td>$3T+ global payments (massive if accessible)</td>
+            <td>Huge but unproven access</td>
+        </tr>
+        <tr>
+            <td>Traction</td>
+            <td>Early adopter startups using Stripe</td>
+            <td>Niche but growing fast</td>
+        </tr>
+        <tr>
+            <td>Competitors</td>
+            <td>PayPal, Braintree (acquired by PayPal 2013), traditional banks</td>
+            <td>Incumbents entrenched</td>
+        </tr>
+        <tr>
+            <td>Regulatory</td>
+            <td>Complex (payments infrastructure, PCI compliance)</td>
+            <td>Barrier to entry (helps moat)</td>
+        </tr>
+    </table>
+
+    <h3>People: 90/100</h3>
+    <table>
+        <tr>
+            <th>Factor</th>
+            <th>Status</th>
+            <th>Assessment</th>
+        </tr>
+        <tr>
+            <td>Founder Quality</td>
+            <td>Patrick (19) and John (17) Collison, prodigies with prior exit</td>
+            <td>Exceptional by any measure</td>
+        </tr>
+        <tr>
+            <td>Prior Exit</td>
+            <td>Sold Auctomatic at 17/19; proven execution young</td>
+            <td>Rare validation</td>
+        </tr>
+        <tr>
+            <td>Team Caliber</td>
+            <td>Early hires from top companies attracted by founder reputation</td>
+            <td>Talent magnet</td>
+        </tr>
+        <tr>
+            <td>Investor Backing</td>
+            <td>Thiel, Musk, Sequoia = strongest possible signal</td>
+            <td>Best in class endorsement</td>
+        </tr>
+    </table>
+
+    <h2>C. Initial CAMP Score (2011)</h2>
+    <table>
+        <tr>
+            <th>Pillar</th>
+            <th>Raw Score</th>
+            <th>Weight (Seed)</th>
+            <th>Weighted</th>
+        </tr>
+        <tr>
+            <td>Capital</td>
+            <td>55</td>
+            <td>15%</td>
+            <td>8.25</td>
+        </tr>
+        <tr>
+            <td>Advantage</td>
+            <td>70</td>
+            <td>30%</td>
+            <td>21.00</td>
+        </tr>
+        <tr>
+            <td>Market</td>
+            <td>45</td>
+            <td>25%</td>
+            <td>11.25</td>
+        </tr>
+        <tr>
+            <td>People</td>
+            <td>90</td>
+            <td>30%</td>
+            <td>27.00</td>
+        </tr>
+        <tr>
+            <td><strong>Total</strong></td>
+            <td></td>
+            <td></td>
+            <td><strong>67.5</strong></td>
+        </tr>
+    </table>
+
+    <div class="callout">
+        <div class="callout-title">Matrix Position: Hidden Gem</div>
+        <strong>Axis Calculation:</strong> Internal Engine = (55 + 90) / 2 = 72.5; External Promise = (70 + 45) / 2 =
+        57.5.<br><br>
+        Stripe started as a strong <strong>Hidden Gem</strong>: exceptional internal capability with Market yet to be
+        fully proven. Critically, unlike most Hidden Gems, Stripe already had nascent Advantage (70) pointing toward
+        platform potential. This combination (People 90 + Advantage 70) is rare and predictive of success.
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- PART 3: TRANSFORMATION -->
+    <h1>III. The Transformation: Steady Climb (2011-2024)</h1>
+
+    <h2>A. Capital Improvement: 55 to 95</h2>
+    <table>
+        <tr>
+            <th>Milestone</th>
+            <th>Date</th>
+            <th>Amount/Valuation</th>
+        </tr>
+        <tr>
+            <td>Seed (Musk, Thiel, Sequoia, a16z)</td>
+            <td>May 2011</td>
+            <td>$2M</td>
+        </tr>
+        <tr>
+            <td>Series A (Sequoia-led)</td>
+            <td>July 2012</td>
+            <td>$18M at $100M+</td>
+        </tr>
+        <tr>
+            <td>Series B</td>
+            <td>January 2014</td>
+            <td>$80M at $1.75B</td>
+        </tr>
+        <tr>
+            <td>Series C</td>
+            <td>December 2014</td>
+            <td>$70M at $3.5B</td>
+        </tr>
+        <tr>
+            <td>Series G (Peak)</td>
+            <td>March 2021</td>
+            <td>$600M at $95B</td>
+        </tr>
+        <tr>
+            <td>Series I (Down Round)</td>
+            <td>March 2023</td>
+            <td>$6.87B at $50B</td>
+        </tr>
+        <tr>
+            <td>Current Valuation</td>
+            <td>February 2025</td>
+            <td>Estimated $91.5B</td>
+        </tr>
+    </table>
+
+    <div class="callout">
+        <div class="callout-title">Capital Discipline in Market Cycles</div>
+        Unlike many unicorns, Stripe accepted a 47% valuation haircut in 2023 ($95B to $50B) gracefully, demonstrating
+        financial maturity over vanity metrics. The company rebuilt to $91.5B by 2025, validating long-term Capital
+        pillar strength over short-term valuation concerns.
+    </div>
+
+    <h2>B. Advantage Improvement: 70 to 95</h2>
+    <table>
+        <tr>
+            <th>Moat Development</th>
+            <th>Timeline</th>
+            <th>Impact</th>
+        </tr>
+        <tr>
+            <td>Developer ecosystem (docs, SDKs, sample code)</td>
+            <td>Continuous</td>
+            <td>Industry-best developer experience</td>
+        </tr>
+        <tr>
+            <td>Stripe Connect (platform payments)</td>
+            <td>2012</td>
+            <td>Marketplace payment rails; network effects</td>
+        </tr>
+        <tr>
+            <td>Stripe Atlas (startup incorporation)</td>
+            <td>2016</td>
+            <td>Full-stack for global startups</td>
+        </tr>
+        <tr>
+            <td>Stripe Issuing (card creation)</td>
+            <td>2018</td>
+            <td>Vertical integration; new revenue</td>
+        </tr>
+        <tr>
+            <td>Stripe Treasury (banking-as-a-service)</td>
+            <td>2020</td>
+            <td>BaaS layer; platform stickiness</td>
+        </tr>
+    </table>
+
+    <h2>C. Market Improvement: 45 to 92</h2>
+    <table>
+        <tr>
+            <th>Market Expansion</th>
+            <th>Timeline</th>
+            <th>Scale</th>
+        </tr>
+        <tr>
+            <td>Initial startup customers</td>
+            <td>2011</td>
+            <td>Thousands of YC-network developers</td>
+        </tr>
+        <tr>
+            <td>Enterprise expansion</td>
+            <td>2015+</td>
+            <td>Amazon, Shopify, Salesforce, Google</td>
+        </tr>
+        <tr>
+            <td>Global coverage</td>
+            <td>By 2024</td>
+            <td>46+ countries</td>
+        </tr>
+        <tr>
+            <td>Processing volume</td>
+            <td>2023</td>
+            <td>$1 trillion+ annually</td>
+        </tr>
+        <tr>
+            <td>Revenue</td>
+            <td>2023</td>
+            <td>Estimated $14B+</td>
+        </tr>
+    </table>
+
+    <h2>D. People Stability: 90 to 95</h2>
+    <table>
+        <tr>
+            <th>Leadership</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>Founders</td>
+            <td>Patrick (CEO) and John (President) still leading after 15 years</td>
+        </tr>
+        <tr>
+            <td>Team size</td>
+            <td>Approximately 8,000 employees (2024)</td>
+        </tr>
+        <tr>
+            <td>Culture</td>
+            <td>Engineering-first, long-term focus, writing culture (memos)</td>
+        </tr>
+        <tr>
+            <td>Executive team</td>
+            <td>Strong CFO, CTO, legal; minimal turnover at C-level</td>
+        </tr>
+    </table>
+
+    <div class="page-break"></div>
+
+    <!-- PART 4: FINAL ASSESSMENT -->
+    <h1>IV. Current Assessment: Stripe in 2025</h1>
+
+    <h2>A. Current Pillar Scores</h2>
+    <div style="margin: 20px 0;">
+        <div class="score-row">
+            <div class="score-label">Capital</div>
+            <div class="score-bar-container">
+                <div class="score-bar" style="width: 95%;"></div>
+            </div>
+            <div class="score-value">95</div>
+        </div>
+        <div class="score-row">
+            <div class="score-label">Advantage</div>
+            <div class="score-bar-container">
+                <div class="score-bar" style="width: 95%;"></div>
+            </div>
+            <div class="score-value">95</div>
+        </div>
+        <div class="score-row">
+            <div class="score-label">Market</div>
+            <div class="score-bar-container">
+                <div class="score-bar" style="width: 92%;"></div>
+            </div>
+            <div class="score-value">92</div>
+        </div>
+        <div class="score-row">
+            <div class="score-label">People</div>
+            <div class="score-bar-container">
+                <div class="score-bar" style="width: 95%;"></div>
+            </div>
+            <div class="score-value">95</div>
+        </div>
+    </div>
+    <div class="figure-caption">Figure 3: Current Pillar Scores (2025)</div>
+
+    <h2>B. Current CAMP Score</h2>
+    <table>
+        <tr>
+            <th>Pillar</th>
+            <th>Raw Score</th>
+            <th>Weight (Series B+)</th>
+            <th>Weighted</th>
+        </tr>
+        <tr>
+            <td>Capital</td>
+            <td>95</td>
+            <td>35%</td>
+            <td>33.25</td>
+        </tr>
+        <tr>
+            <td>Advantage</td>
+            <td>95</td>
+            <td>20%</td>
+            <td>19.00</td>
+        </tr>
+        <tr>
+            <td>Market</td>
+            <td>92</td>
+            <td>30%</td>
+            <td>27.60</td>
+        </tr>
+        <tr>
+            <td>People</td>
+            <td>95</td>
+            <td>15%</td>
+            <td>14.25</td>
+        </tr>
+        <tr>
+            <td><strong>Total</strong></td>
+            <td></td>
+            <td></td>
+            <td><strong>94.1</strong></td>
+        </tr>
+    </table>
+
+    <div class="page-break"></div>
+
+    <!-- PART 5: COMPETITIVE LANDSCAPE -->
+    <h1>V. Competitive Landscape Analysis</h1>
+
+    <h2>A. Payments Infrastructure Market (2024)</h2>
+    <p>The payments infrastructure space has evolved dramatically since Stripe's 2010 founding. Understanding the
+        competitive dynamics illuminates why Stripe's Advantage pillar score increased from 70 to 95 over this period:
+    </p>
+
+    <table>
+        <tr>
+            <th>Platform</th>
+            <th>Target Segment</th>
+            <th>TPV (2024)</th>
+            <th>Valuation</th>
+            <th>Approach</th>
+        </tr>
+        <tr>
+            <td><strong>Stripe</strong></td>
+            <td>Internet businesses (all sizes)</td>
+            <td>$1T+</td>
+            <td>$91.5B</td>
+            <td>Developer-first APIs</td>
+        </tr>
+        <tr>
+            <td>Adyen</td>
+            <td>Enterprise</td>
+            <td>$970B</td>
+            <td>$45B (public)</td>
+            <td>Single platform for global</td>
+        </tr>
+        <tr>
+            <td>PayPal/Braintree</td>
+            <td>SMB + Enterprise</td>
+            <td>$1.5T</td>
+            <td>$70B (public)</td>
+            <td>Consumer wallet + merchant</td>
+        </tr>
+        <tr>
+            <td>Square (Block)</td>
+            <td>SMB (offline to online)</td>
+            <td>$200B</td>
+            <td>$45B (public)</td>
+            <td>POS hardware + software</td>
+        </tr>
+        <tr>
+            <td>Checkout.com</td>
+            <td>Enterprise</td>
+            <td>$250B</td>
+            <td>$11B (private)</td>
+            <td>EU-first enterprise</td>
+        </tr>
+    </table>
+
+    <h2>B. Why Stripe Wins: Developer Experience</h2>
+    <table>
+        <tr>
+            <th>Dimension</th>
+            <th>Stripe</th>
+            <th>Legacy Processors</th>
+        </tr>
+        <tr>
+            <td>Time to First Transaction</td>
+            <td>Minutes (7 lines of code)</td>
+            <td>Weeks (paperwork + integration)</td>
+        </tr>
+        <tr>
+            <td>Documentation</td>
+            <td>Best-in-class API docs</td>
+            <td>PDFs and support tickets</td>
+        </tr>
+        <tr>
+            <td>Pricing</td>
+            <td>Transparent (2.9% + $0.30)</td>
+            <td>Complex interchange-plus</td>
+        </tr>
+        <tr>
+            <td>Dashboard</td>
+            <td>Real-time analytics</td>
+            <td>Batch reporting</td>
+        </tr>
+        <tr>
+            <td>New Features</td>
+            <td>Continuous deployment</td>
+            <td>Annual release cycles</td>
+        </tr>
+    </table>
+
+    <div class="callout">
+        <div class="callout-title">The "7 Lines of Code" Revolution</div>
+        Before Stripe, accepting credit cards required weeks of paperwork, merchant accounts, and complex integrations.
+        Stripe reduced this to 7 lines of code. This 100× improvement in developer experience became an unassailable
+        moat-once developers learn Stripe, switching costs are high because the knowledge is embedded in codebases
+        and muscle memory.
+    </div>
+
+    <h2>C. Product Ecosystem Expansion</h2>
+    <table>
+        <tr>
+            <th>Product</th>
+            <th>Launch</th>
+            <th>Purpose</th>
+            <th>CAMP Impact</th>
+        </tr>
+        <tr>
+            <td>Stripe Payments</td>
+            <td>2011</td>
+            <td>Core payment processing</td>
+            <td>Original Advantage</td>
+        </tr>
+        <tr>
+            <td>Stripe Connect</td>
+            <td>2012</td>
+            <td>Marketplace payments</td>
+            <td>Market: platform economy</td>
+        </tr>
+        <tr>
+            <td>Stripe Atlas</td>
+            <td>2016</td>
+            <td>Company incorporation</td>
+            <td>Advantage: full-stack</td>
+        </tr>
+        <tr>
+            <td>Stripe Radar</td>
+            <td>2016</td>
+            <td>Fraud detection (ML)</td>
+            <td>Advantage: data moat</td>
+        </tr>
+        <tr>
+            <td>Stripe Issuing</td>
+            <td>2018</td>
+            <td>Card creation APIs</td>
+            <td>Market: fintech enabler</td>
+        </tr>
+        <tr>
+            <td>Stripe Treasury</td>
+            <td>2020</td>
+            <td>Banking-as-a-Service</td>
+            <td>Market: embedded finance</td>
+        </tr>
+        <tr>
+            <td>Stripe Tax</td>
+            <td>2021</td>
+            <td>Automated tax collection</td>
+            <td>Advantage: compliance moat</td>
+        </tr>
+        <tr>
+            <td>Stripe Climate</td>
+            <td>2020</td>
+            <td>Carbon removal marketplace</td>
+            <td>People: mission alignment</td>
+        </tr>
+    </table>
+
+    <div class="page-break"></div>
+
+    <!-- PART 6: INVESTOR PERSPECTIVE -->
+    <h1>VI. Investor Perspective: The Perfect Founder Story</h1>
+
+    <h2>A. Seed Round: Why Legends Bet (2011)</h2>
+    <p>Stripe's seed round is one of the most well-known in Silicon Valley history. The investor list reads like a
+        who's who of tech:</p>
+
+    <table>
+        <tr>
+            <th>Investor</th>
+            <th>Investment</th>
+            <th>Why They Invested</th>
+        </tr>
+        <tr>
+            <td>Peter Thiel</td>
+            <td>$500K+</td>
+            <td>Knew brothers from PayPal Mafia network</td>
+        </tr>
+        <tr>
+            <td>Elon Musk</td>
+            <td>Unknown</td>
+            <td>PayPal co-founder; understood payments pain</td>
+        </tr>
+        <tr>
+            <td>Sequoia Capital</td>
+            <td>$500K+</td>
+            <td>Saw mobile commerce wave coming</td>
+        </tr>
+        <tr>
+            <td>Andreessen Horowitz</td>
+            <td>$500K+</td>
+            <td>Developer-first thesis</td>
+        </tr>
+    </table>
+
+    <div class="callout">
+        <div class="callout-title">The Prior Exit Signal</div>
+        Patrick (17) and John (19) had already sold Auctomatic to Live Current Media for $5M in 2008. This prior exit-
+        at ages when most people are in high school and college-was the single strongest signal in the seed round.
+        Investors weren't betting on an idea; they were betting on proven execution ability.
+    </div>
+
+    <h2>B. Valuation Journey: From $20M to $95B</h2>
+    <table>
+        <tr>
+            <th>Round</th>
+            <th>Date</th>
+            <th>Amount</th>
+            <th>Valuation</th>
+            <th>Key Signal</th>
+        </tr>
+        <tr>
+            <td>Seed</td>
+            <td>May 2011</td>
+            <td>$2M</td>
+            <td>~$20M</td>
+            <td>Prior exit; well-known investors</td>
+        </tr>
+        <tr>
+            <td>Series A</td>
+            <td>Jul 2012</td>
+            <td>$18M</td>
+            <td>$100M+</td>
+            <td>Product-market fit proven</td>
+        </tr>
+        <tr>
+            <td>Series B</td>
+            <td>Jan 2014</td>
+            <td>$80M</td>
+            <td>$1.75B</td>
+            <td>Unicorn status</td>
+        </tr>
+        <tr>
+            <td>Series C</td>
+            <td>Jul 2015</td>
+            <td>$70M</td>
+            <td>$5B</td>
+            <td>Enterprise traction</td>
+        </tr>
+        <tr>
+            <td>Series D</td>
+            <td>Nov 2016</td>
+            <td>$150M</td>
+            <td>$9.2B</td>
+            <td>Atlas + Radar launches</td>
+        </tr>
+        <tr>
+            <td>Series E</td>
+            <td>Sep 2018</td>
+            <td>$245M</td>
+            <td>$20B</td>
+            <td>Decacorn milestone</td>
+        </tr>
+        <tr>
+            <td>Series G</td>
+            <td>Apr 2020</td>
+            <td>$600M</td>
+            <td>$36B</td>
+            <td>COVID e-commerce acceleration</td>
+        </tr>
+        <tr>
+            <td>Series H</td>
+            <td>Mar 2021</td>
+            <td>$600M</td>
+            <td>$95B</td>
+            <td>Peak private valuation</td>
+        </tr>
+        <tr>
+            <td>Series I</td>
+            <td>Mar 2023</td>
+            <td>$6.5B</td>
+            <td>$50B</td>
+            <td>Down round (409A compliance)</td>
+        </tr>
+        <tr>
+            <td>Secondary</td>
+            <td>Feb 2025</td>
+            <td>$1B</td>
+            <td>$91.5B</td>
+            <td>Recovery; near-peak again</td>
+        </tr>
+    </table>
+
+    <h2>C. The 2023 Down Round: How to Handle Adversity</h2>
+    <p>In March 2023, Stripe raised at $50B-a 47% decline from its $95B peak. This could have been a crisis, but
+        Stripe handled it gracefully:</p>
+
+    <table>
+        <tr>
+            <th>Factor</th>
+            <th>What Happened</th>
+            <th>CAMP Impact</th>
+        </tr>
+        <tr>
+            <td>Transparency</td>
+            <td>Acknowledged market conditions publicly</td>
+            <td>People: maintained trust</td>
+        </tr>
+        <tr>
+            <td>Operational Focus</td>
+            <td>Grew revenue despite valuation drop</td>
+            <td>Capital: proved fundamentals</td>
+        </tr>
+        <tr>
+            <td>Employee Retention</td>
+            <td>Repriced options; minimized departures</td>
+            <td>People: preserved talent</td>
+        </tr>
+        <tr>
+            <td>Recovery Speed</td>
+            <td>$91.5B by Feb 2025 (83% recovery)</td>
+            <td>Capital: validated resilience</td>
+        </tr>
+    </table>
+
+    <div class="page-break"></div>
+
+    <!-- PART 7: PILLAR TRANSFORMATION -->
+    <h1>VII. Pillar Transformation Timeline</h1>
+
+    <h2>A. Year-by-Year CAMP Evolution</h2>
+    <table>
+        <tr>
+            <th>Year</th>
+            <th>Capital</th>
+            <th>Advantage</th>
+            <th>Market</th>
+            <th>People</th>
+            <th>CAMP</th>
+            <th>Key Event</th>
+        </tr>
+        <tr>
+            <td>2011</td>
+            <td>55</td>
+            <td>70</td>
+            <td>45</td>
+            <td>90</td>
+            <td>67.5</td>
+            <td>Seed round; product launch</td>
+        </tr>
+        <tr>
+            <td>2012</td>
+            <td>68</td>
+            <td>78</td>
+            <td>55</td>
+            <td>92</td>
+            <td>73.0</td>
+            <td>Series A; Stripe Connect</td>
+        </tr>
+        <tr>
+            <td>2014</td>
+            <td>78</td>
+            <td>85</td>
+            <td>70</td>
+            <td>93</td>
+            <td>80.5</td>
+            <td>Unicorn ($1.75B)</td>
+        </tr>
+        <tr>
+            <td>2016</td>
+            <td>85</td>
+            <td>88</td>
+            <td>78</td>
+            <td>94</td>
+            <td>85.5</td>
+            <td>Atlas + Radar launch</td>
+        </tr>
+        <tr>
+            <td>2018</td>
+            <td>88</td>
+            <td>90</td>
+            <td>82</td>
+            <td>95</td>
+            <td>88.5</td>
+            <td>Decacorn ($20B)</td>
+        </tr>
+        <tr>
+            <td>2021</td>
+            <td>95</td>
+            <td>94</td>
+            <td>90</td>
+            <td>95</td>
+            <td>93.5</td>
+            <td>Peak valuation ($95B)</td>
+        </tr>
+        <tr>
+            <td>2023</td>
+            <td>85</td>
+            <td>93</td>
+            <td>85</td>
+            <td>92</td>
+            <td>88.5</td>
+            <td>Down round ($50B)</td>
+        </tr>
+        <tr>
+            <td>2025</td>
+            <td>95</td>
+            <td>95</td>
+            <td>92</td>
+            <td>95</td>
+            <td>94.1</td>
+            <td>Recovery ($91.5B)</td>
+        </tr>
+    </table>
+
+    <h2>B. Advantage Pillar Deep Dive</h2>
+    <table>
+        <tr>
+            <th>Period</th>
+            <th>Advantage Score</th>
+            <th>Key Developments</th>
+        </tr>
+        <tr>
+            <td>2010-2012</td>
+            <td>70-78</td>
+            <td>7-line integration; developer-first docs; API simplicity</td>
+        </tr>
+        <tr>
+            <td>2013-2015</td>
+            <td>82-85</td>
+            <td>Stripe Connect (marketplaces); international expansion</td>
+        </tr>
+        <tr>
+            <td>2016-2018</td>
+            <td>86-90</td>
+            <td>Radar (ML fraud); Atlas; Issuing; full-stack vision</td>
+        </tr>
+        <tr>
+            <td>2019-2021</td>
+            <td>92-94</td>
+            <td>Treasury; Tax; Billing; platform completeness</td>
+        </tr>
+        <tr>
+            <td>2022-2025</td>
+            <td>93-95</td>
+            <td>Revenue Scale (TPV $1T+); AI features; Link adoption</td>
+        </tr>
+    </table>
+
+    <h2>C. Market Pillar Deep Dive</h2>
+    <table>
+        <tr>
+            <th>Period</th>
+            <th>Market Score</th>
+            <th>Key Developments</th>
+        </tr>
+        <tr>
+            <td>2010-2012</td>
+            <td>45-55</td>
+            <td>Internet commerce nascent; mobile emerging</td>
+        </tr>
+        <tr>
+            <td>2013-2015</td>
+            <td>60-70</td>
+            <td>Shopify/SaaS boom; API-first trend</td>
+        </tr>
+        <tr>
+            <td>2016-2019</td>
+            <td>75-82</td>
+            <td>Platform economy; embedded finance emerges</td>
+        </tr>
+        <tr>
+            <td>2020-2021</td>
+            <td>88-90</td>
+            <td>COVID e-commerce acceleration</td>
+        </tr>
+        <tr>
+            <td>2022-2025</td>
+            <td>85-92</td>
+            <td>Post-COVID normalization; but GPV still growing</td>
+        </tr>
+    </table>
+
+    <div class="page-break"></div>
+
+    <!-- PART 8: JOURNEY -->
+    <h1>V. Matrix Journey Visualization</h1>
+
+    <div class="journey-box">
+        <div class="journey-row">
+            <div class="journey-point">
+                <div class="journey-year">2011</div>
+                <div class="journey-score">67.5</div>
+                <div class="journey-quadrant">Hidden Gem</div>
+            </div>
+            <div class="journey-arrow">&rarr;</div>
+            <div class="journey-point">
+                <div class="journey-year">2014</div>
+                <div class="journey-score">78</div>
+                <div class="journey-quadrant">Rocketship</div>
+            </div>
+            <div class="journey-arrow">&rarr;</div>
+            <div class="journey-point" style="border-width: 3px;">
+                <div class="journey-year">2024</div>
+                <div class="journey-score">94.1</div>
+                <div class="journey-quadrant">Rocketship</div>
+            </div>
+        </div>
+        <div style="font-size: 9pt; margin-top: 10px;">
+            <strong>Trajectory:</strong> Hidden Gem (strong team + early moat) to Rocketship (steady improvement on all
+            pillars)
+        </div>
+    </div>
+    <div class="figure-caption">Figure 4: Stripe's CAMP Matrix Journey</div>
+
+    <h2>Transition Milestones</h2>
+    <table>
+        <tr>
+            <th>Year</th>
+            <th>Key Event</th>
+            <th>Quadrant</th>
+        </tr>
+        <tr>
+            <td>2011</td>
+            <td>Product launch; $2M seed</td>
+            <td>Hidden Gem</td>
+        </tr>
+        <tr>
+            <td>2012</td>
+            <td>Series A at $100M+; Stripe Connect launched</td>
+            <td>Transitioning</td>
+        </tr>
+        <tr>
+            <td>2014</td>
+            <td>$1.75B valuation (Series B)</td>
+            <td>Rocketship</td>
+        </tr>
+        <tr>
+            <td>2021</td>
+            <td>$95B peak valuation</td>
+            <td>Rocketship</td>
+        </tr>
+        <tr>
+            <td>2023</td>
+            <td>$50B (down round); graceful handling</td>
+            <td>Rocketship</td>
+        </tr>
+        <tr>
+            <td>2025</td>
+            <td>$91.5B recovery</td>
+            <td>Rocketship</td>
+        </tr>
+    </table>
+
+    <div class="page-break"></div>
+
+    <!-- PART 6: KEY FINDINGS -->
+    <h1>VI. Key Findings and Strategic Implications</h1>
+
+    <h2>A. Principal Observations</h2>
+
+    <p><strong>1. Strong Start Matters.</strong> Stripe began with CAMP score of 67.5, already in "Moderate" range.
+        Companies starting with strong People (90) and emerging Advantage (70) have a fundamentally different trajectory
+        than crisis-driven turnarounds.</p>
+
+    <p><strong>2. Product IS the Moat.</strong> Stripe's Advantage came from developer experience, not patents or
+        regulatory capture. This is replicable by other companies: build something 10x better and maintain that gap
+        through continuous improvement.</p>
+
+    <p><strong>3. Founder Continuity.</strong> Patrick and John Collison have led Stripe for 15 years. Continuous
+        founder leadership correlates with sustained People pillar strength and strategic coherence.</p>
+
+    <p><strong>4. Capital Discipline in Up and Down Markets.</strong> Stripe accepted a 47% valuation haircut in 2023
+        gracefully, then rebuilt to $91.5B by 2025. This demonstrates Capital pillar maturity that many unicorns lack.
+    </p>
+
+    <h2>B. Summary: Fifteen-Year Transformation</h2>
+    <table>
+        <tr>
+            <th>Metric</th>
+            <th class="comparison-header">2011</th>
+            <th class="comparison-header">2024</th>
+            <th class="comparison-header">Change</th>
+        </tr>
+        <tr>
+            <td>Capital</td>
+            <td>55</td>
+            <td>95</td>
+            <td>+40</td>
+        </tr>
+        <tr>
+            <td>Advantage</td>
+            <td>70</td>
+            <td>95</td>
+            <td>+25</td>
+        </tr>
+        <tr>
+            <td>Market</td>
+            <td>45</td>
+            <td>92</td>
+            <td>+47</td>
+        </tr>
+        <tr>
+            <td>People</td>
+            <td>90</td>
+            <td>95</td>
+            <td>+5</td>
+        </tr>
+        <tr>
+            <td><strong>CAMP Score</strong></td>
+            <td><strong>67.5</strong></td>
+            <td><strong>94.1</strong></td>
+            <td><strong>+26.6</strong></td>
+        </tr>
+        <tr>
+            <td><strong>Quadrant</strong></td>
+            <td>Hidden Gem</td>
+            <td>Rocketship</td>
+            <td></td>
+        </tr>
+    </table>
+
+    <!-- PART 7: SOURCES -->
+    <h1>VII. Sources and Data Notes</h1>
+
+    <h2>A. Verified Factual Data</h2>
+    <p>The following historical data points have been verified through public sources:</p>
+    <ul>
+        <li><strong>Founding:</strong> 2010; YC S09 batch (Wikipedia, Y Combinator)</li>
+        <li><strong>Founders:</strong> Patrick (MIT dropout) and John (Harvard dropout) Collison from Dromineer, Ireland
+            (Wikipedia)</li>
+        <li><strong>Auctomatic:</strong> Sold to Live Current Media for $5M in March 2008 (Wikipedia, Forbes)</li>
+        <li><strong>Seed:</strong> $2M from Elon Musk, Peter Thiel, Sequoia Capital, Andreessen Horowitz (May 2011)
+            (Wikipedia, Wellfound)</li>
+        <li><strong>Series A:</strong> $18M at $100M+ (July 2012) (TechCrunch)</li>
+        <li><strong>Peak Valuation:</strong> $95B (March 2021) (Stripe, Guardian, Payments Dive)</li>
+        <li><strong>Down Round:</strong> $50B (March 2023) (Fintech Futures, Bloomberg Law)</li>
+        <li><strong>Current Valuation:</strong> Estimated $91.5B (February 2025) (Tracxn)</li>
+        <li><strong>Headquarters:</strong> Dual HQ in South San Francisco and Dublin, Ireland (Wikipedia)</li>
+    </ul>
+
+    <h2>B. CAMP Score Methodology Note</h2>
+    <p>The CAMP pillar scores presented in this case study are <em>illustrative assessments</em> based on the verified
+        historical data above, applying the CAMP framework methodology. They represent how the framework would evaluate
+        Stripe at each point in time, not official historical ratings. Stage weights are sourced from the FLASH CAMP
+        Framework documentation.</p>
+
+    <h2>C. Framework Limitations and Caveats</h2>
+    <p><strong>1. Survivorship Bias.</strong> This case study analyzes Stripe because it succeeded. Many developer
+        tools companies with similar profiles did not achieve this scale. The framework cannot guarantee outcomes.</p>
+
+    <p><strong>2. Prior Exit Signal.</strong> The Collison brothers had a verified $5M exit at ages 17/19. This is
+        exceptionally rare and heavily weighted the People pillar. Most founders lack this validation, making
+        direct comparisons inappropriate.</p>
+
+    <p><strong>3. Investor Signaling.</strong> Stripe's seed round included Elon Musk and Peter Thiel, providing
+        extraordinary signal. This investor quality is not replicable and may have influenced the People score
+        assessment.</p>
+
+    <p><strong>4. Private Company Data.</strong> Stripe remains private. Revenue, processing volume, and profitability
+        figures are estimates based on industry reports. The Capital and Market scores at later stages rely on
+        these estimates rather than verified financial statements.</p>
+
+    <!-- ACTIONS + METRICS (OBSERVED) -->
+
+    <h1>VIII. Founder Actions and Metrics (Observed)</h1>
+
+    <div class="callout">
+        <div class="callout-title">Founder Actions (What Actually Happened in This Case)</div>
+        <p><strong>Capital milestones:</strong></p>
+        <ul>
+            <li><strong>May 2011:</strong> Seed — $2M</li>
+            <li><strong>Jul 2012:</strong> Series A — $18M</li>
+            <li><strong>Jan 2014:</strong> Series B — $80M</li>
+            <li><strong>Jul 2015:</strong> Series C — $70M</li>
+            <li><strong>Nov 2016:</strong> Series D — $150M</li>
+            <li><strong>Sep 2018:</strong> Series E — $245M</li>
+        </ul>
+    </div>
+
+    <div class="callout">
+        <div class="callout-title">Metrics to Watch (Metrics Surfaced in This Case)</div>
+        <p><em>These are the metrics this case uses to describe progress and performance.</em></p>
+        <ul>
+            <li><strong>Round:</strong> Secondary</li>
+            <li><strong>Amount:</strong> $1B</li>
+            <li><strong>Valuation:</strong> $91.5B</li>
+            <li><strong>Key Signal:</strong> Recovery; near-peak again</li>
+        </ul>
+    </div>
+
+    <div class="callout callout--measure-next">
+        <div class="callout-title">What to Measure Next (Leading Indicators)</div>
+        <p><em>Forward-looking guidance for applying CAMP prospectively. Metric definitions reference the FLASH metric schema.</em></p>
+        <table class="metrics-next-table">
+            <tr>
+                <th style="width: 16%;">Pillar</th>
+                <th>Leading Indicators (FLASH metrics)</th>
+            </tr>
+            <tr>
+                <td><div class="metrics-next-pillar">Market</div></td>
+                <td><div class="metric-line"><span class="metric-name" data-metric-id="revenueGrowthRate">Revenue Growth Rate</span></div><div class="metric-line"><span class="metric-name" data-metric-id="customerCount">Customer Count</span></div><div class="metric-line"><span class="metric-name" data-metric-id="marketGrowthRate">Market Growth Rate</span></div></td>
+            </tr>
+            <tr>
+                <td><div class="metrics-next-pillar">Capital</div></td>
+                <td><div class="metric-line"><span class="metric-name" data-metric-id="cashRunwayMonths">Cash Runway Months</span></div><div class="metric-line"><span class="metric-name" data-metric-id="burnMultiple">Burn Multiple</span></div><div class="metric-line"><span class="metric-name" data-metric-id="fundingGapRatio">Funding Gap Ratio</span></div></td>
+            </tr>
+            <tr>
+                <td><div class="metrics-next-pillar">Advantage</div></td>
+                <td><div class="metric-line"><span class="metric-name" data-metric-id="regulatoryBarriersYears">Regulatory Barriers Years</span></div><div class="metric-line"><span class="metric-name" data-metric-id="defensibilityScore">Defensibility Score</span></div><div class="metric-line"><span class="metric-name" data-metric-id="switchingCostDollars">Switching Cost Dollars</span></div></td>
+            </tr>
+            <tr>
+                <td><div class="metrics-next-pillar">People</div></td>
+                <td><div class="metric-line"><span class="metric-name" data-metric-id="leadershipTenureAvgYears">Leadership Tenure Avg Years</span></div><div class="metric-line"><span class="metric-name" data-metric-id="leadershipStabilityScore">Leadership Stability Score</span></div><div class="metric-line"><span class="metric-name" data-metric-id="employeeTurnover12MonthsPct">Employee Turnover 12 Months %</span></div></td>
+            </tr>
+        </table>
+        <p><em>Definitions and computations: FLASH Metrics Library.</em></p>
+    </div>
+
+    <div class="callout callout--red-flags">
+        <div class="callout-title">Red Flags (Failure Modes to Watch For)</div>
+        <p><em>Signals that often precede a CAMP score collapse, mapped to measurable indicators.</em></p>
+        <ul>
+            <li><strong>Market misread:</strong> Growth slows as competition rises and share goals slip.<span class="metric-note">Metrics: Market Growth Rate; Competition Intensity; Market Share Gap To Target.</span></li>
+            <li><strong>Inefficient growth:</strong> Spend rises faster than durable revenue.<span class="metric-note">Metrics: Burn Multiple; Growth Efficiency Index.</span></li>
+            <li><strong>Retention decay:</strong> Expansion slows and churn accelerates.<span class="metric-note">Metrics: Net Retention Trend; Churn Trend.</span></li>
+            <li><strong>Concentration risk:</strong> A small set of accounts becomes mission-critical.<span class="metric-note">Metrics: Customer Concentration; Revenue Concentration Risk Index.</span></li>
+            <li><strong>GTM brittleness:</strong> The sales engine slows and pipeline stops covering targets.<span class="metric-note">Metrics: Sales Cycle Days; Sales Pipeline Coverage; Pipeline Coverage Health.</span></li>
+            <li><strong>Org strain:</strong> Turnover rises while open roles stay unfilled.<span class="metric-note">Metrics: Employee Turnover 12 Months %; Hiring Gap Index.</span></li>
+        </ul>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div class="document-footer">
+        <div class="flash-brand-block">
+            <img src="flash_logo_trimmed.png" alt="FLASH Capital" class="flash-brand-logo">
+        </div>
+        FLASH Capital | CAMP Matrix Framework | Case Study: Stripe
+    </div>
+
 </body>
+
 </html>

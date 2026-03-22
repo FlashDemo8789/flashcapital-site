@@ -1,86 +1,1894 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>WeWork Case Study: Unit Economics Misalignment | FLASH Capital</title>
-    <meta name="description" content="Failure-pattern case analysis of WeWork focused on unit economics, governance signals, and capital narrative risk.">
-    <link rel="canonical" href="https://flashcapital.co.jp/case-studies/wework-unit-economics-misalignment.html">
-    <meta property="og:title" content="WeWork: Unit Economics Misalignment">
-    <meta property="og:description" content="Failure-pattern case analysis on unit economics, governance signals, and capital narrative risk.">
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://flashcapital.co.jp/case-studies/wework-unit-economics-misalignment.html">
-    <meta property="article:published_time" content="2026-03-19">
-    <meta property="article:modified_time" content="2026-03-21">
-    <link rel="stylesheet" href="/content-hub.css">
-    <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"Article","headline":"WeWork: Unit Economics Misalignment","datePublished":"2026-03-19","dateModified":"2026-03-21","author":{"@type":"Organization","name":"FLASH Capital"},"publisher":{"@type":"Organization","name":"FLASH Capital"},"mainEntityOfPage":"https://flashcapital.co.jp/case-studies/wework-unit-economics-misalignment.html"}
-    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAMP Matrix Case Study: WeWork (FAILURE)</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 1in 1in 1.55in 1in;
+        }
+
+        @media print {
+            body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            table { page-break-inside: avoid; }
+            tr { page-break-inside: avoid; }
+            thead { display: table-header-group; }
+            h1, h2, h3 { page-break-after: avoid; }
+            .callout, .warning-callout, .success-callout, .journey-box { page-break-inside: avoid; }
+            .page-break { page-break-before: always; }
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, Georgia, serif;
+            font-size: 11pt;
+            line-height: 1.6;
+            color: #1a1a1a;
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .document-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #1a1a1a;
+        }
+
+        .document-title {
+            font-size: 18pt;
+            font-weight: bold;
+            margin-bottom: 5px;
+            letter-spacing: 0.5px;
+        }
+
+        .document-subtitle {
+            font-size: 14pt;
+            font-style: italic;
+            color: #333;
+            margin-bottom: 12px;
+        }
+
+        .document-meta {
+            font-size: 10pt;
+            color: #555;
+        }
+
+        .failure-banner {
+            background: #333;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 12pt;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        h1 {
+            font-size: 14pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #333;
+        }
+
+        h2 {
+            font-size: 12pt;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 12px;
+        }
+
+        h3 {
+            font-size: 11pt;
+            font-weight: bold;
+            font-style: italic;
+            margin-top: 15px;
+            margin-bottom: 12px;
+        }
+
+        p {
+            text-align: justify;
+            margin-bottom: 12px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 10pt;
+        }
+
+        th {
+            background: #f5f5f5;
+            border: 1px solid #333;
+            padding: 8px 10px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        td {
+            border: 1px solid #333;
+            padding: 8px 10px;
+        }
+
+        .callout {
+            background: #f9f9f9;
+            border: 1px solid #ccc;
+            border-left: 3px solid #333;
+            padding: 12px 15px;
+            margin: 15px 0;
+            font-size: 10pt;
+        }
+
+        .callout-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .warning-callout {
+            background: #fff3cd;
+            border: 1px solid #856404;
+            border-left: 3px solid #856404;
+            padding: 12px 15px;
+            margin: 15px 0;
+            font-size: 10pt;
+        }
+
+        .matrix-container {
+            width: 100%;
+            margin: 25px 0;
+            page-break-inside: avoid;
+        }
+
+        .matrix-grid {
+            display: grid;
+            grid-template-columns: 30px 1fr 1fr;
+            grid-template-rows: 1fr 1fr 25px;
+            gap: 1px;
+            height: 220px;
+            background: #333;
+            padding: 1px;
+            margin: 0 auto;
+            max-width: 450px;
+        }
+
+        .y-axis {
+            grid-column: 1;
+            grid-row: 1 / 3;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8pt;
+            font-weight: bold;
+        }
+
+        .y-axis-text {
+            transform: rotate(-90deg);
+            white-space: nowrap;
+        }
+
+        .x-axis {
+            grid-column: 2 / 4;
+            grid-row: 3;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8pt;
+            font-weight: bold;
+        }
+
+        .quadrant {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            text-align: center;
+            background: white;
+        }
+
+        .quadrant-title {
+            font-weight: bold;
+            font-size: 10pt;
+            margin-bottom: 3px;
+        }
+
+        .quadrant-desc {
+            font-size: 8pt;
+            color: #555;
+            font-style: italic;
+        }
+
+        .q-tl {
+            grid-column: 2;
+            grid-row: 1;
+            background: #f0f0f0;
+        }
+
+        .q-tr {
+            grid-column: 3;
+            grid-row: 1;
+            background: #e8e8e8;
+        }
+
+        .q-bl {
+            grid-column: 2;
+            grid-row: 2;
+            background: #f8f8f8;
+        }
+
+        .q-br {
+            grid-column: 3;
+            grid-row: 2;
+            background: #f0f0f0;
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .pillar-item {
+            text-align: center;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        .pillar-letter {
+            font-size: 18pt;
+            font-weight: bold;
+            margin-bottom: 3px;
+        }
+
+        .pillar-name {
+            font-size: 9pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+        }
+
+        .pillar-desc {
+            font-size: 8pt;
+            color: #555;
+        }
+
+        .figure-caption {
+            text-align: center;
+            font-size: 9pt;
+            font-style: italic;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        ul,
+        ol {
+            margin: 10px 0;
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 5px;
+            text-align: justify;
+        }
+
+        .page-break {
+            page-break-before: always;
+        }
+
+        .document-footer {
+            margin-top: 40px;
+            padding-top: 15px;
+            border-top: 1px solid #333;
+            text-align: center;
+            font-size: 9pt;
+        }
+
+        .score-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 10pt;
+        }
+
+        .score-label {
+            width: 80px;
+            font-weight: bold;
+        }
+
+        .score-bar-container {
+            flex: 1;
+            height: 16px;
+            background: #eee;
+            border: 1px solid #ccc;
+            margin: 0 10px;
+        }
+
+        .score-bar {
+            height: 100%;
+            background: #333;
+        }
+
+        .score-bar-decline {
+            height: 100%;
+            background: #dc3545;
+        }
+
+        .score-value {
+            width: 40px;
+            text-align: right;
+            font-weight: bold;
+        }
+
+        .journey-box {
+            border: 2px solid #dc3545;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .journey-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin: 15px 0;
+        }
+
+        .journey-point {
+            text-align: center;
+            padding: 15px 25px;
+            border: 2px solid #333;
+        }
+
+        .journey-point-fail {
+            text-align: center;
+            padding: 15px 25px;
+            border: 3px solid #dc3545;
+            background: #fff5f5;
+        }
+
+        .journey-year {
+            font-size: 12pt;
+            font-weight: bold;
+        }
+
+        .journey-score {
+            font-size: 18pt;
+            font-weight: bold;
+        }
+
+        .journey-quadrant {
+            font-size: 9pt;
+            font-style: italic;
+        }
+
+        .journey-arrow {
+            font-size: 24pt;
+            font-weight: bold;
+            color: #dc3545;
+        }
+
+        .comparison-header {
+            text-align: center;
+            font-weight: bold;
+        }
+
+
+        /* CAMP Unified Theme */
+        :root {
+            --camp-accent: #0B1F3A;
+            --camp-ink: #0F172A;
+            --camp-wash: #F8FAFC;
+            --camp-callout-bg: #FFFFFF;
+        }
+
+        /* Unify banners (single professional look) */
+        [class$="-banner"] {
+            background: var(--camp-wash) !important;
+            color: var(--camp-ink) !important;
+            border-bottom: 2px solid var(--camp-accent) !important;
+        }
+
+        /* Unify accent elements */
+        .callout {
+            background: var(--camp-callout-bg) !important;
+            border-left: 3px solid var(--camp-accent) !important;
+        }
+
+        .score-bar {
+            background: var(--camp-accent) !important;
+        }
+
+        .journey-arrow {
+            color: var(--camp-accent) !important;
+        }
+
+        .journey-box,
+        .journey-point {
+            border-color: var(--camp-accent) !important;
+        }
+
+    
+        .flash-brand-block {
+            margin-bottom: 12px;
+            line-height: 1;
+        }
+        .flash-brand-logo {
+            display: inline-block;
+            height: auto;
+            width: 40px;
+            max-width: none;
+            object-fit: contain;
+            vertical-align: middle;
+        }
+    
+        .footer,
+        .document-footer {
+            page-break-inside: avoid;
+            break-inside: avoid-page;
+        }
+
+        /* FLASH Branding Overrides */
+        .flash-brand-block {
+            margin-bottom: 6px;
+            line-height: 1;
+            text-align: center;
+        }
+        .flash-brand-logo {
+            display: inline-block;
+            height: 48px;
+            width: auto;
+            object-fit: contain;
+            vertical-align: middle;
+        }
+
+        @media print {
+            .footer,
+            .document-footer {
+                position: fixed !important;
+                left: 0 !important;
+                right: 0 !important;
+                bottom: 0.4in !important;
+                margin: 0 !important;
+                padding: 0 0.75in !important;
+                text-align: center !important;
+                background: transparent !important;
+            }
+
+            .flash-brand-block {
+                margin-bottom: 6px !important;
+                line-height: 1 !important;
+            }
+
+            .flash-brand-logo {
+                height: 48px !important;
+                width: auto !important;
+            }
+        }
+
+
+        
+        
+        
+        /* FLASH Professional Print v1 (do not edit by hand) */
+        :root {
+            --flash-ink: #0F172A;
+            --flash-muted: #334155;
+        }
+
+        /* Standardize page size. */
+        @page {
+            size: A4;
+            margin: 0.75in 0.75in 0.55in 0.75in;
+        }
+
+        /* First-page header mark (in-flow, not repeated). */
+        .flash-brand-header {
+            text-align: center;
+            margin: 0 0 10px;
+            line-height: 1;
+        }
+
+        .flash-brand-logo--header {
+            height: 54px;
+            width: auto;
+            max-width: none;
+            object-fit: contain;
+            vertical-align: middle;
+        }
+
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+
+                /*
+                 * Reserve space for the fixed footer on every page.
+                 *
+                 * In Chrome's print engine, `position: fixed` elements do NOT reserve layout
+                 * space, and are positioned relative to the page *area* (inside @page
+                 * margins). This causes footer overlap unless we create per-page bottom
+                 * padding. `box-decoration-break: clone` makes that padding apply to each
+                 * paginated fragment.
+                 */
+                -webkit-box-decoration-break: clone;
+                box-decoration-break: clone;
+                padding-bottom: 1.25in !important;
+            }
+
+            /* Footer: fixed and compact so it never overlaps content. */
+            .footer,
+            .document-footer {
+                position: fixed !important;
+                left: 0 !important;
+                right: 0 !important;
+                bottom: 0.15in !important;
+                margin: 0 !important;
+                padding: 6px 0.75in 0 !important;
+                text-align: center !important;
+                border-top: 1px solid rgba(15, 23, 42, 0.16) !important;
+                background: transparent !important;
+                z-index: 9999 !important;
+                color: var(--flash-muted) !important;
+                font-size: 8.5pt !important;
+                line-height: 1.25 !important;
+            }
+
+            .flash-brand-block {
+                margin: 0 0 4px !important;
+                line-height: 1 !important;
+                text-align: center !important;
+            }
+
+            /* Footer logo */
+            .flash-brand-logo {
+                height: 34px !important;
+                width: auto !important;
+                max-width: none !important;
+                object-fit: contain !important;
+                vertical-align: middle !important;
+            }
+
+            /* Header logo slightly larger */
+            .flash-brand-logo--header {
+                height: 44px !important;
+            }
+        }
+        /* END FLASH Professional Print v1 */
+
+        /* Actions + Metrics Design v1 (do not edit by hand) */
+        .callout--measure-next p,
+        .callout--measure-next li,
+        .callout--red-flags p,
+        .callout--red-flags li {
+            text-align: left !important;
+        }
+
+        .callout--measure-next table.metrics-next-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0 6px;
+            font-size: 9.75pt;
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        .callout--measure-next table.metrics-next-table th {
+            background: transparent !important;
+            border: none !important;
+            border-bottom: 1px solid rgba(15, 23, 42, 0.22) !important;
+            padding: 6px 8px !important;
+            text-align: left !important;
+            font-weight: 600 !important;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            font-size: 8.5pt;
+            color: var(--flash-muted, #334155) !important;
+        }
+
+        .callout--measure-next table.metrics-next-table td {
+            border: none !important;
+            border-bottom: 1px solid rgba(15, 23, 42, 0.12) !important;
+            padding: 8px 8px !important;
+            vertical-align: top;
+        }
+
+        .callout--measure-next table.metrics-next-table tr:last-child td {
+            border-bottom: none !important;
+        }
+
+        .callout--measure-next .metrics-next-pillar {
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 9pt;
+            color: var(--flash-ink, #0F172A);
+            white-space: nowrap;
+        }
+
+        .callout--measure-next .metric-line {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 2px 0;
+        }
+
+        .callout--measure-next .metric-name {
+            color: var(--flash-ink, #0F172A);
+        }
+
+        .metric-id {
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+            font-size: 8pt;
+            color: var(--flash-muted, #334155);
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            overflow-wrap: anywhere;
+            word-break: break-word;
+        }
+
+        .callout--red-flags .metric-note {
+            color: var(--flash-muted, #334155);
+            font-size: 8.5pt;
+            margin-left: 0.25em;
+            white-space: normal;
+        }
+
+        /* CAMP Matrix Quadrant Consistency v1 */
+        :root {
+            --camp-q-hidden-gem: #f7f0df;
+            --camp-q-rocketship: #e8f3ea;
+            --camp-q-chaos-zone: #f7e9ee;
+            --camp-q-starved-visionary: #e8f0f9;
+        }
+
+        .q-tl {
+            background: var(--camp-q-hidden-gem) !important;
+        }
+
+        .q-tr {
+            background: var(--camp-q-rocketship) !important;
+        }
+
+        .q-bl {
+            background: var(--camp-q-chaos-zone) !important;
+        }
+
+        .q-br {
+            background: var(--camp-q-starved-visionary) !important;
+        }
+
+        .matrix-grid .quadrant {
+            border-color: rgba(15, 23, 42, 0.36) !important;
+        }
+
+        /*
+         * Pagination Safety v1
+         * - Avoid orphan caption lines and one-line pre-break pages.
+         * - Keep matrices/tables/callouts from splitting into footer space.
+         */
+        @media print {
+            .page-break {
+                display: none !important;
+                page-break-before: auto !important;
+                break-before: auto !important;
+            }
+
+            h1,
+            h2 {
+                page-break-after: auto !important;
+                break-after: auto !important;
+            }
+
+            h3 {
+                page-break-after: avoid !important;
+                break-after: avoid-page !important;
+            }
+
+            table,
+            .matrix-container,
+            .matrix-grid,
+            .pillars-grid,
+            .journey-box,
+            .journey-row,
+            .callout {
+                page-break-inside: avoid !important;
+                break-inside: avoid-page !important;
+            }
+
+            table + .figure-caption,
+            .figure-caption {
+                page-break-before: avoid !important;
+                break-before: avoid-page !important;
+                page-break-after: avoid !important;
+                break-after: avoid-page !important;
+                margin-top: 3px !important;
+                margin-bottom: 10px !important;
+            }
+
+            p {
+                orphans: 3;
+                widows: 3;
+            }
+        }
+        /* END Actions + Metrics Design v1 */
+
+    </style>
 </head>
-<body data-content-type="case_study" data-content-slug="wework-unit-economics-misalignment">
-<header class="content-header"><div class="content-header-inner"><a class="content-brand" href="/">FLASH Capital</a><nav class="content-nav"><a href="/insights/">Insights</a><a class="active" href="/case-studies/">Case Studies</a><a href="/newsletter/">Newsletter</a><a href="/flash-camp-framework.html">CAMP Framework</a><a href="/contact.html">Contact</a></nav><a class="content-cta" href="https://flash.zone">Apply now</a></div></header>
-<main class="content-wrap">
-<article class="hero-block">
-<span class="hero-kicker">Failure Pattern | Capital</span>
-<h1 class="hero-title">WeWork: Unit Economics Misalignment</h1>
-<p class="hero-subtitle">This case highlights how top-line growth narratives can collapse when underlying margin structure and governance confidence diverge.</p>
-<div class="claim-block"><div class="claim-label">Claim Type: Fact</div><p class="claim-text">Public filings and market reporting documented governance concerns and business-model scrutiny around long-term lease liabilities versus revenue durability.</p></div>
-<div class="claim-block"><div class="claim-label">Claim Type: Estimate</div><p class="claim-text">When fixed obligations scale faster than predictable cash generation, financing optionality typically compresses rapidly in risk-off markets.</p></div>
-<div class="claim-block"><div class="claim-label">Claim Type: Opinion</div><p class="claim-text">Narrative intensity cannot substitute for structural margin coherence.</p></div>
-<div class="article-body">
-<section class="article-section">
-<h2>What The Source Case Actually Shows</h2>
-<p>The CAMP source case for WeWork treats the collapse as a structural failure, not a temporary financing shock. The executive summary frames the company as a Starved Visionary pattern where market narrative strength obscured weak internal fundamentals and governance discipline.</p>
-<p>The core warning is that scale and valuation momentum can hide fragility until financing conditions tighten. At that point, weak advantage quality and governance control become impossible to mask.</p>
-</section>
-<section class="article-section">
-<h2>CAMP Trajectory From The Source Model</h2>
-<ul>
-<li>Peak-profile scores in the source model: Capital 70, Advantage 25, Market 75, People 35.</li>
-<li>Weighted CAMP score around the peak period in the source table: 57.25.</li>
-<li>Terminal weighted CAMP score in the same case: 18.50.</li>
-</ul>
-<p>The trajectory is important: capital access looked strong for a period, but low Advantage and weak People/governance scores created a fragile system that could not sustain stress.</p>
-</section>
-<section class="article-section">
-<h2>Operator Lens For Founders</h2>
-<p>Before fundraising, run an explicit downside test on fixed obligations, governance controls, and cash-flow resilience under slower growth. If your narrative depends on perfect market conditions, you have a structure problem, not a storytelling problem.</p>
-</section>
+
+<body>
+
+    <div class="document-header">
+        <div class="flash-brand-header">
+            <img src="flash_logo_trimmed.png" alt="FLASH Capital" class="flash-brand-logo flash-brand-logo--header">
+        </div>
+
+        <div class="document-title">CAMP Matrix Framework</div>
+        <div class="document-subtitle">Case Study: WeWork (2010-2023)</div>
+        <div class="document-meta">Assessing Startup Investability and Execution Readiness</div>
+    </div>
+
+    <div class="warning-callout">
+        <div class="callout-title">Executive Summary: A Cautionary Tale</div>
+        WeWork's collapse is a representative case study of the "Starved Visionary" quadrant trap. Despite raising $12.8
+        billion and achieving a $47 billion peak valuation, the company filed for bankruptcy in November 2023. The CAMP
+        framework would have identified critical weaknesses: a People pillar compromised by governance failures
+        (35/100),
+        no defensible Advantage (25/100), and unsustainable Capital dynamics masked by massive fundraising. This case
+        demonstrates how high Market scores can create dangerous illusions when coupled with weak fundamentals.
+    </div>
+
+    <!-- PART 1: FRAMEWORK INTRODUCTION -->
+    <h1>I. The CAMP Framework</h1>
+
+    <h2>A. The Four Pillars</h2>
+    <p>The CAMP Matrix evaluates startup potential through four interconnected dimensions:</p>
+
+    <div class="pillars-grid">
+        <div class="pillar-item">
+            <div class="pillar-letter">C</div>
+            <div class="pillar-name">Capital</div>
+            <div class="pillar-desc">Runway, burn efficiency, capital management</div>
+        </div>
+        <div class="pillar-item">
+            <div class="pillar-letter">A</div>
+            <div class="pillar-name">Advantage</div>
+            <div class="pillar-desc">Moat, network effects, switching costs</div>
+        </div>
+        <div class="pillar-item">
+            <div class="pillar-letter">M</div>
+            <div class="pillar-name">Market</div>
+            <div class="pillar-desc">TAM, growth rate, traction, retention</div>
+        </div>
+        <div class="pillar-item">
+            <div class="pillar-letter">P</div>
+            <div class="pillar-name">People</div>
+            <div class="pillar-desc">Founder quality, team, execution velocity</div>
+        </div>
+    </div>
+    <div class="figure-caption">Figure 1: The Four CAMP Pillars</div>
+
+    <h2>B. The 2x2 Matrix</h2>
+    <p>The pillars combine into two composite dimensions:</p>
+    <ul>
+        <li><strong>Internal Engine</strong> (Y-axis) = Capital + People, measures organizational capability</li>
+        <li><strong>External Promise</strong> (X-axis) = Advantage + Market, measures opportunity attractiveness</li>
+    </ul>
+
+    <div class="matrix-container">
+        <div class="matrix-grid">
+            <div class="y-axis"><span class="y-axis-text">INTERNAL ENGINE</span></div>
+            <div class="quadrant q-tl">
+                <div class="quadrant-title">Hidden Gem</div>
+                <div class="quadrant-desc">Strong engine, weak opportunity</div>
+            </div>
+            <div class="quadrant q-tr">
+                <div class="quadrant-title">Rocketship</div>
+                <div class="quadrant-desc">Strong engine, strong opportunity</div>
+            </div>
+            <div class="quadrant q-bl">
+                <div class="quadrant-title">Chaos Zone</div>
+                <div class="quadrant-desc">Weak on both dimensions</div>
+            </div>
+            <div class="quadrant q-br">
+                <div class="quadrant-title">Starved Visionary</div>
+                <div class="quadrant-desc">Big opportunity, weak engine</div>
+            </div>
+            <div class="x-axis">EXTERNAL PROMISE</div>
+        </div>
+    </div>
+    <div class="figure-caption">Figure 2: The CAMP Matrix Quadrants</div>
+
+    <h2>C. Stage-Aware Weighting</h2>
+    <table>
+        <tr>
+            <th>Stage</th>
+            <th>Capital</th>
+            <th>Advantage</th>
+            <th>Market</th>
+            <th>People</th>
+        </tr>
+        <tr>
+            <td>Pre-Seed</td>
+            <td>10%</td>
+            <td>30%</td>
+            <td>20%</td>
+            <td><strong>40%</strong></td>
+        </tr>
+        <tr>
+            <td>Seed</td>
+            <td>15%</td>
+            <td>30%</td>
+            <td>25%</td>
+            <td>30%</td>
+        </tr>
+        <tr>
+            <td>Series A</td>
+            <td>25%</td>
+            <td>25%</td>
+            <td><strong>30%</strong></td>
+            <td>20%</td>
+        </tr>
+        <tr>
+            <td>Series B+</td>
+            <td><strong>35%</strong></td>
+            <td>20%</td>
+            <td>30%</td>
+            <td>15%</td>
+        </tr>
+    </table>
+<div class="figure-caption">Table 1: Stage-Dependent Pillar Weights
 </div>
-<h2>What founders should do next</h2>
-<p>Document your unit economics with downside scenarios before fundraising. Show where margins hold under slower growth assumptions.</p>
-<div class="cta-row"><a class="btn primary" data-content-cta data-content-type="case_study" data-content-slug="wework-unit-economics-misalignment" href="https://flash.zone">Apply now</a><a class="btn" href="/contact.html">Contact</a></div>
-<div class="sources"><strong>Sources and context:</strong><br>Public source set: WeWork filings, restructuring disclosures, and market reporting on lease-risk dynamics (2019-2025).<br><a href="https://www.sec.gov/edgar/search/">SEC EDGAR</a><br>Method note for estimate claims: directional inference from liability/cash-flow disclosure patterns and FLASH case benchmarking; not a causal estimate.</div>
-</article>
-<section class="grid">
-<article class="card span-4">
-<h3><a href="/insights/camp-stage-weighting.html">Related Insight: Stage Weighting in CAMP</a></h3>
-<p>See how stage changes investor interpretation of identical metrics.</p>
-<div class="cta-row"><a class="btn" href="/insights/camp-stage-weighting.html">Read insight</a></div>
-</article>
-<article class="card span-4">
-<h3><a href="/insights/investor-readiness-scorecard.html">Related Insight: Investor Readiness Scorecard</a></h3>
-<p>Use this practical scorecard to structure your next investor update.</p>
-<div class="cta-row"><a class="btn" href="/insights/investor-readiness-scorecard.html">Read insight</a></div>
-</article>
-<article class="card span-4">
-<h3><a href="/newsletter/2026-03.html">Latest Newsletter: March 2026</a></h3>
-<p>Monthly editorial brief on credibility, risk transparency, and milestone logic.</p>
-<div class="cta-row"><a class="btn" href="/newsletter/2026-03.html">Read issue</a></div>
-</article>
-</section>
-<section class="newsletter-module">
-<h3>Get Monthly Case Breakdowns</h3>
-<p>Receive one concise monthly email with new case analyses, investor-readiness frameworks, and actionable founder checklists.</p>
-<form class="newsletter-signup-form" novalidate>
-<input type="email" name="email" placeholder="you@company.com" required>
-<label><input type="checkbox" name="consent"> I consent to receive monthly FLASH Capital editorial updates.</label>
-<button type="submit">Subscribe</button>
-<div class="form-status" aria-live="polite"></div>
-</form>
-</section>
-<footer class="content-footer"><span>FLASH Capital Case Studies</span><div class="content-footer-links"><a href="/case-studies/">All case studies</a><a href="/flash-privacy-policy.html">Privacy Policy</a><a href="/flash-terms-of-service.html">Terms of Service</a></div></footer>
-</main>
-<script src="/js/content-engagement.js"></script>
+
+    <h2>D. Scoring Rubric</h2>
+    <table>
+        <tr>
+            <th>Score Range</th>
+            <th>Classification</th>
+            <th>Interpretation</th>
+        </tr>
+        <tr>
+            <td>0-25</td>
+            <td>Critical</td>
+            <td>Severe deficiency; existential risk to the venture</td>
+        </tr>
+        <tr>
+            <td>26-50</td>
+            <td>Weak</td>
+            <td>Below threshold; requires significant improvement</td>
+        </tr>
+        <tr>
+            <td>51-75</td>
+            <td>Moderate</td>
+            <td>Acceptable but not differentiated; room for growth</td>
+        </tr>
+        <tr>
+            <td>76-100</td>
+            <td>Strong</td>
+            <td>Competitive advantage; meets or exceeds investor expectations</td>
+        </tr>
+    </table>
+<div class="figure-caption">Table 2: Pillar Scoring Rubric
+</div>
+
+    <h2>E. Quadrant Determination</h2>
+    <table>
+        <tr>
+            <th>Quadrant</th>
+            <th>Internal Engine</th>
+            <th>External Promise</th>
+        </tr>
+        <tr>
+            <td>Rocketship</td>
+            <td>>= 50</td>
+            <td>>= 50</td>
+        </tr>
+        <tr>
+            <td>Starved Visionary</td>
+            <td>&lt; 50</td>
+            <td>>= 50</td>
+        </tr>
+        <tr>
+            <td>Hidden Gem</td>
+            <td>>= 50</td>
+            <td>&lt; 50</td>
+        </tr>
+        <tr>
+            <td>Chaos Zone</td>
+            <td>&lt; 50</td>
+            <td>&lt; 50</td>
+        </tr>
+    </table>
+<div class="figure-caption">Table 3: Quadrant Classification Thresholds
+</div>
+
+    <div class="page-break"></div>
+
+    <!-- PART 2: COMPANY HISTORY -->
+    <h1>II. Company History and Context</h1>
+
+    <h2>A. Founding and Growth</h2>
+    <table>
+        <tr>
+            <th>Attribute</th>
+            <th>Detail</th>
+        </tr>
+        <tr>
+            <td>Founded</td>
+            <td>2010 by Adam Neumann and Miguel McKelvey in New York</td>
+        </tr>
+        <tr>
+            <td>Original Name</td>
+            <td>WeWork (originally part of GreenDesk, pivoted 2010)</td>
+        </tr>
+        <tr>
+            <td>Business Model</td>
+            <td>Long-term leases converted to short-term flexible memberships</td>
+        </tr>
+        <tr>
+            <td>First Location</td>
+            <td>Grand Street, SoHo, New York City</td>
+        </tr>
+        <tr>
+            <td>Key Innovation</td>
+            <td>"Space as a service" with community and design focus</td>
+        </tr>
+        <tr>
+            <td>Total Raised</td>
+            <td>$12.8 billion across 21 funding rounds</td>
+        </tr>
+        <tr>
+            <td>Peak Valuation</td>
+            <td>$47 billion (January 2019)</td>
+        </tr>
+        <tr>
+            <td>Key Investor</td>
+            <td>SoftBank Vision Fund ($10B+ invested)</td>
+        </tr>
+    </table>
+
+    <h2>B. Funding History</h2>
+    <table>
+        <tr>
+            <th>Round</th>
+            <th>Date</th>
+            <th>Amount</th>
+            <th>Valuation</th>
+        </tr>
+        <tr>
+            <td>Seed</td>
+            <td>2011</td>
+            <td>$1M</td>
+            <td>~$5M</td>
+        </tr>
+        <tr>
+            <td>Series A</td>
+            <td>July 2012</td>
+            <td>$17M</td>
+            <td>~$100M</td>
+        </tr>
+        <tr>
+            <td>Series B</td>
+            <td>2013</td>
+            <td>$40M</td>
+            <td>~$440M</td>
+        </tr>
+        <tr>
+            <td>Series C</td>
+            <td>2014</td>
+            <td>$150M</td>
+            <td>$1.5B</td>
+        </tr>
+        <tr>
+            <td>Series D</td>
+            <td>2015</td>
+            <td>$434M</td>
+            <td>$5B</td>
+        </tr>
+        <tr>
+            <td>Series E-F</td>
+            <td>2016-2017</td>
+            <td>$1.7B</td>
+            <td>$20B</td>
+        </tr>
+        <tr>
+            <td>Series G (SoftBank)</td>
+            <td>2017</td>
+            <td>$4.4B</td>
+            <td>$20B</td>
+        </tr>
+        <tr>
+            <td>Series H (SoftBank)</td>
+            <td>January 2019</td>
+            <td>$2B</td>
+            <td>$47B</td>
+        </tr>
+    </table>
+<div class="figure-caption">Table 4: WeWork Funding Rounds
+</div>
+
+    <div class="callout">
+        <div class="callout-title">Key Evidence: The SoftBank Effect</div>
+        <strong>Valuation Inflation:</strong> SoftBank's Vision Fund invested over $10 billion in WeWork between 2017
+        and 2019. This massive capital injection created artificial valuation growth disconnected from underlying
+        fundamentals. WeWork's valuation grew from $20B to $47B in 2 years, while unit economics remained negative.<br>
+        <strong>Masayoshi Son's Role:</strong> Son reportedly compared Neumann to Steve Jobs and pushed for faster
+        expansion. The Vision Fund's mandate to deploy $100B created pressure to make large investments regardless of
+        standard due diligence.
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- PART 3: PEAK ASSESSMENT -->
+    <h1>III. Peak Assessment: WeWork at $47B Valuation (January 2019)</h1>
+
+    <h2>A. Capital Pillar: 70/100 (Misleading)</h2>
+    <table>
+        <tr>
+            <th>Metric</th>
+            <th>Observed Value</th>
+            <th>Assessment</th>
+        </tr>
+        <tr>
+            <td>Cash Raised</td>
+            <td>$12.8 billion total</td>
+            <td>Massive war chest</td>
+        </tr>
+        <tr>
+            <td>Revenue (2018)</td>
+            <td>$1.8 billion</td>
+            <td>Growing fast</td>
+        </tr>
+        <tr>
+            <td>Net Loss (2018)</td>
+            <td>$1.9 billion</td>
+            <td>Burning more than revenue</td>
+        </tr>
+        <tr>
+            <td>Burn Multiple</td>
+            <td>>1x (burning more than earning)</td>
+            <td>Unsustainable</td>
+        </tr>
+        <tr>
+            <td>Lease Obligations</td>
+            <td>$47 billion in future commitments</td>
+            <td>Hidden liability</td>
+        </tr>
+    </table>
+
+    <div class="warning-callout">
+        <div class="callout-title">Hidden Capital Weakness</div>
+        Revenue appeared strong, but unit economics were fundamentally broken. Long-term lease liabilities ($47B)
+        vastly exceeded short-term, cancellable revenue commitments. The S-1 filing revealed this mismatch, which was
+        invisible to private market investors relying on management representations.
+    </div>
+
+    <h2>B. Advantage Pillar: 25/100 (Critical Weakness)</h2>
+    <table>
+        <tr>
+            <th>Factor</th>
+            <th>Status</th>
+            <th>Assessment</th>
+        </tr>
+        <tr>
+            <td>Network Effects</td>
+            <td>None meaningful</td>
+            <td>No platform dynamics</td>
+        </tr>
+        <tr>
+            <td>Switching Costs</td>
+            <td>Low (month-to-month members)</td>
+            <td>Easy to leave</td>
+        </tr>
+        <tr>
+            <td>Brand/Community</td>
+            <td>Lifestyle marketing</td>
+            <td>Replicable by competitors</td>
+        </tr>
+        <tr>
+            <td>Technology</td>
+            <td>Basic desk management software</td>
+            <td>No proprietary advantage</td>
+        </tr>
+        <tr>
+            <td>Competition</td>
+            <td>IWG/Regus with similar offerings</td>
+            <td>No differentiation</td>
+        </tr>
+    </table>
+
+    <div class="warning-callout">
+        <div class="callout-title">Framework Warning: Valuation vs. Moat Mismatch</div>
+        At $47B valuation, WeWork was valued like a tech platform company. But the Advantage pillar revealed it was
+        fundamentally a real estate arbitrage business. IWG (Regus) had 3,000+ locations and was valued at $4B. WeWork
+        had 528 locations and was valued at $47B. This 10x valuation premium required a moat that did not exist.
+    </div>
+
+    <h2>C. Market Pillar: 75/100</h2>
+    <table>
+        <tr>
+            <th>Factor</th>
+            <th>Status</th>
+            <th>Assessment</th>
+        </tr>
+        <tr>
+            <td>TAM</td>
+            <td>$3 trillion global commercial real estate</td>
+            <td>Massive</td>
+        </tr>
+        <tr>
+            <td>Trend</td>
+            <td>Growing demand for flexible work</td>
+            <td>Tailwind</td>
+        </tr>
+        <tr>
+            <td>Traction</td>
+            <td>527,000 members, 528 locations</td>
+            <td>Rapid expansion</td>
+        </tr>
+        <tr>
+            <td>Growth Rate</td>
+            <td>100%+ YoY revenue growth</td>
+            <td>Impressive</td>
+        </tr>
+        <tr>
+            <td>Retention</td>
+            <td>Undisclosed but volatile</td>
+            <td>Concern hidden</td>
+        </tr>
+    </table>
+
+    <h2>D. People Pillar: 35/100 (Governance Catastrophe)</h2>
+    <table>
+        <tr>
+            <th>Factor</th>
+            <th>Status</th>
+            <th>Assessment</th>
+        </tr>
+        <tr>
+            <td>CEO Power Structure</td>
+            <td>Adam Neumann: 20x voting power via dual-class stock</td>
+            <td>Unchecked control</td>
+        </tr>
+        <tr>
+            <td>Self-Dealing</td>
+            <td>Neumann sold "We" trademark to WeWork for $5.9M</td>
+            <td>Related party transaction</td>
+        </tr>
+        <tr>
+            <td>Real Estate Conflicts</td>
+            <td>Neumann personally owned buildings leased to WeWork</td>
+            <td>CEO profits from company</td>
+        </tr>
+        <tr>
+            <td>Board Oversight</td>
+            <td>Weak board failed to curb spending</td>
+            <td>Governance failure</td>
+        </tr>
+        <tr>
+            <td>Culture Signals</td>
+            <td>Lavish parties, private jets, erratic leadership</td>
+            <td>Undisciplined</td>
+        </tr>
+        <tr>
+            <td>Nepotism</td>
+            <td>Family members in key roles (wife as Chief Brand Officer)</td>
+            <td>Organizational risk</td>
+        </tr>
+    </table>
+
+    <div class="callout">
+        <div class="callout-title">Key Evidence: S-1 Governance Red Flags</div>
+        <strong>Trademark Sale:</strong> Neumann personally owned the "We" trademark and sold it to the company for
+        $5.9 million. After S-1 backlash, he returned the money.<br>
+        <strong>Building Loans:</strong> WeWork loaned Neumann money that he used to buy buildings that WeWork then
+        leased from him.<br>
+        <strong>Successor Clause:</strong> The S-1 included a provision allowing Neumann to designate his successor,
+        potentially his wife Rebekah.
+    </div>
+
+    <h2>E. Peak CAMP Score (January 2019)</h2>
+    <table>
+        <tr>
+            <th>Pillar</th>
+            <th>Raw Score</th>
+            <th>Weight (Series B+)</th>
+            <th>Weighted</th>
+        </tr>
+        <tr>
+            <td>Capital</td>
+            <td>70</td>
+            <td>35%</td>
+            <td>24.50</td>
+        </tr>
+        <tr>
+            <td>Advantage</td>
+            <td>25</td>
+            <td>20%</td>
+            <td>5.00</td>
+        </tr>
+        <tr>
+            <td>Market</td>
+            <td>75</td>
+            <td>30%</td>
+            <td>22.50</td>
+        </tr>
+        <tr>
+            <td>People</td>
+            <td>35</td>
+            <td>15%</td>
+            <td>5.25</td>
+        </tr>
+        <tr>
+            <td><strong>Total</strong></td>
+            <td></td>
+            <td></td>
+            <td><strong>57.25</strong></td>
+        </tr>
+    </table>
+
+    <div class="warning-callout">
+        <div class="callout-title">Matrix Position: Starved Visionary (Borderline)</div>
+        <strong>Axis Calculation:</strong> Internal Engine = (70 + 35) / 2 = 52.5; External Promise = (25 + 75) / 2 =
+        50.<br><br>
+        WeWork was borderline on both axes, barely crossing into Rocketship territory by technical calculation. But
+        critically weak scores on Advantage (25) and People (35) meant the Internal Engine was propped up entirely by
+        Capital infusions. At $47B valuation, the market was pricing in Rocketship status that the fundamentals did
+        not support.
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- PART 4: THE COLLAPSE -->
+    <h1>IV. The Collapse (2019-2023)</h1>
+
+    <h2>A. Timeline of Destruction</h2>
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Event</th>
+            <th>Impact</th>
+        </tr>
+        <tr>
+            <td>August 14, 2019</td>
+            <td>S-1 IPO filing released</td>
+            <td>Governance issues, losses exposed</td>
+        </tr>
+        <tr>
+            <td>August-September 2019</td>
+            <td>Media and investor scrutiny intensifies</td>
+            <td>Valuation questioned</td>
+        </tr>
+        <tr>
+            <td>September 2019</td>
+            <td>Valuation slashed from $47B to $10-15B</td>
+            <td>70% value destruction</td>
+        </tr>
+        <tr>
+            <td>September 24, 2019</td>
+            <td>Adam Neumann ousted as CEO</td>
+            <td>Leadership crisis</td>
+        </tr>
+        <tr>
+            <td>September 30, 2019</td>
+            <td>IPO withdrawn</td>
+            <td>Public market rejection</td>
+        </tr>
+        <tr>
+            <td>October 2019</td>
+            <td>SoftBank $9.5B rescue; takes 80% ownership</td>
+            <td>Neumann paid $1.7B to leave</td>
+        </tr>
+        <tr>
+            <td>2020</td>
+            <td>COVID-19 devastates office demand</td>
+            <td>Empty offices, full lease obligations</td>
+        </tr>
+        <tr>
+            <td>August 2023</td>
+            <td>"Going concern" warning in filings</td>
+            <td>Insolvency imminent</td>
+        </tr>
+        <tr>
+            <td>November 6, 2023</td>
+            <td>Chapter 11 bankruptcy filed</td>
+            <td>Complete failure</td>
+        </tr>
+        <tr>
+            <td>June 2024</td>
+            <td>Exited bankruptcy</td>
+            <td>Restructured; profitable &amp; debt-free</td>
+        </tr>
+    </table>
+
+    <h2>B. Capital Deterioration: 70 to 10</h2>
+    <table>
+        <tr>
+            <th>Factor</th>
+            <th>Description</th>
+            <th>Impact</th>
+        </tr>
+        <tr>
+            <td>Lease vs. Revenue Mismatch</td>
+            <td>$47B in lease obligations vs. cancellable member revenue</td>
+            <td>Structural insolvency</td>
+        </tr>
+        <tr>
+            <td>COVID-19 Impact</td>
+            <td>Remote work reduced demand for office space</td>
+            <td>Revenue collapsed, leases remained</td>
+        </tr>
+        <tr>
+            <td>Rescue Dilution</td>
+            <td>SoftBank bailout gave them 80% ownership</td>
+            <td>Existing shareholders wiped out</td>
+        </tr>
+        <tr>
+            <td>Debt Load</td>
+            <td>$19B liabilities vs. $15B assets at bankruptcy</td>
+            <td>-$4B equity</td>
+        </tr>
+    </table>
+
+    <h2>C. Advantage Deterioration: 25 to 15</h2>
+    <ul>
+        <li>Competitors (IWG, Industrious, Knotel) copied model easily with better unit economics</li>
+        <li>No technology moat materialized despite "tech company" positioning and WeWork Labs</li>
+        <li>"Community" value proposition proved undifferentiated and unreplicable at scale</li>
+        <li>Brand damaged by Neumann scandal and IPO failure</li>
+    </ul>
+
+    <h2>D. Market Deterioration: 75 to 30</h2>
+    <ul>
+        <li>COVID-19 remote work shift structurally reduced demand for flexible office</li>
+        <li>Enterprise customers renegotiated or canceled contracts</li>
+        <li>Shift to hybrid work reduced need for full-time office presence</li>
+        <li>Sublease market competition from traditional landlords</li>
+    </ul>
+
+    <h2>E. People Deterioration: 35 to 20</h2>
+    <ul>
+        <li>Multiple CEO changes post-Neumann (Minson, Mathrani, Dunne)</li>
+        <li>Reputation damage made executive and talent hiring difficult</li>
+        <li>Layoffs and restructuring created internal instability</li>
+        <li>No stable leadership vision for recovery</li>
+    </ul>
+
+    <div class="page-break"></div>
+
+    <!-- PART 5: FINAL ASSESSMENT -->
+    <h1>V. Final Assessment: WeWork at Bankruptcy (November 2023)</h1>
+
+    <h2>A. Terminal Pillar Scores</h2>
+    <div style="margin: 20px 0;">
+        <div class="score-row">
+            <div class="score-label">Capital</div>
+            <div class="score-bar-container">
+                <div class="score-bar-decline" style="width: 10%;"></div>
+            </div>
+            <div class="score-value">10</div>
+        </div>
+        <div class="score-row">
+            <div class="score-label">Advantage</div>
+            <div class="score-bar-container">
+                <div class="score-bar-decline" style="width: 15%;"></div>
+            </div>
+            <div class="score-value">15</div>
+        </div>
+        <div class="score-row">
+            <div class="score-label">Market</div>
+            <div class="score-bar-container">
+                <div class="score-bar-decline" style="width: 30%;"></div>
+            </div>
+            <div class="score-value">30</div>
+        </div>
+        <div class="score-row">
+            <div class="score-label">People</div>
+            <div class="score-bar-container">
+                <div class="score-bar-decline" style="width: 20%;"></div>
+            </div>
+            <div class="score-value">20</div>
+        </div>
+    </div>
+    <div class="figure-caption">Figure 3: Terminal Pillar Scores (November 2023)</div>
+
+    <h2>B. Terminal CAMP Score</h2>
+    <table>
+        <tr>
+            <th>Pillar</th>
+            <th>Raw Score</th>
+            <th>Weight (Series B+)</th>
+            <th>Weighted</th>
+        </tr>
+        <tr>
+            <td>Capital</td>
+            <td>10</td>
+            <td>35%</td>
+            <td>3.50</td>
+        </tr>
+        <tr>
+            <td>Advantage</td>
+            <td>15</td>
+            <td>20%</td>
+            <td>3.00</td>
+        </tr>
+        <tr>
+            <td>Market</td>
+            <td>30</td>
+            <td>30%</td>
+            <td>9.00</td>
+        </tr>
+        <tr>
+            <td>People</td>
+            <td>20</td>
+            <td>15%</td>
+            <td>3.00</td>
+        </tr>
+        <tr>
+            <td><strong>Total</strong></td>
+            <td></td>
+            <td></td>
+            <td><strong>18.50</strong></td>
+        </tr>
+    </table>
+
+    <div class="page-break"></div>
+
+    <!-- PART 5.5: COMPETITIVE ANALYSIS -->
+    <h1>V-B. Competitive Analysis: WeWork vs IWG</h1>
+
+    <h2>A. Flexible Office Market (2019)</h2>
+    <table>
+        <tr>
+            <th>Company</th>
+            <th>Founded</th>
+            <th>Locations (2019)</th>
+            <th>Valuation/Cap</th>
+            <th>Profitability</th>
+        </tr>
+        <tr>
+            <td><strong>WeWork</strong></td>
+            <td>2010</td>
+            <td>~800</td>
+            <td>$47B (peak)</td>
+            <td>-$1.9B loss</td>
+        </tr>
+        <tr>
+            <td>IWG (Regus)</td>
+            <td>1989</td>
+            <td>3,300+</td>
+            <td>$3.5B (public)</td>
+            <td>Profitable</td>
+        </tr>
+        <tr>
+            <td>Spaces</td>
+            <td>2006</td>
+            <td>~200</td>
+            <td>Owned by IWG</td>
+            <td>Profitable</td>
+        </tr>
+        <tr>
+            <td>Knotel</td>
+            <td>2016</td>
+            <td>~200</td>
+            <td>$1.6B (peak)</td>
+            <td>Bankrupt (2021)</td>
+        </tr>
+    </table>
+
+    <h2>B. Why IWG Was Worth Less But Survived</h2>
+    <table>
+        <tr>
+            <th>Factor</th>
+            <th>WeWork</th>
+            <th>IWG</th>
+        </tr>
+        <tr>
+            <td>Lease Structure</td>
+            <td>Long-term, parent company</td>
+            <td>SPVs, landlord partnerships</td>
+        </tr>
+        <tr>
+            <td>Pricing</td>
+            <td>Premium (subsidized acquisition)</td>
+            <td>Market rate</td>
+        </tr>
+        <tr>
+            <td>Growth Model</td>
+            <td>Blitzscaling at any cost</td>
+            <td>Profitable growth</td>
+        </tr>
+        <tr>
+            <td>Unit Economics</td>
+            <td>Negative (acquisition-focused)</td>
+            <td>Positive (margin-focused)</td>
+        </tr>
+        <tr>
+            <td>COVID Outcome</td>
+            <td>Bankruptcy</td>
+            <td>Survived; now expanding</td>
+        </tr>
+    </table>
+
+    <div class="callout">
+        <div class="callout-title">The $44B Valuation Gap That Made No Sense</div>
+        WeWork was valued at $47B while IWG (with 4× the locations and actual profits) was worth $3.5B. This
+        13× premium was justified entirely by "tech company" framing and SoftBank hype. The CAMP framework would
+        have flagged WeWork's weak Advantage (25) as incompatible with tech multiples.
+    </div>
+
+    <h2>C. Pillar Transformation Timeline</h2>
+    <table>
+        <tr>
+            <th>Year</th>
+            <th>Capital</th>
+            <th>Advantage</th>
+            <th>Market</th>
+            <th>People</th>
+            <th>CAMP</th>
+            <th>Key Event</th>
+        </tr>
+        <tr>
+            <td>2017</td>
+            <td>85</td>
+            <td>30</td>
+            <td>80</td>
+            <td>50</td>
+            <td>62.5</td>
+            <td>SoftBank mega-investment</td>
+        </tr>
+        <tr>
+            <td>Jan 2019</td>
+            <td>70</td>
+            <td>25</td>
+            <td>75</td>
+            <td>35</td>
+            <td>57.25</td>
+            <td>$47B valuation; S-1 filed</td>
+        </tr>
+        <tr>
+            <td>Sep 2019</td>
+            <td>40</td>
+            <td>20</td>
+            <td>65</td>
+            <td>25</td>
+            <td>40.5</td>
+            <td>IPO cancelled; Neumann out</td>
+        </tr>
+        <tr>
+            <td>2020</td>
+            <td>30</td>
+            <td>18</td>
+            <td>40</td>
+            <td>25</td>
+            <td>29.5</td>
+            <td>COVID collapse</td>
+        </tr>
+        <tr>
+            <td>Nov 2023</td>
+            <td>10</td>
+            <td>15</td>
+            <td>30</td>
+            <td>20</td>
+            <td>18.5</td>
+            <td>Chapter 11 bankruptcy</td>
+        </tr>
+    </table>
+
+    <div class="page-break"></div>
+
+    <!-- PART 6: JOURNEY -->
+    <h1>VI. Matrix Journey Visualization</h1>
+
+    <div class="journey-box">
+        <div class="journey-row">
+            <div class="journey-point">
+                <div class="journey-year">2019</div>
+                <div class="journey-score">57.25</div>
+                <div class="journey-quadrant">Starved Visionary</div>
+            </div>
+            <div class="journey-arrow">&rarr;</div>
+            <div class="journey-point-fail">
+                <div class="journey-year">2023</div>
+                <div class="journey-score">18.50</div>
+                <div class="journey-quadrant">Chaos Zone (Restructured)</div>
+            </div>
+        </div>
+        <div style="font-size: 9pt; margin-top: 10px;">
+            <strong>Trajectory:</strong> Starved Visionary (borderline) to Chaos Zone to Bankruptcy/Restructuring
+        </div>
+    </div>
+    <div class="figure-caption">Figure 4: WeWork's Downward CAMP Trajectory</div>
+
+    <h2>Transition Milestones</h2>
+    <table>
+        <tr>
+            <th>Year</th>
+            <th>Key Event</th>
+            <th>Quadrant</th>
+        </tr>
+        <tr>
+            <td>2010</td>
+            <td>Company founded</td>
+            <td>Chaos Zone</td>
+        </tr>
+        <tr>
+            <td>2017</td>
+            <td>SoftBank Vision Fund investment</td>
+            <td>Starved Visionary</td>
+        </tr>
+        <tr>
+            <td>January 2019</td>
+            <td>Peak $47B valuation</td>
+            <td>Starved Visionary (borderline)</td>
+        </tr>
+        <tr>
+            <td>September 2019</td>
+            <td>IPO fails; CEO ousted</td>
+            <td>Chaos Zone</td>
+        </tr>
+        <tr>
+            <td>November 2023</td>
+            <td>Chapter 11 bankruptcy</td>
+            <td>Failed</td>
+        </tr>
+    </table>
+
+    <div class="page-break"></div>
+
+    <!-- PART 7: KEY FINDINGS -->
+    <h1>VII. Key Findings and Strategic Implications</h1>
+
+    <h2>A. What CAMP Would Have Revealed in 2019</h2>
+
+    <p><strong>1. Advantage Pillar at 25 = Investment Red Flag.</strong> A $47B valuation requires a defensible moat.
+        WeWork had none. The Advantage pillar would have immediately flagged the mismatch between valuation and
+        competitive position. IWG (Regus) had more locations and was valued at 1/10th the price.</p>
+
+    <p><strong>2. People Pillar Governance Check.</strong> The framework's People assessment includes governance
+        quality. Dual-class stock giving 20x voting power to a CEO engaging in self-dealing transactions is a
+        Critical (0-25) score on governance sub-factors. This alone should have prevented investment at any
+        valuation.</p>
+
+    <p><strong>3. Capital Pillar Requires Unit Economics Analysis.</strong> The Capital pillar should capture not just
+        cash raised, but the sustainability of the business model. WeWork's long-term liabilities ($47B in leases)
+        funded by short-term, cancellable revenue was a structural time bomb invisible to headline metrics.</p>
+
+    <p><strong>4. Starved Visionary Trap.</strong> The quadrant position (Internal Engine 52.5, External Promise 50)
+        was borderline, not Rocketship. The framework would have demanded Advantage improvement and governance reform
+        before further scaling or investment.</p>
+
+    <h2>B. Strategic Recommendations by Failure Mode</h2>
+    <table>
+        <tr>
+            <th>Failure Mode</th>
+            <th>Lesson</th>
+        </tr>
+        <tr>
+            <td>No Moat</td>
+            <td>Never invest at tech multiples without tech-level Advantage</td>
+        </tr>
+        <tr>
+            <td>Governance Failure</td>
+            <td>People pillar must include governance due diligence</td>
+        </tr>
+        <tr>
+            <td>Hidden Liabilities</td>
+            <td>Capital pillar must analyze liability structure, not just cash</td>
+        </tr>
+        <tr>
+            <td>Hype Cycle</td>
+            <td>Framework must override market sentiment with fundamentals</td>
+        </tr>
+    </table>
+
+    <h2>C. Summary: Four-Year Destruction</h2>
+    <table>
+        <tr>
+            <th>Metric</th>
+            <th class="comparison-header">Peak (2019)</th>
+            <th class="comparison-header">Bankruptcy (2023)</th>
+            <th class="comparison-header">Change</th>
+        </tr>
+        <tr>
+            <td>Capital</td>
+            <td>70</td>
+            <td>10</td>
+            <td style="color: #dc3545;">-60</td>
+        </tr>
+        <tr>
+            <td>Advantage</td>
+            <td>25</td>
+            <td>15</td>
+            <td style="color: #dc3545;">-10</td>
+        </tr>
+        <tr>
+            <td>Market</td>
+            <td>75</td>
+            <td>30</td>
+            <td style="color: #dc3545;">-45</td>
+        </tr>
+        <tr>
+            <td>People</td>
+            <td>35</td>
+            <td>20</td>
+            <td style="color: #dc3545;">-15</td>
+        </tr>
+        <tr>
+            <td><strong>CAMP Score</strong></td>
+            <td><strong>57.25</strong></td>
+            <td><strong>18.50</strong></td>
+            <td style="color: #dc3545;"><strong>-38.75</strong></td>
+        </tr>
+        <tr>
+            <td><strong>Valuation</strong></td>
+            <td>$47B</td>
+            <td>$0 (bankrupt)</td>
+            <td style="color: #dc3545;">-100%</td>
+        </tr>
+    </table>
+
+    <!-- PART 8: SOURCES -->
+    <h1>VIII. Sources and Data Notes</h1>
+
+    <h2>A. Verified Factual Data</h2>
+    <ul>
+        <li><strong>Founded:</strong> 2010 by Adam Neumann and Miguel McKelvey (Wikipedia)</li>
+        <li><strong>Total Funding:</strong> $12.8B across 21 rounds (Tracxn, Crunchbase)</li>
+        <li><strong>Peak Valuation:</strong> $47B in January 2019 (Forbes, multiple sources)</li>
+        <li><strong>SoftBank Investment:</strong> $10B+ (SoftBank, Forbes)</li>
+        <li><strong>S-1 Filed:</strong> August 14, 2019 (SEC, Crunchbase)</li>
+        <li><strong>IPO Withdrawn:</strong> September 30, 2019 (Forbes, Guardian)</li>
+        <li><strong>CEO Ousted:</strong> September 24, 2019 (Forbes, NYT)</li>
+        <li><strong>Neumann Exit Package:</strong> $1.7B (Forbes, WSJ)</li>
+        <li><strong>Bankruptcy:</strong> November 6, 2023, Chapter 11 (Time, Guardian, Forbes)</li>
+        <li><strong>Debts vs. Assets:</strong> $19B liabilities vs. $15B assets (Forbes, Time)</li>
+        <li><strong>Trademark Sale:</strong> $5.9M paid by WeWork to Neumann (S-1 filing)</li>
+    </ul>
+
+    <h2>B. CAMP Score Methodology Note</h2>
+    <p>Pillar scores are illustrative assessments based on public information. The low Advantage (25) and People (35)
+        scores at peak reflect what rigorous due diligence should have revealed: a fundamentally undefensible business
+        with severe governance red flags, despite strong Capital inflows and Market tailwinds.</p>
+
+    <h2>C. Framework Limitations and Caveats</h2>
+    <p><strong>1. Private Market Opacity.</strong> WeWork was a private company until the failed IPO. Many governance
+        issues and unit economics problems were not visible to investors who did not conduct extensive due diligence.
+        The CAMP framework requires access to accurate data to function properly.</p>
+
+    <p><strong>2. SoftBank Distortion.</strong> The Vision Fund's massive capital deployment ($100B mandate) created
+        market distortions. Normal price discovery mechanisms were overridden by the fund's need to deploy capital. The
+        framework cannot account for irrational capital allocators.</p>
+
+    <p><strong>3. COVID-19 Exogenous Shock.</strong> The pandemic accelerated WeWork's failure but did not cause it.
+        Companies with stronger fundamentals (better CAMP scores) would have survived. However, the timing and severity
+        of external shocks cannot be predicted by any framework.</p>
+
+    <p><strong>4. Hindsight Bias.</strong> This case study was written after WeWork's bankruptcy. It is easier to
+        identify warning signs in retrospect. The framework's predictive validity cannot be established from failure
+        analysis alone.</p>
+
+    <!-- ACTIONS + METRICS (OBSERVED) -->
+
+    <h1>IX. Founder Actions and Metrics (Observed)</h1>
+
+    <div class="callout">
+        <div class="callout-title">Founder Actions (What Actually Happened in This Case)</div>
+        <p><strong>Capital milestones:</strong></p>
+        <ul>
+            <li><strong>2011:</strong> Seed — $1M</li>
+            <li><strong>July 2012:</strong> Series A — $17M</li>
+            <li><strong>2013:</strong> Series B — $40M</li>
+            <li><strong>2014:</strong> Series C — $150M</li>
+            <li><strong>2015:</strong> Series D — $434M</li>
+            <li><strong>2016-2017:</strong> Series E-F — $1.7B</li>
+        </ul>
+    </div>
+
+    <div class="callout">
+        <div class="callout-title">Metrics to Watch (Metrics Surfaced in This Case)</div>
+        <p><em>These are the metrics this case uses to describe progress and performance.</em></p>
+        <ul>
+            <li><strong>Round:</strong> Series H (SoftBank)</li>
+            <li><strong>Amount:</strong> $2B</li>
+            <li><strong>Valuation:</strong> $47B</li>
+        </ul>
+    </div>
+
+    <div class="callout callout--measure-next">
+        <div class="callout-title">What to Measure Next (Leading Indicators)</div>
+        <p><em>Forward-looking guidance for applying CAMP prospectively. Metric definitions reference the FLASH metric schema.</em></p>
+        <table class="metrics-next-table">
+            <tr>
+                <th style="width: 16%;">Pillar</th>
+                <th>Leading Indicators (FLASH metrics)</th>
+            </tr>
+            <tr>
+                <td><div class="metrics-next-pillar">Advantage</div></td>
+                <td><div class="metric-line"><span class="metric-name" data-metric-id="networkEffectStrength">Network Effect Strength</span></div><div class="metric-line"><span class="metric-name" data-metric-id="viralCoefficient">Viral Coefficient</span></div><div class="metric-line"><span class="metric-name" data-metric-id="productRetention90d">Product Retention 90-Day</span></div></td>
+            </tr>
+            <tr>
+                <td><div class="metrics-next-pillar">Capital</div></td>
+                <td><div class="metric-line"><span class="metric-name" data-metric-id="cashRunwayMonths">Cash Runway Months</span></div><div class="metric-line"><span class="metric-name" data-metric-id="burnMultiple">Burn Multiple</span></div><div class="metric-line"><span class="metric-name" data-metric-id="grossMargin">Gross Margin</span></div></td>
+            </tr>
+            <tr>
+                <td><div class="metrics-next-pillar">Market</div></td>
+                <td><div class="metric-line"><span class="metric-name" data-metric-id="userGrowthRate">User Growth Rate</span></div><div class="metric-line"><span class="metric-name" data-metric-id="customerCount">Customer Count</span></div><div class="metric-line"><span class="metric-name" data-metric-id="dauMauRatio">DAU MAU Ratio</span></div></td>
+            </tr>
+            <tr>
+                <td><div class="metrics-next-pillar">People</div></td>
+                <td><div class="metric-line"><span class="metric-name" data-metric-id="leadershipTenureAvgYears">Leadership Tenure Avg Years</span></div><div class="metric-line"><span class="metric-name" data-metric-id="leadershipStabilityScore">Leadership Stability Score</span></div><div class="metric-line"><span class="metric-name" data-metric-id="employeeTurnover12MonthsPct">Employee Turnover 12 Months %</span></div></td>
+            </tr>
+        </table>
+        <p><em>Definitions and computations: FLASH Metrics Library.</em></p>
+    </div>
+
+    <div class="callout callout--red-flags">
+        <div class="callout-title">Red Flags (Failure Modes to Watch For)</div>
+        <p><em>Signals that often precede a CAMP score collapse, mapped to measurable indicators.</em></p>
+        <ul>
+            <li><strong>Moat erosion:</strong> Retention weakens as differentiation compresses.<span class="metric-note">Metrics: Product Retention 90-Day; Competitive Advantage Gap.</span></li>
+            <li><strong>Inefficient growth:</strong> Spend rises faster than durable revenue.<span class="metric-note">Metrics: Burn Multiple; Growth Efficiency Index.</span></li>
+            <li><strong>Retention decay:</strong> Expansion slows and churn accelerates.<span class="metric-note">Metrics: Net Retention Trend; Churn Trend.</span></li>
+            <li><strong>Concentration risk:</strong> A small set of accounts becomes mission-critical.<span class="metric-note">Metrics: Customer Concentration; Revenue Concentration Risk Index.</span></li>
+            <li><strong>GTM brittleness:</strong> The sales engine slows and pipeline stops covering targets.<span class="metric-note">Metrics: Sales Cycle Days; Sales Pipeline Coverage; Pipeline Coverage Health.</span></li>
+            <li><strong>Org strain:</strong> Turnover rises while open roles stay unfilled.<span class="metric-note">Metrics: Employee Turnover 12 Months %; Hiring Gap Index.</span></li>
+        </ul>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div class="document-footer">
+        <div class="flash-brand-block">
+            <img src="flash_logo_trimmed.png" alt="FLASH Capital" class="flash-brand-logo">
+        </div>
+        FLASH Capital | CAMP Matrix Framework | Case Study: WeWork
+    </div>
+
 </body>
+
 </html>

@@ -1,86 +1,1645 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Theranos Case Study: Governance and Verification Breakdown | FLASH Capital</title>
-    <meta name="description" content="Failure-pattern case analysis of Theranos focused on claim verification, governance, and trust breakdown.">
-    <link rel="canonical" href="https://flashcapital.co.jp/case-studies/theranos-governance-breakdown.html">
-    <meta property="og:title" content="Theranos: Governance and Verification Breakdown">
-    <meta property="og:description" content="Failure-pattern case analysis on claim verification, governance discipline, and trust risk.">
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://flashcapital.co.jp/case-studies/theranos-governance-breakdown.html">
-    <meta property="article:published_time" content="2026-03-19">
-    <meta property="article:modified_time" content="2026-03-21">
-    <link rel="stylesheet" href="/content-hub.css">
-    <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"Article","headline":"Theranos: Governance and Verification Breakdown","datePublished":"2026-03-19","dateModified":"2026-03-21","author":{"@type":"Organization","name":"FLASH Capital"},"publisher":{"@type":"Organization","name":"FLASH Capital"},"mainEntityOfPage":"https://flashcapital.co.jp/case-studies/theranos-governance-breakdown.html"}
-    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAMP Matrix Case Study: Theranos (FRAUD)</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 1in 1in 1.55in 1in;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, Georgia, serif;
+            font-size: 11pt;
+            line-height: 1.6;
+            color: #1a1a1a;
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .document-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #1a1a1a;
+        }
+
+        .document-title {
+            font-size: 18pt;
+            font-weight: bold;
+            margin-bottom: 5px;
+            letter-spacing: 0.5px;
+        }
+
+        .document-subtitle {
+            font-size: 14pt;
+            font-style: italic;
+            color: #333;
+            margin-bottom: 12px;
+        }
+
+        .document-meta {
+            font-size: 10pt;
+            color: #555;
+        }
+
+        .fraud-banner {
+            background: #dc3545;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 12pt;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        h1 {
+            font-size: 14pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #333;
+        }
+
+        h2 {
+            font-size: 12pt;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 12px;
+        }
+
+        h3 {
+            font-size: 11pt;
+            font-weight: bold;
+            font-style: italic;
+            margin-top: 15px;
+            margin-bottom: 12px;
+        }
+
+        p {
+            text-align: justify;
+            margin-bottom: 12px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 10pt;
+        }
+
+        th {
+            background: #f5f5f5;
+            border: 1px solid #333;
+            padding: 8px 10px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        td {
+            border: 1px solid #333;
+            padding: 8px 10px;
+        }
+
+        .callout {
+            background: #f9f9f9;
+            border: 1px solid #ccc;
+            border-left: 3px solid #333;
+            padding: 12px 15px;
+            margin: 15px 0;
+            font-size: 10pt;
+        }
+
+        .callout-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .warning-callout {
+            background: #f8d7da;
+            border: 1px solid #dc3545;
+            border-left: 3px solid #dc3545;
+            padding: 12px 15px;
+            margin: 15px 0;
+            font-size: 10pt;
+        }
+
+        .figure-caption {
+            text-align: center;
+            font-size: 9pt;
+            font-style: italic;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        ul,
+        ol {
+            margin: 10px 0;
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 5px;
+            text-align: justify;
+        }
+
+        .page-break {
+            page-break-before: always;
+        }
+
+        .document-footer {
+            margin-top: 40px;
+            padding-top: 15px;
+            border-top: 1px solid #333;
+            text-align: center;
+            font-size: 9pt;
+        }
+
+        .pillars-grid {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+            gap: 10px;
+        }
+
+        .pillar-item {
+            flex: 1;
+            text-align: center;
+            padding: 15px 10px;
+            border: 1px solid #333;
+        }
+
+        .pillar-letter {
+            font-size: 24pt;
+            font-weight: bold;
+        }
+
+        .pillar-name {
+            font-size: 11pt;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .pillar-desc {
+            font-size: 9pt;
+            margin-top: 5px;
+            color: #555;
+        }
+
+        .matrix-container {
+            margin: 20px auto;
+            max-width: 450px;
+        }
+
+        .matrix-grid {
+            display: grid;
+            grid-template-columns: 30px 1fr 1fr;
+            grid-template-rows: 1fr 1fr 30px;
+            gap: 2px;
+            background: #333;
+            padding: 2px;
+        }
+
+        .y-axis {
+            grid-row: 1 / 3;
+            grid-column: 1;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            font-size: 9pt;
+            font-weight: bold;
+        }
+
+        .quadrant {
+            background: white;
+            padding: 15px 10px;
+            text-align: center;
+        }
+
+        .quadrant-title {
+            font-weight: bold;
+            font-size: 10pt;
+        }
+
+        .quadrant-desc {
+            font-size: 8pt;
+            color: #666;
+            margin-top: 3px;
+        }
+
+        .x-axis {
+            grid-column: 2 / 4;
+            grid-row: 3;
+            background: white;
+            text-align: center;
+            font-size: 9pt;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .journey-box {
+            border: 2px solid #dc3545;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            background: #fff5f5;
+        }
+
+        .journey-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin: 15px 0;
+        }
+
+        .journey-point {
+            text-align: center;
+            padding: 15px 25px;
+            border: 2px solid #333;
+        }
+
+        .journey-point-fail {
+            text-align: center;
+            padding: 15px 25px;
+            border: 3px solid #dc3545;
+            background: #fff5f5;
+        }
+
+        .journey-year {
+            font-size: 12pt;
+            font-weight: bold;
+        }
+
+        .journey-score {
+            font-size: 18pt;
+            font-weight: bold;
+        }
+
+        .journey-quadrant {
+            font-size: 9pt;
+            font-style: italic;
+        }
+
+        .journey-arrow {
+            font-size: 24pt;
+            font-weight: bold;
+            color: #dc3545;
+        }
+
+        .red-flag {
+            color: #dc3545;
+            font-weight: bold;
+        }
+
+
+        /* CAMP Unified Theme */
+        :root {
+            --camp-accent: #0B1F3A;
+            --camp-ink: #0F172A;
+            --camp-wash: #F8FAFC;
+            --camp-callout-bg: #FFFFFF;
+        }
+
+        /* Unify banners (single professional look) */
+        [class$="-banner"] {
+            background: var(--camp-wash) !important;
+            color: var(--camp-ink) !important;
+            border-bottom: 2px solid var(--camp-accent) !important;
+        }
+
+        /* Unify accent elements */
+        .callout {
+            background: var(--camp-callout-bg) !important;
+            border-left: 3px solid var(--camp-accent) !important;
+        }
+
+        .score-bar {
+            background: var(--camp-accent) !important;
+        }
+
+        .journey-arrow {
+            color: var(--camp-accent) !important;
+        }
+
+        .journey-box,
+        .journey-point {
+            border-color: var(--camp-accent) !important;
+        }
+
+    
+        .flash-brand-block {
+            margin-bottom: 12px;
+            line-height: 1;
+        }
+        .flash-brand-logo {
+            display: inline-block;
+            height: auto;
+            width: 40px;
+            max-width: none;
+            object-fit: contain;
+            vertical-align: middle;
+        }
+    
+        .footer,
+        .document-footer {
+            page-break-inside: avoid;
+            break-inside: avoid-page;
+        }
+    
+        @media print {
+            .footer,
+            .document-footer {
+                position: fixed !important;
+                left: 0 !important;
+                right: 0 !important;
+                bottom: 0.35in !important;
+                margin: 0 !important;
+                padding: 0 0.75in !important;
+                break-inside: avoid-page;
+                page-break-inside: avoid;
+                text-align: center !important;
+                background: transparent !important;
+            }
+
+            .flash-brand-logo {
+                width: 40px !important;
+            }
+        }
+
+        /* FLASH Branding Overrides */
+        .flash-brand-block {
+            margin-bottom: 6px;
+            line-height: 1;
+            text-align: center;
+        }
+        .flash-brand-logo {
+            display: inline-block;
+            height: 48px;
+            width: auto;
+            object-fit: contain;
+            vertical-align: middle;
+        }
+
+        @media print {
+            .footer,
+            .document-footer {
+                position: fixed !important;
+                left: 0 !important;
+                right: 0 !important;
+                bottom: 0.4in !important;
+                margin: 0 !important;
+                padding: 0 0.75in !important;
+                text-align: center !important;
+                background: transparent !important;
+            }
+
+            .flash-brand-block {
+                margin-bottom: 6px !important;
+                line-height: 1 !important;
+            }
+
+            .flash-brand-logo {
+                height: 48px !important;
+                width: auto !important;
+            }
+        }
+
+
+        
+        
+        
+        /* FLASH Professional Print v1 (do not edit by hand) */
+        :root {
+            --flash-ink: #0F172A;
+            --flash-muted: #334155;
+        }
+
+        /* Standardize page size. */
+        @page {
+            size: A4;
+            margin: 0.75in 0.75in 0.55in 0.75in;
+        }
+
+        /* First-page header mark (in-flow, not repeated). */
+        .flash-brand-header {
+            text-align: center;
+            margin: 0 0 10px;
+            line-height: 1;
+        }
+
+        .flash-brand-logo--header {
+            height: 54px;
+            width: auto;
+            max-width: none;
+            object-fit: contain;
+            vertical-align: middle;
+        }
+
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+
+                /*
+                 * Reserve space for the fixed footer on every page.
+                 *
+                 * In Chrome's print engine, `position: fixed` elements do NOT reserve layout
+                 * space, and are positioned relative to the page *area* (inside @page
+                 * margins). This causes footer overlap unless we create per-page bottom
+                 * padding. `box-decoration-break: clone` makes that padding apply to each
+                 * paginated fragment.
+                 */
+                -webkit-box-decoration-break: clone;
+                box-decoration-break: clone;
+                padding-bottom: 1.25in !important;
+            }
+
+            /* Footer: fixed and compact so it never overlaps content. */
+            .footer,
+            .document-footer {
+                position: fixed !important;
+                left: 0 !important;
+                right: 0 !important;
+                bottom: 0.15in !important;
+                margin: 0 !important;
+                padding: 6px 0.75in 0 !important;
+                text-align: center !important;
+                border-top: 1px solid rgba(15, 23, 42, 0.16) !important;
+                background: transparent !important;
+                z-index: 9999 !important;
+                color: var(--flash-muted) !important;
+                font-size: 8.5pt !important;
+                line-height: 1.25 !important;
+            }
+
+            .flash-brand-block {
+                margin: 0 0 4px !important;
+                line-height: 1 !important;
+                text-align: center !important;
+            }
+
+            /* Footer logo */
+            .flash-brand-logo {
+                height: 34px !important;
+                width: auto !important;
+                max-width: none !important;
+                object-fit: contain !important;
+                vertical-align: middle !important;
+            }
+
+            /* Header logo slightly larger */
+            .flash-brand-logo--header {
+                height: 44px !important;
+            }
+        }
+        /* END FLASH Professional Print v1 */
+
+        /* Actions + Metrics Design v1 (do not edit by hand) */
+        .callout--measure-next p,
+        .callout--measure-next li,
+        .callout--red-flags p,
+        .callout--red-flags li {
+            text-align: left !important;
+        }
+
+        .callout--measure-next table.metrics-next-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0 6px;
+            font-size: 9.75pt;
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        .callout--measure-next table.metrics-next-table th {
+            background: transparent !important;
+            border: none !important;
+            border-bottom: 1px solid rgba(15, 23, 42, 0.22) !important;
+            padding: 6px 8px !important;
+            text-align: left !important;
+            font-weight: 600 !important;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            font-size: 8.5pt;
+            color: var(--flash-muted, #334155) !important;
+        }
+
+        .callout--measure-next table.metrics-next-table td {
+            border: none !important;
+            border-bottom: 1px solid rgba(15, 23, 42, 0.12) !important;
+            padding: 8px 8px !important;
+            vertical-align: top;
+        }
+
+        .callout--measure-next table.metrics-next-table tr:last-child td {
+            border-bottom: none !important;
+        }
+
+        .callout--measure-next .metrics-next-pillar {
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 9pt;
+            color: var(--flash-ink, #0F172A);
+            white-space: nowrap;
+        }
+
+        .callout--measure-next .metric-line {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 2px 0;
+        }
+
+        .callout--measure-next .metric-name {
+            color: var(--flash-ink, #0F172A);
+        }
+
+        .metric-id {
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+            font-size: 8pt;
+            color: var(--flash-muted, #334155);
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            overflow-wrap: anywhere;
+            word-break: break-word;
+        }
+
+        .callout--red-flags .metric-note {
+            color: var(--flash-muted, #334155);
+            font-size: 8.5pt;
+            margin-left: 0.25em;
+            white-space: normal;
+        }
+
+        /* CAMP Matrix Quadrant Consistency v1 */
+        :root {
+            --camp-q-hidden-gem: #f7f0df;
+            --camp-q-rocketship: #e8f3ea;
+            --camp-q-chaos-zone: #f7e9ee;
+            --camp-q-starved-visionary: #e8f0f9;
+        }
+
+        .q-tl {
+            background: var(--camp-q-hidden-gem) !important;
+        }
+
+        .q-tr {
+            background: var(--camp-q-rocketship) !important;
+        }
+
+        .q-bl {
+            background: var(--camp-q-chaos-zone) !important;
+        }
+
+        .q-br {
+            background: var(--camp-q-starved-visionary) !important;
+        }
+
+        .matrix-grid .quadrant {
+            border-color: rgba(15, 23, 42, 0.36) !important;
+        }
+
+        /*
+         * Pagination Safety v1
+         * - Avoid orphan caption lines and one-line pre-break pages.
+         * - Keep matrices/tables/callouts from splitting into footer space.
+         */
+        @media print {
+            .page-break {
+                display: none !important;
+                page-break-before: auto !important;
+                break-before: auto !important;
+            }
+
+            h1,
+            h2 {
+                page-break-after: auto !important;
+                break-after: auto !important;
+            }
+
+            h3 {
+                page-break-after: avoid !important;
+                break-after: avoid-page !important;
+            }
+
+            table,
+            .matrix-container,
+            .matrix-grid,
+            .pillars-grid,
+            .journey-box,
+            .journey-row,
+            .callout {
+                page-break-inside: avoid !important;
+                break-inside: avoid-page !important;
+            }
+
+            table + .figure-caption,
+            .figure-caption {
+                page-break-before: avoid !important;
+                break-before: avoid-page !important;
+                page-break-after: avoid !important;
+                break-after: avoid-page !important;
+                margin-top: 3px !important;
+                margin-bottom: 10px !important;
+            }
+
+            p {
+                orphans: 3;
+                widows: 3;
+            }
+        }
+        /* END Actions + Metrics Design v1 */
+
+    </style>
 </head>
-<body data-content-type="case_study" data-content-slug="theranos-governance-breakdown">
-<header class="content-header"><div class="content-header-inner"><a class="content-brand" href="/">FLASH Capital</a><nav class="content-nav"><a href="/insights/">Insights</a><a class="active" href="/case-studies/">Case Studies</a><a href="/newsletter/">Newsletter</a><a href="/flash-camp-framework.html">CAMP Framework</a><a href="/contact.html">Contact</a></nav><a class="content-cta" href="https://flash.zone">Apply now</a></div></header>
-<main class="content-wrap">
-<article class="hero-block">
-<span class="hero-kicker">Failure Pattern | People + Governance</span>
-<h1 class="hero-title">Theranos: Governance and Verification Breakdown</h1>
-<p class="hero-subtitle">This case is a reminder that weak claim verification and weak governance can destroy both company value and stakeholder trust.</p>
-<div class="claim-block"><div class="claim-label">Claim Type: Fact</div><p class="claim-text">Public legal outcomes and investigations established major gaps between external claims and verifiable operating reality.</p></div>
-<div class="claim-block"><div class="claim-label">Claim Type: Estimate</div><p class="claim-text">When technical claims are not independently verifiable, downstream financing risk usually rises sharply regardless of narrative strength.</p></div>
-<div class="claim-block"><div class="claim-label">Claim Type: Opinion</div><p class="claim-text">Verification discipline is not a compliance checkbox; it is a core trust asset.</p></div>
-<div class="article-body">
-<section class="article-section">
-<h2>What The Source Case Actually Shows</h2>
-<p>The CAMP source case for Theranos is explicit: this is a framework-limit case where major claims were fraudulent, not merely optimistic. The executive summary states that core technology validity failed while external confidence remained high for a prolonged period.</p>
-<p>The case still offers practical value because it shows where diligence should have concentrated earlier: technical verification pathways, governance independence, and evidence traceability for high-impact claims.</p>
-</section>
-<section class="article-section">
-<h2>CAMP Gap From Apparent To Actual</h2>
-<ul>
-<li>Apparent pillar profile in the source: Capital 80, Advantage 85, Market 75, People 70.</li>
-<li>Actual pillar profile in the same source model: Capital 80, Advantage 0, Market 75, People 10.</li>
-<li>Weighted CAMP in the source comparison table: 76.75 apparent vs 52.0 actual.</li>
-</ul>
-<p>The delta is the key lesson. Strong narrative optics can preserve an apparent score long after operational reality has deteriorated if evidence controls are weak.</p>
-</section>
-<section class="article-section">
-<h2>Operator Lens For Founders</h2>
-<p>Institutionalize a claims-evidence ledger before scale. For every product, clinical, or performance statement, define source evidence, validation owner, and review cadence. This discipline protects both fundraising credibility and long-term trust capital.</p>
-</section>
+
+<body>
+
+    <div class="document-header">
+        <div class="flash-brand-header">
+            <img src="flash_logo_trimmed.png" alt="FLASH Capital" class="flash-brand-logo flash-brand-logo--header">
+        </div>
+
+        <div class="document-title">CAMP Matrix Framework</div>
+        <div class="document-subtitle">Case Study: Theranos (2003-2018)</div>
+        <div class="document-meta">Assessing Startup Investability and Execution Readiness</div>
+    </div>
+
+    <div class="warning-callout">
+        <div class="callout-title">Executive Summary: The Ultimate Framework Failure</div>
+        Theranos is unique in startup history: the core technology <em>did not work</em>. Founder Elizabeth Holmes
+        raised $1.4 billion from elite investors while fabricating clinical results and using competitors' machines for
+        most tests. This case demonstrates a fundamental limitation of any assessment framework-it can only evaluate
+        what is disclosed. When founders commit fraud, frameworks fail. However, CAMP's People pillar governance
+        sub-factors would have flagged visible red flags: extreme secrecy, a board of politicians rather than
+        scientists, and systematic dismissal of whistleblowers. The apparent CAMP score of 76.75 masked an actual score
+        of 35.75-a 41-point gap that represents the "fraud premium."
+    </div>
+
+    <!-- PART 1: FRAMEWORK INTRODUCTION -->
+    <h1>I. The CAMP Framework</h1>
+
+    <h2>A. The Four Pillars</h2>
+    <p>The CAMP Matrix evaluates startup potential through four interconnected dimensions:</p>
+
+    <div class="pillars-grid">
+        <div class="pillar-item">
+            <div class="pillar-letter">C</div>
+            <div class="pillar-name">Capital</div>
+            <div class="pillar-desc">Runway, burn efficiency, capital access</div>
+        </div>
+        <div class="pillar-item">
+            <div class="pillar-letter">A</div>
+            <div class="pillar-name">Advantage</div>
+            <div class="pillar-desc">Moat, IP, differentiation, switching costs</div>
+        </div>
+        <div class="pillar-item">
+            <div class="pillar-letter">M</div>
+            <div class="pillar-name">Market</div>
+            <div class="pillar-desc">TAM, growth rate, traction, timing</div>
+        </div>
+        <div class="pillar-item">
+            <div class="pillar-letter">P</div>
+            <div class="pillar-name">People</div>
+            <div class="pillar-desc">Founder quality, team, governance</div>
+        </div>
+    </div>
+    <div class="figure-caption">Figure 1: The Four CAMP Pillars</div>
+
+    <h2>B. The 2x2 Matrix</h2>
+    <p>The pillars combine into two composite dimensions:</p>
+    <ul>
+        <li><strong>Internal Engine</strong> (Y-axis) = Capital + People, measures organizational capability</li>
+        <li><strong>External Promise</strong> (X-axis) = Advantage + Market, measures opportunity attractiveness</li>
+    </ul>
+
+    <div class="matrix-container">
+        <div class="matrix-grid">
+            <div class="y-axis"><span class="y-axis-text">INTERNAL ENGINE</span></div>
+            <div class="quadrant q-tl">
+                <div class="quadrant-title">Hidden Gem</div>
+                <div class="quadrant-desc">Strong engine, weak opportunity</div>
+            </div>
+            <div class="quadrant q-tr">
+                <div class="quadrant-title">Rocketship</div>
+                <div class="quadrant-desc">Strong engine, strong opportunity</div>
+            </div>
+            <div class="quadrant q-bl">
+                <div class="quadrant-title">Chaos Zone</div>
+                <div class="quadrant-desc">Weak on both dimensions</div>
+            </div>
+            <div class="quadrant q-br">
+                <div class="quadrant-title">Starved Visionary</div>
+                <div class="quadrant-desc">Big opportunity, weak engine</div>
+            </div>
+            <div class="x-axis">EXTERNAL PROMISE</div>
+        </div>
+    </div>
+    <div class="figure-caption">Figure 2: The CAMP Matrix Quadrants</div>
+
+    <h2>C. Stage-Aware Weighting</h2>
+    <table>
+        <tr>
+            <th>Stage</th>
+            <th>Capital</th>
+            <th>Advantage</th>
+            <th>Market</th>
+            <th>People</th>
+        </tr>
+        <tr>
+            <td>Pre-Seed</td>
+            <td>10%</td>
+            <td>30%</td>
+            <td>20%</td>
+            <td><strong>40%</strong></td>
+        </tr>
+        <tr>
+            <td>Seed</td>
+            <td>15%</td>
+            <td>30%</td>
+            <td>25%</td>
+            <td>30%</td>
+        </tr>
+        <tr>
+            <td>Series A</td>
+            <td>25%</td>
+            <td>25%</td>
+            <td><strong>30%</strong></td>
+            <td>20%</td>
+        </tr>
+        <tr>
+            <td>Series B+</td>
+            <td><strong>35%</strong></td>
+            <td>20%</td>
+            <td>30%</td>
+            <td>15%</td>
+        </tr>
+    </table>
+<div class="figure-caption">Table 1: Stage-Dependent Pillar Weights
 </div>
-<h2>What founders should do next</h2>
-<p>Create a claims registry for investor and customer statements. Assign an owner and evidence source for every major technical or performance claim.</p>
-<div class="cta-row"><a class="btn primary" data-content-cta data-content-type="case_study" data-content-slug="theranos-governance-breakdown" href="https://flash.zone">Apply now</a><a class="btn" href="/contact.html">Contact</a></div>
-<div class="sources"><strong>Sources and context:</strong><br>Public source set: court outcomes, regulatory actions, and investigative reporting on Theranos (2015-2025).<br><a href="https://www.justice.gov/usao-ndca/pr/elizabeth-holmes-sentenced-more-11-years-fraud">U.S. DOJ case summary</a> | <a href="https://www.sec.gov/edgar/search/">SEC EDGAR</a><br>Method note for estimate claims: directional inference from publicly documented claim-verification failures and FLASH case benchmarking; not a causal estimate.</div>
-</article>
-<section class="grid">
-<article class="card span-4">
-<h3><a href="/insights/camp-stage-weighting.html">Related Insight: Stage Weighting in CAMP</a></h3>
-<p>See how stage changes investor interpretation of identical metrics.</p>
-<div class="cta-row"><a class="btn" href="/insights/camp-stage-weighting.html">Read insight</a></div>
-</article>
-<article class="card span-4">
-<h3><a href="/insights/investor-readiness-scorecard.html">Related Insight: Investor Readiness Scorecard</a></h3>
-<p>Use this practical scorecard to structure your next investor update.</p>
-<div class="cta-row"><a class="btn" href="/insights/investor-readiness-scorecard.html">Read insight</a></div>
-</article>
-<article class="card span-4">
-<h3><a href="/newsletter/2026-03.html">Latest Newsletter: March 2026</a></h3>
-<p>Monthly editorial brief on credibility, risk transparency, and milestone logic.</p>
-<div class="cta-row"><a class="btn" href="/newsletter/2026-03.html">Read issue</a></div>
-</article>
-</section>
-<section class="newsletter-module">
-<h3>Get Monthly Case Breakdowns</h3>
-<p>Receive one concise monthly email with new case analyses, investor-readiness frameworks, and actionable founder checklists.</p>
-<form class="newsletter-signup-form" novalidate>
-<input type="email" name="email" placeholder="you@company.com" required>
-<label><input type="checkbox" name="consent"> I consent to receive monthly FLASH Capital editorial updates.</label>
-<button type="submit">Subscribe</button>
-<div class="form-status" aria-live="polite"></div>
-</form>
-</section>
-<footer class="content-footer"><span>FLASH Capital Case Studies</span><div class="content-footer-links"><a href="/case-studies/">All case studies</a><a href="/flash-privacy-policy.html">Privacy Policy</a><a href="/flash-terms-of-service.html">Terms of Service</a></div></footer>
-</main>
-<script src="/js/content-engagement.js"></script>
+
+    <h2>D. Scoring Rubric</h2>
+    <table>
+        <tr>
+            <th>Score Range</th>
+            <th>Classification</th>
+            <th>Interpretation</th>
+        </tr>
+        <tr>
+            <td>0-25</td>
+            <td>Critical</td>
+            <td>Severe deficiency; existential risk</td>
+        </tr>
+        <tr>
+            <td>26-50</td>
+            <td>Weak</td>
+            <td>Below threshold; requires improvement</td>
+        </tr>
+        <tr>
+            <td>51-75</td>
+            <td>Moderate</td>
+            <td>Acceptable but not differentiated</td>
+        </tr>
+        <tr>
+            <td>76-100</td>
+            <td>Strong</td>
+            <td>Competitive advantage; exceeds expectations</td>
+        </tr>
+    </table>
+<div class="figure-caption">Table 2: Pillar Scoring Rubric
+</div>
+
+    <div class="page-break"></div>
+
+    <!-- PART 2: COMPANY HISTORY -->
+    <h1>II. Company History and Context</h1>
+
+    <h2>A. Founding Story</h2>
+    <p>Elizabeth Holmes founded Theranos (originally "Real-Time Cures") in 2003 at age 19, after dropping out of
+        Stanford University's chemical engineering program. Her stated vision was revolutionary: a world where anyone
+        could get hundreds of blood tests from a single finger-prick, instantly, cheaply, and without visiting a lab.
+        She claimed her technology would "democratize diagnostics" and save millions of lives through early disease
+        detection.</p>
+
+    <table>
+        <tr>
+            <th>Attribute</th>
+            <th>Detail</th>
+        </tr>
+        <tr>
+            <td>Founded</td>
+            <td>2003 by Elizabeth Holmes (Stanford dropout, age 19)</td>
+        </tr>
+        <tr>
+            <td>Original Name</td>
+            <td>Real-Time Cures (rebranded to Theranos 2004)</td>
+        </tr>
+        <tr>
+            <td>Claimed Innovation</td>
+            <td>Full blood panel from finger-prick (micro-sample testing)</td>
+        </tr>
+        <tr>
+            <td>Total Raised</td>
+            <td>$1.4 billion across 19+ rounds (some sources: $1.31B)</td>
+        </tr>
+        <tr>
+            <td>Peak Valuation</td>
+            <td>$9 billion (October 2014)</td>
+        </tr>
+        <tr>
+            <td>Peak Employees</td>
+            <td>~800 (2015)</td>
+        </tr>
+        <tr>
+            <td>Key Device</td>
+            <td>"Edison" proprietary blood analyzer</td>
+        </tr>
+    </table>
+
+    <h2>B. Complete Funding History</h2>
+    <table>
+        <tr>
+            <th>Year</th>
+            <th>Round</th>
+            <th>Amount</th>
+            <th>Key Investors</th>
+            <th>Valuation</th>
+        </tr>
+        <tr>
+            <td>2004</td>
+            <td>Seed</td>
+            <td>$6M</td>
+            <td>Tim Draper (family friend)</td>
+            <td>~$30M</td>
+        </tr>
+        <tr>
+            <td>2006</td>
+            <td>Series A</td>
+            <td>$9M</td>
+            <td>Draper Fisher Jurvetson</td>
+            <td>~$50M</td>
+        </tr>
+        <tr>
+            <td>2010</td>
+            <td>Series B</td>
+            <td>$45M</td>
+            <td>Undisclosed</td>
+            <td>~$200M</td>
+        </tr>
+        <tr>
+            <td>2013</td>
+            <td>Series C</td>
+            <td>$100M</td>
+            <td>Walgreens (commercial), private investors</td>
+            <td>~$1B</td>
+        </tr>
+        <tr>
+            <td>2014</td>
+            <td>Series D</td>
+            <td>$200M</td>
+            <td>Partner Fund Management, Rupert Murdoch</td>
+            <td>$9B</td>
+        </tr>
+        <tr>
+            <td>2015</td>
+            <td>Series E</td>
+            <td>$430M</td>
+            <td>Fortress Investment Group</td>
+            <td>$9B (maintained)</td>
+        </tr>
+        <tr>
+            <td><strong>Total</strong></td>
+            <td></td>
+            <td><strong>$1.4B+</strong></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <h2>C. Notable Investors and Board Members</h2>
+    <p>The investor and board composition reveals a critical CAMP insight: Theranos deliberately recruited political
+        figures rather than scientific or medical experts-a major governance red flag.</p>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Background</th>
+            <th>Investment/Role</th>
+            <th>Red Flag</th>
+        </tr>
+        <tr>
+            <td>Rupert Murdoch</td>
+            <td>Media mogul (News Corp)</td>
+            <td>$125M personal investment</td>
+            <td class="red-flag">Zero healthcare expertise</td>
+        </tr>
+        <tr>
+            <td>Betsy DeVos family</td>
+            <td>Political donors</td>
+            <td>$100M investment</td>
+            <td class="red-flag">Zero healthcare expertise</td>
+        </tr>
+        <tr>
+            <td>Henry Kissinger</td>
+            <td>Former Secretary of State</td>
+            <td>Board member</td>
+            <td class="red-flag">Political, not scientific</td>
+        </tr>
+        <tr>
+            <td>George Shultz</td>
+            <td>Former Secretary of State</td>
+            <td>Board member</td>
+            <td class="red-flag">Political, not scientific</td>
+        </tr>
+        <tr>
+            <td>James Mattis</td>
+            <td>Retired General, future SecDef</td>
+            <td>Board member</td>
+            <td class="red-flag">Military, not medical</td>
+        </tr>
+        <tr>
+            <td>William Perry</td>
+            <td>Former Secretary of Defense</td>
+            <td>Board member</td>
+            <td class="red-flag">Defense, not diagnostics</td>
+        </tr>
+        <tr>
+            <td>Sam Nunn</td>
+            <td>Former Senator</td>
+            <td>Board member</td>
+            <td class="red-flag">Political, not scientific</td>
+        </tr>
+        <tr>
+            <td>Tim Draper</td>
+            <td>VC, family friend of Holmes</td>
+            <td>Lead investor</td>
+            <td>Personal relationship bias</td>
+        </tr>
+    </table>
+
+    <div class="warning-callout">
+        <div class="callout-title">CAMP Governance Signal: Political Board = Red Flag</div>
+        <strong>Critical Insight:</strong> A biotech company's board should include scientists, medical experts, and
+        FDA-experienced executives. Theranos's board was dominated by former politicians and military leaders-none with
+        diagnostic expertise. This is a <strong>People pillar governance failure</strong> that the CAMP framework would
+        flag as a 20-30/100 governance sub-score, even if founder credentials appeared strong.
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2>D. Key Partnerships (Built on Fraud)</h2>
+    <table>
+        <tr>
+            <th>Partner</th>
+            <th>Deal</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>Walgreens</td>
+            <td>$140M deal for 4,000+ in-store testing locations</td>
+            <td>Terminated June 2016; sued for $140M</td>
+        </tr>
+        <tr>
+            <td>Safeway</td>
+            <td>$350M investment in 800+ in-store clinics</td>
+            <td>Terminated before launch; $30M lost</td>
+        </tr>
+        <tr>
+            <td>Cleveland Clinic</td>
+            <td>Clinical validation partnership</td>
+            <td>Ended quietly; no validation provided</td>
+        </tr>
+        <tr>
+            <td>AmeriHealth Caritas</td>
+            <td>Insurance partnership for testing</td>
+            <td>Terminated</td>
+        </tr>
+        <tr>
+            <td>U.S. Military</td>
+            <td>Discussions for battlefield testing</td>
+            <td>Never deployed; technology non-functional</td>
+        </tr>
+    </table>
+
+    <!-- PART 3: PILLAR ANALYSIS -->
+    <h1>III. Peak Assessment: Theranos at $9B Valuation (October 2014)</h1>
+
+    <h2>A. Apparent vs. Actual CAMP Scores</h2>
+    <p>This section reveals the "fraud gap"-the difference between what investors saw and what actually existed.</p>
+
+    <h3>Capital: 80/100 (Appeared Strong)</h3>
+    <table>
+        <tr>
+            <th>Metric</th>
+            <th>Claimed/Apparent</th>
+            <th>Reality</th>
+        </tr>
+        <tr>
+            <td>Total Funding</td>
+            <td>$1.4B from elite investors</td>
+            <td>Real capital, obtained through fraud</td>
+        </tr>
+        <tr>
+            <td>Runway</td>
+            <td>5+ years</td>
+            <td>Burning $200M/year with no revenue</td>
+        </tr>
+        <tr>
+            <td>Revenue</td>
+            <td>$100M+ projected from Walgreens</td>
+            <td>Minimal; tests were inaccurate</td>
+        </tr>
+        <tr>
+            <td>Burn Efficiency</td>
+            <td>"Focused R&amp;D spend"</td>
+            <td>Massive waste on non-functional tech</td>
+        </tr>
+    </table>
+    <p><strong>Capital Rationale:</strong> The capital was real-investors did transfer $1.4 billion. However, this
+        capital was obtained through fraudulent misrepresentations about technology efficacy. The framework limitation:
+        <em>Capital pillar measures capital presence, not how it was obtained.</em>
+    </p>
+
+    <h3>Advantage: 85/100 (Claimed) -> 0/100 (Actual)</h3>
+    <table>
+        <tr>
+            <th>Factor</th>
+            <th>Claimed</th>
+            <th>Reality</th>
+        </tr>
+        <tr>
+            <td>Edison Device</td>
+            <td>"Revolutionary micro-sampling technology"</td>
+            <td>Could perform only ~12 of 200+ claimed tests</td>
+        </tr>
+        <tr>
+            <td>IP Portfolio</td>
+            <td>Hundreds of patents filed</td>
+            <td>Patents on non-functional technology</td>
+        </tr>
+        <tr>
+            <td>FDA Pathway</td>
+            <td>"FDA approval pursued; on track"</td>
+            <td>Deliberately evaded FDA oversight; classified as "wellness"</td>
+        </tr>
+        <tr>
+            <td>Clinical Accuracy</td>
+            <td>"Lab-quality results, better than traditional"</td>
+            <td>Inaccurate, unreproducible; patients harmed</td>
+        </tr>
+        <tr>
+            <td>Secret Lab</td>
+            <td>"Proprietary testing environment"</td>
+            <td>Used Siemens machines for most tests</td>
+        </tr>
+    </table>
+
+    <div class="warning-callout">
+        <div class="callout-title">The Core Fraud: Edison Never Worked</div>
+        Theranos's proprietary Edison device could only perform approximately 12 of the 200+ tests claimed. For the vast
+        majority of tests, Theranos secretly used traditional machines from Siemens and other vendors, diluted
+        finger-prick samples (causing inaccuracies), and charged customers for "revolutionary" technology that didn't
+        exist. This affected real patients: some received false positives for serious diseases; others received false
+        negatives that delayed treatment.
+    </div>
+
+    <h3>Market: 75/100 (Real Opportunity Existed)</h3>
+    <table>
+        <tr>
+            <th>Factor</th>
+            <th>Status</th>
+            <th>Assessment</th>
+        </tr>
+        <tr>
+            <td>TAM</td>
+            <td>$75B+ global diagnostics market</td>
+            <td>Massive, real market</td>
+        </tr>
+        <tr>
+            <td>Consumer Pain Point</td>
+            <td>Fear of needles, lab visit inconvenience</td>
+            <td>Genuine unmet need</td>
+        </tr>
+        <tr>
+            <td>Walgreens Rollout</td>
+            <td>4,000+ locations planned</td>
+            <td>Real distribution potential (if tech worked)</td>
+        </tr>
+        <tr>
+            <td>Timing</td>
+            <td>Pre-consumer health tech boom</td>
+            <td>Early mover in direct-to-consumer diagnostics</td>
+        </tr>
+    </table>
+    <p><strong>Market Rationale:</strong> The market opportunity was genuine. Consumers genuinely wanted faster,
+        cheaper, less painful blood testing. The demand existed-but the technology to fulfill it did not.</p>
+
+    <h3>People: 70/100 (Perceived) -> 10/100 (Actual)</h3>
+    <table>
+        <tr>
+            <th>Factor</th>
+            <th>Perceived</th>
+            <th>Reality</th>
+            <th>Red Flag</th>
+        </tr>
+        <tr>
+            <td>Founder Background</td>
+            <td>"Brilliant Stanford dropout"</td>
+            <td>No medical/science degree; unqualified for biotech</td>
+            <td class="red-flag">Risk: Domain mismatch</td>
+        </tr>
+        <tr>
+            <td>Board Composition</td>
+            <td>"Prestigious, connected leaders"</td>
+            <td>Politicians, not scientists</td>
+            <td class="red-flag">Risk: Zero medical expertise</td>
+        </tr>
+        <tr>
+            <td>Transparency</td>
+            <td>"Stealth-mode innovation"</td>
+            <td>Extreme secrecy to hide failures</td>
+            <td class="red-flag">Risk: Refused peer review</td>
+        </tr>
+        <tr>
+            <td>Governance</td>
+            <td>"Strong board oversight"</td>
+            <td>Holmes had total control; no checks</td>
+            <td class="red-flag">Risk: Founder dictatorship</td>
+        </tr>
+        <tr>
+            <td>Internal Culture</td>
+            <td>Unknown to outsiders</td>
+            <td>Fear-based; whistleblowers threatened</td>
+            <td class="red-flag">Risk: Toxic environment</td>
+        </tr>
+        <tr>
+            <td>Key Hires</td>
+            <td>"Top talent"</td>
+            <td>Sunny Balwani (boyfriend) as COO; no biotech experience</td>
+            <td class="red-flag">Risk: Nepotism</td>
+        </tr>
+    </table>
+
+    <div class="page-break"></div>
+
+    <h2>B. CAMP Score Comparison: Apparent vs. Actual</h2>
+    <table>
+        <tr>
+            <th>Pillar</th>
+            <th>Apparent Score</th>
+            <th>Actual Score</th>
+            <th>Gap</th>
+        </tr>
+        <tr>
+            <td>Capital</td>
+            <td>80</td>
+            <td>80</td>
+            <td>0 (real money, fraudulent basis)</td>
+        </tr>
+        <tr>
+            <td>Advantage</td>
+            <td>85</td>
+            <td style="color: #dc3545;"><strong>0</strong></td>
+            <td style="color: #dc3545;"><strong>-85</strong></td>
+        </tr>
+        <tr>
+            <td>Market</td>
+            <td>75</td>
+            <td>75</td>
+            <td>0 (real demand existed)</td>
+        </tr>
+        <tr>
+            <td>People</td>
+            <td>70</td>
+            <td style="color: #dc3545;"><strong>10</strong></td>
+            <td style="color: #dc3545;"><strong>-60</strong></td>
+        </tr>
+        <tr>
+            <td colspan="4" style="text-align: center;"><em>Using Series B+ Weights: C=35%, A=20%, M=30%, P=15%</em>
+            </td>
+        </tr>
+        <tr>
+            <td><strong>Weighted CAMP (Apparent)</strong></td>
+            <td colspan="2"><strong>76.75</strong></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><strong>Weighted CAMP (Actual)</strong></td>
+            <td colspan="2" style="color: #dc3545;"><strong>52.0</strong></td>
+            <td style="color: #dc3545;"><strong>-24.75</strong></td>
+        </tr>
+    </table>
+
+    <div class="callout">
+        <div class="callout-title">The Fraud Premium: 24.75 Points</div>
+        The difference between Theranos's apparent CAMP score (76.75-"Rocketship" territory) and actual score
+        (52.0-"Moderate/Weak") represents the "fraud premium." This gap would have been detectable through rigorous
+        governance assessment in the People pillar, independent technology validation in the Advantage pillar, and
+        deeper due diligence.
+    </div>
+
+    <!-- PART 4: THE COLLAPSE -->
+    <h1>IV. The Collapse: A Detailed Timeline</h1>
+
+    <h2>A. Warning Signs Ignored (2012-2015)</h2>
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Event</th>
+            <th>CAMP Implication</th>
+        </tr>
+        <tr>
+            <td>2012</td>
+            <td>Ian Gibbons (chief scientist) raises concerns about technology accuracy; marginalized</td>
+            <td>People: Whistleblower suppression</td>
+        </tr>
+        <tr>
+            <td>May 2013</td>
+            <td>Ian Gibbons dies by suicide the night before scheduled deposition</td>
+            <td>People: Toxic culture, extreme pressure</td>
+        </tr>
+        <tr>
+            <td>2013-2014</td>
+            <td>Multiple lab employees resign citing inaccurate results</td>
+            <td>People: High turnover signal</td>
+        </tr>
+        <tr>
+            <td>Sep 2013</td>
+            <td>Walgreens launches first Theranos Wellness Center despite no FDA approval</td>
+            <td>Advantage: Regulatory circumvention</td>
+        </tr>
+        <tr>
+            <td>2014</td>
+            <td>Tyler Shultz (employee, grandson of board member) documents concerns</td>
+            <td>People: Internal dissent building</td>
+        </tr>
+        <tr>
+            <td>Early 2015</td>
+            <td>Erika Cheung leaves; later becomes key whistleblower</td>
+            <td>People: Talent exodus</td>
+        </tr>
+    </table>
+
+    <h2>B. The Unraveling (2015-2018)</h2>
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Event</th>
+            <th>Impact</th>
+        </tr>
+        <tr>
+            <td>Oct 15, 2015</td>
+            <td>Wall Street Journal (John Carreyrou) publishes investigation exposing technology fraud</td>
+            <td>First public exposure; stock suspended</td>
+        </tr>
+        <tr>
+            <td>Oct 2015</td>
+            <td>Holmes calls Murdoch (investor) asking him to pressure WSJ to kill story</td>
+            <td>Evidence of cover-up attempt</td>
+        </tr>
+        <tr>
+            <td>Jan 2016</td>
+            <td>CMS (Centers for Medicare &amp; Medicaid) finds Theranos lab a "patient health threat"</td>
+            <td>Regulatory confirmation of fraud</td>
+        </tr>
+        <tr>
+            <td>Mar 2016</td>
+            <td>FDA finds only 1 of 200+ tests approved; orders halt to most testing</td>
+            <td>Complete regulatory failure</td>
+        </tr>
+        <tr>
+            <td>Jun 2016</td>
+            <td>Walgreens terminates partnership; Forbes revises Holmes net worth to $0</td>
+            <td>Revenue and credibility collapse</td>
+        </tr>
+        <tr>
+            <td>Jul 2016</td>
+            <td>CMS bans Holmes from operating a lab for 2 years; fines imposed</td>
+            <td>Founder barred from core business</td>
+        </tr>
+        <tr>
+            <td>Dec 2016</td>
+            <td>Partner Fund Management sues Theranos for fraud</td>
+            <td>Investor litigation begins</td>
+        </tr>
+        <tr>
+            <td>Mar 2018</td>
+            <td>SEC charges Holmes with "massive fraud"; $500K fine, 10-year officer ban</td>
+            <td>Civil regulatory action</td>
+        </tr>
+        <tr>
+            <td>Jun 2018</td>
+            <td>Federal grand jury indicts Holmes and Balwani on 11 counts of fraud</td>
+            <td>Criminal charges filed</td>
+        </tr>
+        <tr>
+            <td>Sep 2018</td>
+            <td>Theranos officially dissolved; assets liquidated</td>
+            <td>Company death</td>
+        </tr>
+    </table>
+
+    <h2>C. Criminal Proceedings (2019-2023)</h2>
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Event</th>
+        </tr>
+        <tr>
+            <td>Jun 2019</td>
+            <td>Holmes and Balwani's trials separated at Holmes's request</td>
+        </tr>
+        <tr>
+            <td>Aug 2021</td>
+            <td>Holmes trial begins; defense claims Balwani manipulated her</td>
+        </tr>
+        <tr>
+            <td>Jan 3, 2022</td>
+            <td><strong>Holmes convicted</strong> on 4 counts: 3 wire fraud, 1 conspiracy to defraud investors</td>
+        </tr>
+        <tr>
+            <td>Jul 2022</td>
+            <td>Balwani convicted on 12 counts (found more culpable than Holmes)</td>
+        </tr>
+        <tr>
+            <td>Nov 18, 2022</td>
+            <td><strong>Holmes sentenced to 11 years, 3 months</strong> in federal prison</td>
+        </tr>
+        <tr>
+            <td>Dec 2022</td>
+            <td>Balwani sentenced to 12 years, 11 months</td>
+        </tr>
+        <tr>
+            <td>Apr 2023</td>
+            <td>Holmes ordered to pay $452 million in restitution to victims</td>
+        </tr>
+        <tr>
+            <td>May 30, 2023</td>
+            <td><strong>Holmes begins prison sentence</strong> at FPC Bryan, Texas</td>
+        </tr>
+    </table>
+
+    <div class="page-break"></div>
+
+    <!-- PART 5: MATRIX JOURNEY -->
+    <h1>V. Matrix Journey Visualization</h1>
+
+    <div class="journey-box">
+        <div class="journey-row">
+            <div class="journey-point">
+                <div class="journey-year">2014 (Peak)</div>
+                <div class="journey-score">76.75</div>
+                <div class="journey-quadrant">"Rocketship" (Apparent)</div>
+            </div>
+            <div class="journey-arrow">-></div>
+            <div class="journey-point">
+                <div class="journey-year">2015 (Exposure)</div>
+                <div class="journey-score">52.0</div>
+                <div class="journey-quadrant">"Hidden Gem" (Reality)</div>
+            </div>
+            <div class="journey-arrow">down-right</div>
+            <div class="journey-point-fail">
+                <div class="journey-year">2018</div>
+                <div class="journey-score">0</div>
+                <div class="journey-quadrant">Criminal + Dissolved</div>
+            </div>
+        </div>
+        <div style="font-size: 9pt; margin-top: 15px;">
+            <strong>Trajectory:</strong> Apparent Rocketship -> Fraud Exposed -> Criminal Conviction<br>
+            <strong>Capital Lost:</strong> $1.4 billion | <strong>Founder Outcome:</strong> 11-year prison sentence
+        </div>
+    </div>
+
+    <!-- PART 6: KEY LESSONS -->
+    <h1>VI. Key Lessons for the CAMP Framework</h1>
+
+    <h2>A. Framework Limitations</h2>
+
+    <p><strong>1. No Framework Defeats Active Fraud.</strong> If a founder fabricates core data (technology efficacy,
+        clinical results), any assessment framework will fail. CAMP relies on disclosed information being truthful.
+        When the Advantage pillar is based on lies, the score is meaningless.</p>
+
+    <p><strong>2. People Pillar Governance Must Include Independent Validation.</strong> Theranos's People pillar
+        appeared strong (famous founder, prestigious board). But the governance sub-factors-board expertise, scientific
+        oversight, whistleblower treatment-would have scored 10-20/100 under rigorous assessment. Future CAMP
+        applications should mandate governance deep-dives for biotech/deep-tech companies.</p>
+
+    <p><strong>3. "Claimed but Unverified Advantage" Category Needed.</strong> For deep-tech companies, the framework
+        should distinguish between verified advantages (peer-reviewed, FDA-approved) and claimed advantages (company
+        assertions only). Theranos refused independent validation-a red flag that would lower Advantage to "Unverified"
+        status.</p>
+
+    <h2>B. Red Flags That CAMP Would Catch (With Proper Governance Assessment)</h2>
+    <ol>
+        <li><strong>Board Without Domain Expertise:</strong> Politicians and generals, not scientists or medical
+            executives-Governance sub-score: 15/100</li>
+        <li><strong>Extreme Secrecy:</strong> Refusal to publish peer-reviewed data, blocked due diligence-Transparency
+            sub-score: 10/100</li>
+        <li><strong>Whistleblower Suppression:</strong> Threatened employees, hired private investigators to follow
+            critics-Culture sub-score: 5/100</li>
+        <li><strong>Nepotism in Leadership:</strong> COO (Sunny Balwani) was founder's boyfriend with zero biotech
+            experience-Leadership sub-score: 20/100</li>
+        <li><strong>Regulatory Avoidance:</strong> Classified tests as "wellness" to avoid FDA oversight-Advantage
+            validation: Failed</li>
+    </ol>
+
+    <h2>C. Investor Due Diligence Failures</h2>
+    <p>Notable investors like Rupert Murdoch ($125M), the DeVos family ($100M), and Partner Fund Management ($96M)
+        failed to conduct basic due diligence:</p>
+    <ul>
+        <li>No independent technology validation was requested or performed</li>
+        <li>No clinical trial data was reviewed (it didn't exist)</li>
+        <li>Board composition was not scrutinized for domain expertise</li>
+        <li>Investor checks relied on Holmes's personal charisma and famous board members</li>
+        <li>FOMO (fear of missing out) on "the next big thing" overrode skepticism</li>
+    </ul>
+
+    <div class="callout">
+        <div class="callout-title">The Theranos Lesson for CAMP</div>
+        The CAMP framework should incorporate a <strong>Validation Gate</strong> for deep-tech: before accepting
+        Advantage claims, require independent third-party verification. For regulated industries (biotech, fintech),
+        regulatory status (FDA approval, CLIA certification) should be a mandatory Advantage sub-component. Theranos
+        would have scored 0/100 on validated Advantage, triggering automatic "High Risk" classification regardless of
+        other pillars.
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- PART 7: SOURCES -->
+    <h1>VII. Verified Factual Data and Sources</h1>
+
+    <h2>A. Company Information</h2>
+    <ul>
+        <li><strong>Founded:</strong> 2003 by Elizabeth Holmes (Stanford dropout) - Wikipedia, Britannica</li>
+        <li><strong>Original Name:</strong> Real-Time Cures, rebranded Theranos 2004 - SEC filings</li>
+        <li><strong>Total Funding:</strong> $1.4 billion+ across 19+ rounds - Tracxn, CrunchBase, SEC</li>
+        <li><strong>Peak Valuation:</strong> $9 billion (October 2014) - Forbes, Investopedia, WSJ</li>
+        <li><strong>Peak Employees:</strong> ~800 (2015) - Wikipedia, "Bad Blood" book</li>
+    </ul>
+
+    <h2>B. Key Dates</h2>
+    <ul>
+        <li><strong>WSJ Investigation:</strong> October 15, 2015 (John Carreyrou) - WSJ archives</li>
+        <li><strong>CMS "Patient Health Threat":</strong> January 2016 - CMS official records</li>
+        <li><strong>Walgreens Termination:</strong> June 2016 - Press releases, court filings</li>
+        <li><strong>SEC Charges:</strong> March 14, 2018 - SEC official announcement</li>
+        <li><strong>Federal Indictment:</strong> June 15, 2018 - DOJ records</li>
+        <li><strong>Dissolution:</strong> September 2018 - Delaware corporate records</li>
+    </ul>
+
+    <h2>C. Criminal Proceedings</h2>
+    <ul>
+        <li><strong>Holmes Conviction:</strong> January 3, 2022; 4 counts (3 wire fraud, 1 conspiracy) - DOJ, Reuters
+        </li>
+        <li><strong>Holmes Sentence:</strong> 11 years, 3 months (November 18, 2022) - AP, DOJ</li>
+        <li><strong>Balwani Conviction:</strong> July 2022; 12 counts - DOJ</li>
+        <li><strong>Balwani Sentence:</strong> 12 years, 11 months - DOJ</li>
+        <li><strong>Holmes Prison Start:</strong> May 30, 2023 (FPC Bryan, Texas) - BOP, news reports</li>
+    </ul>
+
+    <h2>D. Key Resources</h2>
+    <ul>
+        <li>Carreyrou, John. <em>Bad Blood: Secrets and Lies in a Silicon Valley Startup</em> (2018)</li>
+        <li>Wall Street Journal investigation series (2015-2018)</li>
+        <li>HBO documentary: <em>The Inventor: Out for Blood in Silicon Valley</em> (2019)</li>
+        <li>Hulu series: <em>The Dropout</em> (2022)</li>
+        <li>SEC enforcement action records (2018)</li>
+        <li>DOJ criminal case documents (2018-2023)</li>
+    </ul>
+
+    <h2>E. Methodology Notes</h2>
+    <ul>
+        <li><strong>Framework Limitation:</strong> This case highlights that CAMP (like all frameworks) cannot detect
+            intentional fraud. Scores assume truthful disclosure.</li>
+        <li><strong>Governance Enhancement:</strong> Post-Theranos, the framework recommends mandatory governance
+            deep-dives for biotech, including board expertise analysis and independent validation requirements.</li>
+        <li><strong>Hindsight Bias:</strong> We acknowledge that identifying fraud is easier in retrospect. However, the
+            red flags documented here were visible to contemporaneous observers who chose to ignore them.</li>
+    </ul>
+
+    <!-- ACTIONS + METRICS (OBSERVED) -->
+
+    <h1>VIII. Founder Actions and Metrics (Observed)</h1>
+
+    <div class="callout">
+        <div class="callout-title">Founder Actions (What Actually Happened in This Case)</div>
+        <p><em>Extracted from the case's own tables and verified data sections. No new factual claims.</em></p>
+        <ul>
+            <li><strong>2015:</strong> WSJ Investigation: October 15, 2015 (John Carreyrou) - WSJ archives</li>
+            <li><strong>2016:</strong> CMS "Patient Health Threat": January 2016 - CMS official records</li>
+            <li><strong>2016:</strong> Walgreens Termination: June 2016 - Press releases, court filings</li>
+            <li><strong>2018:</strong> SEC Charges: March 14, 2018 - SEC official announcement</li>
+            <li><strong>2018:</strong> Federal Indictment: June 15, 2018 - DOJ records</li>
+            <li><strong>2018:</strong> Dissolution: September 2018 - Delaware corporate records</li>
+        </ul>
+    </div>
+
+    <div class="callout">
+        <div class="callout-title">Metrics to Watch (Metrics Surfaced in This Case)</div>
+        <p><em>These are the metrics this case uses to describe progress and performance.</em></p>
+        <ul>
+            <li><strong>Round:</strong> Series E</li>
+            <li><strong>Amount:</strong> $1.4B+</li>
+            <li><strong>Key Investors:</strong> Fortress Investment Group</li>
+            <li><strong>Valuation:</strong> $9B (maintained)</li>
+        </ul>
+    </div>
+
+    <div class="callout callout--measure-next">
+        <div class="callout-title">What to Measure Next (Leading Indicators)</div>
+        <p><em>Forward-looking guidance for applying CAMP prospectively. Metric definitions reference the FLASH metric schema.</em></p>
+        <table class="metrics-next-table">
+            <tr>
+                <th style="width: 16%;">Pillar</th>
+                <th>Leading Indicators (FLASH metrics)</th>
+            </tr>
+            <tr>
+                <td><div class="metrics-next-pillar">Capital</div></td>
+                <td><div class="metric-line"><span class="metric-name" data-metric-id="cashRunwayMonths">Cash Runway Months</span></div><div class="metric-line"><span class="metric-name" data-metric-id="fundingGapRatio">Funding Gap Ratio</span></div><div class="metric-line"><span class="metric-name" data-metric-id="capitalEfficiencyScore">Capital Efficiency Score</span></div></td>
+            </tr>
+            <tr>
+                <td><div class="metrics-next-pillar">Advantage</div></td>
+                <td><div class="metric-line"><span class="metric-name" data-metric-id="ipPortfolioValue">IP Portfolio Value</span></div><div class="metric-line"><span class="metric-name" data-metric-id="defensibilityScore">Defensibility Score</span></div><div class="metric-line"><span class="metric-name" data-metric-id="regulatoryBarriersYears">Regulatory Barriers Years</span></div></td>
+            </tr>
+            <tr>
+                <td><div class="metrics-next-pillar">Market</div></td>
+                <td><div class="metric-line"><span class="metric-name" data-metric-id="marketGrowthRate">Market Growth Rate</span></div><div class="metric-line"><span class="metric-name" data-metric-id="competitionIntensity">Competition Intensity</span></div><div class="metric-line"><span class="metric-name" data-metric-id="regionCostIndex">Region Cost Index</span></div></td>
+            </tr>
+            <tr>
+                <td><div class="metrics-next-pillar">People</div></td>
+                <td><div class="metric-line"><span class="metric-name" data-metric-id="leadershipTenureAvgYears">Leadership Tenure Avg Years</span></div><div class="metric-line"><span class="metric-name" data-metric-id="teamSize">Team Size</span></div><div class="metric-line"><span class="metric-name" data-metric-id="hiringGapIndex">Hiring Gap Index</span></div></td>
+            </tr>
+        </table>
+        <p><em>Definitions and computations: FLASH Metrics Library.</em></p>
+    </div>
+
+    <div class="callout callout--red-flags">
+        <div class="callout-title">Red Flags (Failure Modes to Watch For)</div>
+        <p><em>Signals that often precede a CAMP score collapse, mapped to measurable indicators.</em></p>
+        <ul>
+            <li><strong>Inefficient growth:</strong> Spend rises faster than durable revenue.<span class="metric-note">Metrics: Burn Multiple; Growth Efficiency Index.</span></li>
+            <li><strong>Retention decay:</strong> Expansion slows and churn accelerates.<span class="metric-note">Metrics: Net Retention Trend; Churn Trend.</span></li>
+            <li><strong>Concentration risk:</strong> A small set of accounts becomes mission-critical.<span class="metric-note">Metrics: Customer Concentration; Revenue Concentration Risk Index.</span></li>
+            <li><strong>GTM brittleness:</strong> The sales engine slows and pipeline stops covering targets.<span class="metric-note">Metrics: Sales Cycle Days; Sales Pipeline Coverage; Pipeline Coverage Health.</span></li>
+            <li><strong>Org strain:</strong> Turnover rises while open roles stay unfilled.<span class="metric-note">Metrics: Employee Turnover 12 Months %; Hiring Gap Index.</span></li>
+        </ul>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div class="document-footer">
+        <div class="flash-brand-block">
+            <img src="flash_logo_trimmed.png" alt="FLASH Capital" class="flash-brand-logo">
+        </div>
+        FLASH Capital | CAMP Matrix Framework | Case Study: Theranos
+    </div>
+
 </body>
+
 </html>
