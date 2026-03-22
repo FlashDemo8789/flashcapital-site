@@ -655,6 +655,125 @@ a {
     line-height: 1.5;
 }
 
+.trust-grid {
+    margin-top: 14px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.trust-card {
+    border: 1px solid #dbe4f0;
+    border-radius: 12px;
+    background: #ffffff;
+    padding: 12px 12px 11px;
+}
+
+.trust-card h4 {
+    margin: 0 0 6px;
+    font-size: 0.88rem;
+    line-height: 1.4;
+    color: #0f172a;
+}
+
+.trust-card p {
+    margin: 0;
+    color: #475569;
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
+
+.trust-chip {
+    margin-top: 9px;
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid #d7e0ee;
+    border-radius: 999px;
+    padding: 4px 8px;
+    font-size: 0.7rem;
+    color: #334155;
+    background: #f8fbff;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.trust-ledger {
+    border-color: #d4deeb;
+    background: linear-gradient(175deg, #ffffff 0%, #f7faff 100%);
+}
+
+.trust-ledger h2 {
+    border-left-color: #c6d6ea;
+}
+
+.methodology-callout {
+    margin-top: 14px;
+    border: 1px solid #dbe4f0;
+    border-radius: 12px;
+    background: #ffffff;
+    padding: 12px 13px;
+}
+
+.methodology-callout h4 {
+    margin: 0 0 8px;
+    font-size: 0.84rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #475569;
+}
+
+.methodology-callout ul {
+    margin: 0;
+    padding-left: 20px;
+    display: grid;
+    gap: 6px;
+}
+
+.methodology-callout li {
+    margin: 0;
+    color: #1f2937;
+    font-size: 0.88rem;
+    line-height: 1.55;
+}
+
+.reviewer-log {
+    margin-top: 18px;
+    border: 1px solid #dbe4f0;
+    border-radius: 12px;
+    background: #ffffff;
+    padding: 14px 15px;
+}
+
+.reviewer-log h3 {
+    margin: 0 0 8px;
+    font-size: 0.95rem;
+    color: #0f172a;
+}
+
+.reviewer-log ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.reviewer-log li {
+    margin: 0 0 7px;
+    color: #334155;
+    font-size: 0.88rem;
+    line-height: 1.55;
+}
+
+.reviewer-log li:last-child {
+    margin-bottom: 0;
+}
+
+[data-content-slug="camp-framework-deep-dive"] .hero-title {
+    max-width: 900px;
+}
+
+[data-content-slug="camp-framework-deep-dive"] .hero-subtitle {
+    max-width: 840px;
+}
+
 @keyframes bar-rise {
     from {
         opacity: 0.35;
@@ -974,6 +1093,10 @@ a {
 }
 
 @media (max-width: 680px) {
+    .trust-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
     .camp-hero-media {
         grid-template-columns: 1fr;
     }

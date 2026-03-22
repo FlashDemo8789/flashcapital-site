@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">CAMP Trust Stack</title>
+  <desc id="desc">A layered trust stack from source evidence to investment decision outputs.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fbff"/>
+      <stop offset="1" stop-color="#f2f6fd"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="520" fill="url(#bg)"/>
+  <rect x="54" y="42" width="1092" height="436" rx="24" fill="#ffffff" stroke="#dbe4f0"/>
+
+  <text x="94" y="98" fill="#0f172a" font-size="30" font-family="Arial, Helvetica, sans-serif" font-weight="700">CAMP Trust Stack</text>
+  <text x="94" y="128" fill="#475569" font-size="17" font-family="Arial, Helvetica, sans-serif">How evidence moves from raw inputs to investor-facing decisions.</text>
+
+  <g transform="translate(94 168)">
+    <rect x="0" y="224" width="1012" height="62" rx="12" fill="#eef6ff" stroke="#cfe0ff"/>
+    <text x="24" y="262" fill="#1e3a8a" font-size="17" font-family="Arial, Helvetica, sans-serif" font-weight="700">Layer 1: Source Evidence</text>
+    <text x="350" y="262" fill="#1f2937" font-size="15" font-family="Arial, Helvetica, sans-serif">Public filings, investor letters, disclosure-grade operating updates</text>
+
+    <rect x="62" y="148" width="888" height="62" rx="12" fill="#ecfeff" stroke="#c9f0f7"/>
+    <text x="86" y="186" fill="#0f766e" font-size="17" font-family="Arial, Helvetica, sans-serif" font-weight="700">Layer 2: Claim Classification</text>
+    <text x="392" y="186" fill="#1f2937" font-size="15" font-family="Arial, Helvetica, sans-serif">Fact / Estimate / Opinion separation with explicit assumptions</text>
+
+    <rect x="124" y="72" width="764" height="62" rx="12" fill="#ecfdf5" stroke="#ccefdc"/>
+    <text x="148" y="110" fill="#166534" font-size="17" font-family="Arial, Helvetica, sans-serif" font-weight="700">Layer 3: Method Controls</text>
+    <text x="402" y="110" fill="#1f2937" font-size="15" font-family="Arial, Helvetica, sans-serif">Source-date checks, counterfactual tests, owner sign-off</text>
+
+    <rect x="186" y="0" width="640" height="62" rx="12" fill="#fff7ed" stroke="#f2dcc0"/>
+    <text x="210" y="38" fill="#b45309" font-size="17" font-family="Arial, Helvetica, sans-serif" font-weight="700">Layer 4: Decision Output</text>
+    <text x="438" y="38" fill="#1f2937" font-size="15" font-family="Arial, Helvetica, sans-serif">Allocation choices, risk ownership, investor memo quality</text>
+
+    <line x1="506" y1="224" x2="506" y2="210" stroke="#334155" stroke-width="2"/>
+    <line x1="506" y1="148" x2="506" y2="134" stroke="#334155" stroke-width="2"/>
+    <line x1="506" y1="72" x2="506" y2="62" stroke="#334155" stroke-width="2"/>
+  </g>
+</svg>

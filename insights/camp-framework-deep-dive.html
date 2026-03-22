@@ -103,6 +103,32 @@
                     </article>
                 </div>
             </section>
+            <section class="trust-grid" aria-label="Trust-building controls">
+                <article class="trust-card">
+                    <h4>Claim Taxonomy</h4>
+                    <p>Every key assertion is labeled Fact, Estimate, or Opinion so confidence level is explicit.</p>
+                    <span class="trust-chip">Evidence Clarity</span>
+                </article>
+                <article class="trust-card">
+                    <h4>Source-Date Discipline</h4>
+                    <p>Numerical claims are tied to source windows and update dates to reduce stale-data risk.</p>
+                    <span class="trust-chip">Temporal Control</span>
+                </article>
+                <article class="trust-card">
+                    <h4>Counterfactual Test</h4>
+                    <p>Each recommendation is stress-tested against downside scenarios before publication.</p>
+                    <span class="trust-chip">Decision Robustness</span>
+                </article>
+                <article class="trust-card">
+                    <h4>Owner Sign-off</h4>
+                    <p>Publishing requires review ownership for strategy fit, proof integrity, and CTA relevance.</p>
+                    <span class="trust-chip">Governance</span>
+                </article>
+            </section>
+            <figure class="camp-image-figure">
+                <img src="/images/camp-trust-stack.svg" alt="CAMP trust stack showing source evidence, claim classification, method controls, and decision output." loading="lazy">
+                <figcaption>Figure 0A. Trust stack used in this deep-dive: source evidence flows through explicit controls before any recommendation is published.</figcaption>
+            </figure>
             <figure class="exhibit-figure">
                 <figcaption>Exhibit 0. Mean pillar movement in the 49-case comparable subset (used as directional calibration, not a formula).</figcaption>
                 <div class="bar-chart" role="img" aria-label="Mean CAMP pillar movement: Capital plus 26.47, Advantage plus 22.61, Market plus 19.82, People plus 2.04.">
@@ -147,7 +173,57 @@
                 </section>
 
                 <section class="article-section">
-                    <h2>2) Exhibit 1: the four underwriting questions</h2>
+                    <h2>2) Trust architecture and evidence controls</h2>
+                    <div class="insight-table-wrap">
+                        <table class="insight-table">
+                            <thead>
+                                <tr>
+                                    <th>Control Layer</th>
+                                    <th>What We Enforce</th>
+                                    <th>Risk If Missing</th>
+                                    <th>Owner</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Source validation</td>
+                                    <td>Cross-check numerical claims against primary disclosures and stated time windows.</td>
+                                    <td>Stale or mis-scoped conclusions.</td>
+                                    <td>Research reviewer</td>
+                                </tr>
+                                <tr>
+                                    <td>Claim labeling</td>
+                                    <td>Separate Fact, Estimate, and Opinion claims in every long-form section.</td>
+                                    <td>False precision and reader confusion.</td>
+                                    <td>Editorial lead</td>
+                                </tr>
+                                <tr>
+                                    <td>Assumption registry</td>
+                                    <td>Document key assumptions behind estimates and scenario calls.</td>
+                                    <td>Unseen fragility in recommendations.</td>
+                                    <td>Strategy owner</td>
+                                </tr>
+                                <tr>
+                                    <td>Decision traceability</td>
+                                    <td>Tie recommendations to explicit resource-allocation and risk-ownership decisions.</td>
+                                    <td>High-quality analysis with low implementation value.</td>
+                                    <td>Operating lead</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="methodology-callout">
+                        <h4>Method Guardrails</h4>
+                        <ul>
+                            <li>Numerical claims require source and date context before publication.</li>
+                            <li>Absolutes are avoided unless directly provable from primary records.</li>
+                            <li>Every recommendation includes at least one downside scenario checkpoint.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="article-section">
+                    <h2>3) Exhibit 1: the four underwriting questions</h2>
                     <div class="insight-table-wrap">
                         <table class="insight-table">
                             <thead>
@@ -228,7 +304,7 @@
                 </section>
 
                 <section class="article-section">
-                    <h2>3) Leadership operating cadence (45-minute monthly review)</h2>
+                    <h2>4) Leadership operating cadence (45-minute monthly review)</h2>
                     <p>Use the same meeting design every month so investor-facing confidence is traceable:</p>
                     <ul>
                         <li><strong>10 minutes:</strong> score movement by pillar and source-date verification.</li>
@@ -239,7 +315,7 @@
                 </section>
 
                 <section class="article-section">
-                    <h2>4) Exhibit 2: action matrix when a pillar is weak</h2>
+                    <h2>5) Exhibit 2: action matrix when a pillar is weak</h2>
                     <div class="insight-table-wrap">
                         <table class="insight-table">
                             <thead>
@@ -276,7 +352,7 @@
                 </section>
 
                 <section class="article-section">
-                    <h2>5) Alternatives for the upcoming quarter</h2>
+                    <h2>6) Alternatives for the upcoming quarter</h2>
                     <div class="insight-table-wrap">
                         <table class="insight-table">
                             <thead>
@@ -312,7 +388,7 @@
                 </section>
 
                 <section class="article-section">
-                    <h2>6) Common founder mistakes with CAMP</h2>
+                    <h2>7) Common founder mistakes with CAMP</h2>
                     <ul>
                         <li>Turning CAMP into a slide exercise instead of a monthly operating review.</li>
                         <li>Changing score definitions each month so trends are not comparable.</li>
@@ -324,7 +400,7 @@
                 </section>
 
                 <section class="article-section">
-                    <h2>7) Visual 90-day operating loop</h2>
+                    <h2>8) Visual 90-day operating loop</h2>
                     <figure class="camp-image-figure">
                         <img src="/images/camp-roadmap-loop.svg" alt="Ninety-day CAMP execution loop with four steps: diagnose, allocate, execute, and report." loading="lazy">
                         <figcaption>Exhibit 3. A practical operating loop for keeping CAMP execution aligned with investor-facing narrative quality.</figcaption>
@@ -338,7 +414,7 @@
                 </section>
 
                 <section class="article-section">
-                    <h2>8) Founder 14-day adoption plan</h2>
+                    <h2>9) Founder 14-day adoption plan</h2>
                     <ul>
                         <li><strong>Days 1-2:</strong> define stage target and weighting assumptions.</li>
                         <li><strong>Days 3-5:</strong> baseline scores with source notes for each pillar.</li>
@@ -363,6 +439,15 @@
 
             <h2>What founders should do next</h2>
             <p>Choose one quarterly allocation alternative this week, run your first CAMP review with fixed agenda and evidence thresholds, and publish a one-page leadership memo with explicit tradeoffs. Repeat monthly with the same structure.</p>
+
+            <section class="reviewer-log">
+                <h3>Review and Change Log</h3>
+                <ul>
+                    <li><strong>March 22, 2026:</strong> visual trust architecture, staged weighting chart, and operating-loop figure added for higher decision legibility.</li>
+                    <li><strong>March 22, 2026:</strong> evidence-control section added with explicit methodology guardrails and owner mapping.</li>
+                    <li><strong>March 21, 2026:</strong> initial deep-dive publication with CAMP allocation alternatives and discussion prompts.</li>
+                </ul>
+            </section>
 
             <div class="sources">
                 <strong>Sources and context:</strong><br>
